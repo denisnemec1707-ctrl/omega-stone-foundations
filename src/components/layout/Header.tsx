@@ -7,20 +7,20 @@ const Header = () => {
             OMEGA <span className="text-gold">CAPITAL</span>
           </a>
           <nav className="hidden md:flex items-center gap-12">
-            <a href="#why-invest" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Why Invest
+            <a href="#preco-investovat" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
+              Prečo investovať
             </a>
-            <a href="#how-it-works" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              How It Works
+            <a href="#ako-to-funguje" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
+              Ako to funguje
             </a>
-            <a href="#calculator" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Calculator
+            <a href="#kalkulacka" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
+              Kalkulačka
             </a>
             <a href="#faq" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              FAQ
+              Otázky
             </a>
-            <a href="#contact" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+            <a href="#kontakt" className="text-sm tracking-ultra-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
+              Kontakt
             </a>
           </nav>
         </div>

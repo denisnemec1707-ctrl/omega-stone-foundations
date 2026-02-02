@@ -7,36 +7,36 @@ import {
 
 const faqs = [
   {
-    question: "How is the 10% annual return generated?",
-    answer: "Our return comes from the profit margin on real estate transactions. We acquire properties at least 20% below market value, renovate them, and resell at fair market price. The margin between acquisition cost and sale price covers your fixed return, renovation costs, and operational expenses. This is real profit from real transactions, not interest from lending or returns from financial markets."
+    question: "Ako sa generuje 10% ročný výnos?",
+    answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu. Marža medzi akvizičnými nákladmi a predajnou cenou pokrýva váš fixný výnos, náklady na rekonštrukciu a prevádzkové výdavky. Ide o reálny zisk z reálnych transakcií, nie úroky z požičiavania ani výnosy z finančných trhov."
   },
   {
-    question: "Is my investment secured by real estate?",
-    answer: "Yes. Every euro you invest is deployed into physical property acquisition. While your investment is not a direct ownership stake in a specific property, the entire capital pool is secured by the real estate assets we hold during each transaction cycle. The tangible nature of these assets provides fundamental security for your capital."
+    question: "Je moja investícia zabezpečená nehnuteľnosťami?",
+    answer: "Áno. Každé euro, ktoré investujete, je nasadené do akvizície fyzických nehnuteľností. Hoci vaša investícia nie je priamym vlastníckym podielom v konkrétnej nehnuteľnosti, celý kapitálový fond je zabezpečený realitnými aktívami, ktoré držíme počas každého transakčného cyklu. Hmatateľná povaha týchto aktív poskytuje základné zabezpečenie pre váš kapitál."
   },
   {
-    question: "What is the typical investment horizon?",
-    answer: "Standard investment terms range from 12 to 18 months. This aligns with our typical property cycle—acquisition, renovation, and resale. At the end of each term, your full principal is returned along with all earned returns. You may then choose to reinvest in a new cycle or withdraw your capital entirely."
+    question: "Aký je typický investičný horizont?",
+    answer: "Štandardné investičné obdobia sa pohybujú od 12 do 18 mesiacov. To zodpovedá nášmu typickému cyklu nehnuteľnosti — akvizícia, rekonštrukcia a predaj. Na konci každého obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi. Potom si môžete vybrať, či reinvestujete do nového cyklu alebo kapitál kompletne vyberiete."
   },
   {
-    question: "How and when are payouts made?",
-    answer: "Returns are paid monthly, directly to your designated bank account. Payments are made on the same date each month throughout your investment term. Your monthly payout is calculated as 1/12th of your annual return (10% ÷ 12 = 0.833% monthly on your principal)."
+    question: "Ako a kedy sa vyplácajú výnosy?",
+    answer: "Výnosy sa vyplácajú mesačne, priamo na váš určený bankový účet. Platby sa realizujú v rovnaký deň každý mesiac počas celého investičného obdobia. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu (10% ÷ 12 = 0,833% mesačne z vašej istiny)."
   },
   {
-    question: "What are the risks involved?",
-    answer: "The primary risk is tied to real estate market conditions. However, we mitigate this through conservative acquisition—only purchasing properties significantly below market value. We also limit exposure through short investment cycles and diversification across multiple properties. While no investment is without risk, our model is designed to protect capital even in adverse market conditions."
+    question: "Aké sú riziká investície?",
+    answer: "Primárne riziko je spojené s podmienkami na realitnom trhu. Toto však zmierňujeme konzervatívnou akvizíciou — kupujeme iba nehnuteľnosti výrazne pod trhovou hodnotou. Expozíciu tiež limitujeme krátkymi investičnými cyklami a diverzifikáciou naprieč viacerými nehnuteľnosťami. Hoci žiadna investícia nie je bez rizika, náš model je navrhnutý tak, aby chránil kapitál aj v nepriaznivých trhových podmienkach."
   },
   {
-    question: "What is the minimum investment amount?",
-    answer: "The minimum investment is €10,000. This threshold ensures meaningful participation in our property transactions while remaining accessible to individual investors. Larger investments may qualify for additional terms—contact us for details."
+    question: "Aká je minimálna výška investície?",
+    answer: "Minimálna investícia je 10 000 €. Tento prah zabezpečuje zmysluplnú účasť na našich realitných transakciách a zároveň zostáva prístupný individuálnym investorom. Väčšie investície môžu kvalifikovať na dodatočné podmienky — kontaktujte nás pre detaily."
   },
   {
-    question: "Can I withdraw my investment early?",
-    answer: "Investments are committed for the agreed term to ensure capital is available for property transactions. Early withdrawal is generally not possible. However, in exceptional circumstances, we may accommodate requests subject to availability and a early exit fee. We recommend only investing capital you can commit for the full term."
+    question: "Môžem vybrať investíciu predčasne?",
+    answer: "Investície sú viazané na dohodnuté obdobie, aby bol kapitál dostupný pre realitné transakcie. Predčasný výber vo všeobecnosti nie je možný. V mimoriadnych prípadoch však môžeme vyhovieť žiadostiam v závislosti od dostupnosti a s poplatkom za predčasný výstup. Odporúčame investovať iba kapitál, ktorý môžete viazať na celé obdobie."
   },
   {
-    question: "How is Omega Capital regulated?",
-    answer: "Omega Capital s.r.o. is a registered Slovak company operating under Slovak commercial law. Our investment contracts are governed by Slovak law and enforceable in Slovak courts. We maintain full financial records and provide regular reporting to all investors."
+    question: "Ako je Omega Capital regulovaná?",
+    answer: "Omega Capital s.r.o. je registrovaná slovenská spoločnosť pôsobiaca podľa slovenského obchodného práva. Naše investičné zmluvy sa riadia slovenským právom a sú vymáhateľné na slovenských súdoch. Vedieme kompletné finančné záznamy a poskytujeme pravidelné reporty všetkým investorom."
   }
 ];
 
@@ -47,10 +47,10 @@ const FAQ = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
-              Common Questions
+              Časté otázky
             </p>
             <h2 className="font-serif text-display-sm md:text-display-md mb-8">
-              Frequently Asked <span className="text-gold">Questions</span>
+              Často kladené <span className="text-gold">otázky</span>
             </h2>
           </div>
           
