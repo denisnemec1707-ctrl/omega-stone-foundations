@@ -36,35 +36,35 @@ const faqs = [
   },
   {
     question: "Ako je Omega Capital regulovaná?",
-    answer: "Omega Capital s.r.o. je registrovaná slovenská spoločnosť pôsobiaca podľa slovenského obchodného práva. Naše investičné zmluvy sa riadia slovenským právom a sú vymáhateľné na slovenských súdoch. Vedieme kompletné finančné záznamy a poskytujeme pravidelné reporty všetkým investorom."
+    answer: "Omega Capital Group s.r.o. je registrovaná slovenská spoločnosť pôsobiaca podľa slovenského obchodného práva. Naše investičné zmluvy sa riadia slovenským právom a sú vymáhateľné na slovenských súdoch. Vedieme kompletné finančné záznamy a poskytujeme pravidelné reporty všetkým investorom."
   }
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-32 lg:py-48 bg-charcoal">
-      <div className="container mx-auto px-8 lg:px-16">
+    <section id="faq" className="py-20 md:py-32 lg:py-48 bg-charcoal">
+      <div className="container mx-auto px-6 md:px-8 lg:px-16">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 md:mb-6">
               Časté otázky
             </p>
-            <h2 className="font-serif text-display-sm md:text-display-md mb-8">
+            <h2 className="font-serif text-3xl md:text-display-sm lg:text-display-md mb-6 md:mb-8">
               Často kladené <span className="text-gold">otázky</span>
             </h2>
           </div>
           
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-border px-6 data-[state=open]:border-gold transition-colors"
+                className="border border-border px-4 md:px-6 data-[state=open]:border-gold transition-colors"
               >
-                <AccordionTrigger className="text-left font-serif text-lg hover:no-underline hover:text-gold py-6">
+                <AccordionTrigger className="text-left font-serif text-base md:text-lg hover:no-underline hover:text-gold py-4 md:py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed pb-6">
+                <AccordionContent className="text-muted-foreground font-light text-sm md:text-base leading-relaxed pb-4 md:pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
