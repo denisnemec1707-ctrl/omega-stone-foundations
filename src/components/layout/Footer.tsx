@@ -7,7 +7,7 @@ const Footer = () => {
             OMEGA <span className="text-gold">CAPITAL</span>
           </p>
           <p className="text-sm text-muted-foreground">
-            © 2025 Omega Capital s.r.o. Všetky práva vyhradené.
+            © 2025 Omega Capital Group s.r.o. Všetky práva vyhradené.
           </p>
         </div>
       </div>
