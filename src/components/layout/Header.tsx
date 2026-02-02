@@ -16,9 +16,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-8 lg:px-16">
-        <div className="flex items-center justify-between h-20 border-b border-border">
-          <a href="#" className="font-serif text-xl tracking-wide">
+      <div className="container mx-auto px-6 md:px-8 lg:px-16">
+        <div className="flex items-center justify-between h-16 md:h-20 border-b border-border">
+          <a href="#" className="font-serif text-lg md:text-xl tracking-wide">
             OMEGA <span className="text-gold">CAPITAL</span>
           </a>
           

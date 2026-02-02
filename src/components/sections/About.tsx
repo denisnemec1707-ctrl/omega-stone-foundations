@@ -1,15 +1,15 @@
 const About = () => {
   return (
-    <section id="o-nas" className="py-32 lg:py-48 bg-charcoal">
-      <div className="container mx-auto px-8 lg:px-16">
+    <section id="o-nas" className="py-20 md:py-32 lg:py-48 bg-charcoal">
+      <div className="container mx-auto px-6 md:px-8 lg:px-16">
         <div className="max-w-4xl">
-          <p className="text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
+          <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 md:mb-6">
             O Omega Capital
           </p>
-          <h2 className="font-serif text-display-sm md:text-display-md mb-12 leading-tight">
+          <h2 className="font-serif text-3xl md:text-display-sm lg:text-display-md mb-8 md:mb-12 leading-tight">
             Špecialisti na realitné <span className="text-gold">akvizície</span>
           </h2>
-          <div className="space-y-6 text-muted-foreground font-light text-lg leading-relaxed">
+          <div className="space-y-4 md:space-y-6 text-muted-foreground font-light text-base md:text-lg leading-relaxed">
             <p>
               Omega Capital je slovenská investičná spoločnosť špecializujúca sa na akvizíciu, rekonštrukciu a predaj podhodnotených rezidenčných nehnuteľností. Pôsobíme výlučne na trhoch, ktoré dôkladne poznáme, a zameriavame sa na príležitosti, kde môžeme získať aktíva výrazne pod trhovou cenou.
             </p>
