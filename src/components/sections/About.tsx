@@ -1,23 +1,23 @@
 const About = () => {
   return (
-    <section id="about" className="py-32 lg:py-48 bg-charcoal">
+    <section id="o-nas" className="py-32 lg:py-48 bg-charcoal">
       <div className="container mx-auto px-8 lg:px-16">
         <div className="max-w-4xl">
           <p className="text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
-            About Omega Capital
+            O Omega Capital
           </p>
           <h2 className="font-serif text-display-sm md:text-display-md mb-12 leading-tight">
-            Real Estate Acquisition <span className="text-gold">Specialists</span>
+            Špecialisti na realitné <span className="text-gold">akvizície</span>
           </h2>
           <div className="space-y-6 text-muted-foreground font-light text-lg leading-relaxed">
             <p>
-              Omega Capital is a Slovak investment company specializing in the acquisition, renovation, and resale of undervalued residential properties. We operate exclusively in markets we understand deeply, focusing on opportunities where we can acquire assets significantly below market value.
+              Omega Capital je slovenská investičná spoločnosť špecializujúca sa na akvizíciu, rekonštrukciu a predaj podhodnotených rezidenčných nehnuteľností. Pôsobíme výlučne na trhoch, ktoré dôkladne poznáme, a zameriavame sa na príležitosti, kde môžeme získať aktíva výrazne pod trhovou cenou.
             </p>
             <p>
-              Our team identifies distressed sales, estate liquidations, and motivated sellers. We renovate properties to market standard and resell them at fair value. This margin—the difference between our acquisition cost and final sale price—is what generates consistent returns for our investors.
+              Náš tím identifikuje núdzové predaje, likvidácie dedičstiev a motivovaných predajcov. Nehnuteľnosti rekonštruujeme na trhový štandard a predávame za férovú trhovú hodnotu. Táto marža — rozdiel medzi akvizičnými nákladmi a konečnou predajnou cenou — je to, čo generuje konzistentné výnosy pre našich investorov.
             </p>
             <p>
-              We do not speculate on market movements. We do not trade financial instruments. We buy real property, improve it, and sell it. This straightforward model has proven resilient across market conditions.
+              Nešpekulujeme na trhových pohyboch. Neobchodujeme s finančnými nástrojmi. Kupujeme reálne nehnuteľnosti, zhodnocujeme ich a predávame. Tento priamočiary model sa osvedčil naprieč rôznymi trhovými podmienkami.
             </p>
           </div>
         </div>

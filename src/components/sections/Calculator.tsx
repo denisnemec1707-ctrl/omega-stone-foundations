@@ -20,7 +20,7 @@ const Calculator = () => {
   }, [investment, duration]);
 
   const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('sk-SK', {
       style: 'currency',
       currency: 'EUR',
       minimumFractionDigits: 0,
@@ -29,18 +29,18 @@ const Calculator = () => {
   };
 
   return (
-    <section id="calculator" className="py-32 lg:py-48">
+    <section id="kalkulacka" className="py-32 lg:py-48">
       <div className="container mx-auto px-8 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
-              Investment Calculator
+              Investičná kalkulačka
             </p>
             <h2 className="font-serif text-display-sm md:text-display-md mb-8">
-              Calculate Your <span className="text-gold">Returns</span>
+              Vypočítajte si svoje <span className="text-gold">výnosy</span>
             </h2>
             <p className="text-muted-foreground font-light text-lg leading-relaxed">
-              See exactly what you would earn with Omega Capital's fixed 10% annual return.
+              Pozrite sa, koľko by ste zarobili s fixným 10% ročným výnosom od Omega Capital.
             </p>
           </div>
           
@@ -49,7 +49,7 @@ const Calculator = () => {
               <div>
                 <div className="flex justify-between mb-4">
                   <label className="text-sm tracking-wide uppercase text-muted-foreground">
-                    Investment Amount
+                    Výška investície
                   </label>
                   <span className="font-serif text-xl text-gold">{formatCurrency(investment)}</span>
                 </div>
@@ -62,17 +62,17 @@ const Calculator = () => {
                   className="[&_[role=slider]]:bg-gold [&_[role=slider]]:border-gold [&_.bg-primary]:bg-gold"
                 />
                 <div className="flex justify-between mt-2 text-xs text-muted-foreground">
-                  <span>€10,000</span>
-                  <span>€500,000</span>
+                  <span>10 000 €</span>
+                  <span>500 000 €</span>
                 </div>
               </div>
               
               <div>
                 <div className="flex justify-between mb-4">
                   <label className="text-sm tracking-wide uppercase text-muted-foreground">
-                    Investment Duration
+                    Doba investície
                   </label>
-                  <span className="font-serif text-xl text-gold">{duration} months</span>
+                  <span className="font-serif text-xl text-gold">{duration} mesiacov</span>
                 </div>
                 <Slider
                   value={[duration]}
@@ -83,30 +83,30 @@ const Calculator = () => {
                   className="[&_[role=slider]]:bg-gold [&_[role=slider]]:border-gold [&_.bg-primary]:bg-gold"
                 />
                 <div className="flex justify-between mt-2 text-xs text-muted-foreground">
-                  <span>6 months</span>
-                  <span>24 months</span>
+                  <span>6 mesiacov</span>
+                  <span>24 mesiacov</span>
                 </div>
               </div>
               
               <div className="pt-6 border-t border-border">
                 <div className="flex justify-between text-sm text-muted-foreground mb-2">
-                  <span>Annual Return Rate</span>
-                  <span className="text-gold">10% fixed</span>
+                  <span>Ročná výnosová sadzba</span>
+                  <span className="text-gold">10% fixne</span>
                 </div>
                 <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>Payout Frequency</span>
-                  <span className="text-gold">Monthly</span>
+                  <span>Frekvencia výplat</span>
+                  <span className="text-gold">Mesačne</span>
                 </div>
               </div>
             </div>
             
             <div className="bg-charcoal p-8 lg:p-12">
-              <h3 className="font-serif text-2xl mb-8 text-center">Your Returns</h3>
+              <h3 className="font-serif text-2xl mb-8 text-center">Vaše výnosy</h3>
               
               <div className="space-y-8">
                 <div className="text-center pb-8 border-b border-border">
                   <p className="text-sm tracking-wide uppercase text-muted-foreground mb-2">
-                    Monthly Payout
+                    Mesačná výplata
                   </p>
                   <p className="font-serif text-display-sm text-gold">
                     {formatCurrency(calculations.monthlyPayout)}
@@ -115,7 +115,7 @@ const Calculator = () => {
                 
                 <div className="text-center pb-8 border-b border-border">
                   <p className="text-sm tracking-wide uppercase text-muted-foreground mb-2">
-                    Total Return Over {duration} Months
+                    Celkový výnos za {duration} mesiacov
                   </p>
                   <p className="font-serif text-display-sm text-foreground">
                     {formatCurrency(calculations.totalReturn)}
@@ -124,13 +124,13 @@ const Calculator = () => {
                 
                 <div className="text-center">
                   <p className="text-sm tracking-wide uppercase text-muted-foreground mb-2">
-                    Total at End of Term
+                    Celkom na konci obdobia
                   </p>
                   <p className="font-serif text-display-sm text-gold">
                     {formatCurrency(calculations.totalAtEnd)}
                   </p>
                   <p className="text-xs text-muted-foreground mt-2">
-                    (Principal + Returns)
+                    (Istina + Výnosy)
                   </p>
                 </div>
               </div>
