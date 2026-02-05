@@ -84,23 +84,23 @@
        <Header />
        <main>
          {/* Hero Section */}
-         <section className="min-h-[70vh] flex items-center pt-20">
-           <div className="container mx-auto px-6 md:px-8 lg:px-16">
+          <section className="min-h-[60vh] sm:min-h-[70vh] flex items-center pt-16 sm:pt-20">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
              <Link 
                to="/" 
-               className="inline-flex items-center gap-2 text-sm tracking-wide uppercase text-muted-foreground hover:text-gold transition-colors mb-8"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-wide uppercase text-muted-foreground hover:text-gold active:text-gold transition-colors mb-6 sm:mb-8 py-2"
              >
                <ArrowLeft className="w-4 h-4" /> Späť na hlavnú
              </Link>
              
              <div className="max-w-4xl">
-               <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
+                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
                  Private Equity
                </p>
-               <h1 className="font-serif text-4xl md:text-display-md lg:text-display-lg mb-8 leading-tight">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-display-md lg:text-display-lg mb-6 sm:mb-8 leading-tight">
                  Akvizície <span className="text-gold">zabehnutých firiem</span>
                </h1>
-               <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl">
                  Hľadáme fungujúce, ziskové firmy na slovenskom a českom trhu. 
                  Ponúkame férovú cenu, diskrétny proces a rôzne modely spolupráce po akvizícii.
                </p>
@@ -109,23 +109,23 @@
          </section>
  
          {/* Criteria Section */}
-         <section className="py-20 md:py-32 border-t border-border">
-           <div className="container mx-auto px-6 md:px-8 lg:px-16">
-             <div className="text-center mb-16">
-               <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4">
+          <section className="py-12 sm:py-20 md:py-32 border-t border-border">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
+              <div className="text-center mb-10 sm:mb-16">
+                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
                  Investičné kritériá
                </p>
-               <h2 className="font-serif text-3xl md:text-display-sm">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
                  Aké firmy <span className="text-gold">hľadáme</span>
                </h2>
              </div>
  
-             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
                {criteria.map((item, index) => (
-                 <div key={index} className="bg-charcoal p-8 border border-border">
-                   <item.icon className="w-10 h-10 text-gold mb-6" />
-                   <h3 className="font-serif text-xl mb-3">{item.title}</h3>
-                   <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                  <div key={index} className="bg-charcoal p-4 sm:p-6 lg:p-8 border border-border">
+                    <item.icon className="w-7 h-7 sm:w-10 sm:h-10 text-gold mb-3 sm:mb-6" />
+                    <h3 className="font-serif text-base sm:text-xl mb-2 sm:mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">
                      {item.description}
                    </p>
                  </div>
@@ -135,26 +135,26 @@
          </section>
  
          {/* Process Section */}
-         <section className="py-20 md:py-32 border-t border-border">
-           <div className="container mx-auto px-6 md:px-8 lg:px-16">
-             <div className="text-center mb-16">
-               <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4">
+          <section className="py-12 sm:py-20 md:py-32 border-t border-border">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
+              <div className="text-center mb-10 sm:mb-16">
+                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
                  Proces akvizície
                </p>
-               <h2 className="font-serif text-3xl md:text-display-sm">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
                  Ako to <span className="text-gold">funguje</span>
                </h2>
              </div>
  
-             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                {process.map((item, index) => (
                  <div key={index} className="relative">
-                   <span className="font-serif text-6xl text-gold/20 absolute -top-4 -left-2">
+                    <span className="font-serif text-4xl sm:text-6xl text-gold/20 absolute -top-2 sm:-top-4 -left-1 sm:-left-2">
                      {item.step}
                    </span>
-                   <div className="pt-12">
-                     <h3 className="font-serif text-xl mb-3">{item.title}</h3>
-                     <p className="text-muted-foreground font-light text-sm leading-relaxed">
+                    <div className="pt-8 sm:pt-12">
+                      <h3 className="font-serif text-base sm:text-xl mb-2 sm:mb-3">{item.title}</h3>
+                      <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">
                        {item.description}
                      </p>
                    </div>
@@ -165,29 +165,29 @@
          </section>
  
          {/* FAQ Section */}
-         <section className="py-20 md:py-32 border-t border-border">
-           <div className="container mx-auto px-6 md:px-8 lg:px-16">
+          <section className="py-12 sm:py-20 md:py-32 border-t border-border">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
              <div className="max-w-3xl mx-auto">
-               <div className="text-center mb-12">
-                 <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4">
+                <div className="text-center mb-8 sm:mb-12">
+                  <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
                    Časté otázky
                  </p>
-                 <h2 className="font-serif text-3xl md:text-display-sm">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
                    Otázky pre <span className="text-gold">predávajúcich</span>
                  </h2>
                </div>
  
-               <Accordion type="single" collapsible className="space-y-4">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                  {faqs.map((faq, index) => (
                    <AccordionItem 
                      key={index} 
                      value={`item-${index}`}
-                     className="border border-border bg-charcoal px-6"
+                      className="border border-border bg-charcoal px-4 sm:px-6"
                    >
-                     <AccordionTrigger className="text-left font-serif text-lg hover:text-gold">
+                      <AccordionTrigger className="text-left font-serif text-base sm:text-lg hover:text-gold py-4 sm:py-5">
                        {faq.question}
                      </AccordionTrigger>
-                     <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                      <AccordionContent className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base pb-4 sm:pb-5">
                        {faq.answer}
                      </AccordionContent>
                    </AccordionItem>
@@ -198,27 +198,27 @@
          </section>
  
          {/* Contact CTA */}
-         <section className="py-20 md:py-32 border-t border-border">
-           <div className="container mx-auto px-6 md:px-8 lg:px-16">
+          <section className="py-12 sm:py-20 md:py-32 border-t border-border">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
              <div className="max-w-3xl mx-auto text-center">
-               <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-6">
+                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
                  Predávate firmu?
                </p>
-               <h2 className="font-serif text-3xl md:text-display-sm mb-8">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8">
                  Kontaktujte <span className="text-gold">nás</span>
                </h2>
-               <p className="text-lg text-muted-foreground font-light leading-relaxed mb-10">
+                <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
                  Zaujíma vás nezáväzná konzultácia o predaji vašej firmy? 
                  Všetky informácie sú dôverné.
                </p>
                
                <div className="space-y-4">
-                 <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted">
+                  <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-gold-muted">
                    Email
                  </p>
                  <a 
                    href="mailto:equity@assetra.sk" 
-                   className="text-xl md:text-2xl text-foreground hover:text-gold transition-colors"
+                    className="text-lg sm:text-xl md:text-2xl text-foreground hover:text-gold active:text-gold transition-colors inline-block py-1"
                  >
                    equity@assetra.sk
                  </a>
