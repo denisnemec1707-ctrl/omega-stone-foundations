@@ -6,41 +6,42 @@
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 0 0% 98%;
+    --background: 220 40% 6%;
+    --foreground: 40 20% 95%;
 
-    --card: 220 20% 7%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 45% 8%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 220 20% 7%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 45% 8%;
+    --popover-foreground: 40 20% 95%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 220 60% 15%;
+    --primary-foreground: 40 20% 95%;
 
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 40% 10%;
+    --secondary-foreground: 40 20% 95%;
 
-    --muted: 220 15% 14%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 220 35% 12%;
+    --muted-foreground: 220 15% 55%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 220 60% 15%;
+    --accent-foreground: 40 20% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 16%;
-    --input: 220 15% 16%;
-    --ring: 217 91% 60%;
+    --border: 220 35% 14%;
+    --input: 220 35% 14%;
+    --ring: 220 60% 20%;
 
     --radius: 0px;
 
-    /* Custom tokens */
-    --gold: 217 91% 60%;
-    --gold-muted: 217 70% 50%;
-    --charcoal: 220 20% 6%;
-    --charcoal-light: 220 18% 10%;
+    /* Custom tokens - Tatra banka inspired */
+    --gold: 220 60% 18%;
+    --gold-muted: 220 45% 25%;
+    --charcoal: 220 45% 7%;
+    --charcoal-light: 220 40% 10%;
+    --pearl: 40 20% 95%;
   }
 
   .dark {
