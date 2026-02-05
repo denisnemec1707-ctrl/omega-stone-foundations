@@ -1,109 +1,138 @@
-# Animácie pre podstránky Private Equity a Private Credit ✅ HOTOVO
+
+# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation
 
 ## Prehľad
-Podstránky Private Equity a Private Credit majú vlastné sekcie, ktoré momentálne nemajú žiadne animácie. Využijeme už vytvorené animačné komponenty (`AnimatedSection`, `StaggerContainer`, `StaggerItem`, `AnimatedCounter`) pre konzistentný vzhľad s hlavnou stránkou.
+
+Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
+
+1. **Page Transitions** - plynulé prechody medzi stránkami
+2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
+3. **Header Animation** - dynamický header reagujúci na scroll
 
 ---
 
-## Navrhované animácie
+## 1. Page Transitions (Prechody medzi stránkami)
 
-### Hero sekcie (obe podstránky)
-- Link "Späť na hlavnú" - fade-in zľava
-- Label (Private Equity/Private Credit) - fade-in zhora
-- Hlavný nadpis - fade-in zdola s oneskorením
-- Popisný text - fade-in zdola s väčším oneskorením
+### Čo to urobí:
+- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
+- Nová stránka sa plynulo "objaví" (fade-in)
+- Stránka pôsobí ako jedna súvislá aplikácia
 
-### Sekcie s kartami
-**Private Credit - Typy financovania:**
-- Nadpis sekcie - fade-in
-- Karty "Realitné projekty" a "Podnikateľské úvery" - staggered animácia (jedna za druhou)
-- Ikony na kartách - hover efekt (zväčšenie)
+### Technická implementácia:
 
-**Private Equity - Investičné kritériá:**
-- Nadpis sekcie - fade-in
-- 4 karty kritérií - staggered animácia
-- Ikony - hover efekt
+**Nový súbor `src/components/PageTransition.tsx`:**
+```text
+- Wrapper komponent využívajúci AnimatePresence z framer-motion
+- Fade + jemný posun nahor pri vstupe
+- Fade + jemný posun nadol pri odchode
+- Trvanie: 300ms
+```
 
-### Sekcie Benefits/Výhody (Private Credit)
-- 4 ikony s textom - staggered animácia od stredu
-- Hover efekt na ikony
-
-### Sekcie Process/Proces (obe podstránky)
-- Animované čísla krokov 01-04
-- Kroky sa objavia postupne s oneskorením
-- Čísla krokov majú jemný "count-up" efekt
-
-### FAQ sekcie (obe podstránky)
-- Nadpis - fade-in
-- Accordion položky - staggered animácia zhora nadol
-- Plynulé otvorenie/zatvorenie (už má z Radix UI)
-
-### Kontaktné sekcie (obe podstránky)
-- Formulár - slide-in zľava
-- Kontaktné informácie - slide-in sprava
-- Tlačidlo - hover/active efekty (scale)
-- Input polia - animated border pri focus
+**Úprava `src/App.tsx`:**
+```text
+- Import PageTransition komponentu
+- Obalenie Routes do AnimatePresence
+- Každá Route dostane PageTransition wrapper
+- Použitie location.key pre správne animácie
+```
 
 ---
 
-## Technická implementácia
+## 2. Scroll Progress Indicator
 
-### Zmeny v súboroch
+### Čo to urobí:
+- Tenká zlatá línia priamo pod headerom
+- Začína na 0% šírky, končí na 100% šírky
+- Vizuálne ukazuje koľko stránky používateľ prešiel
 
-**src/pages/PrivateCredit.tsx:**
-- Import animačných komponentov
-- Obalenie Hero obsahu do `AnimatedSection` s rôznymi delay hodnotami
-- Financovanie karty - `StaggerContainer` + `StaggerItem`
-- Benefits grid - `StaggerContainer` + `StaggerItem`
-- Process kroky - `StaggerContainer` + `StaggerItem` s animovanými číslami
-- FAQ - `StaggerContainer` pre accordion items
-- Kontakt formulár - `AnimatedSection` s `motion.div` pre hover efekty
+### Technická implementácia:
 
-**src/pages/PrivateEquity.tsx:**
-- Rovnaká štruktúra ako Private Credit
-- Import animačných komponentov
-- Hero animácie s delay
-- Criteria karty - staggered
-- Process kroky - staggered s animovanými číslami
-- FAQ - staggered accordion
-- Kontakt - animovaný formulár
-
-### Príklad kódu pre Hero sekciu:
-
+**Nový súbor `src/components/ScrollProgress.tsx`:**
 ```text
-+------------------------------------------+
-|  <- Späť na hlavnú  [fade-in, 0ms]       |
-|                                          |
-|  PRIVATE EQUITY     [fade-in, 100ms]     |
-|                                          |
-|  Akvizície          [fade-in, 200ms]     |
-|  zabehnutých firiem                      |
-|                                          |
-|  Popisný text...    [fade-in, 300ms]     |
-+------------------------------------------+
+- Použitie framer-motion useScroll hook
+- Sticky pozícia pod headerom (top: výška headeru)
+- Zlatá farba (bg-gold)
+- Výška: 2px
+- scaleX transformácia podľa scrollYProgress
+- transformOrigin: left
 ```
 
-### Príklad kódu pre Process sekciu:
+**Úprava `src/App.tsx`:**
+```text
+- Import ScrollProgress komponentu
+- Umiestnenie pod BrowserRouter, pred Routes
+```
+
+---
+
+## 3. Header Animation
+
+### Čo to urobí:
+- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
+- Zvýši sa backdrop blur a priehľadnosť pozadia
+- Logo sa jemne zmenší
+- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
+- Hover efekt na logo (zlatá farba)
+
+### Technická implementácia:
+
+**Úprava `src/components/layout/Header.tsx`:**
+```text
+- Nový custom hook pre sledovanie scroll pozície
+- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
+- Animácie:
+  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
+  - Background: bg-background/80 → bg-background/95
+  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
+  - Logo: text-xl → text-lg s transition
+- Hover efekt na logo pomocou framer-motion
+```
+
+---
+
+## Vizuálny príklad
 
 ```text
-+--------+  +--------+  +--------+  +--------+
-|   01   |  |   02   |  |   03   |  |   04   |
-| Žiadosť|  |Analýza |  | Ponuka |  |Čerpanie|
-| [0ms]  |  | [100ms]|  | [200ms]|  | [300ms]|
-+--------+  +--------+  +--------+  +--------+
++----------------------------------------------------------+
+|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
+|=========================================================|← Scroll Progress (0%)
+|                                                          |
+|            Súkromná investičná spoločnosť                |
+|                                                          |
++----------------------------------------------------------+
+
+        ↓ Po scrollovaní 50px+ ↓
+
++----------------------------------------------------------+
+| ASSETRA investments   RE  PE  PC      [Header - compact] |
+|===========================|← Scroll Progress (50%)       |
+|                                                          |
 ```
+
+---
+
+## Súbory na vytvorenie
+
+| Súbor | Účel |
+|-------|------|
+| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
+| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
+| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
+
+## Súbory na úpravu
+
+| Súbor | Zmeny |
+|-------|-------|
+| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
+| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
 
 ---
 
 ## Očakávaný výsledok
 
-Po implementácii budú podstránky:
-- Vizuálne konzistentné s hlavnou stránkou
-- Dynamické a profesionálne
-- Upozorňovať na kľúčové informácie (kroky procesu, výhody)
-- Zachovávať plynulý používateľský zážitok
-
-Všetky animácie budú:
-- Rýchle (200-600ms)
-- Nenápadné a elegantné
-- Respektujúce `prefers-reduced-motion` pre accessibility
+Po implementácii:
+- Stránka bude pôsobiť ako profesionálna single-page aplikácia
+- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
+- Header bude reagovať na interakciu a pôsobiť dynamicky
+- Všetky animácie budú rýchle (200-400ms) a nenápadné
+- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`
