@@ -1,76 +1,114 @@
 
-# Vylepšenie použitia charcoal farby
+# Finálne doladenie farebného dizajnu
 
-## Analýza problému
+## Zistené problémy
 
-Charcoal farba sa momentálne používa na dvoch miestach:
-1. **Celé tmavé sekcie** - About, Trust, kontaktná CTA sekcia
-2. **Karty na bielom pozadí** - tri vertikály (Real Estate, Private Equity, Private Credit)
+### 1. Contact.tsx (Real Estate stránka) - KRITICKÉ
+Kontaktný formulár používa `bg-charcoal` na **svetlom pozadí** sekcie - to je nekonzistentné s novým dizajnom kde tmavé prvky sú len na tmavých celoplošných sekciách.
 
-Problém je v bode 2 - tmavé karty na bielom pozadí vyzerajú ťažko a nekonzistentne so štýlom Tatra banky.
+**Aktuálne:** Tmavý formulár na bielom pozadí
+**Má byť:** Biely formulár s orámovaním (ako na Private Equity/Credit)
 
----
+### 2. Calculator.tsx - výsledková karta
+Podobný problém - `bg-charcoal` box na svetlej sekcii. Toto je menej kritické, ale pre konzistenciu by sa mal zmeniť.
 
-## Navrhované riešenie
+### 3. Chybný email v Contact.tsx
+Email "omegacapital.sk" je starý - má byť "assetra.sk"
 
-### Karty na svetlom pozadí
-Nahradím `bg-charcoal` za biely/svetlý štýl s jemným orámovaním:
-- Biele pozadie (`bg-white` alebo `bg-card`)
-- Jemný border (`border border-border`)
-- Hover efekt - orámovanie zmení farbu na modrú
-
-### Tmavé sekcie
-Ponechám charcoal pre celé sekcie ktoré majú byť tmavé - tu to funguje dobre.
+### 4. Responsive padding v Contact.tsx
+Chýba konzistentný responsive padding ako v ostatných sekciách.
 
 ---
 
-## Zmeny v súboroch
+## Plán opráv
 
-### src/pages/Index.tsx
+### Súbor: src/components/sections/Contact.tsx
 
-**Tri piliere - karty (riadky 62, 80, 98)**
-```
-Pred:  bg-charcoal p-6 sm:p-8 lg:p-10 border border-border
-Po:    bg-white p-6 sm:p-8 lg:p-10 border border-border shadow-sm
-```
+| Riadok | Zmena |
+|--------|-------|
+| 77 | `py-20 md:py-32` → `py-12 sm:py-20 md:py-32` |
+| 78 | `px-6 md:px-8` → `px-5 sm:px-6 md:px-8` |
+| 80-81 | Pridať responsive varianty pre text |
+| 94 | `bg-charcoal` → `bg-card border border-border shadow-sm` |
+| 199 | `omegacapital.sk` → `assetra.sk` |
+| 209 | Aktualizovať telefón alebo odstrániť ak je placeholder |
 
-**CTA banner (riadok 117)** - ponechám `bg-charcoal`
+### Súbor: src/components/sections/Calculator.tsx
 
-**Kontaktná sekcia (riadok 185)** - ponechám `bg-charcoal`
-
-### src/pages/PrivateEquity.tsx a PrivateCredit.tsx
-
-Karty a formuláre na svetlom pozadí zmením na biely štýl, tmavé sekcie ponechám.
-
-### src/components/sections/About.tsx, Trust.tsx
-
-Ponechám bez zmien - celé tmavé sekcie fungujú dobre.
+| Riadok | Zmena |
+|--------|-------|
+| 104 | `bg-charcoal` → `bg-card border border-border shadow-sm` |
+| 105 | Pridať text-foreground pre lepší kontrast na bielom pozadí |
+| 112 | Zmeniť farby výnosových čísel pre kontrast na svetlom pozadí |
 
 ---
 
 ## Vizuálny výsledok
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  SVETLÉ POZADIE (biela)                                │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐                 │
-│  │ BIELA   │  │ BIELA   │  │ BIELA   │  ← karty       │
-│  │ karta   │  │ karta   │  │ karta   │    s tieňom    │
-│  └─────────┘  └─────────┘  └─────────┘                 │
-└─────────────────────────────────────────────────────────┘
+```text
+PRED ZMENOU:
+┌─────────────────────────────────────────┐
+│  BIELA SEKCIA                           │
+│  ┌───────────────┐  ┌─────────────┐     │
+│  │ TMAVÝ         │  │ Svetlý      │     │
+│  │ formulár     │  │ text        │     │
+│  └───────────────┘  └─────────────┘     │
+└─────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────┐
-│  TMAVÉ POZADIE (charcoal) - celá sekcia               │
-│  Fixný výnos 10% ročne                                 │
-│  [Začať investovať]                                    │
-└─────────────────────────────────────────────────────────┘
+PO ZMENE:
+┌─────────────────────────────────────────┐
+│  BIELA SEKCIA                           │
+│  ┌───────────────┐  ┌─────────────┐     │
+│  │ BIELY         │  │ Tmavý       │     │
+│  │ formulár     │  │ text        │     │
+│  │ s orámovaním │  └─────────────┘     │
+│  └───────────────┘                      │
+└─────────────────────────────────────────┘
 ```
 
 ---
 
 ## Technické detaily
 
-Upravím nasledovné súbory:
-- `src/pages/Index.tsx` - karty v sekcii "Tri piliere"
-- `src/pages/PrivateEquity.tsx` - karty kritérií a FAQ
-- `src/pages/PrivateCredit.tsx` - karty kritérií a FAQ
+### Contact.tsx zmeny:
+
+```tsx
+// Riadok 77-78 - responsive padding
+<section id="kontakt" className="py-12 sm:py-20 md:py-32 lg:py-48">
+  <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
+
+// Riadok 80-81 - responsive text
+<div className="text-center mb-8 sm:mb-12 md:mb-16">
+  <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide...">
+
+// Riadok 94 - formulár karta
+<div className="bg-card p-6 md:p-8 lg:p-10 border border-border shadow-sm">
+
+// Riadok 199 - email
+invest@assetra.sk
+```
+
+### Calculator.tsx zmeny:
+
+```tsx
+// Riadok 104 - výsledková karta
+<div className="bg-card p-5 sm:p-6 md:p-8 lg:p-12 border border-border shadow-sm">
+
+// Riadok 105 - nadpis
+<h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 text-center text-foreground">
+```
+
+---
+
+## Súhrn zmien
+
+| Súbor | Typ zmeny |
+|-------|-----------|
+| `src/components/sections/Contact.tsx` | bg-charcoal → bg-card, email oprava, responsive padding |
+| `src/components/sections/Calculator.tsx` | bg-charcoal → bg-card pre výsledkovú kartu |
+
+Tieto zmeny zabezpečia, že:
+- Tmavé pozadia (`bg-charcoal`) sa používajú LEN pre celé sekcie
+- Karty a formuláre na svetlom pozadí majú biely štýl s orámovaním
+- Konzistentný responsive dizajn naprieč všetkými sekciami
+- Správny kontaktný email spoločnosti
