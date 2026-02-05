@@ -35,7 +35,7 @@ const Trust = () => {
              <div className="border-l border-border pl-4 sm:pl-6 md:pl-8">
                <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-white">Krátke cykly</h3>
                <p className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed">
-                Investičné obdobia 12–18 mesiacov limitujú expozíciu voči dlhodobým trhovým zmenám. Kapitál sa vracia a môže byť reinvestovaný alebo vybraný v pravidelných intervaloch.
+                Investičné obdobia 12–36 mesiacov limitujú expozíciu voči dlhodobým trhovým zmenám. Kapitál sa vracia a môže byť reinvestovaný alebo vybraný v pravidelných intervaloch.
               </p>
             </div>
             
@@ -47,20 +47,6 @@ const Trust = () => {
             </div>
           </div>
           
-           <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-8 pt-6 sm:pt-8 md:pt-12 border-t border-border text-center mb-8 sm:mb-10 md:mb-16">
-            <div>
-               <p className="font-serif text-2xl sm:text-3xl md:text-display-sm text-gold mb-1 md:mb-2">50+</p>
-               <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide uppercase">Dokončených projektov</p>
-            </div>
-            <div>
-               <p className="font-serif text-2xl sm:text-3xl md:text-display-sm text-gold mb-1 md:mb-2">0</p>
-               <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide uppercase">Vynechaných výplat</p>
-            </div>
-            <div>
-               <p className="font-serif text-2xl sm:text-3xl md:text-display-sm text-gold mb-1 md:mb-2">100%</p>
-               <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide uppercase">Vrátená istina</p>
-            </div>
-          </div>
 
           <div className="text-center">
             <Button 

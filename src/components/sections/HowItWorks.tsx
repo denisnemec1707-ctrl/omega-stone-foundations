@@ -22,7 +22,7 @@ const HowItWorks = () => {
               <div>
                  <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4">Investujete</h3>
                  <p className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed">
-                  Záväzujete kapitál na definované obdobie (zvyčajne 12–18 mesiacov). Vaše investičné podmienky — výnosová sadzba, výplatný kalendár a trvanie — sú fixované pri podpise zmluvy.
+                  Záväzujete kapitál na definované obdobie (zvyčajne 12–36 mesiacov). Vaše investičné podmienky — výnosová sadzba, výplatný kalendár a trvanie — sú fixované pri podpise zmluvy.
                 </p>
               </div>
             </div>

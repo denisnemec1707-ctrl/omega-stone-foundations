@@ -42,7 +42,7 @@ const WhyInvest = () => {
           </div>
           
            <div className="text-center p-2 sm:p-0">
-             <p className="font-serif text-2xl sm:text-4xl md:text-display-sm text-gold mb-2 sm:mb-3 md:mb-4">12–18</p>
+             <p className="font-serif text-2xl sm:text-4xl md:text-display-sm text-gold mb-2 sm:mb-3 md:mb-4">12–36</p>
              <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 sm:mb-2 md:mb-3">Mesačné cykly</h3>
              <p className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed">
               Krátke investičné horizonty s definovanými výstupnými bodmi. Váš kapitál nie je uzamknutý na neurčito.
