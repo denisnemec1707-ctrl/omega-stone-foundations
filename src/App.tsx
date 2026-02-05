@@ -2,15 +2,70 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { ScrollProgress } from "./components/ScrollProgress";
+import { PageTransition } from "./components/PageTransition";
 import Index from "./pages/Index";
- import RealEstate from "./pages/RealEstate";
- import PrivateEquity from "./pages/PrivateEquity";
- import PrivateCredit from "./pages/PrivateCredit";
+import RealEstate from "./pages/RealEstate";
+import PrivateEquity from "./pages/PrivateEquity";
+import PrivateCredit from "./pages/PrivateCredit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Index />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/real-estate"
+          element={
+            <PageTransition>
+              <RealEstate />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/private-equity"
+          element={
+            <PageTransition>
+              <PrivateEquity />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/private-credit"
+          element={
+            <PageTransition>
+              <PrivateCredit />
+            </PageTransition>
+          }
+        />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,14 +74,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-           <Route path="/real-estate" element={<RealEstate />} />
-           <Route path="/private-equity" element={<PrivateEquity />} />
-           <Route path="/private-credit" element={<PrivateCredit />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ScrollProgress />
+        <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
