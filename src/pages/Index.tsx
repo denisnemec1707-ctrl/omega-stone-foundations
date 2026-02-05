@@ -9,8 +9,8 @@ const Index = () => {
       <Header />
       <main>
          {/* Hero Section */}
-          <section className="min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center pt-16 sm:pt-20">
-            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
+          <section className="min-h-[70vh] sm:min-h-[75vh] flex items-center justify-center pt-20 sm:pt-24">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16 pb-8 sm:pb-12">
              <div className="max-w-4xl mx-auto text-center">
                 <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
                  Súkromná investičná spoločnosť
@@ -27,7 +27,7 @@ const Index = () => {
          </section>
  
          {/* Three Verticals Section */}
-          <section className="py-12 sm:py-20 md:py-32">
+          <section className="py-8 sm:py-16 md:py-24">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
               <div className="text-center mb-10 sm:mb-16">
                 <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
