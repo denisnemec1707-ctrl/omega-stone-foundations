@@ -35,21 +35,21 @@ const faqs = [
     answer: "Investície sú viazané na dohodnuté obdobie, aby bol kapitál dostupný pre realitné transakcie. Predčasný výber vo všeobecnosti nie je možný. V mimoriadnych prípadoch však môžeme vyhovieť žiadostiam v závislosti od dostupnosti a s poplatkom za predčasný výstup. Odporúčame investovať iba kapitál, ktorý môžete viazať na celé obdobie."
   },
   {
-    question: "Ako je Omega Capital regulovaná?",
-    answer: "Omega Capital Group s.r.o. je registrovaná slovenská spoločnosť pôsobiaca podľa slovenského obchodného práva. Naše investičné zmluvy sa riadia slovenským právom a sú vymáhateľné na slovenských súdoch. Vedieme kompletné finančné záznamy a poskytujeme pravidelné reporty všetkým investorom."
+     question: "Ako je ASSETRA investments regulovaná?",
+     answer: "ASSETRA Investments s.r.o. je registrovaná slovenská spoločnosť pôsobiaca podľa slovenského obchodného práva. Naše investičné zmluvy sa riadia slovenským právom a sú vymáhateľné na slovenských súdoch. Vedieme kompletné finančné záznamy a poskytujeme pravidelné reporty všetkým investorom."
   }
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 md:py-32 lg:py-48 bg-charcoal">
-      <div className="container mx-auto px-6 md:px-8 lg:px-16">
+     <section id="faq" className="py-12 sm:py-20 md:py-32 lg:py-48 bg-charcoal">
+       <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10 md:mb-16">
-            <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 md:mb-6">
+           <div className="text-center mb-8 sm:mb-10 md:mb-16">
+             <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
               Časté otázky
             </p>
-            <h2 className="font-serif text-3xl md:text-display-sm lg:text-display-md mb-6 md:mb-8">
+             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md">
               Často kladené <span className="text-gold">otázky</span>
             </h2>
           </div>
@@ -59,12 +59,12 @@ const FAQ = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-border px-4 md:px-6 data-[state=open]:border-gold transition-colors"
+                 className="border border-border px-4 sm:px-4 md:px-6 data-[state=open]:border-gold transition-colors"
               >
-                <AccordionTrigger className="text-left font-serif text-base md:text-lg hover:no-underline hover:text-gold py-4 md:py-6">
+                 <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-gold py-4 sm:py-4 md:py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light text-sm md:text-base leading-relaxed pb-4 md:pb-6">
+                 <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-4 md:pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
