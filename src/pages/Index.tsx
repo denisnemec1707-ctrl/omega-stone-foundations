@@ -1,5 +1,6 @@
  import { Link } from "react-router-dom";
  import { ArrowRight, Building2, Briefcase, Landmark } from "lucide-react";
+ import { Button } from "@/components/ui/button";
  import Header from "@/components/layout/Header";
  import Footer from "@/components/layout/Footer";
 
@@ -22,6 +23,22 @@ const Index = () => {
                  Investujeme do nehnuteľností, akvizícií zabehnutých firiem a poskytujeme zabezpečené úvery. 
                  Naša stratégia je založená na konzervativnom prístupe s dôrazom na ochranu kapitálu.
                </p>
+               
+               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+                 <Button 
+                   asChild
+                   className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base"
+                 >
+                   <a href="#kontakt">Kontaktujte nás</a>
+                 </Button>
+                 <Button 
+                   asChild
+                   variant="outline"
+                   className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base"
+                 >
+                   <Link to="/real-estate">Zistiť viac</Link>
+                 </Button>
+               </div>
              </div>
            </div>
          </section>
