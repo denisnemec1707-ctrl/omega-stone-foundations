@@ -200,7 +200,7 @@
  
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
                {criteria.map((item, index) => (
-                  <div key={index} className="bg-charcoal p-4 sm:p-6 lg:p-8 border border-border">
+                  <div key={index} className="bg-card p-4 sm:p-6 lg:p-8 border border-border shadow-sm">
                     <item.icon className="w-7 h-7 sm:w-10 sm:h-10 text-gold mb-3 sm:mb-6" />
                     <h3 className="font-serif text-base sm:text-xl mb-2 sm:mb-3">{item.title}</h3>
                     <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">
@@ -260,7 +260,7 @@
                    <AccordionItem 
                      key={index} 
                      value={`item-${index}`}
-                      className="border border-border bg-charcoal px-4 sm:px-6"
+                      className="border border-border bg-card px-4 sm:px-6 shadow-sm"
                    >
                       <AccordionTrigger className="text-left font-serif text-base sm:text-lg hover:text-gold py-4 sm:py-5">
                        {faq.question}
@@ -293,7 +293,7 @@
  
                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                  {/* Contact Form */}
-                 <div className="bg-charcoal p-6 md:p-8 lg:p-10 border border-border">
+                 <div className="bg-card p-6 md:p-8 lg:p-10 border border-border shadow-sm">
                    <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
                      Žiadosť o konzultáciu
                    </h3>

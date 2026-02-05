@@ -224,7 +224,7 @@
  
               <div className="grid md:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 max-w-5xl mx-auto">
                {financingTypes.map((type, index) => (
-                  <div key={index} className="bg-charcoal p-5 sm:p-8 lg:p-10 border border-border">
+                  <div key={index} className="bg-card p-5 sm:p-8 lg:p-10 border border-border shadow-sm">
                     <type.icon className="w-10 h-10 sm:w-12 sm:h-12 text-gold mb-4 sm:mb-6" />
                     <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4">{type.title}</h3>
                     <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
@@ -317,7 +317,7 @@
                    <AccordionItem 
                      key={index} 
                      value={`item-${index}`}
-                      className="border border-border bg-charcoal px-4 sm:px-6"
+                      className="border border-border bg-card px-4 sm:px-6 shadow-sm"
                    >
                       <AccordionTrigger className="text-left font-serif text-base sm:text-lg hover:text-gold py-4 sm:py-5">
                        {faq.question}
@@ -350,7 +350,7 @@
  
                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                  {/* Contact Form */}
-                 <div className="bg-charcoal p-6 md:p-8 lg:p-10 border border-border">
+                 <div className="bg-card p-6 md:p-8 lg:p-10 border border-border shadow-sm">
                    <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
                      Žiadosť o financovanie
                    </h3>

@@ -56,59 +56,59 @@ const Index = () => {
              </div>
  
               <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-12">
-               {/* Real Estate */}
-               <Link 
-                 to="/real-estate" 
-                  className="group bg-charcoal p-6 sm:p-8 lg:p-10 border border-border hover:border-gold/30 active:border-gold/50 transition-all duration-300"
-               >
-                  <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-gold mb-4 sm:mb-6" />
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-gold transition-colors">
-                   Real Estate
-                 </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                   Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. 
-                   Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame.
-                 </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-gold group-hover:gap-3 gap-2 transition-all py-2">
-                   Zistiť viac <ArrowRight className="w-4 h-4" />
-                 </span>
-               </Link>
+              {/* Real Estate */}
+              <Link 
+                to="/real-estate" 
+                className="group bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
+                <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                  Real Estate
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
+                  Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. 
+                  Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame.
+                </p>
+                <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
+                  Zistiť viac <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
  
-               {/* Private Equity */}
-               <Link 
-                 to="/private-equity" 
-                  className="group bg-charcoal p-6 sm:p-8 lg:p-10 border border-border hover:border-gold/30 active:border-gold/50 transition-all duration-300"
-               >
-                  <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-gold mb-4 sm:mb-6" />
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-gold transition-colors">
-                   Private Equity
-                 </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                   Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. 
-                   Hľadáme príležitosti s jasným potenciálom rastu.
-                 </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-gold group-hover:gap-3 gap-2 transition-all py-2">
-                   Zistiť viac <ArrowRight className="w-4 h-4" />
-                 </span>
-               </Link>
+              {/* Private Equity */}
+              <Link 
+                to="/private-equity" 
+                className="group bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
+                <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                  Private Equity
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
+                  Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. 
+                  Hľadáme príležitosti s jasným potenciálom rastu.
+                </p>
+                <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
+                  Zistiť viac <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
  
-               {/* Private Credit */}
-               <Link 
-                 to="/private-credit" 
-                  className="group bg-charcoal p-6 sm:p-8 lg:p-10 border border-border hover:border-gold/30 active:border-gold/50 transition-all duration-300"
-               >
-                  <Landmark className="w-8 h-8 sm:w-10 sm:h-10 text-gold mb-4 sm:mb-6" />
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-gold transition-colors">
-                   Private Credit
-                 </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                   Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. 
-                   Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície.
-                 </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-gold group-hover:gap-3 gap-2 transition-all py-2">
-                   Zistiť viac <ArrowRight className="w-4 h-4" />
-                 </span>
-               </Link>
+              {/* Private Credit */}
+              <Link 
+                to="/private-credit" 
+                className="group bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <Landmark className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
+                <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                  Private Credit
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
+                  Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. 
+                  Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície.
+                </p>
+                <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
+                  Zistiť viac <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
              </div>
            </div>
          </section>
