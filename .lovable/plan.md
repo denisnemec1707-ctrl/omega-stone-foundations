@@ -1,5 +1,5 @@
 
-# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation
+# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
 
 ## Prehľad
 
