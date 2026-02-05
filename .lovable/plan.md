@@ -1,70 +1,111 @@
-# Návrh animácií pre ASSETRA investments
 
-## ✅ IMPLEMENTOVANÉ
+# Animácie pre podstránky Private Equity a Private Credit
 
-### 1. Scroll-triggered animácie (Animácie pri scrollovaní)
-Elementy sa objavia s animáciou keď ich používateľ pri scrollovaní uvidí:
-- ✅ Sekcie sa plynulo objavia zdola nahor
-- ✅ Karty sa objavia postupne jedna za druhou (staggered effect)
-- ✅ Nadpisy a texty sa objavia s oneskorením
+## Prehľad
 
-### 2. Animované čísla (Counter animation)
-- ✅ "10%" sa animuje od 0 do 10
-- ✅ "20%+" marže animované
-- ✅ Hodnoty v kalkulačke pri zmene slidera - plynulé prechody
+Podstránky Private Equity a Private Credit majú vlastné sekcie, ktoré momentálne nemajú žiadne animácie. Využijeme už vytvorené animačné komponenty (`AnimatedSection`, `StaggerContainer`, `StaggerItem`, `AnimatedCounter`) pre konzistentný vzhľad s hlavnou stránkou.
 
-### 3. Vylepšené hover efekty na kartách
-- ✅ Jemný "lift" efekt (karta sa zdvihne)
-- ✅ Ikony sa jemne zväčšia pri hover
-- ✅ Šípka sa posunie doprava pri hover
+---
 
-### 4. Animovaná línia v sekcii "Ako to funguje"
-- ✅ Vertikálna línia spájajúca kroky 1-4 sa postupne "dokreslí"
-- ✅ Kruhy s číslami majú hover animácie
+## Navrhované animácie
 
-### 5. Kalkulačka - plynulé prechody hodnôt
-- ✅ Čísla sa plynulo menia pri posúvaní slidera (AnimatedValue)
-- ✅ Jemný "pulse" efekt na výsledkoch pri zmene
+### Hero sekcie (obe podstránky)
+- Link "Späť na hlavnú" - fade-in zľava
+- Label (Private Equity/Private Credit) - fade-in zhora
+- Hlavný nadpis - fade-in zdola s oneskorením
+- Popisný text - fade-in zdola s väčším oneskorením
 
-### 6. Micro-interakcie
-- ✅ Tlačidlá majú jemný scale efekt pri hover/active
-- ✅ Input polia majú animovaný border pri focus
-- ✅ Formulárový box má shadow animáciu pri hover
+### Sekcie s kartami
+**Private Credit - Typy financovania:**
+- Nadpis sekcie - fade-in
+- Karty "Realitné projekty" a "Podnikateľské úvery" - staggered animácia (jedna za druhou)
+- Ikony na kartách - hover efekt (zväčšenie)
+
+**Private Equity - Investičné kritériá:**
+- Nadpis sekcie - fade-in
+- 4 karty kritérií - staggered animácia
+- Ikony - hover efekt
+
+### Sekcie Benefits/Výhody (Private Credit)
+- 4 ikony s textom - staggered animácia od stredu
+- Hover efekt na ikony
+
+### Sekcie Process/Proces (obe podstránky)
+- Animované čísla krokov 01-04
+- Kroky sa objavia postupne s oneskorením
+- Čísla krokov majú jemný "count-up" efekt
+
+### FAQ sekcie (obe podstránky)
+- Nadpis - fade-in
+- Accordion položky - staggered animácia zhora nadol
+- Plynulé otvorenie/zatvorenie (už má z Radix UI)
+
+### Kontaktné sekcie (obe podstránky)
+- Formulár - slide-in zľava
+- Kontaktné informácie - slide-in sprava
+- Tlačidlo - hover/active efekty (scale)
+- Input polia - animated border pri focus
 
 ---
 
 ## Technická implementácia
 
-### Nové závislosti
-- ✅ `framer-motion` - nainštalovaná
+### Zmeny v súboroch
 
-### Nové súbory a komponenty
-- ✅ `src/hooks/useScrollAnimation.tsx` - Intersection Observer hook
-- ✅ `src/components/AnimatedSection.tsx` - AnimatedSection, StaggerContainer, StaggerItem
-- ✅ `src/components/AnimatedCounter.tsx` - AnimatedCounter, AnimatedValue
+**src/pages/PrivateCredit.tsx:**
+- Import animačných komponentov
+- Obalenie Hero obsahu do `AnimatedSection` s rôznymi delay hodnotami
+- Financovanie karty - `StaggerContainer` + `StaggerItem`
+- Benefits grid - `StaggerContainer` + `StaggerItem`
+- Process kroky - `StaggerContainer` + `StaggerItem` s animovanými číslami
+- FAQ - `StaggerContainer` pre accordion items
+- Kontakt formulár - `AnimatedSection` s `motion.div` pre hover efekty
 
-### Aktualizované súbory
-- ✅ `src/pages/Index.tsx` - scroll animácie na hlavnej stránke
-- ✅ `src/components/sections/Hero.tsx` - framer-motion animácie
-- ✅ `src/components/sections/WhyInvest.tsx` - AnimatedCounter a stagger
-- ✅ `src/components/sections/About.tsx` - AnimatedSection
-- ✅ `src/components/sections/HowItWorks.tsx` - animovaná progress línia
-- ✅ `src/components/sections/Trust.tsx` - stagger animácie
-- ✅ `src/components/sections/Calculator.tsx` - AnimatedValue pre plynulé prechody
-- ✅ `src/components/sections/FAQ.tsx` - stagger animácie na accordion
-- ✅ `src/components/sections/Contact.tsx` - animácie formulára a kontaktov
+**src/pages/PrivateEquity.tsx:**
+- Rovnaká štruktúra ako Private Credit
+- Import animačných komponentov
+- Hero animácie s delay
+- Criteria karty - staggered
+- Process kroky - staggered s animovanými číslami
+- FAQ - staggered accordion
+- Kontakt - animovaný formulár
+
+### Príklad kódu pre Hero sekciu:
+
+```text
++------------------------------------------+
+|  <- Späť na hlavnú  [fade-in, 0ms]       |
+|                                          |
+|  PRIVATE EQUITY     [fade-in, 100ms]     |
+|                                          |
+|  Akvizície          [fade-in, 200ms]     |
+|  zabehnutých firiem                      |
+|                                          |
+|  Popisný text...    [fade-in, 300ms]     |
++------------------------------------------+
+```
+
+### Príklad kódu pre Process sekciu:
+
+```text
++--------+  +--------+  +--------+  +--------+
+|   01   |  |   02   |  |   03   |  |   04   |
+| Žiadosť|  |Analýza |  | Ponuka |  |Čerpanie|
+| [0ms]  |  | [100ms]|  | [200ms]|  | [300ms]|
++--------+  +--------+  +--------+  +--------+
+```
 
 ---
 
-## Výsledok
+## Očakávaný výsledok
 
-Stránka teraz:
-- ✅ Pôsobí dynamickejšie a modernejšie
-- ✅ Upútava pozornosť na kľúčové štatistiky
-- ✅ Poskytuje lepší používateľský zážitok
-- ✅ Zachováva profesionálny a elegantný vzhľad
+Po implementácii budú podstránky:
+- Vizuálne konzistentné s hlavnou stránkou
+- Dynamické a profesionálne
+- Upozorňovať na kľúčové informácie (kroky procesu, výhody)
+- Zachovávať plynulý používateľský zážitok
 
-Všetky animácie:
-- ✅ Jemné a nenápadné (nie rušivé)
-- ✅ Rýchle (200-600ms)
-- ✅ Respektujú `prefers-reduced-motion` pre accessibility
+Všetky animácie budú:
+- Rýchle (200-600ms)
+- Nenápadné a elegantné
+- Respektujúce `prefers-reduced-motion` pre accessibility
