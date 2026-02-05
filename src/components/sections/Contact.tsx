@@ -74,24 +74,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="py-20 md:py-32 lg:py-48">
-      <div className="container mx-auto px-6 md:px-8 lg:px-16">
+    <section id="kontakt" className="py-12 sm:py-20 md:py-32 lg:py-48">
+      <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <p className="text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 md:mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
               Začnite investovať
             </p>
-            <h2 className="font-serif text-3xl md:text-display-sm lg:text-display-md mb-6 md:mb-8">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md mb-4 sm:mb-6 md:mb-8">
               Kontaktujte <span className="text-gold">nás</span>
             </h2>
-            <p className="text-muted-foreground font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-muted-foreground font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-2 sm:px-0">
               Vyplňte formulár a náš investičný tím sa vám ozve do 24 hodín s kompletnými informáciami o investičných možnostiach.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             {/* Contact Form */}
-            <div className="bg-charcoal p-6 md:p-8 lg:p-10">
+            <div className="bg-card p-5 sm:p-6 md:p-8 lg:p-10 border border-border shadow-sm">
               <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
                 Žiadosť o informácie
               </h3>
@@ -193,10 +193,10 @@ const Contact = () => {
                       Email
                     </p>
                     <a 
-                      href="mailto:invest@omegacapital.sk" 
+                      href="mailto:invest@assetra.sk" 
                       className="text-lg md:text-xl text-foreground hover:text-gold transition-colors"
                     >
-                      invest@omegacapital.sk
+                      invest@assetra.sk
                     </a>
                   </div>
                   
