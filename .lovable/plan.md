@@ -1,118 +1,104 @@
 
-# Reštrukturalizácia ASSETRA investments na multi-page web
+# Pridanie formulárov a CTA tlačidiel
 
 ## Prehľad zmien
 
-Aktuálna landing page sa stane podstránkou **Real Estate** a vytvoríme novú architektúru s hlavnou stránkou a troma investičnými vertikálami.
+Implementujem kontaktné formuláre na podstránky Private Equity a Private Credit, upravím tlačidlá na hlavnej stránke a pridám CTA sekcie po celej hlavnej stránke.
 
-## Nová štruktúra stránok
+---
+
+## 1. Formuláre na Private Equity a Private Credit
+
+Nahradím jednoduché emailové kontakty plnohodnotnými formulármi podobnými tomu na Real Estate stránke.
+
+**Private Equity formulár:**
+- Meno a priezvisko
+- Email
+- Telefón
+- Názov firmy (špecifické pole)
+- Obrat firmy (výberové pole)
+- Správa
+
+**Private Credit formulár:**
+- Meno a priezvisko
+- Email
+- Telefón
+- Názov spoločnosti
+- Požadovaná suma financovania
+- Typ projektu (realitný/podnikateľský)
+- Správa
+
+---
+
+## 2. Úprava tlačidiel v Hero sekcii hlavnej stránky
+
+Zmením texty a odkazy tlačidiel:
+
+**Hlavné tlačidlo (zlaté):**
+- Text: "Investovať do nehnuteľností"
+- Odkaz: `/real-estate`
+
+**Sekundárne tlačidlo (outline):**
+- Text: "Zistiť viac o investíciách"
+- Odkaz: `/real-estate#preco-investovat`
+
+---
+
+## 3. CTA sekcie po celej hlavnej stránke
+
+Pridám CTA tlačidlá do existujúcich sekcií:
+
+**Po sekcii "Tri piliere rastu":**
+- CTA banner s textom o zabezpečených investíciách
+- Tlačidlo: "Začať investovať" → `/real-estate`
+
+**Po sekcii "O spoločnosti":**
+- Pridám tlačidlo pod text
+- Text: "Preskúmať investičné možnosti" → `/real-estate`
+
+**Kontaktná sekcia:**
+- Upravím text na zameranie na investície
+- Pridám tlačidlo: "Chcem investovať" → `/real-estate`
+
+---
+
+## Nová CTA sekcia (Investment Banner)
+
+Pridám novú sekciu medzi "Tri piliere" a "O spoločnosti":
 
 ```text
-/                    -> Hlavná stránka (nová)
-/real-estate         -> Real Estate (aktuálny obsah)
-/private-equity      -> Private Equity (nová)
-/private-credit      -> Private Credit (nová)
+┌─────────────────────────────────────────────────────────┐
+│  Zabezpečené investície do nehnuteľností               │
+│                                                         │
+│  Fixný výnos 10% ročne • Mesačné vyplácanie            │
+│  Investícia zabezpečená reálnymi aktívami              │
+│                                                         │
+│  [Začať investovať]  [Vypočítať výnos]                 │
+└─────────────────────────────────────────────────────────┘
 ```
-
-## 1. Nová hlavná stránka (Index)
-
-Vytvorím novú hlavnú stránku s obsahom:
-
-**Hero sekcia:**
-- Názov firmy ASSETRA investments
-- Tagline: "Súkromná investičná spoločnosť"
-- Krátky popis troch vertikál
-
-**Tri karty/sekcie pre vertikály:**
-- **Real Estate** - Realitný flipping, nákup pod trhovú hodnotu, problémové nehnuteľnosti
-- **Private Equity** - Akvizície fungujúcich firiem na SK/CZ trhu
-- **Private Credit** - Zabezpečené úvery pre právnické osoby a realitné projekty
-
-**Kontaktná sekcia** - jednotný kontaktný formulár
-
-## 2. Real Estate podstránka
-
-- Presuniem aktuálny `Index.tsx` na `/real-estate`
-- Aktuálne sekcie (Hero, WhyInvest, HowItWorks, Calculator, FAQ, Contact) zostanú
-- Upravím navigáciu pre túto podstránku
-
-## 3. Private Equity podstránka (nová)
-
-Vytvorím novú stránku s obsahom:
-- **Hero:** Akvizície zabehnutých firiem
-- **Kritériá:** Aké firmy hľadáme (obrat, ziskovosť, trh SK/CZ)
-- **Proces:** Ako prebieha akvizícia
-- **FAQ:** Otázky pre predávajúcich firiem
-- **Kontakt:** Formulár pre záujemcov
-
-## 4. Private Credit podstránka (nová)
-
-Vytvorím novú stránku s obsahom:
-- **Hero:** Zabezpečené úvery
-- **Typy financovania:** Pre firmy, realitné projekty
-- **Podmienky:** Parametre úverov
-- **Proces:** Ako funguje schvaľovanie
-- **FAQ:** Otázky o financovaní
-- **Kontakt:** Formulár pre žiadosti
-
-## 5. Aktualizácia navigácie
-
-**Nový Header** s hlavnou navigáciou:
-- Logo (odkaz na /)
-- Real Estate
-- Private Equity
-- Private Credit
-- Kontakt
-
-Desktop aj mobilné menu budú aktualizované.
 
 ---
 
 ## Technické detaily
 
-### Nové súbory
+### Súbory na úpravu
 
 ```text
-src/pages/
-├── Index.tsx           (prepísaná hlavná stránka)
-├── RealEstate.tsx      (nová - presunutý obsah)
-├── PrivateEquity.tsx   (nová)
-├── PrivateCredit.tsx   (nová)
-└── NotFound.tsx        (existujúca)
+src/pages/Index.tsx
+├── Hero tlačidlá - nové texty a odkazy
+├── Nová CTA sekcia po "Tri piliere"
+├── CTA tlačidlo v "O spoločnosti"
+└── Úprava kontaktnej sekcie
 
-src/components/
-├── layout/
-│   ├── Header.tsx      (upravená navigácia)
-│   ├── MainHeader.tsx  (nový pre hlavnú stránku)
-│   └── Footer.tsx      (existujúca)
-└── sections/
-    └── ... (existujúce + nové pre každú podstránku)
+src/pages/PrivateEquity.tsx
+└── Nahradenie emailu kontaktným formulárom
+
+src/pages/PrivateCredit.tsx
+└── Nahradenie emailu kontaktným formulárom
 ```
 
-### Routing (App.tsx)
+### Štýly tlačidiel
 
-```tsx
-<Routes>
-  <Route path="/" element={<Index />} />
-  <Route path="/real-estate" element={<RealEstate />} />
-  <Route path="/private-equity" element={<PrivateEquity />} />
-  <Route path="/private-credit" element={<PrivateCredit />} />
-  <Route path="*" element={<NotFound />} />
-</Routes>
-```
-
-### Zdieľané komponenty
-
-- Contact formulár bude znovupoužiteľný na všetkých stránkach
-- Footer zostane rovnaký
-- Header bude mať varianty pre hlavnú stránku vs. podstránky
-
----
-
-## Dizajnové princípy
-
-- Zachovám dark luxury estetiku (čierna, biela, zlaté akcenty)
-- Playfair Display pre nadpisy
-- Konzistentný spacing a typografia
-- Bez obrázkov ľudí - len architektonické/kamenné textúry
-- Slovenský jazyk na celom webe
+- Primárne CTA: zlaté pozadie, tmavý text
+- Sekundárne CTA: outline štýl s hover efektom na zlatú
+- Konzistentná veľkosť a spacing na mobile aj desktope
