@@ -22,7 +22,7 @@ const Hero = () => {
           <span className="text-gold">Vyplácaný mesačne</span>
         </h1>
          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed animate-fade-in-delayed opacity-0 mb-8 sm:mb-10 md:mb-12 px-2 sm:px-0">
-          Váš kapitál je zabezpečený realitnými transakciami. Predvídateľné výnosy podporené reálnymi aktívami, nie trhovými špekuláciami.
+          Váš kapitál je zabezpečený nehnuteľnosťami v nadhodnote. Predvídateľné výnosy podporené reálnymi aktívami, nie trhovými špekuláciami.
         </p>
         
          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in-delayed opacity-0 px-4 sm:px-0">

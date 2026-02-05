@@ -17,20 +17,20 @@
    AccordionTrigger,
  } from "@/components/ui/accordion";
  
- const financingTypes = [
-   {
-     icon: Building2,
-     title: "Realitné projekty",
-     description: "Financovanie akvizícií, developmentu a rekonštrukcií nehnuteľností. Úvery zabezpečené záložným právom na nehnuteľnosť.",
-     params: ["Výška: 100 000 – 2 000 000 €", "Splatnosť: 6–24 mesiacov", "LTV do 70%"],
-   },
-   {
-     icon: Briefcase,
-     title: "Podnikateľské úvery",
-     description: "Financovanie prevádzkového kapitálu, akvizícií a expanzie pre ziskové spoločnosti. Zabezpečenie majetkom firmy alebo nehnuteľnosťou.",
-     params: ["Výška: 50 000 – 1 000 000 €", "Splatnosť: 12–36 mesiacov", "Zabezpečenie aktívami"],
-   },
- ];
+const financingTypes = [
+  {
+    icon: Building2,
+    title: "Realitné projekty",
+    description: "Financovanie akvizícií, developmentu a rekonštrukcií nehnuteľností. Úvery zabezpečené záložným právom na nehnuteľnosť.",
+    params: ["Výška: 10 000 – 500 000 €", "Splatnosť: 3–24 mesiacov", "LTV do 70%"],
+  },
+  {
+    icon: Briefcase,
+    title: "Podnikateľské úvery",
+    description: "Financovanie prevádzkového kapitálu, akvizícií a expanzie pre ziskové spoločnosti. Zabezpečenie majetkom firmy alebo nehnuteľnosťou.",
+    params: ["Výška: 10 000 – 500 000 €", "Splatnosť: 3–24 mesiacov", "Zabezpečenie aktívami"],
+  },
+];
  
  const benefits = [
    {
@@ -127,16 +127,21 @@
      .trim()
      .min(1, { message: "Názov spoločnosti je povinný" })
      .max(200, { message: "Názov spoločnosti môže mať maximálne 200 znakov" }),
-   loanAmount: z
-     .string()
-     .trim()
-     .optional()
-     .or(z.literal("")),
-   projectType: z
-     .string()
-     .trim()
-     .optional()
-     .or(z.literal("")),
+  loanAmount: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal("")),
+  loanTerm: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal("")),
+  projectType: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal("")),
    message: z
      .string()
      .trim()
@@ -163,15 +168,16 @@
      
      await new Promise((resolve) => setTimeout(resolve, 1000));
      
-     console.log("Private Credit form submitted:", {
-       name: data.name,
-       email: data.email,
-       hasPhone: !!data.phone,
-       companyName: data.companyName,
-       loanAmount: data.loanAmount,
-       projectType: data.projectType,
-       messageLength: data.message.length,
-     });
+    console.log("Private Credit form submitted:", {
+      name: data.name,
+      email: data.email,
+      hasPhone: !!data.phone,
+      companyName: data.companyName,
+      loanAmount: data.loanAmount,
+      loanTerm: data.loanTerm,
+      projectType: data.projectType,
+      messageLength: data.message.length,
+    });
      
      toast.success("Žiadosť bola odoslaná", {
        description: "Budeme vás kontaktovať do 5 pracovných dní.",
@@ -414,40 +420,55 @@
                        )}
                      </div>
  
-                     <div className="grid grid-cols-2 gap-4">
-                       <div>
-                         <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                           Požadovaná suma
-                         </label>
-                         <select
-                           {...register("loanAmount")}
-                           className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                         >
-                           <option value="">Vyberte</option>
-                           <option value="50-100k">50 – 100 tis. €</option>
-                           <option value="100-300k">100 – 300 tis. €</option>
-                           <option value="300-500k">300 – 500 tis. €</option>
-                           <option value="500k-1m">500 tis. – 1 mil. €</option>
-                           <option value="nad-1m">Nad 1 mil. €</option>
-                         </select>
-                       </div>
- 
-                       <div>
-                         <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                           Typ projektu
-                         </label>
-                         <select
-                           {...register("projectType")}
-                           className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                         >
-                           <option value="">Vyberte</option>
-                           <option value="realitny">Realitný projekt</option>
-                           <option value="podnikatelsky">Podnikateľský úver</option>
-                           <option value="akvizicia">Akvizičné financovanie</option>
-                           <option value="iny">Iný</option>
-                         </select>
-                       </div>
-                     </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
+                          Požadovaná suma
+                        </label>
+                        <select
+                          {...register("loanAmount")}
+                          className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          <option value="">Vyberte</option>
+                          <option value="10-50k">10 – 50 tis. €</option>
+                          <option value="50-100k">50 – 100 tis. €</option>
+                          <option value="100-250k">100 – 250 tis. €</option>
+                          <option value="250-500k">250 – 500 tis. €</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
+                          Doba splatnosti
+                        </label>
+                        <select
+                          {...register("loanTerm")}
+                          className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          <option value="">Vyberte</option>
+                          <option value="3-6m">3 – 6 mesiacov</option>
+                          <option value="6-12m">6 – 12 mesiacov</option>
+                          <option value="12-18m">12 – 18 mesiacov</option>
+                          <option value="18-24m">18 – 24 mesiacov</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
+                        Typ projektu
+                      </label>
+                      <select
+                        {...register("projectType")}
+                        className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        <option value="">Vyberte</option>
+                        <option value="realitny">Realitný projekt</option>
+                        <option value="podnikatelsky">Podnikateľský úver</option>
+                        <option value="akvizicia">Akvizičné financovanie</option>
+                        <option value="iny">Iný</option>
+                      </select>
+                    </div>
  
                      <div>
                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
@@ -505,25 +526,6 @@
                      </div>
                    </div>
  
-                   <div className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-border">
-                     <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
-                       Parametre financovania
-                     </p>
-                     <div className="grid grid-cols-3 gap-4 md:gap-6 text-center">
-                       <div>
-                         <p className="font-serif text-xl md:text-2xl text-gold mb-1">50k – 2M €</p>
-                         <p className="text-xs text-muted-foreground">Výška úveru</p>
-                       </div>
-                       <div>
-                         <p className="font-serif text-xl md:text-2xl text-gold mb-1">10–18%</p>
-                         <p className="text-xs text-muted-foreground">Úrok p.a.</p>
-                       </div>
-                       <div>
-                         <p className="font-serif text-xl md:text-2xl text-gold mb-1">6–36</p>
-                         <p className="text-xs text-muted-foreground">Mesiacov</p>
-                       </div>
-                     </div>
-                   </div>
                  </div>
                </div>
              </div>
