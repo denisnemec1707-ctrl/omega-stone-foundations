@@ -293,8 +293,8 @@
  
                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                  {/* Contact Form */}
-                  <div className="bg-charcoal p-6 md:p-8 lg:p-10">
-                    <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8 text-white">
+                  <div className="bg-card p-6 md:p-8 lg:p-10 border border-border shadow-sm">
+                    <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
                       Žiadosť o konzultáciu
                     </h3>
                    
