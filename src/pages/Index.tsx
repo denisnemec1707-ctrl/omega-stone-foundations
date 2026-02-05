@@ -123,7 +123,7 @@ const Index = () => {
                    Zabezpečené investície
                  </p>
                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-4 sm:mb-6 text-foreground">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-4 sm:mb-6 text-white">
                   Fixný výnos <span className="text-gold">10% ročne</span>
                 </h2>
                <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
@@ -191,7 +191,7 @@ const Index = () => {
                    Začnite investovať
                </p>
                </div>
-                 <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8 text-foreground">
+                 <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb:mb-8 text-white">
                   Máte záujem o <span className="text-gold">investovanie?</span>
                 </h2>
                 <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
