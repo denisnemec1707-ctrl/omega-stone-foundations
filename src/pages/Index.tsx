@@ -1,5 +1,5 @@
  import { Link } from "react-router-dom";
- import { ArrowRight, Building2, Briefcase, Landmark } from "lucide-react";
+ import { ArrowRight, Building2, Briefcase, Landmark, Shield, TrendingUp } from "lucide-react";
  import { Button } from "@/components/ui/button";
  import Header from "@/components/layout/Header";
  import Footer from "@/components/layout/Footer";
@@ -29,14 +29,14 @@ const Index = () => {
                    asChild
                    className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base"
                  >
-                   <a href="#kontakt">Kontaktujte nás</a>
+                   <Link to="/real-estate#kontakt">Investovať do nehnuteľností</Link>
                  </Button>
                  <Button 
                    asChild
                    variant="outline"
                    className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base"
                  >
-                   <Link to="/real-estate">Zistiť viac</Link>
+                   <Link to="/real-estate#preco-investovat">Zistiť viac o investíciách</Link>
                  </Button>
                </div>
              </div>
@@ -113,6 +113,41 @@ const Index = () => {
            </div>
          </section>
  
+         {/* Investment CTA Banner */}
+         <section className="py-12 sm:py-16 md:py-20 bg-charcoal border-y border-border">
+           <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
+             <div className="max-w-4xl mx-auto text-center">
+               <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+                 <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
+                 <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted">
+                   Zabezpečené investície
+                 </p>
+               </div>
+               <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-4 sm:mb-6">
+                 Fixný výnos <span className="text-gold">10% ročne</span>
+               </h2>
+               <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
+                 Mesačné vyplácanie výnosov • Investícia zabezpečená reálnymi nehnuteľnosťami • Minimálna investícia od 10 000 €
+               </p>
+               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+                 <Button 
+                   asChild
+                   className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm"
+                 >
+                   <Link to="/real-estate#kontakt">Začať investovať</Link>
+                 </Button>
+                 <Button 
+                   asChild
+                   variant="outline"
+                   className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm"
+                 >
+                   <Link to="/real-estate#kalkulacka">Vypočítať výnos</Link>
+                 </Button>
+               </div>
+             </div>
+           </div>
+         </section>
+
          {/* About Section */}
           <section className="py-12 sm:py-20 md:py-32 border-t border-border">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
@@ -132,46 +167,51 @@ const Index = () => {
                  Každá investícia je zabezpečená reálnymi aktívami – nehnuteľnosťami, podielmi vo firmách 
                  alebo záložným právom. Transparentnosť a bezpečnosť sú našimi hlavnými hodnotami.
                </p>
+               
+               <div className="mt-8 sm:mt-10">
+                 <Button 
+                   asChild
+                   variant="outline"
+                   className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm"
+                 >
+                   <Link to="/real-estate">Preskúmať investičné možnosti</Link>
+                 </Button>
+               </div>
              </div>
            </div>
          </section>
  
          {/* Contact CTA */}
-          <section id="kontakt" className="py-12 sm:py-20 md:py-32 border-t border-border">
+          <section id="kontakt" className="py-12 sm:py-20 md:py-32 border-t border-border bg-charcoal">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
              <div className="max-w-3xl mx-auto text-center">
-                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
-                 Kontaktujte nás
+               <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+                 <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
+                 <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted">
+                   Začnite investovať
                </p>
+               </div>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8">
-                 Začnime <span className="text-gold">spoluprácu</span>
+                 Máte záujem o <span className="text-gold">investovanie?</span>
                </h2>
                 <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
-                 Či už máte záujem o investovanie, predaj firmy alebo financovanie vášho projektu, 
-                 radi sa s vami spojíme.
+                 Zistite viac o našich zabezpečených investíciách do nehnuteľností s fixným výnosom 10% ročne.
                </p>
                
-                <div className="space-y-5 sm:space-y-6">
-                 <div>
-                    <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                     Email
-                   </p>
-                   <a 
-                     href="mailto:info@assetra.sk" 
-                      className="text-lg sm:text-xl md:text-2xl text-foreground hover:text-gold active:text-gold transition-colors inline-block py-1"
-                   >
-                     info@assetra.sk
-                   </a>
-                 </div>
-                 
-                 <div>
-                    <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                     Sídlo
-                   </p>
-                    <p className="text-lg sm:text-xl md:text-2xl text-foreground">
-                     Bratislava, Slovensko
-                   </p>
-                 </div>
+               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+                 <Button 
+                   asChild
+                   className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-8 sm:px-10 text-sm md:text-base"
+                 >
+                   <Link to="/real-estate#kontakt">Chcem investovať</Link>
+                 </Button>
+                 <Button 
+                   asChild
+                   variant="outline"
+                   className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-12 md:h-14 px-8 sm:px-10 text-sm md:text-base"
+                 >
+                   <Link to="/real-estate">Dozvedieť sa viac</Link>
+                 </Button>
                </div>
              </div>
            </div>
