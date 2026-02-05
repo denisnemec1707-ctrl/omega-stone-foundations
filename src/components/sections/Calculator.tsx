@@ -101,8 +101,8 @@ const Calculator = () => {
               </div>
             </div>
             
-             <div className="bg-charcoal p-5 sm:p-6 md:p-8 lg:p-12">
-               <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 text-center">Vaše výnosy</h3>
+             <div className="bg-card p-5 sm:p-6 md:p-8 lg:p-12 border border-border shadow-sm">
+               <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 text-center text-foreground">Vaše výnosy</h3>
               
                <div className="space-y-4 sm:space-y-6 md:space-y-8">
                  <div className="text-center pb-4 sm:pb-6 md:pb-8 border-b border-border">
