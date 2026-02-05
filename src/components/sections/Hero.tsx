@@ -1,16 +1,10 @@
-import heroMarble from "@/assets/hero-marble.jpg";
 import { Button } from "@/components/ui/button";
  import { Link } from "react-router-dom";
  import { ArrowLeft } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: `url(${heroMarble})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+    <section className="relative min-h-screen flex items-center justify-center bg-background">
       
        <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-16 text-center pt-16 sm:pt-20">
          <Link 
