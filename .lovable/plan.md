@@ -1,8 +1,6 @@
-
-# Animácie pre podstránky Private Equity a Private Credit
+# Animácie pre podstránky Private Equity a Private Credit ✅ HOTOVO
 
 ## Prehľad
-
 Podstránky Private Equity a Private Credit majú vlastné sekcie, ktoré momentálne nemajú žiadne animácie. Využijeme už vytvorené animačné komponenty (`AnimatedSection`, `StaggerContainer`, `StaggerItem`, `AnimatedCounter`) pre konzistentný vzhľad s hlavnou stránkou.
 
 ---
