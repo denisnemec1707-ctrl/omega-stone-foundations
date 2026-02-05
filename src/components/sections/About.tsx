@@ -6,7 +6,7 @@ const About = () => {
            <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
              O ASSETRA investments
           </p>
-           <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md mb-6 sm:mb-8 md:mb-12 leading-tight">
+           <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md mb-6 sm:mb-8 md:mb-12 leading-tight text-foreground">
             Špecialisti na realitné <span className="text-gold">akvizície</span>
           </h2>
            <div className="space-y-4 md:space-y-6 text-muted-foreground font-light text-sm sm:text-base md:text-lg leading-relaxed">

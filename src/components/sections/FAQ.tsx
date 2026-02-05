@@ -49,7 +49,7 @@ const FAQ = () => {
              <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
               Časté otázky
             </p>
-             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md">
+             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md text-foreground">
               Často kladené <span className="text-gold">otázky</span>
             </h2>
           </div>
@@ -61,7 +61,7 @@ const FAQ = () => {
                 value={`item-${index}`}
                  className="border border-border px-4 sm:px-4 md:px-6 data-[state=open]:border-gold transition-colors"
               >
-                 <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-gold py-4 sm:py-4 md:py-6">
+                 <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-gold py-4 sm:py-4 md:py-6 text-foreground">
                   {faq.question}
                 </AccordionTrigger>
                  <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-4 md:pb-6">
