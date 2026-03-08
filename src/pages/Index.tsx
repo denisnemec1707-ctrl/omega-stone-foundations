@@ -157,7 +157,7 @@ const Index = () => {
             title="Nehnuteľnosti a realitný flipping"
             description="Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame s výrazným zhodnotením."
             image={verticalRealestate}
-            href="/real-estate"
+            href="/nehnutelnosti"
           />
           <VerticalCard
             title="Zabezpečené úvery"
