@@ -169,7 +169,7 @@ const Index = () => {
             title="Akvizície a private equity"
             description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty."
             image={verticalEquity}
-            href="/private-equity"
+            href="/akvizicie"
           />
         </section>
 
