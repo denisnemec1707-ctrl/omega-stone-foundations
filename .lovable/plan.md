@@ -1,138 +1,37 @@
 
-# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
 
-## Prehľad
+## Plan: Portfólio a Kariéra podstránky
 
-Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
+### 1. Stránka Naše portfólio (`/projekty`)
 
-1. **Page Transitions** - plynulé prechody medzi stránkami
-2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
-3. **Header Animation** - dynamický header reagujúci na scroll
+**Nový súbor `src/pages/Portfolio.tsx`**:
+- SubpageHero s nadpisom "Naše portfólio"
+- Sekcia s kartami spoločností (logo + popis):
+  - **Ensola** -- predaj a montáž tepelných čerpadiel, smart home riešení a fotovoltiky (logo z uploadu)
+  - **Woodsteel** -- výroba zasklení, pergol a zimných záhrad, pôsobí v SK, CZ, AT (logo z uploadu)
+  - **History Caffe & Bakery** -- lokálna kaviareň s pekárňou (logo z uploadu)
+  - **EUROSCAFF** -- stavebná spoločnosť / personálna agentúra v stavebníctve na nemeckom trhu
+- Sekcia **Realitný projekt Nové Šútovce 1** -- fotky pozemkov z uploadu, popis parciel, spolupráca s BAK spol. s.r.o.
+- Sekcia **Crossrock Capital** -- zmienka o minulej spolupráci, logo z uploadu, text o desiatky zobchodovaných nehnuteľností
+- Info banner o prebiehajúcej akvizícii spoločnosti zameranej na obchod s hútnickým materiálom
 
----
+### 2. Stránka Kariéra (`/kariera`)
 
-## 1. Page Transitions (Prechody medzi stránkami)
+**Nový súbor `src/pages/Careers.tsx`**:
+- SubpageHero s nadpisom "Kariéra"
+- Popis: hľadáme obchodných zástupcov a projektových manažérov pre naše firmy
+- Karty s pozíciami (Obchodný zástupca, Projektový manažér) s popisom a požiadavkami
+- Kontaktný formulár alebo CTA s emailom pre záujemcov
 
-### Čo to urobí:
-- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
-- Nová stránka sa plynulo "objaví" (fade-in)
-- Stránka pôsobí ako jedna súvislá aplikácia
+### 3. Zmeny v existujúcich súboroch
 
-### Technická implementácia:
+- **`src/App.tsx`** -- pridať routes `/projekty` a `/kariera`
+- **`src/components/layout/Header.tsx`** -- pridať "Portfólio" a "Kariéra" do navigácie
+- **`src/components/layout/Footer.tsx`** -- pridať linky na nové stránky
+- **Assets** -- skopírovať uploadnuté obrázky (logá firiem, fotky Šútovce, Crossrock) do `src/assets/`
 
-**Nový súbor `src/components/PageTransition.tsx`:**
-```text
-- Wrapper komponent využívajúci AnimatePresence z framer-motion
-- Fade + jemný posun nahor pri vstupe
-- Fade + jemný posun nadol pri odchode
-- Trvanie: 300ms
-```
+### Súhrn
+- 2 nové stránky
+- 7 obrázkov skopírovaných do assets
+- 3 upravené súbory (App, Header, Footer)
 
-**Úprava `src/App.tsx`:**
-```text
-- Import PageTransition komponentu
-- Obalenie Routes do AnimatePresence
-- Každá Route dostane PageTransition wrapper
-- Použitie location.key pre správne animácie
-```
-
----
-
-## 2. Scroll Progress Indicator
-
-### Čo to urobí:
-- Tenká zlatá línia priamo pod headerom
-- Začína na 0% šírky, končí na 100% šírky
-- Vizuálne ukazuje koľko stránky používateľ prešiel
-
-### Technická implementácia:
-
-**Nový súbor `src/components/ScrollProgress.tsx`:**
-```text
-- Použitie framer-motion useScroll hook
-- Sticky pozícia pod headerom (top: výška headeru)
-- Zlatá farba (bg-gold)
-- Výška: 2px
-- scaleX transformácia podľa scrollYProgress
-- transformOrigin: left
-```
-
-**Úprava `src/App.tsx`:**
-```text
-- Import ScrollProgress komponentu
-- Umiestnenie pod BrowserRouter, pred Routes
-```
-
----
-
-## 3. Header Animation
-
-### Čo to urobí:
-- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
-- Zvýši sa backdrop blur a priehľadnosť pozadia
-- Logo sa jemne zmenší
-- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
-- Hover efekt na logo (zlatá farba)
-
-### Technická implementácia:
-
-**Úprava `src/components/layout/Header.tsx`:**
-```text
-- Nový custom hook pre sledovanie scroll pozície
-- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
-- Animácie:
-  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
-  - Background: bg-background/80 → bg-background/95
-  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
-  - Logo: text-xl → text-lg s transition
-- Hover efekt na logo pomocou framer-motion
-```
-
----
-
-## Vizuálny príklad
-
-```text
-+----------------------------------------------------------+
-|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
-|=========================================================|← Scroll Progress (0%)
-|                                                          |
-|            Súkromná investičná spoločnosť                |
-|                                                          |
-+----------------------------------------------------------+
-
-        ↓ Po scrollovaní 50px+ ↓
-
-+----------------------------------------------------------+
-| ASSETRA investments   RE  PE  PC      [Header - compact] |
-|===========================|← Scroll Progress (50%)       |
-|                                                          |
-```
-
----
-
-## Súbory na vytvorenie
-
-| Súbor | Účel |
-|-------|------|
-| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
-| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
-| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
-
-## Súbory na úpravu
-
-| Súbor | Zmeny |
-|-------|-------|
-| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
-| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
-
----
-
-## Očakávaný výsledok
-
-Po implementácii:
-- Stránka bude pôsobiť ako profesionálna single-page aplikácia
-- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
-- Header bude reagovať na interakciu a pôsobiť dynamicky
-- Všetky animácie budú rýchle (200-400ms) a nenápadné
-- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`
