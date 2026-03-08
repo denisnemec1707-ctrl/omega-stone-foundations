@@ -44,7 +44,7 @@ const Calculator = () => {
               Vypočítajte si svoje <span className="text-gold">výnosy</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed px-2 sm:px-0">
-              Pozrite sa, koľko by ste zarobili s fixným 10% ročným výnosom od ASSETRA.
+              Pozrite sa, koľko by ste zarobili s fixným 12% ročným výnosom od ASSETRA.
             </p>
           </AnimatedSection>
 
