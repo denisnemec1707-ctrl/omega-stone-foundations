@@ -1,63 +1,138 @@
 
+# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
 
-## Prekopanie štruktúry podstránok
+## Prehľad
 
-### Nové URL a názvy v navigácii
+Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
 
+1. **Page Transitions** - plynulé prechody medzi stránkami
+2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
+3. **Header Animation** - dynamický header reagujúci na scroll
+
+---
+
+## 1. Page Transitions (Prechody medzi stránkami)
+
+### Čo to urobí:
+- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
+- Nová stránka sa plynulo "objaví" (fade-in)
+- Stránka pôsobí ako jedna súvislá aplikácia
+
+### Technická implementácia:
+
+**Nový súbor `src/components/PageTransition.tsx`:**
 ```text
-Aktuálne                    →  Nové
-/real-estate                →  /nehnutelnosti
-/private-equity             →  /akvizicie
-/private-credit             →  /uvery
-/pre-investorov             →  /pre-investorov (bez zmeny)
+- Wrapper komponent využívajúci AnimatePresence z framer-motion
+- Fade + jemný posun nahor pri vstupe
+- Fade + jemný posun nadol pri odchode
+- Trvanie: 300ms
 ```
 
-Navigácia (Header):
+**Úprava `src/App.tsx`:**
 ```text
-Domov | Nehnuteľnosti | Akvizície | Úvery | Pre investorov
+- Import PageTransition komponentu
+- Obalenie Routes do AnimatePresence
+- Každá Route dostane PageTransition wrapper
+- Použitie location.key pre správne animácie
 ```
 
-### Cieľ každej podstránky
+---
 
-1. **Nehnuteľnosti** (`/nehnutelnosti`) -- informačná stránka "čo robíme". Cieľ: budovať dôveru a poslať na `/pre-investorov`.
-2. **Akvizície** (`/akvizicie`) -- informačná + duálne CTA: investori → `/pre-investorov`, majitelia firiem → kontakt.
-3. **Úvery** (`/uvery`) -- stránka pre dlžníkov. CTA: "Požiadať o financovanie" (vlastný kontaktný formulár alebo mailto).
-4. **Pre investorov** -- konverzný hub. Bez zmien v obsahu.
+## 2. Scroll Progress Indicator
 
-### Zmeny po súboroch
+### Čo to urobí:
+- Tenká zlatá línia priamo pod headerom
+- Začína na 0% šírky, končí na 100% šírky
+- Vizuálne ukazuje koľko stránky používateľ prešiel
 
-**1. `src/components/layout/Header.tsx`** (riadky 7-11)
-- Premenovať labels a href na slovenské URL
+### Technická implementácia:
 
-**2. `src/App.tsx`** (riadky 37, 45, 53)
-- Zmeniť route paths: `/real-estate` → `/nehnutelnosti`, `/private-equity` → `/akvizicie`, `/private-credit` → `/uvery`
+**Nový súbor `src/components/ScrollProgress.tsx`:**
+```text
+- Použitie framer-motion useScroll hook
+- Sticky pozícia pod headerom (top: výška headeru)
+- Zlatá farba (bg-gold)
+- Výška: 2px
+- scaleX transformácia podľa scrollYProgress
+- transformOrigin: left
+```
 
-**3. `src/pages/Index.tsx`** (riadky 160, 166, 172)
-- Aktualizovať href v VerticalCard komponentoch na nové URL
+**Úprava `src/App.tsx`:**
+```text
+- Import ScrollProgress komponentu
+- Umiestnenie pod BrowserRouter, pred Routes
+```
 
-**4. `src/pages/RealEstate.tsx`**
-- Celé prepísanie obsahu so zameraním na "čo robíme":
-  - Hero: label "Náš sektor", title "Nehnuteľnosti", accent "a realitný flipping"
-  - About: popis obchodného modelu
-  - Sekcia "Ako funguje flipping" (proces v 4 krokoch) -- existujúce kroky sú dobré
-  - Štatistiky o marži a cykloch -- existujúce sú dobré
-  - CTA na `/pre-investorov` -- existujúce je dobré
-  - Odstráni sa investorský jazyk z About (nahradí sa opisom čomu sa venujeme)
+---
 
-**5. `src/pages/PrivateEquity.tsx`**
-- Obsah zostáva v poriadku, len sa pridá druhé CTA pre majiteľov firiem ("Predávate firmu?")
-- CTA blok na konci rozšíriť o duálne tlačidlá
+## 3. Header Animation
 
-**6. `src/pages/PrivateCredit.tsx`** (riadky 184-188)
-- CTA link zmeniť z `/pre-investorov#kontakt` na `mailto:` alebo vlastnú sekciu s kontaktným formulárom pre dlžníkov
-- Odstrániť akýkoľvek investorský jazyk
+### Čo to urobí:
+- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
+- Zvýši sa backdrop blur a priehľadnosť pozadia
+- Logo sa jemne zmenší
+- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
+- Hover efekt na logo (zlatá farba)
 
-**7. `src/components/layout/Footer.tsx`**
-- Žiadne zmeny potrebné (linky sú na `/pre-investorov`)
+### Technická implementácia:
 
-### Súhrn
-- 6 súborov sa upraví
-- Žiadne nové súbory
-- Všetky interné linky sa aktualizujú na slovenské URL
-- Obsah podstránok sa doladí podľa cieľa každej stránky
+**Úprava `src/components/layout/Header.tsx`:**
+```text
+- Nový custom hook pre sledovanie scroll pozície
+- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
+- Animácie:
+  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
+  - Background: bg-background/80 → bg-background/95
+  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
+  - Logo: text-xl → text-lg s transition
+- Hover efekt na logo pomocou framer-motion
+```
 
+---
+
+## Vizuálny príklad
+
+```text
++----------------------------------------------------------+
+|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
+|=========================================================|← Scroll Progress (0%)
+|                                                          |
+|            Súkromná investičná spoločnosť                |
+|                                                          |
++----------------------------------------------------------+
+
+        ↓ Po scrollovaní 50px+ ↓
+
++----------------------------------------------------------+
+| ASSETRA investments   RE  PE  PC      [Header - compact] |
+|===========================|← Scroll Progress (50%)       |
+|                                                          |
+```
+
+---
+
+## Súbory na vytvorenie
+
+| Súbor | Účel |
+|-------|------|
+| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
+| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
+| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
+
+## Súbory na úpravu
+
+| Súbor | Zmeny |
+|-------|-------|
+| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
+| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
+
+---
+
+## Očakávaný výsledok
+
+Po implementácii:
+- Stránka bude pôsobiť ako profesionálna single-page aplikácia
+- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
+- Header bude reagovať na interakciu a pôsobiť dynamicky
+- Všetky animácie budú rýchle (200-400ms) a nenápadné
+- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`

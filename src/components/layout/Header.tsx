@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Domov" },
-  { href: "/real-estate", label: "Real Estate" },
-  { href: "/private-equity", label: "Private Equity" },
-  { href: "/private-credit", label: "Private Credit" },
+  { href: "/nehnutelnosti", label: "Nehnuteľnosti" },
+  { href: "/akvizicie", label: "Akvizície" },
+  { href: "/uvery", label: "Úvery" },
   { href: "/pre-investorov", label: "Pre investorov" },
 ];
 

@@ -157,19 +157,19 @@ const Index = () => {
             title="Nehnuteľnosti a realitný flipping"
             description="Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame s výrazným zhodnotením."
             image={verticalRealestate}
-            href="/real-estate"
+            href="/nehnutelnosti"
           />
           <VerticalCard
             title="Zabezpečené úvery"
             description="Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície a stabilné, rizikovo vyvážené výnosy."
             image={verticalCredit}
-            href="/private-credit"
+            href="/uvery"
           />
           <VerticalCard
             title="Akvizície a private equity"
             description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty."
             image={verticalEquity}
-            href="/private-equity"
+            href="/akvizicie"
           />
         </section>
 

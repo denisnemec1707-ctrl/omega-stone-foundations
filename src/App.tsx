@@ -34,7 +34,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/real-estate"
+          path="/nehnutelnosti"
           element={
             <PageTransition>
               <RealEstate />
@@ -42,7 +42,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/private-equity"
+          path="/akvizicie"
           element={
             <PageTransition>
               <PrivateEquity />
@@ -50,7 +50,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/private-credit"
+          path="/uvery"
           element={
             <PageTransition>
               <PrivateCredit />

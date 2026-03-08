@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -181,13 +180,13 @@ const PrivateCredit = () => {
                     Kontaktujte nás s popisom vášho projektu. Ozveme sa vám do 5 pracovných dní.
                   </p>
                 </div>
-                <Link
-                  to="/pre-investorov#kontakt"
+                <a
+                  href="mailto:info@assetra.sk?subject=Žiadosť o financovanie"
                   className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
                 >
                   Požiadať o financovanie
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                </a>
               </div>
             </AnimatedSection>
           </div>

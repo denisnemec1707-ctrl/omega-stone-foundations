@@ -11,13 +11,13 @@ const PrivateEquity = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title="Akvizície a private equity | ASSETRA Investments"
-        description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Dlhodobé partnerstvá s dôrazom na rast."
+        title="Akvizície firiem | ASSETRA Investments"
+        description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Férovú cenu a diskrétny proces."
       />
       <Header />
       <main>
         <SubpageHero
-          label="Private Equity"
+          label="Náš sektor"
           title="Akvizície"
           titleAccent="zabehnutých firiem"
           description="Hľadáme fungujúce, ziskové firmy na slovenskom a českom trhu. Ponúkame férovú cenu a diskrétny proces."
@@ -101,30 +101,48 @@ const PrivateEquity = () => {
           </section>
         </AnimatedSection>
 
-        {/* CTA to Investor page */}
-        <AnimatedSection>
-          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
-            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
-                <div className="max-w-2xl">
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
+        {/* Dual CTA */}
+        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
+          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection>
+              <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+                {/* For investors */}
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-primary-foreground">
                     Máte záujem investovať?
                   </h2>
-                  <p className="text-muted-foreground font-light text-base sm:text-lg leading-relaxed">
-                    Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami.
+                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                    Investujte do akvizícií firiem s fixným ročným výnosom. Vyplňte nezáväzný formulár.
                   </p>
+                  <Link
+                    to="/pre-investorov#kontakt"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start mt-2"
+                  >
+                    Chcem investovať
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
                 </div>
-                <Link
-                  to="/pre-investorov#kontakt"
-                  className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-foreground/30 text-foreground hover:bg-foreground/5 transition-colors text-base sm:text-lg self-start"
-                >
-                  Chcem investovať
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+
+                {/* For business owners */}
+                <div className="flex flex-col gap-4 md:border-l md:border-primary-foreground/10 md:pl-16">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-primary-foreground">
+                    Predávate firmu?
+                  </h2>
+                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                    Hľadáme zabehnuté firmy na odkúpenie. Diskrétny proces, férová cena. Ozvite sa nám.
+                  </p>
+                  <a
+                    href="mailto:info@assetra.sk?subject=Predaj firmy"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start mt-2"
+                  >
+                    Kontaktovať nás
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                </div>
               </div>
-            </div>
-          </section>
-        </AnimatedSection>
+            </AnimatedSection>
+          </div>
+        </section>
 
         <div className="h-8 sm:h-12" />
       </main>
