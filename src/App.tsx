@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import RealEstate from "./pages/RealEstate";
 import PrivateEquity from "./pages/PrivateEquity";
 import PrivateCredit from "./pages/PrivateCredit";
+import ForInvestors from "./pages/ForInvestors";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
