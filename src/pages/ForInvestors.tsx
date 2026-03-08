@@ -112,7 +112,7 @@ const ForInvestors = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Pre investorov | ASSETRA Investments"
-        description="Investujte s istotou. Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+        description="Investujte s istotou. Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
       />
       <Header />
       <main>
