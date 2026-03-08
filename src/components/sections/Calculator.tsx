@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Calculator = () => {
   const [investment, setInvestment] = useState(50000);
   const [duration, setDuration] = useState(12);
-  const annualRate = 0.10;
+  const annualRate = 0.12;
 
   const calculations = useMemo(() => {
     const monthlyRate = annualRate / 12;
