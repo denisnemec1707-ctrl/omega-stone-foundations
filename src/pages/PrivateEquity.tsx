@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, Building, Users, TrendingUp } from "lucide-react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SubpageHero from "@/components/sections/SubpageHero";
+import SectionBlock from "@/components/sections/SectionBlock";
+import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,144 +18,43 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import verticalEquity from "@/assets/vertical-equity.jpg";
 
 const criteria = [
-  {
-    icon: TrendingUp,
-    title: "Obrat 1–10 mil. €",
-    description: "Hľadáme firmy s ročným obratom v rozmedzí 1 až 10 miliónov eur.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Ziskovosť",
-    description: "Firma musí byť zisková minimálne 2 roky po sebe s čistým ziskom nad 100 000 €.",
-  },
-  {
-    icon: Building,
-    title: "SK/CZ trh",
-    description: "Zameriavame sa na slovenský a český trh s potenciálom regionálnej expanzie.",
-  },
-  {
-    icon: Users,
-    title: "Stabilný tím",
-    description: "Preferujeme firmy so zabehnutým manažmentom a lojálnym tímom zamestnancov.",
-  },
-];
-
-const process = [
-  {
-    step: "01",
-    title: "Prvotný kontakt",
-    description: "Nezáväzná konzultácia o vašej firme a vašich cieľoch. Podpíšeme NDA pre ochranu citlivých informácií.",
-  },
-  {
-    step: "02",
-    title: "Due diligence",
-    description: "Detailná analýza finančných výkazov, právnych záležitostí a obchodného modelu.",
-  },
-  {
-    step: "03",
-    title: "Ocenenie a ponuka",
-    description: "Pripravíme férovú ponuku na základe trhového ocenenia a potenciálu firmy.",
-  },
-  {
-    step: "04",
-    title: "Uzavretie transakcie",
-    description: "Finalizácia právnych dokumentov a prevod vlastníctva s možnosťou postupného odkúpenia.",
-  },
+  { value: "1–10 mil. €", label: "Obrat", desc: "Hľadáme firmy s ročným obratom v rozmedzí 1 až 10 miliónov eur." },
+  { value: "2+ roky", label: "Ziskovosť", desc: "Firma musí byť zisková minimálne 2 roky po sebe." },
+  { value: "SK/CZ", label: "Trh", desc: "Zameriavame sa na slovenský a český trh s potenciálom expanzie." },
+  { value: "Stabilný", label: "Tím", desc: "Preferujeme firmy so zabehnutým manažmentom a lojálnym tímom." },
 ];
 
 const faqs = [
-  {
-    question: "Aké typy firiem hľadáte?",
-    answer: "Hľadáme zabehnuté, ziskové firmy s obratom 1–10 mil. € v rôznych odvetviach – výroba, služby, e-commerce, IT. Preferujeme firmy s jasným obchodným modelom a stabilnou zákazníckou základňou.",
-  },
-  {
-    question: "Ako dlho trvá celý proces akvizície?",
-    answer: "Štandardne 3–6 mesiacov od prvého kontaktu po uzavretie transakcie. Závisí to od komplexnosti firmy a pripravenosti dokumentácie.",
-  },
-  {
-    question: "Čo sa stane so zamestnancami po akvizícii?",
-    answer: "Zamestnanci sú kľúčovou hodnotou každej firmy. Naším cieľom je zachovať stabilný tím a prípadne ho ďalej rozvíjať. Nepristupujeme k hromadnému prepúšťaniu.",
-  },
-  {
-    question: "Môžem ostať vo firme po predaji?",
-    answer: "Áno, ponúkame rôzne modely spolupráce – od úplného odchodu až po pokračovanie v manažérskej pozícii alebo poradenstvo počas prechodného obdobia.",
-  },
-  {
-    question: "Ako stanovujete cenu firmy?",
-    answer: "Používame kombináciu metód – násobok EBITDA, diskontované cash flow a porovnanie s podobnými transakciami na trhu. Vždy hľadáme férovú cenu pre obe strany.",
-  },
+  { question: "Aké typy firiem hľadáte?", answer: "Hľadáme zabehnuté, ziskové firmy s obratom 1–10 mil. € v rôznych odvetviach – výroba, služby, e-commerce, IT." },
+  { question: "Ako dlho trvá celý proces akvizície?", answer: "Štandardne 3–6 mesiacov od prvého kontaktu po uzavretie transakcie." },
+  { question: "Čo sa stane so zamestnancami po akvizícii?", answer: "Zamestnanci sú kľúčovou hodnotou. Naším cieľom je zachovať stabilný tím a ďalej ho rozvíjať." },
+  { question: "Môžem ostať vo firme po predaji?", answer: "Áno, ponúkame rôzne modely spolupráce – od úplného odchodu až po pokračovanie v manažérskej pozícii." },
+  { question: "Ako stanovujete cenu firmy?", answer: "Používame kombináciu metód – násobok EBITDA, diskontované cash flow a porovnanie s podobnými transakciami." },
 ];
 
 const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(1, { message: "Meno je povinné" })
-    .max(100, { message: "Meno môže mať maximálne 100 znakov" }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: "Neplatná emailová adresa" })
-    .max(255, { message: "Email môže mať maximálne 255 znakov" }),
-  phone: z
-    .string()
-    .trim()
-    .max(20, { message: "Telefón môže mať maximálne 20 znakov" })
-    .optional()
-    .or(z.literal("")),
-  companyName: z
-    .string()
-    .trim()
-    .min(1, { message: "Názov firmy je povinný" })
-    .max(200, { message: "Názov firmy môže mať maximálne 200 znakov" }),
-  companyTurnover: z
-    .string()
-    .trim()
-    .optional()
-    .or(z.literal("")),
-  message: z
-    .string()
-    .trim()
-    .max(1000, { message: "Správa môže mať maximálne 1000 znakov" })
-    .optional()
-    .or(z.literal("")),
+  name: z.string().trim().min(1, { message: "Meno je povinné" }).max(100),
+  email: z.string().trim().email({ message: "Neplatná emailová adresa" }).max(255),
+  phone: z.string().trim().max(20).optional().or(z.literal("")),
+  companyName: z.string().trim().min(1, { message: "Názov firmy je povinný" }).max(200),
+  companyTurnover: z.string().trim().optional().or(z.literal("")),
+  message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const PrivateEquity = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({ resolver: zodResolver(contactSchema) });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Private Equity form submitted:", {
-      name: data.name,
-      email: data.email,
-      hasPhone: !!data.phone,
-      companyName: data.companyName,
-      companyTurnover: data.companyTurnover,
-      messageLength: data.message?.length || 0,
-    });
-    
-    toast.success("Žiadosť bola odoslaná", {
-      description: "Budeme vás kontaktovať do 48 hodín.",
-    });
-    
+    await new Promise((r) => setTimeout(r, 1000));
+    console.log("PE form:", { name: data.name, email: data.email });
+    toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 48 hodín." });
     reset();
     setIsSubmitting(false);
   };
@@ -163,334 +63,144 @@ const PrivateEquity = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="min-h-[60vh] sm:min-h-[70vh] flex items-center pt-16 sm:pt-20">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <AnimatedSection direction="left">
-              <Link 
-                to="/" 
-                className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-wide uppercase text-muted-foreground hover:text-gold active:text-gold transition-colors mb-6 sm:mb-8 py-2"
-              >
-                <ArrowLeft className="w-4 h-4" /> Späť na hlavnú
-              </Link>
-            </AnimatedSection>
-            
-            <div className="max-w-4xl">
-              <AnimatedSection delay={0.1} direction="down">
-                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
-                  Private Equity
-                </p>
-              </AnimatedSection>
-              <AnimatedSection delay={0.2}>
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-display-md lg:text-display-lg mb-6 sm:mb-8 leading-tight">
-                  Akvizície <span className="text-gold">zabehnutých firiem</span>
-                </h1>
-              </AnimatedSection>
-              <AnimatedSection delay={0.3}>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl">
-                  Hľadáme fungujúce, ziskové firmy na slovenskom a českom trhu. 
-                  Ponúkame férovú cenu, diskrétny proces a rôzne modely spolupráce po akvizícii.
-                </p>
-              </AnimatedSection>
-            </div>
-          </div>
-        </section>
+        <SubpageHero
+          label="Private Equity"
+          title="Akvizície"
+          titleAccent="zabehnutých firiem"
+          description="Hľadáme fungujúce, ziskové firmy na slovenskom a českom trhu. Ponúkame férovú cenu a diskrétny proces."
+          image={verticalEquity}
+        />
 
-        {/* Criteria Section */}
-        <section className="py-12 sm:py-20 md:py-32 border-t border-border">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <AnimatedSection className="text-center mb-10 sm:mb-16">
-              <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
-                Investičné kritériá
-              </p>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
-                Aké firmy <span className="text-gold">hľadáme</span>
-              </h2>
-            </AnimatedSection>
+        {/* Criteria */}
+        <SectionBlock label="Investičné kritériá" title="Aké firmy" titleAccent="hľadáme" description="Zameriavame sa na zabehnuté firmy s jasným potenciálom rastu.">
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {criteria.map((item, i) => (
+              <StaggerItem key={i} className="text-center">
+                <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary mb-2 sm:mb-3">{item.value}</p>
+                <h3 className="font-serif text-sm sm:text-base md:text-lg mb-1 sm:mb-2">{item.label}</h3>
+                <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </SectionBlock>
 
-            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
-              {criteria.map((item, index) => (
-                <StaggerItem key={index}>
-                  <motion.div 
-                    className="bg-card p-4 sm:p-6 lg:p-8 border border-border shadow-sm h-full"
-                    whileHover={{ y: -4, boxShadow: "0 10px 40px -10px rgba(0,0,0,0.3)" }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <item.icon className="w-7 h-7 sm:w-10 sm:h-10 text-gold mb-3 sm:mb-6" />
-                    </motion.div>
-                    <h3 className="font-serif text-base sm:text-xl mb-2 sm:mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                </StaggerItem>
+        {/* Process */}
+        <SectionBlock dark label="Proces akvizície" title="Ako to" titleAccent="funguje" description="Od prvého kontaktu po uzavretie transakcie.">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+            {[
+              { step: "01", title: "Prvotný kontakt", desc: "Nezáväzná konzultácia o vašej firme. Podpíšeme NDA." },
+              { step: "02", title: "Due diligence", desc: "Detailná analýza finančných výkazov a obchodného modelu." },
+              { step: "03", title: "Ocenenie a ponuka", desc: "Férová ponuka na základe trhového ocenenia." },
+              { step: "04", title: "Uzavretie transakcie", desc: "Finalizácia dokumentov a prevod vlastníctva." },
+            ].map((item, i) => (
+              <StaggerItem key={i}>
+                <span className="font-serif text-5xl sm:text-6xl text-primary/20 block mb-2">{item.step}</span>
+                <h3 className="font-serif text-lg sm:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
+                <p className="text-primary-foreground/50 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </SectionBlock>
+
+        {/* FAQ */}
+        <SectionBlock label="Časté otázky" title="Otázky pre" titleAccent="predávajúcich">
+          <div className="max-w-3xl">
+            <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-primary transition-colors">
+                  <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-primary py-4 sm:py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </StaggerContainer>
+            </Accordion>
           </div>
-        </section>
+        </SectionBlock>
 
-        {/* Process Section */}
-        <section className="py-12 sm:py-20 md:py-32 border-t border-border">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <AnimatedSection className="text-center mb-10 sm:mb-16">
-              <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
-                Proces akvizície
-              </p>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
-                Ako to <span className="text-gold">funguje</span>
-              </h2>
+        {/* Contact */}
+        <section id="kontakt" className="py-16 sm:py-24 md:py-32">
+          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+            <AnimatedSection className="mb-10 sm:mb-14">
+              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase text-muted-foreground mb-3">Predávate firmu?</p>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Kontaktujte <span className="text-primary">nás</span></h2>
             </AnimatedSection>
 
-            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8" staggerDelay={0.15}>
-              {process.map((item, index) => (
-                <StaggerItem key={index}>
-                  <div className="relative">
-                    <motion.span 
-                      className="font-serif text-4xl sm:text-6xl text-gold/20 absolute -top-2 sm:-top-4 -left-1 sm:-left-2"
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1, duration: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      {item.step}
-                    </motion.span>
-                    <div className="pt-8 sm:pt-12">
-                      <h3 className="font-serif text-base sm:text-xl mb-2 sm:mb-3">{item.title}</h3>
-                      <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-12 sm:py-20 md:py-32 border-t border-border">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <div className="max-w-3xl mx-auto">
-              <AnimatedSection className="text-center mb-8 sm:mb-12">
-                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
-                  Časté otázky
-                </p>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm">
-                  Otázky pre <span className="text-gold">predávajúcich</span>
-                </h2>
-              </AnimatedSection>
-
-              <StaggerContainer staggerDelay={0.08}>
-                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                  {faqs.map((faq, index) => (
-                    <StaggerItem key={index}>
-                      <AccordionItem 
-                        value={`item-${index}`}
-                        className="border border-border bg-card px-4 sm:px-6 shadow-sm data-[state=open]:border-gold transition-colors"
-                      >
-                        <AccordionTrigger className="text-left font-serif text-base sm:text-lg hover:text-gold hover:no-underline py-4 sm:py-5">
-                          {faq.question}
-                        </AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base pb-4 sm:pb-5">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    </StaggerItem>
-                  ))}
-                </Accordion>
-              </StaggerContainer>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact CTA */}
-        <section id="kontakt" className="py-12 sm:py-20 md:py-32 border-t border-border">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <div className="max-w-5xl mx-auto">
-              <AnimatedSection className="text-center mb-8 sm:mb-12">
-                <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
-                  Predávate firmu?
-                </p>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8">
-                  Kontaktujte <span className="text-gold">nás</span>
-                </h2>
-                <p className="text-muted-foreground font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                  Vyplňte formulár a náš tím sa vám ozve do 48 hodín. Všetky informácie sú prísne dôverné.
-                </p>
-              </AnimatedSection>
-
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                {/* Contact Form */}
-                <AnimatedSection direction="left" delay={0.1}>
-                  <div className="bg-card p-6 md:p-8 lg:p-10 border border-border shadow-sm">
-                    <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
-                      Žiadosť o konzultáciu
-                    </h3>
-                    
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 md:space-y-6">
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Meno a priezvisko *
-                        </label>
-                        <Input
-                          {...register("name")}
-                          placeholder="Ján Novák"
-                          className="bg-background border-border focus:border-gold h-11 md:h-12"
-                        />
-                        {errors.name && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.name.message}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Email *
-                        </label>
-                        <Input
-                          {...register("email")}
-                          type="email"
-                          placeholder="jan.novak@email.sk"
-                          className="bg-background border-border focus:border-gold h-11 md:h-12"
-                        />
-                        {errors.email && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.email.message}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Telefón
-                        </label>
-                        <Input
-                          {...register("phone")}
-                          type="tel"
-                          placeholder="+421 900 000 000"
-                          className="bg-background border-border focus:border-gold h-11 md:h-12"
-                        />
-                        {errors.phone && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.phone.message}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Názov firmy *
-                        </label>
-                        <Input
-                          {...register("companyName")}
-                          placeholder="Vaša spoločnosť s.r.o."
-                          className="bg-background border-border focus:border-gold h-11 md:h-12"
-                        />
-                        {errors.companyName && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.companyName.message}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Ročný obrat firmy
-                        </label>
-                        <select
-                          {...register("companyTurnover")}
-                          className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                        >
-                          <option value="">Vyberte rozsah</option>
-                          <option value="do-1m">Do 1 mil. €</option>
-                          <option value="1-3m">1 – 3 mil. €</option>
-                          <option value="3-5m">3 – 5 mil. €</option>
-                          <option value="5-10m">5 – 10 mil. €</option>
-                          <option value="nad-10m">Nad 10 mil. €</option>
-                        </select>
-                        {errors.companyTurnover && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.companyTurnover.message}</p>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                          Správa
-                        </label>
-                        <Textarea
-                          {...register("message")}
-                          placeholder="Opíšte vašu firmu a dôvod predaja..."
-                          rows={4}
-                          className="bg-background border-border focus:border-gold resize-none"
-                        />
-                        {errors.message && (
-                          <p className="text-destructive text-xs md:text-sm mt-1">{errors.message.message}</p>
-                        )}
-                      </div>
-
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full bg-gold hover:bg-gold/90 text-background font-medium tracking-wide uppercase h-12 md:h-14 text-sm md:text-base"
-                        >
-                          {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
-                        </Button>
-                      </motion.div>
-                    </form>
-                  </div>
-                </AnimatedSection>
-
-                {/* Contact Info */}
-                <AnimatedSection direction="right" delay={0.2}>
-                  <div className="flex flex-col justify-between h-full">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+              <AnimatedSection delay={0.1}>
+                <div className="bg-card p-5 sm:p-8 md:p-10 border border-border">
+                  <h3 className="font-serif text-xl mb-6 sm:mb-8">Žiadosť o konzultáciu</h3>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     <div>
-                      <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
-                        Priamy kontakt
-                      </h3>
-                      
-                      <div className="space-y-6 md:space-y-8">
-                        <div>
-                          <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                            Email
-                          </p>
-                          <a 
-                            href="mailto:equity@assetra.sk" 
-                            className="text-lg md:text-xl text-foreground hover:text-gold transition-colors"
-                          >
-                            equity@assetra.sk
-                          </a>
-                        </div>
-                        
-                        <div>
-                          <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                            Kancelária
-                          </p>
-                          <p className="text-lg md:text-xl text-foreground">
-                            Bratislava, Slovensko
-                          </p>
-                        </div>
-                      </div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Meno *</label>
+                      <Input {...register("name")} placeholder="Ján Novák" className="bg-background border-border focus:border-primary h-11 md:h-12" />
+                      {errors.name && <p className="text-destructive text-xs mt-1">{errors.name.message}</p>}
                     </div>
+                    <div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Email *</label>
+                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-background border-border focus:border-primary h-11 md:h-12" />
+                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email.message}</p>}
+                    </div>
+                    <div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Telefón</label>
+                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-background border-border focus:border-primary h-11 md:h-12" />
+                    </div>
+                    <div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Názov firmy *</label>
+                      <Input {...register("companyName")} placeholder="Vaša spoločnosť s.r.o." className="bg-background border-border focus:border-primary h-11 md:h-12" />
+                      {errors.companyName && <p className="text-destructive text-xs mt-1">{errors.companyName.message}</p>}
+                    </div>
+                    <div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Ročný obrat</label>
+                      <select {...register("companyTurnover")} className="flex h-11 md:h-12 w-full rounded-md border border-border bg-background px-3 py-2 text-sm">
+                        <option value="">Vyberte rozsah</option>
+                        <option value="do-1m">Do 1 mil. €</option>
+                        <option value="1-3m">1 – 3 mil. €</option>
+                        <option value="3-5m">3 – 5 mil. €</option>
+                        <option value="5-10m">5 – 10 mil. €</option>
+                        <option value="nad-10m">Nad 10 mil. €</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">Správa</label>
+                      <Textarea {...register("message")} placeholder="Opíšte vašu firmu..." rows={4} className="bg-background border-border focus:border-primary resize-none" />
+                    </div>
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
+                      {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
+                    </Button>
+                  </form>
+                </div>
+              </AnimatedSection>
 
-                    <div className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-border">
-                      <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
-                        Akvizičné kritériá
-                      </p>
-                      <div className="grid grid-cols-2 gap-4 md:gap-6 text-center">
-                        <div>
-                          <p className="font-serif text-xl md:text-2xl text-gold mb-1">1–10 mil. €</p>
-                          <p className="text-xs text-muted-foreground">Ročný obrat</p>
-                        </div>
-                        <div>
-                          <p className="font-serif text-xl md:text-2xl text-gold mb-1">2+ roky</p>
-                          <p className="text-xs text-muted-foreground">Ziskovosť</p>
-                        </div>
+              <AnimatedSection delay={0.2}>
+                <div>
+                  <h3 className="font-serif text-xl mb-6 sm:mb-8">Priamy kontakt</h3>
+                  <div className="space-y-6 sm:space-y-8">
+                    <div>
+                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Email</p>
+                      <a href="mailto:equity@assetra.sk" className="text-lg sm:text-xl hover:text-primary transition-colors">equity@assetra.sk</a>
+                    </div>
+                    <div>
+                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Kancelária</p>
+                      <p className="text-lg sm:text-xl">Bratislava, Slovensko</p>
+                    </div>
+                  </div>
+                  <div className="mt-10 pt-8 border-t border-border">
+                    <div className="grid grid-cols-2 gap-4 text-center">
+                      <div>
+                        <p className="font-serif text-xl sm:text-2xl text-primary mb-1">1–10 mil. €</p>
+                        <p className="text-xs text-muted-foreground">Ročný obrat</p>
+                      </div>
+                      <div>
+                        <p className="font-serif text-xl sm:text-2xl text-primary mb-1">2+ roky</p>
+                        <p className="text-xs text-muted-foreground">Ziskovosť</p>
                       </div>
                     </div>
                   </div>
-                </AnimatedSection>
-              </div>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </section>

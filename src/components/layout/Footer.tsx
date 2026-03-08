@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         {/* Logo - large ASSETRA text matching hero style */}
         <div className="pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20">
-          <h2 className="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] text-primary-foreground tracking-tight leading-none text-center">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground tracking-tight leading-none text-center">
             ASSETRA
           </h2>
         </div>
