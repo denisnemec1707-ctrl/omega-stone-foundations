@@ -1,15 +1,9 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
 import {
   Accordion,
   AccordionContent,
@@ -27,32 +21,7 @@ const faqs = [
   { question: "Financujete aj fyzické osoby?", answer: "Nie, financujeme výlučne právnické osoby – s.r.o. a a.s." },
 ];
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, { message: "Meno je povinné" }).max(100),
-  email: z.string().trim().email({ message: "Neplatná emailová adresa" }).max(255),
-  phone: z.string().trim().max(20).optional().or(z.literal("")),
-  companyName: z.string().trim().min(1, { message: "Názov spoločnosti je povinný" }).max(200),
-  loanAmount: z.string().trim().optional().or(z.literal("")),
-  loanTerm: z.string().trim().optional().or(z.literal("")),
-  projectType: z.string().trim().optional().or(z.literal("")),
-  message: z.string().trim().min(1, { message: "Popis projektu je povinný" }).max(1000),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 const PrivateCredit = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({ resolver: zodResolver(contactSchema) });
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log("PC form:", { name: data.name, email: data.email });
-    toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 5 pracovných dní." });
-    reset();
-    setIsSubmitting(false);
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -194,104 +163,28 @@ const PrivateCredit = () => {
           </section>
         </AnimatedSection>
 
-        {/* Contact */}
-        <section id="kontakt" className="py-16 sm:py-24 md:py-32 lg:py-40">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                  Kontaktujte nás
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
-                  Máte projekt, ktorý potrebuje financovanie? Vyplňte formulár alebo nás kontaktujte priamo.
-                </p>
+        {/* CTA to Investor page */}
+        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
+          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
+                <div className="max-w-2xl">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4">
+                    Máte záujem investovať?
+                  </h2>
+                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                    Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami.
+                  </p>
+                </div>
+                <Link
+                  to="/pre-investorov#kontakt"
+                  className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
+                >
+                  Chcem investovať
+                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
               </div>
             </AnimatedSection>
-
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-              <AnimatedSection delay={0.1}>
-                <div className="bg-charcoal p-5 sm:p-8 md:p-10 rounded-2xl">
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8 text-primary-foreground">Žiadosť o financovanie</h3>
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Meno *</label>
-                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.name && <p className="text-destructive text-xs mt-1">{errors.name.message}</p>}
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Email *</label>
-                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email.message}</p>}
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Telefón</label>
-                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Spoločnosť *</label>
-                      <Input {...register("companyName")} placeholder="Vaša spoločnosť s.r.o." className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.companyName && <p className="text-destructive text-xs mt-1">{errors.companyName.message}</p>}
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Suma</label>
-                        <select {...register("loanAmount")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal-light text-primary-foreground px-3 py-2 text-sm">
-                          <option value="">Vyberte</option>
-                          <option value="10-50k">10 – 50 tis. €</option>
-                          <option value="50-100k">50 – 100 tis. €</option>
-                          <option value="100-250k">100 – 250 tis. €</option>
-                          <option value="250-500k">250 – 500 tis. €</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Splatnosť</label>
-                        <select {...register("loanTerm")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal-light text-primary-foreground px-3 py-2 text-sm">
-                          <option value="">Vyberte</option>
-                          <option value="3-6m">3 – 6 mes.</option>
-                          <option value="6-12m">6 – 12 mes.</option>
-                          <option value="12-18m">12 – 18 mes.</option>
-                          <option value="18-24m">18 – 24 mes.</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Typ projektu</label>
-                      <select {...register("projectType")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal-light text-primary-foreground px-3 py-2 text-sm">
-                        <option value="">Vyberte</option>
-                        <option value="realitny">Realitný projekt</option>
-                        <option value="podnikatelsky">Podnikateľský úver</option>
-                        <option value="akvizicia">Akvizičné financovanie</option>
-                        <option value="iny">Iný</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Popis projektu *</label>
-                      <Textarea {...register("message")} placeholder="Opíšte váš projekt..." rows={4} className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none" />
-                      {errors.message && <p className="text-destructive text-xs mt-1">{errors.message.message}</p>}
-                    </div>
-                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
-                      {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
-                    </Button>
-                  </form>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2}>
-                <div>
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8">Priamy kontakt</h3>
-                  <div className="space-y-6 sm:space-y-8">
-                    <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Email</p>
-                      <a href="mailto:credit@assetra.sk" className="text-lg sm:text-xl hover:text-muted-foreground transition-colors">credit@assetra.sk</a>
-                    </div>
-                    <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Kancelária</p>
-                      <p className="text-lg sm:text-xl">Bratislava, Slovensko</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
           </div>
         </section>
 

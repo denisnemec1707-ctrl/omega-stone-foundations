@@ -1,18 +1,9 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-import { AnimatedCounter, AnimatedValue } from "@/components/AnimatedCounter";
-import { useState, useMemo } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Slider } from "@/components/ui/slider";
-import { toast } from "sonner";
 import {
   Accordion,
   AccordionContent,
@@ -28,60 +19,18 @@ const faqs = [
   { question: "Ako a kedy sa vyplácajú výnosy?", answer: "Výnosy sa vyplácajú mesačne, priamo na váš bankový účet. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu." },
   { question: "Aké sú riziká investície?", answer: "Primárne riziko je spojené s podmienkami na realitnom trhu. Toto zmierňujeme konzervatívnou akvizíciou — kupujeme iba nehnuteľnosti výrazne pod trhovou hodnotou." },
   { question: "Aká je minimálna výška investície?", answer: "Minimálna investícia je 10 000 €. Väčšie investície môžu kvalifikovať na dodatočné podmienky." },
-  { question: "Môžem vybrať investíciu predčasne?", answer: "Investície sú viazané na dohodnuté obdobie. V mimoriadnych prípadoch môžeme vyhovieť žiadostiam s poplatkom za predčasný výstup." },
 ];
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, { message: "Meno je povinné" }).max(100),
-  email: z.string().trim().email({ message: "Neplatná emailová adresa" }).max(255),
-  phone: z.string().trim().max(20).optional().or(z.literal("")),
-  investmentAmount: z.string().trim().max(50).optional().or(z.literal("")),
-  message: z.string().trim().min(1, { message: "Správa je povinná" }).max(1000),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 const RealEstate = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [investment, setInvestment] = useState(50000);
-  const [duration, setDuration] = useState(12);
-
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
-
-  const calculations = useMemo(() => {
-    const monthlyRate = 0.10 / 12;
-    const monthlyPayout = investment * monthlyRate;
-    const totalReturn = monthlyPayout * duration;
-    return {
-      monthlyPayout: Math.round(monthlyPayout),
-      totalReturn: Math.round(totalReturn),
-      totalAtEnd: Math.round(investment + totalReturn),
-    };
-  }, [investment, duration]);
-
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("sk-SK", { style: "currency", currency: "EUR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Real Estate form submitted:", { name: data.name, email: data.email });
-    toast.success("Správa bola odoslaná", { description: "Budeme vás kontaktovať do 24 hodín." });
-    reset();
-    setIsSubmitting(false);
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
         <SubpageHero
           label="Investícia s fixným výnosom"
-          title="10% ročný výnos"
-          titleAccent="vyplácaný mesačne"
-          description="Váš kapitál je zabezpečený nehnuteľnosťami v nadhodnote. Predvídateľné výnosy podporené reálnymi aktívami."
+          title="Nehnuteľnosti"
+          titleAccent="a realitný flipping"
+          description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Váš kapitál je zabezpečený reálnymi aktívami."
           image={verticalRealestate}
         />
 
@@ -102,10 +51,10 @@ const RealEstate = () => {
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                  Prečo investovať s ASSETRA
+                  Ako funguje realitný flipping
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
-                  Ponúkame jednoduchý investičný model s jasnými podmienkami, predvídateľnými výnosmi a zabezpečením reálnymi aktívami.
+                  Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu prostredníctvom komplexnej rekonštrukcie a následného predaja.
                 </p>
               </div>
             </div>
@@ -188,169 +137,53 @@ const RealEstate = () => {
           </div>
         </section>
 
-        {/* Calculator */}
-        <section id="kalkulacka" className="py-16 sm:py-24 md:py-32 lg:py-40">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                Vypočítajte si svoje výnosy
-              </h2>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
-                <div className="space-y-8 sm:space-y-10">
-                  <div>
-                    <div className="flex justify-between mb-3 sm:mb-4">
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground">Výška investície</label>
-                      <span className="font-serif text-base sm:text-lg"><AnimatedValue value={investment} formatValue={formatCurrency} /></span>
-                    </div>
-                    <Slider value={[investment]} onValueChange={(v) => setInvestment(v[0])} min={10000} max={500000} step={5000}
-                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-6 [&_[role=slider]]:w-6 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
-                    />
-                    <div className="flex justify-between mt-2 text-xs text-muted-foreground"><span>10 000 €</span><span>500 000 €</span></div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between mb-3 sm:mb-4">
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground">Doba investície</label>
-                      <span className="font-serif text-base sm:text-lg"><AnimatedValue value={duration} /> mesiacov</span>
-                    </div>
-                    <Slider value={[duration]} onValueChange={(v) => setDuration(v[0])} min={6} max={24} step={6}
-                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-6 [&_[role=slider]]:w-6 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
-                    />
-                    <div className="flex justify-between mt-2 text-xs text-muted-foreground"><span>6 mesiacov</span><span>24 mesiacov</span></div>
-                  </div>
-                </div>
-
-                <motion.div className="bg-charcoal p-5 sm:p-8 md:p-10 rounded-2xl" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                  <h3 className="font-serif text-lg sm:text-xl mb-6 sm:mb-8 text-center text-primary-foreground">Vaše výnosy</h3>
-                  <div className="space-y-6 sm:space-y-8">
-                    <div className="text-center pb-6 border-b border-primary-foreground/10">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Mesačná výplata</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.monthlyPayout} formatValue={formatCurrency} /></p>
-                    </div>
-                    <div className="text-center pb-6 border-b border-primary-foreground/10">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkový výnos</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalReturn} formatValue={formatCurrency} /></p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkom na konci</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalAtEnd} formatValue={formatCurrency} /></p>
-                      <p className="text-xs text-primary-foreground/30 mt-1">(Istina + Výnosy)</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
-
-        {/* FAQ - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground">
+        {/* FAQ */}
+        <AnimatedSection>
+          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-10 sm:mb-14 md:mb-20">
                 Často kladené otázky
               </h2>
-            </AnimatedSection>
-            <div className="max-w-3xl">
-              <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="border border-primary-foreground/10 px-4 sm:px-6 data-[state=open]:border-primary-foreground/30 transition-colors">
-                    <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-primary-foreground py-4 sm:py-5 text-primary-foreground/70">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-primary-foreground/40 font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <div className="max-w-3xl">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+                  {faqs.map((faq, i) => (
+                    <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-foreground/30 transition-colors">
+                      <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-foreground py-4 sm:py-5 text-foreground/70">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
 
-        {/* Contact */}
-        <section id="kontakt" className="py-16 sm:py-24 md:py-32 lg:py-40">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                  Kontaktujte nás
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
-                  Máte záujem o investíciu alebo otázky? Vyplňte formulár alebo nás kontaktujte priamo.
-                </p>
+        {/* CTA to Investor page */}
+        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
+          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
+                <div className="max-w-2xl">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4">
+                    Máte záujem investovať?
+                  </h2>
+                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                    Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami.
+                  </p>
+                </div>
+                <Link
+                  to="/pre-investorov#kontakt"
+                  className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
+                >
+                  Chcem investovať
+                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
               </div>
             </AnimatedSection>
-
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-              <AnimatedSection delay={0.1}>
-                <div className="bg-charcoal p-5 sm:p-8 md:p-10 rounded-2xl">
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8 text-primary-foreground">Žiadosť o informácie</h3>
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Meno a priezvisko *</label>
-                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.name && <p className="text-destructive text-xs mt-1">{errors.name.message}</p>}
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Email *</label>
-                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email.message}</p>}
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Telefón</label>
-                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Plánovaná investícia</label>
-                      <Input {...register("investmentAmount")} placeholder="napr. 50 000 €" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                    </div>
-                    <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Správa *</label>
-                      <Textarea {...register("message")} placeholder="Vaše investičné ciele alebo otázky..." rows={4} className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none" />
-                      {errors.message && <p className="text-destructive text-xs mt-1">{errors.message.message}</p>}
-                    </div>
-                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
-                      {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
-                    </Button>
-                  </form>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={0.2} className="flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8">Priamy kontakt</h3>
-                  <div className="space-y-6 sm:space-y-8">
-                    <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Email</p>
-                      <a href="mailto:invest@assetra.sk" className="text-lg sm:text-xl hover:text-muted-foreground transition-colors">invest@assetra.sk</a>
-                    </div>
-                    <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Kancelária</p>
-                      <p className="text-lg sm:text-xl">Bratislava, Slovensko</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-10 pt-8 border-t border-border">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1"><AnimatedCounter value={10000} formatValue={(v) => `${v.toLocaleString("sk-SK")} €`} /></p>
-                      <p className="text-xs text-muted-foreground">Min. investícia</p>
-                    </div>
-                    <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1"><AnimatedCounter value={10} suffix="%" /></p>
-                      <p className="text-xs text-muted-foreground">Ročný výnos</p>
-                    </div>
-                    <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1">12–24</p>
-                      <p className="text-xs text-muted-foreground">Mesiacov</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
           </div>
         </section>
 
