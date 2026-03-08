@@ -28,10 +28,10 @@ const Footer = () => {
 
               <div className="flex flex-col gap-4 sm:gap-6 md:items-end md:text-right">
                 <Link
-                  to="/real-estate#kontakt"
+                  to="/pre-investorov#kontakt"
                   className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg md:text-xl self-start md:self-auto"
                 >
-                  info@assetra.sk
+                  Chcem investovať
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
                 <p className="text-primary-foreground/50 text-xs sm:text-sm md:text-base">

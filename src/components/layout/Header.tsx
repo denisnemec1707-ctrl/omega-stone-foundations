@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/real-estate", label: "Real Estate" },
   { href: "/private-equity", label: "Private Equity" },
   { href: "/private-credit", label: "Private Credit" },
+  { href: "/pre-investorov", label: "Pre investorov" },
 ];
 
 const Header = () => {
