@@ -87,7 +87,6 @@ const App = () => (
         <CookieBanner />
         <AnimatedRoutes />
       </BrowserRouter>
-      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

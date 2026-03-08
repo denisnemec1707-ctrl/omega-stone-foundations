@@ -29,7 +29,7 @@ const PrivateEquity = () => {
         description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Dlhodobé partnerstvá s dôrazom na rast."
       />
       <Header />
-        <SubpageHero
+      <main>
           label="Private Equity"
           title="Akvizície"
           titleAccent="zabehnutých firiem"

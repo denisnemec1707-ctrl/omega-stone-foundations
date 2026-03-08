@@ -30,7 +30,7 @@ const RealEstate = () => {
         description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 10% ročný výnos."
       />
       <Header />
-        <SubpageHero
+      <main>
           label="Investícia s fixným výnosom"
           title="Nehnuteľnosti"
           titleAccent="a realitný flipping"
