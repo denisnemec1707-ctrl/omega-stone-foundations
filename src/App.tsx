@@ -67,6 +67,22 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+          path="/ochrana-udajov"
+          element={
+            <PageTransition>
+              <PrivacyPolicy />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/obchodne-podmienky"
+          element={
+            <PageTransition>
+              <Terms />
+            </PageTransition>
+          }
+        />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"
