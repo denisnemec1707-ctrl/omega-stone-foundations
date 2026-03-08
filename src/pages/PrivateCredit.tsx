@@ -25,8 +25,11 @@ const faqs = [
 const PrivateCredit = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Zabezpečené úvery | ASSETRA Investments"
+        description="Poskytujeme financovanie pre právnické osoby a realitné projekty. Rýchle schválenie, flexibilné podmienky a transparentné náklady."
+      />
       <Header />
-      <main>
         <SubpageHero
           label="Private Credit"
           title="Zabezpečené"

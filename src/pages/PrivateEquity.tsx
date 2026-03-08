@@ -24,8 +24,11 @@ const faqs = [
 const PrivateEquity = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Akvizície a private equity | ASSETRA Investments"
+        description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Dlhodobé partnerstvá s dôrazom na rast."
+      />
       <Header />
-      <main>
         <SubpageHero
           label="Private Equity"
           title="Akvizície"
