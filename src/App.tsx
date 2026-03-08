@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ScrollToTop } from "./components/ScrollToTop";
-import { ScrollProgress } from "./components/ScrollProgress";
+
 import { PageTransition } from "./components/PageTransition";
 import Index from "./pages/Index";
 import RealEstate from "./pages/RealEstate";
