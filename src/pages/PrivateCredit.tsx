@@ -66,19 +66,19 @@ const PrivateCredit = () => {
         </AnimatedSection>
 
         {/* Financing Types - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <StaggerContainer className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl">
               {[
                 { title: "Realitné projekty", desc: "Financovanie akvizícií, developmentu a rekonštrukcií nehnuteľností.", params: ["Výška: 10 000 – 500 000 €", "Splatnosť: 3–24 mesiacov", "LTV do 70%"] },
                 { title: "Podnikateľské úvery", desc: "Financovanie prevádzkového kapitálu, akvizícií a expanzie.", params: ["Výška: 10 000 – 500 000 €", "Splatnosť: 3–24 mesiacov", "Zabezpečenie aktívami"] },
               ].map((type, i) => (
                 <StaggerItem key={i}>
-                  <div className="border border-primary-foreground/10 p-5 sm:p-8 h-full rounded-xl">
-                    <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 text-primary-foreground">{type.title}</h3>
-                    <p className="text-sm sm:text-base text-primary-foreground/40 font-light leading-relaxed mb-4">{type.desc}</p>
-                    <ul className="space-y-2">
-                      {type.params.map((p, j) => <li key={j} className="text-xs sm:text-sm text-primary-foreground/60">• {p}</li>)}
+                  <div className="border border-primary-foreground/10 p-4 sm:p-6 md:p-8 h-full rounded-lg sm:rounded-xl">
+                    <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-primary-foreground">{type.title}</h3>
+                    <p className="text-xs sm:text-sm md:text-base text-primary-foreground/40 font-light leading-relaxed mb-3 sm:mb-4">{type.desc}</p>
+                    <ul className="space-y-1.5 sm:space-y-2">
+                      {type.params.map((p, j) => <li key={j} className="text-[10px] sm:text-xs md:text-sm text-primary-foreground/60">• {p}</li>)}
                     </ul>
                   </div>
                 </StaggerItem>
