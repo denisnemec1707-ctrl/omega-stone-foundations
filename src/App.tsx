@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ScrollToTop } from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
+import Preloader from "./components/Preloader";
+import { useState, useCallback } from "react";
 
 import { PageTransition } from "./components/PageTransition";
 import Index from "./pages/Index";
@@ -77,18 +79,30 @@ const AnimatedRoutes = () => {
   );
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <CookieBanner />
-        <AnimatedRoutes />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [showPreloader, setShowPreloader] = useState(() => {
+    return !sessionStorage.getItem("preloader-shown");
+  });
+
+  const handlePreloaderComplete = useCallback(() => {
+    sessionStorage.setItem("preloader-shown", "true");
+    setShowPreloader(false);
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        {showPreloader && <Preloader onComplete={handlePreloaderComplete} />}
+        <BrowserRouter>
+          <ScrollToTop />
+          <CookieBanner />
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
