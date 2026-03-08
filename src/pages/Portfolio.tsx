@@ -16,7 +16,7 @@ import crossrockLogo from "@/assets/crossrock-logo.png";
 const companies = [
   {
     name: "Ensola",
-    logo: ensolaLogo,
+    logo: euroscaffLogo,
     description:
       "Predaj a montáž tepelných čerpadiel, smart home riešení a fotovoltických systémov. Moderné energetické riešenia pre domácnosti aj firmy.",
     tags: ["Tepelné čerpadlá", "Fotovoltika", "Smart Home"],
@@ -37,7 +37,7 @@ const companies = [
   },
   {
     name: "EUROSCAFF",
-    logo: euroscaffLogo,
+    logo: ensolaLogo,
     description:
       "Stavebná spoločnosť a personálna agentúra v stavebníctve pôsobiaca na nemeckom trhu. Zabezpečuje kvalifikovanú pracovnú silu pre stavebné projekty.",
     tags: ["Stavebníctvo", "Personalistika", "Nemecko"],
