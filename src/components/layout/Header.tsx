@@ -20,7 +20,7 @@ const Header = () => {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed top-6 right-6 sm:top-8 sm:right-8 z-[60] flex items-center gap-3 px-5 py-3 rounded-full transition-colors duration-300",
+          "fixed top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-[60] flex items-center gap-2 sm:gap-3 px-3.5 sm:px-5 py-2 sm:py-3 rounded-full transition-colors duration-300",
           isOpen
             ? "bg-foreground/20 backdrop-blur-md"
             : "bg-background/90 backdrop-blur-md shadow-lg"
@@ -29,24 +29,24 @@ const Header = () => {
         whileTap={{ scale: 0.95 }}
       >
         <span className={cn(
-          "text-sm font-medium tracking-wide",
+          "text-xs sm:text-sm font-medium tracking-wide",
           isOpen ? "text-primary-foreground" : "text-foreground"
         )}>
           Menu
         </span>
         <div className={cn(
-          "w-8 h-8 rounded-full flex items-center justify-center",
+          "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center",
           isOpen ? "bg-foreground/20" : "bg-charcoal"
         )}>
-          <div className="flex flex-col items-center justify-center gap-[5px]">
+          <div className="flex flex-col items-center justify-center gap-[4px] sm:gap-[5px]">
             <motion.span
-              className={cn("block w-4 h-[2px]", isOpen ? "bg-primary-foreground" : "bg-primary-foreground")}
-              animate={isOpen ? { rotate: 45, y: 3.5 } : { rotate: 0, y: 0 }}
+              className="block w-3.5 sm:w-4 h-[1.5px] sm:h-[2px] bg-primary-foreground"
+              animate={isOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
-              className={cn("block w-4 h-[2px]", isOpen ? "bg-primary-foreground" : "bg-primary-foreground")}
-              animate={isOpen ? { rotate: -45, y: -3.5 } : { rotate: 0, y: 0 }}
+              className="block w-3.5 sm:w-4 h-[1.5px] sm:h-[2px] bg-primary-foreground"
+              animate={isOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
           </div>
@@ -63,7 +63,6 @@ const Header = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            {/* Background */}
             <motion.div
               className="absolute inset-0 bg-charcoal"
               initial={{ opacity: 0 }}
@@ -73,8 +72,7 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Nav Links */}
-            <nav className="relative z-10 flex flex-col items-center gap-2">
+            <nav className="relative z-10 flex flex-col items-center gap-1 sm:gap-2">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -87,7 +85,7 @@ const Header = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "block font-serif text-4xl sm:text-5xl md:text-6xl py-3 transition-colors duration-200",
+                      "block font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-2 sm:py-3 transition-colors duration-200",
                       location.pathname === link.href
                         ? "text-primary-foreground"
                         : "text-primary-foreground/50 hover:text-primary-foreground"
