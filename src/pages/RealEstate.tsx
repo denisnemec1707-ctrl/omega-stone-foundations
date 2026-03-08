@@ -52,9 +52,9 @@ const RealEstate = () => {
         </AnimatedSection>
 
         {/* Process Steps */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
               {[
                 { step: "01", title: "Akvizícia", desc: "Vyhľadávame nehnuteľnosti pod trhovú hodnotu — exekúcie, dedičstvá, urgentné predaje." },
                 { step: "02", title: "Rekonštrukcia", desc: "Komplexná obnova s vlastným tímom. Zameriavame sa na maximalizáciu hodnoty pri kontrolovaných nákladoch." },
@@ -62,8 +62,8 @@ const RealEstate = () => {
                 { step: "04", title: "Opakovanie", desc: "Celý cyklus trvá 12–36 mesiacov. Kapitál sa reinvestuje do ďalších projektov." },
               ].map((item, i) => (
                 <StaggerItem key={i}>
-                  <span className="font-serif text-5xl sm:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
-                  <h3 className="font-serif text-lg sm:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
+                  <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
+                  <h3 className="font-serif text-base sm:text-lg md:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
                   <p className="text-primary-foreground/40 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </StaggerItem>
               ))}
@@ -94,21 +94,21 @@ const RealEstate = () => {
         </AnimatedSection>
 
         {/* CTA to Investor page */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <AnimatedSection>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6 md:gap-8">
                 <div className="max-w-2xl">
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-primary-foreground mb-3 sm:mb-4">
                     Máte záujem investovať?
                   </h2>
-                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                  <p className="text-primary-foreground/50 font-light text-sm sm:text-base md:text-lg leading-relaxed">
                     Fixný 12% ročný výnos zabezpečený reálnymi nehnuteľnosťami. Vyplňte nezáväzný formulár.
                   </p>
                 </div>
                 <Link
                   to="/pre-investorov#kontakt"
-                  className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
+                  className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg self-start"
                 >
                   Chcem investovať
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

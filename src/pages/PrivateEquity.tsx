@@ -52,9 +52,9 @@ const PrivateEquity = () => {
         </AnimatedSection>
 
         {/* Criteria stats - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {[
                 { value: "1–10 mil. €", label: "Obrat", desc: "Hľadáme firmy s ročným obratom v rozmedzí 1 až 10 miliónov eur." },
                 { value: "2+ roky", label: "Ziskovosť", desc: "Firma musí byť zisková minimálne 2 roky po sebe." },
@@ -62,9 +62,9 @@ const PrivateEquity = () => {
                 { value: "Stabilný", label: "Tím", desc: "Preferujeme firmy so zabehnutým manažmentom a lojálnym tímom." },
               ].map((item, i) => (
                 <StaggerItem key={i} className="text-center">
-                  <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mb-2 sm:mb-3">{item.value}</p>
-                  <h3 className="font-serif text-sm sm:text-base md:text-lg mb-1 sm:mb-2 text-primary-foreground/80">{item.label}</h3>
-                  <p className="text-primary-foreground/40 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-1.5 sm:mb-2 md:mb-3">{item.value}</p>
+                  <h3 className="font-serif text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2 text-primary-foreground/80">{item.label}</h3>
+                  <p className="text-primary-foreground/40 font-light text-[10px] sm:text-xs md:text-sm leading-relaxed">{item.desc}</p>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -102,21 +102,21 @@ const PrivateEquity = () => {
         </AnimatedSection>
 
         {/* Dual CTA */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <AnimatedSection>
-              <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+              <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
                 {/* For investors */}
-                <div className="flex flex-col gap-4">
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-primary-foreground">
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-primary-foreground">
                     Máte záujem investovať?
                   </h2>
-                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                  <p className="text-primary-foreground/50 font-light text-sm sm:text-base md:text-lg leading-relaxed">
                     Investujte do akvizícií firiem s fixným ročným výnosom. Vyplňte nezáväzný formulár.
                   </p>
                   <Link
                     to="/pre-investorov#kontakt"
-                    className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start mt-2"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg self-start mt-1 sm:mt-2"
                   >
                     Chcem investovať
                     <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -124,16 +124,16 @@ const PrivateEquity = () => {
                 </div>
 
                 {/* For business owners */}
-                <div className="flex flex-col gap-4 md:border-l md:border-primary-foreground/10 md:pl-16">
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-primary-foreground">
+                <div className="flex flex-col gap-3 sm:gap-4 border-t md:border-t-0 md:border-l border-primary-foreground/10 pt-8 md:pt-0 md:pl-12 lg:pl-16">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-primary-foreground">
                     Predávate firmu?
                   </h2>
-                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                  <p className="text-primary-foreground/50 font-light text-sm sm:text-base md:text-lg leading-relaxed">
                     Hľadáme zabehnuté firmy na odkúpenie. Diskrétny proces, férová cena. Ozvite sa nám.
                   </p>
                   <a
                     href="mailto:info@assetra.sk?subject=Predaj firmy"
-                    className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start mt-2"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg self-start mt-1 sm:mt-2"
                   >
                     Kontaktovať nás
                     <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

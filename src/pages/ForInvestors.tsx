@@ -188,54 +188,54 @@ const ForInvestors = () => {
         </AnimatedSection>
 
         {/* Calculator */}
-        <section id="kalkulacka" className="py-16 sm:py-24 md:py-32 lg:py-40">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+        <section id="kalkulacka" className="py-12 sm:py-16 md:py-24 lg:py-32 xl:py-40">
+          <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+            <AnimatedSection className="mb-8 sm:mb-10 md:mb-14 lg:mb-20">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl leading-tight">
                 Vypočítajte si svoje výnosy
               </h2>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16">
-                <div className="space-y-8 sm:space-y-10">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+                <div className="space-y-6 sm:space-y-8 md:space-y-10">
                   <div>
                     <div className="flex justify-between mb-3 sm:mb-4">
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground">Výška investície</label>
-                      <span className="font-serif text-base sm:text-lg"><AnimatedValue value={investment} formatValue={formatCurrency} /></span>
+                      <span className="font-serif text-sm sm:text-base md:text-lg"><AnimatedValue value={investment} formatValue={formatCurrency} /></span>
                     </div>
                     <Slider value={[investment]} onValueChange={(v) => setInvestment(v[0])} min={10000} max={500000} step={5000}
-                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-6 [&_[role=slider]]:w-6 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
+                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-7 [&_[role=slider]]:w-7 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
                     />
-                    <div className="flex justify-between mt-2 text-xs text-muted-foreground"><span>10 000 €</span><span>500 000 €</span></div>
+                    <div className="flex justify-between mt-2 text-[10px] sm:text-xs text-muted-foreground"><span>10 000 €</span><span>500 000 €</span></div>
                   </div>
                   <div>
                     <div className="flex justify-between mb-3 sm:mb-4">
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground">Doba investície</label>
-                      <span className="font-serif text-base sm:text-lg"><AnimatedValue value={duration} /> mesiacov</span>
+                      <span className="font-serif text-sm sm:text-base md:text-lg"><AnimatedValue value={duration} /> mesiacov</span>
                     </div>
                     <Slider value={[duration]} onValueChange={(v) => setDuration(v[0])} min={6} max={24} step={6}
-                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-6 [&_[role=slider]]:w-6 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
+                      className="[&_[role=slider]]:bg-foreground [&_[role=slider]]:border-foreground [&_.bg-primary]:bg-foreground [&_[role=slider]]:h-7 [&_[role=slider]]:w-7 sm:[&_[role=slider]]:h-5 sm:[&_[role=slider]]:w-5"
                     />
-                    <div className="flex justify-between mt-2 text-xs text-muted-foreground"><span>6 mesiacov</span><span>24 mesiacov</span></div>
+                    <div className="flex justify-between mt-2 text-[10px] sm:text-xs text-muted-foreground"><span>6 mesiacov</span><span>24 mesiacov</span></div>
                   </div>
                 </div>
 
-                <motion.div className="bg-charcoal p-5 sm:p-8 md:p-10 rounded-2xl" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                  <h3 className="font-serif text-lg sm:text-xl mb-6 sm:mb-8 text-center text-primary-foreground">Vaše výnosy</h3>
-                  <div className="space-y-6 sm:space-y-8">
-                    <div className="text-center pb-6 border-b border-primary-foreground/10">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Mesačná výplata</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.monthlyPayout} formatValue={formatCurrency} /></p>
+                <motion.div className="bg-charcoal p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                  <h3 className="font-serif text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 text-center text-primary-foreground">Vaše výnosy</h3>
+                  <div className="space-y-4 sm:space-y-6 md:space-y-8">
+                    <div className="text-center pb-4 sm:pb-6 border-b border-primary-foreground/10">
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Mesačná výplata</p>
+                      <p className="font-serif text-xl sm:text-2xl md:text-3xl text-primary-foreground"><AnimatedValue value={calculations.monthlyPayout} formatValue={formatCurrency} /></p>
                     </div>
-                    <div className="text-center pb-6 border-b border-primary-foreground/10">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkový výnos</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalReturn} formatValue={formatCurrency} /></p>
+                    <div className="text-center pb-4 sm:pb-6 border-b border-primary-foreground/10">
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkový výnos</p>
+                      <p className="font-serif text-xl sm:text-2xl md:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalReturn} formatValue={formatCurrency} /></p>
                     </div>
                     <div className="text-center">
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkom na konci</p>
-                      <p className="font-serif text-2xl sm:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalAtEnd} formatValue={formatCurrency} /></p>
-                      <p className="text-xs text-primary-foreground/30 mt-1">(Istina + Výnosy)</p>
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1">Celkom na konci</p>
+                      <p className="font-serif text-xl sm:text-2xl md:text-3xl text-primary-foreground"><AnimatedValue value={calculations.totalAtEnd} formatValue={formatCurrency} /></p>
+                      <p className="text-[10px] sm:text-xs text-primary-foreground/30 mt-1">(Istina + Výnosy)</p>
                     </div>
                   </div>
                 </motion.div>
@@ -322,41 +322,41 @@ const ForInvestors = () => {
         </AnimatedSection>
 
         {/* Contact Form - Dark block - THE conversion section */}
-        <section id="kontakt" className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground">
+        <section id="kontakt" className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <AnimatedSection className="mb-8 sm:mb-10 md:mb-14 lg:mb-20">
+              <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-primary-foreground">
                   Začnite investovať
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl text-primary-foreground/50 font-light leading-relaxed md:pt-2 lg:pt-4">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-foreground/50 font-light leading-relaxed md:pt-2 lg:pt-4">
                   Vyplňte formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami spolupráce.
                 </p>
               </div>
             </AnimatedSection>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16">
               <AnimatedSection delay={0.1}>
-                <div className="bg-charcoal-light p-5 sm:p-8 md:p-10 rounded-2xl">
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8 text-primary-foreground">Žiadosť o investíciu</h3>
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div className="bg-charcoal-light p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl">
+                  <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Žiadosť o investíciu</h3>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Meno a priezvisko *</label>
-                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.name && <p className="text-destructive text-xs mt-1">{errors.name.message}</p>}
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Meno a priezvisko *</label>
+                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
+                      {errors.name && <p className="text-destructive text-[10px] sm:text-xs mt-1">{errors.name.message}</p>}
                     </div>
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Email *</label>
-                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
-                      {errors.email && <p className="text-destructive text-xs mt-1">{errors.email.message}</p>}
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Email *</label>
+                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
+                      {errors.email && <p className="text-destructive text-[10px] sm:text-xs mt-1">{errors.email.message}</p>}
                     </div>
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Telefón</label>
-                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Telefón</label>
+                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
                     </div>
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Plánovaná investícia</label>
-                      <select {...register("investmentAmount")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm">
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Plánovaná investícia</label>
+                      <select {...register("investmentAmount")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm sm:text-base appearance-none">
                         <option value="">Vyberte rozsah</option>
                         <option value="10-25k">10 000 – 25 000 €</option>
                         <option value="25-50k">25 000 – 50 000 €</option>
@@ -366,8 +366,8 @@ const ForInvestors = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Oblasť záujmu</label>
-                      <select {...register("investmentInterest")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm">
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Oblasť záujmu</label>
+                      <select {...register("investmentInterest")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm sm:text-base appearance-none">
                         <option value="">Vyberte oblasť</option>
                         <option value="real-estate">Real Estate – nehnuteľnosti</option>
                         <option value="private-equity">Private Equity – akvizície firiem</option>
@@ -376,10 +376,10 @@ const ForInvestors = () => {
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Správa</label>
-                      <Textarea {...register("message")} placeholder="Vaše investičné ciele alebo otázky..." rows={4} className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none" />
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Správa</label>
+                      <Textarea {...register("message")} placeholder="Vaše investičné ciele alebo otázky..." rows={3} className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none text-base" />
                     </div>
-                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-xs sm:text-sm">
                       {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
                     </Button>
                   </form>
@@ -388,31 +388,31 @@ const ForInvestors = () => {
 
               <AnimatedSection delay={0.2} className="flex flex-col justify-between">
                 <div>
-                  <h3 className="font-serif text-xl mb-6 sm:mb-8 text-primary-foreground">Priamy kontakt</h3>
-                  <div className="space-y-6 sm:space-y-8">
+                  <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Priamy kontakt</h3>
+                  <div className="space-y-5 sm:space-y-6 md:space-y-8">
                     <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2">Email</p>
-                      <a href="mailto:invest@assetra.sk" className="text-lg sm:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors">invest@assetra.sk</a>
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Email</p>
+                      <a href="mailto:invest@assetra.sk" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">invest@assetra.sk</a>
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2">Kancelária</p>
-                      <p className="text-lg sm:text-xl text-primary-foreground">Bratislava, Slovensko</p>
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Kancelária</p>
+                      <p className="text-base sm:text-lg md:text-xl text-primary-foreground">Bratislava, Slovensko</p>
                     </div>
                   </div>
                 </div>
-                <div className="mt-10 pt-8 border-t border-primary-foreground/10">
-                  <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-primary-foreground/10">
+                  <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
                     <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={10000} formatValue={(v) => `${v.toLocaleString("sk-SK")} €`} /></p>
-                      <p className="text-xs text-primary-foreground/40">Min. investícia</p>
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={10000} formatValue={(v) => `${v.toLocaleString("sk-SK")} €`} /></p>
+                      <p className="text-[10px] sm:text-xs text-primary-foreground/40">Min. investícia</p>
                     </div>
                     <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={12} suffix="%" /></p>
-                      <p className="text-xs text-primary-foreground/40">Ročný výnos</p>
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={12} suffix="%" /></p>
+                      <p className="text-[10px] sm:text-xs text-primary-foreground/40">Ročný výnos</p>
                     </div>
                     <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground">12–24</p>
-                      <p className="text-xs text-primary-foreground/40">Mesiacov</p>
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl mb-1 text-primary-foreground">12–24</p>
+                      <p className="text-[10px] sm:text-xs text-primary-foreground/40">Mesiacov</p>
                     </div>
                   </div>
                 </div>
