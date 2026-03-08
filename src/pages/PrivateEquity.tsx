@@ -101,31 +101,6 @@ const PrivateEquity = () => {
           </section>
         </AnimatedSection>
 
-        {/* FAQ - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground">
-                Často kladené otázky
-              </h2>
-            </AnimatedSection>
-            <div className="max-w-3xl">
-              <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="border border-primary-foreground/10 px-4 sm:px-6 data-[state=open]:border-primary-foreground/30 transition-colors">
-                    <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-primary-foreground py-4 sm:py-5 text-primary-foreground/70">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-primary-foreground/40 font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
-
         {/* CTA to Investor page */}
         <AnimatedSection>
           <section className="py-16 sm:py-24 md:py-32 lg:py-40">

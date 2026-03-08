@@ -174,18 +174,18 @@ const PrivateCredit = () => {
             <AnimatedSection>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
                 <div className="max-w-2xl">
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4">
-                    Máte záujem investovať?
+                   <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4">
+                    Potrebujete financovanie?
                   </h2>
                   <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
-                    Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami.
+                    Kontaktujte nás s popisom vášho projektu. Ozveme sa vám do 5 pracovných dní.
                   </p>
                 </div>
                 <Link
                   to="/pre-investorov#kontakt"
                   className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
                 >
-                  Chcem investovať
+                  Požiadať o financovanie
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>

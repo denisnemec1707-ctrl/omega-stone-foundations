@@ -103,55 +103,6 @@ const RealEstate = () => {
           </section>
         </AnimatedSection>
 
-        {/* Trust - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground max-w-3xl">
-                Ochrana kapitálu na prvom mieste
-              </h2>
-            </AnimatedSection>
-            <StaggerContainer className="grid sm:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-              {[
-                { title: "Konzervatívna akvizícia", desc: "Kupujeme iba nehnuteľnosti s cenou 20% alebo viac pod trhovou hodnotou." },
-                { title: "Zabezpečenie reálnymi aktívami", desc: "Každá investícia je krytá fyzickými nehnuteľnosťami." },
-                { title: "Krátke cykly", desc: "Investičné obdobia 12–36 mesiacov limitujú expozíciu voči dlhodobým trhovým zmenám." },
-                { title: "Prevádzkové skúsenosti", desc: "Náš tím dokončil desiatky akvizično-rekonštrukčno-predajných cyklov." },
-              ].map((item, i) => (
-                <StaggerItem key={i} className="border-l-2 border-primary-foreground/20 pl-5 sm:pl-6">
-                  <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
-                  <p className="text-primary-foreground/40 font-light text-xs sm:text-sm md:text-base leading-relaxed">{item.desc}</p>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <AnimatedSection>
-          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
-            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-10 sm:mb-14 md:mb-20">
-                Často kladené otázky
-              </h2>
-              <div className="max-w-3xl">
-                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                  {faqs.map((faq, i) => (
-                    <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-foreground/30 transition-colors">
-                      <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-foreground py-4 sm:py-5 text-foreground/70">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </div>
-          </section>
-        </AnimatedSection>
-
         {/* CTA to Investor page */}
         <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
           <div className="px-5 sm:px-8 md:px-12 lg:px-16">
