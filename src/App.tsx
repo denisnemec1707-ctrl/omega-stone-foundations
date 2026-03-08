@@ -17,6 +17,8 @@ import PrivateCredit from "./pages/PrivateCredit";
 import ForInvestors from "./pages/ForInvestors";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import Portfolio from "./pages/Portfolio";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

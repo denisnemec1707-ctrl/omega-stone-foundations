@@ -8,7 +8,9 @@ const navLinks = [
   { href: "/nehnutelnosti", label: "Nehnuteľnosti" },
   { href: "/akvizicie", label: "Akvizície" },
   { href: "/uvery", label: "Úvery" },
+  { href: "/projekty", label: "Portfólio" },
   { href: "/pre-investorov", label: "Pre investorov" },
+  { href: "/kariera", label: "Kariéra" },
 ];
 
 const Header = () => {
