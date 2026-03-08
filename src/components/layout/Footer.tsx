@@ -6,12 +6,68 @@ const Footer = () => {
   return (
     <footer className="bg-charcoal rounded-t-2xl sm:rounded-t-3xl mt-6 sm:mt-8">
       <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-        {/* Logo - large ASSETRA text matching hero style */}
+        {/* Logo */}
         <div className="pt-16 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground tracking-tight leading-none text-center">
             ASSETRA
           </h2>
         </div>
+
+        {/* Navigation Grid */}
+        <AnimatedSection>
+          <div className="border-t border-primary-foreground/10 pt-10 sm:pt-12 md:pt-16 pb-10 sm:pb-12 md:pb-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
+              {/* Sektory */}
+              <div>
+                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Sektory</h4>
+                <ul className="space-y-2.5 sm:space-y-3">
+                  <li><Link to="/nehnutelnosti" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Nehnuteľnosti</Link></li>
+                  <li><Link to="/akvizicie" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Akvizície</Link></li>
+                  <li><Link to="/uvery" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Úvery</Link></li>
+                </ul>
+              </div>
+
+              {/* Investori */}
+              <div>
+                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Investori</h4>
+                <ul className="space-y-2.5 sm:space-y-3">
+                  <li><Link to="/pre-investorov" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Pre investorov</Link></li>
+                  <li><Link to="/pre-investorov#kalkulacka" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kalkulačka výnosov</Link></li>
+                  <li><Link to="/pre-investorov#kontakt" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kontakt</Link></li>
+                </ul>
+              </div>
+
+              {/* Právne */}
+              <div>
+                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Právne</h4>
+                <ul className="space-y-2.5 sm:space-y-3">
+                  <li><Link to="/ochrana-udajov" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Ochrana osobných údajov</Link></li>
+                  <li><Link to="/obchodne-podmienky" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Obchodné podmienky</Link></li>
+                </ul>
+              </div>
+
+              {/* Kontakt */}
+              <div>
+                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Kontakt</h4>
+                <ul className="space-y-2.5 sm:space-y-3">
+                  <li>
+                    <a href="mailto:info@assetra.sk" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                      info@assetra.sk
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:invest@assetra.sk" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                      invest@assetra.sk
+                    </a>
+                  </li>
+                  <li className="text-sm sm:text-base text-primary-foreground/50">
+                    Bratislava, Slovensko
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
         {/* CTA Section */}
         <AnimatedSection>
@@ -34,9 +90,6 @@ const Footer = () => {
                   Chcem investovať
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
-                <p className="text-primary-foreground/50 text-xs sm:text-sm md:text-base">
-                  <span className="font-medium text-primary-foreground/70">Sídlo:</span> Bratislava, Slovensko
-                </p>
               </div>
             </div>
           </div>
