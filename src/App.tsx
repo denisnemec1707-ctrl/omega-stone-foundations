@@ -85,6 +85,22 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+          path="/projekty"
+          element={
+            <PageTransition>
+              <Portfolio />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/kariera"
+          element={
+            <PageTransition>
+              <Careers />
+            </PageTransition>
+          }
+        />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"
