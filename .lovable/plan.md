@@ -1,138 +1,40 @@
 
-# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
 
-## Prehľad
+## Plan: Footer s navigáciou, právne podstránky, kontaktné formuláre
 
-Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
+### 1. Vylepšený Footer s navigáciou
 
-1. **Page Transitions** - plynulé prechody medzi stránkami
-2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
-3. **Header Animation** - dynamický header reagujúci na scroll
+**`src/components/layout/Footer.tsx`** -- pridať navigačné linky medzi ASSETRA logo a CTA sekciu:
+- Sektory: Nehnuteľnosti, Akvizície, Úvery
+- Pre investorov
+- Ochrana osobných údajov, Obchodné podmienky
+- Kontaktný email
 
----
+### 2. Právne podstránky
 
-## 1. Page Transitions (Prechody medzi stránkami)
+Nové súbory:
+- **`src/pages/PrivacyPolicy.tsx`** -- Ochrana osobných údajov (GDPR-kompatibilný obsah pre ASSETRA investments s.r.o.)
+- **`src/pages/Terms.tsx`** -- Obchodné podmienky
 
-### Čo to urobí:
-- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
-- Nová stránka sa plynulo "objaví" (fade-in)
-- Stránka pôsobí ako jedna súvislá aplikácia
+**`src/App.tsx`** -- pridať routes `/ochrana-udajov` a `/obchodne-podmienky`
 
-### Technická implementácia:
+**`src/components/CookieBanner.tsx`** -- pridať link na Ochranu osobných údajov
 
-**Nový súbor `src/components/PageTransition.tsx`:**
-```text
-- Wrapper komponent využívajúci AnimatePresence z framer-motion
-- Fade + jemný posun nahor pri vstupe
-- Fade + jemný posun nadol pri odchode
-- Trvanie: 300ms
-```
+### 3. Kontaktné formuláre na Úvery a Akvizície
 
-**Úprava `src/App.tsx`:**
-```text
-- Import PageTransition komponentu
-- Obalenie Routes do AnimatePresence
-- Každá Route dostane PageTransition wrapper
-- Použitie location.key pre správne animácie
-```
+**Databáza** -- nová tabuľka `contact_inquiries` s poľami:
+- name, email, phone, message, inquiry_type (enum: 'financing', 'company_sale'), company_name, loan_amount, project_type
+- RLS: verejný INSERT (anon), žiadny SELECT
 
----
+**`src/pages/PrivateCredit.tsx`** -- nahradiť mailto CTA formulárom "Požiadať o financovanie" s poľami: meno, email, telefón, typ projektu (select), požadovaná výška úveru, správa
 
-## 2. Scroll Progress Indicator
+**`src/pages/PrivateEquity.tsx`** -- nahradiť mailto CTA pre predajcov firiem formulárom "Predaj firmy" s poľami: meno, email, telefón, názov firmy, ročný obrat (select), správa
 
-### Čo to urobí:
-- Tenká zlatá línia priamo pod headerom
-- Začína na 0% šírky, končí na 100% šírky
-- Vizuálne ukazuje koľko stránky používateľ prešiel
+Oba formuláre budú v dark charcoal štýle konzistentnom s formulárom na `/pre-investorov`.
 
-### Technická implementácia:
+### Súhrn zmien
+- 2 nové stránky (právne)
+- 1 nová DB tabuľka
+- 4 upravené súbory (Footer, App.tsx, PrivateCredit, PrivateEquity)
+- 1 menšia úprava (CookieBanner)
 
-**Nový súbor `src/components/ScrollProgress.tsx`:**
-```text
-- Použitie framer-motion useScroll hook
-- Sticky pozícia pod headerom (top: výška headeru)
-- Zlatá farba (bg-gold)
-- Výška: 2px
-- scaleX transformácia podľa scrollYProgress
-- transformOrigin: left
-```
-
-**Úprava `src/App.tsx`:**
-```text
-- Import ScrollProgress komponentu
-- Umiestnenie pod BrowserRouter, pred Routes
-```
-
----
-
-## 3. Header Animation
-
-### Čo to urobí:
-- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
-- Zvýši sa backdrop blur a priehľadnosť pozadia
-- Logo sa jemne zmenší
-- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
-- Hover efekt na logo (zlatá farba)
-
-### Technická implementácia:
-
-**Úprava `src/components/layout/Header.tsx`:**
-```text
-- Nový custom hook pre sledovanie scroll pozície
-- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
-- Animácie:
-  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
-  - Background: bg-background/80 → bg-background/95
-  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
-  - Logo: text-xl → text-lg s transition
-- Hover efekt na logo pomocou framer-motion
-```
-
----
-
-## Vizuálny príklad
-
-```text
-+----------------------------------------------------------+
-|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
-|=========================================================|← Scroll Progress (0%)
-|                                                          |
-|            Súkromná investičná spoločnosť                |
-|                                                          |
-+----------------------------------------------------------+
-
-        ↓ Po scrollovaní 50px+ ↓
-
-+----------------------------------------------------------+
-| ASSETRA investments   RE  PE  PC      [Header - compact] |
-|===========================|← Scroll Progress (50%)       |
-|                                                          |
-```
-
----
-
-## Súbory na vytvorenie
-
-| Súbor | Účel |
-|-------|------|
-| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
-| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
-| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
-
-## Súbory na úpravu
-
-| Súbor | Zmeny |
-|-------|-------|
-| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
-| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
-
----
-
-## Očakávaný výsledok
-
-Po implementácii:
-- Stránka bude pôsobiť ako profesionálna single-page aplikácia
-- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
-- Header bude reagovať na interakciu a pôsobiť dynamicky
-- Všetky animácie budú rýchle (200-400ms) a nenápadné
-- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`
