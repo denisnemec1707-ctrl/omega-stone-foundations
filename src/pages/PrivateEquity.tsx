@@ -5,21 +5,7 @@ import Footer from "@/components/layout/Footer";
 import PageMeta from "@/components/PageMeta";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import verticalEquity from "@/assets/vertical-equity.jpg";
-
-const faqs = [
-  { question: "Aké typy firiem hľadáte?", answer: "Hľadáme zabehnuté, ziskové firmy s obratom 1–10 mil. € v rôznych odvetviach – výroba, služby, e-commerce, IT." },
-  { question: "Ako dlho trvá celý proces akvizície?", answer: "Štandardne 3–6 mesiacov od prvého kontaktu po uzavretie transakcie." },
-  { question: "Čo sa stane so zamestnancami po akvizícii?", answer: "Zamestnanci sú kľúčovou hodnotou. Naším cieľom je zachovať stabilný tím a ďalej ho rozvíjať." },
-  { question: "Môžem ostať vo firme po predaji?", answer: "Áno, ponúkame rôzne modely spolupráce – od úplného odchodu až po pokračovanie v manažérskej pozícii." },
-  { question: "Ako stanovujete cenu firmy?", answer: "Používame kombináciu metód – násobok EBITDA, diskontované cash flow a porovnanie s podobnými transakciami." },
-];
 
 const PrivateEquity = () => {
   return (
