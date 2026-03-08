@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
