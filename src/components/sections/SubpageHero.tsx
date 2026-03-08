@@ -27,21 +27,18 @@ const SubpageHero = ({ label, title, titleAccent, description, image }: SubpageH
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <p className="text-xs sm:text-sm tracking-ultra-wide uppercase text-primary-foreground/60 mb-3 sm:mb-4">
-          {label}
-        </p>
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight">
-          {title} <span className="text-primary">{titleAccent}</span>
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-primary-foreground leading-tight tracking-tight">
+          {title} {titleAccent}
         </h1>
       </motion.div>
 
       <motion.div
-        className="relative z-10 p-5 sm:p-8 md:p-12 lg:p-16"
+        className="relative z-10 p-5 sm:p-8 md:p-12 lg:p-16 max-w-xl md:max-w-2xl lg:max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
       >
-        <p className="text-sm sm:text-base md:text-lg text-primary-foreground/70 font-light leading-relaxed max-w-2xl">
+        <p className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-foreground/90 leading-snug">
           {description}
         </p>
       </motion.div>
