@@ -52,9 +52,9 @@ const RealEstate = () => {
         </AnimatedSection>
 
         {/* Process Steps */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
+        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
               {[
                 { step: "01", title: "Akvizícia", desc: "Vyhľadávame nehnuteľnosti pod trhovú hodnotu — exekúcie, dedičstvá, urgentné predaje." },
                 { step: "02", title: "Rekonštrukcia", desc: "Komplexná obnova s vlastným tímom. Zameriavame sa na maximalizáciu hodnoty pri kontrolovaných nákladoch." },
@@ -62,8 +62,8 @@ const RealEstate = () => {
                 { step: "04", title: "Opakovanie", desc: "Celý cyklus trvá 12–36 mesiacov. Kapitál sa reinvestuje do ďalších projektov." },
               ].map((item, i) => (
                 <StaggerItem key={i}>
-                  <span className="font-serif text-5xl sm:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
-                  <h3 className="font-serif text-lg sm:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
+                  <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
+                  <h3 className="font-serif text-base sm:text-lg md:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
                   <p className="text-primary-foreground/40 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </StaggerItem>
               ))}
