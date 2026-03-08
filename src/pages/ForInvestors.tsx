@@ -120,7 +120,7 @@ const ForInvestors = () => {
           label="Pre investorov"
           title="Investujte"
           titleAccent="s istotou"
-          description="Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+          description="Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
           image={heroMountains}
         />
 
