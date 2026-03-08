@@ -72,7 +72,7 @@ const ForInvestors = () => {
   });
 
   const calculations = useMemo(() => {
-    const monthlyRate = 0.10 / 12;
+    const monthlyRate = 0.12 / 12;
     const monthlyPayout = investment * monthlyRate;
     const totalReturn = monthlyPayout * duration;
     return {
