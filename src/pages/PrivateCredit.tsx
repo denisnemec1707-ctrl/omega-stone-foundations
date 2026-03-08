@@ -31,6 +31,7 @@ const PrivateCredit = () => {
       />
       <Header />
       <main>
+        <SubpageHero
           label="Private Credit"
           title="Zabezpečené"
           titleAccent="úvery"

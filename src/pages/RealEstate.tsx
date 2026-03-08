@@ -31,6 +31,7 @@ const RealEstate = () => {
       />
       <Header />
       <main>
+        <SubpageHero
           label="Investícia s fixným výnosom"
           title="Nehnuteľnosti"
           titleAccent="a realitný flipping"

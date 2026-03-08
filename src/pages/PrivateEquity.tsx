@@ -30,6 +30,7 @@ const PrivateEquity = () => {
       />
       <Header />
       <main>
+        <SubpageHero
           label="Private Equity"
           title="Akvizície"
           titleAccent="zabehnutých firiem"
