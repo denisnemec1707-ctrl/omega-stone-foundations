@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
@@ -34,7 +35,8 @@ const CookieBanner = () => {
         >
           <div className="bg-charcoal rounded-2xl p-5 sm:p-6 shadow-2xl border border-foreground/5">
             <p className="text-sm text-primary-foreground/70 font-light leading-relaxed mb-4">
-              Táto stránka používa cookies na zlepšenie vášho zážitku. Používaním stránky súhlasíte s ich spracovaním v súlade s GDPR.
+              Táto stránka používa cookies na zlepšenie vášho zážitku. Používaním stránky súhlasíte s ich spracovaním v súlade s{" "}
+              <Link to="/ochrana-udajov" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">GDPR</Link>.
             </p>
             <div className="flex gap-3">
               <button

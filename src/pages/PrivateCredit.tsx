@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -10,6 +11,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useState } from "react";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import verticalCredit from "@/assets/vertical-credit.jpg";
 
 const faqs = [
@@ -21,7 +31,46 @@ const faqs = [
   { question: "Financujete aj fyzické osoby?", answer: "Nie, financujeme výlučne právnické osoby – s.r.o. a a.s." },
 ];
 
+const financingSchema = z.object({
+  name: z.string().trim().min(1, { message: "Meno je povinné" }).max(100),
+  email: z.string().trim().email({ message: "Neplatná emailová adresa" }).max(255),
+  phone: z.string().trim().max(20).optional().or(z.literal("")),
+  projectType: z.string().trim().max(100).optional().or(z.literal("")),
+  loanAmount: z.string().trim().max(50).optional().or(z.literal("")),
+  message: z.string().trim().max(1000).optional().or(z.literal("")),
+});
+
+type FinancingFormData = z.infer<typeof financingSchema>;
+
 const PrivateCredit = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FinancingFormData>({
+    resolver: zodResolver(financingSchema),
+  });
+
+  const onSubmit = async (data: FinancingFormData) => {
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_inquiries").insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        message: data.message || null,
+        inquiry_type: "financing" as const,
+        project_type: data.projectType || null,
+        loan_amount: data.loanAmount || null,
+      });
+      if (error) throw error;
+      toast.success("Žiadosť bola odoslaná", { description: "Ozveme sa vám do 5 pracovných dní." });
+      reset();
+    } catch {
+      toast.error("Nepodarilo sa odoslať žiadosť", { description: "Skúste to prosím znova neskôr." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
@@ -167,28 +216,100 @@ const PrivateCredit = () => {
           </section>
         </AnimatedSection>
 
-        {/* CTA to Investor page */}
-        <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
+        {/* Financing Form + Investor CTA - Dark block */}
+        <section id="financovanie" className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
           <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-            <AnimatedSection>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6 md:gap-8">
-                <div className="max-w-2xl">
-                   <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-primary-foreground mb-3 sm:mb-4">
-                    Potrebujete financovanie?
-                  </h2>
-                  <p className="text-primary-foreground/50 font-light text-sm sm:text-base md:text-lg leading-relaxed">
-                    Kontaktujte nás s popisom vášho projektu. Ozveme sa vám do 5 pracovných dní.
-                  </p>
-                </div>
-                <a
-                  href="mailto:info@assetra.sk?subject=Žiadosť o financovanie"
-                  className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg self-start"
-                >
+            <AnimatedSection className="mb-8 sm:mb-10 md:mb-14 lg:mb-20">
+              <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-primary-foreground">
                   Požiadať o financovanie
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                </h2>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-foreground/50 font-light leading-relaxed md:pt-2 lg:pt-4">
+                  Vyplňte formulár a ozveme sa vám do 5 pracovných dní s konkrétnymi podmienkami.
+                </p>
               </div>
             </AnimatedSection>
+
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16">
+              <AnimatedSection delay={0.1}>
+                <div className="bg-charcoal-light p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl">
+                  <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Žiadosť o úver</h3>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Meno a priezvisko *</label>
+                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
+                      {errors.name && <p className="text-destructive text-[10px] sm:text-xs mt-1">{errors.name.message}</p>}
+                    </div>
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Email *</label>
+                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
+                      {errors.email && <p className="text-destructive text-[10px] sm:text-xs mt-1">{errors.email.message}</p>}
+                    </div>
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Telefón</label>
+                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />
+                    </div>
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Typ projektu</label>
+                      <select {...register("projectType")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm sm:text-base appearance-none">
+                        <option value="">Vyberte typ</option>
+                        <option value="realitny-projekt">Realitný projekt</option>
+                        <option value="podnikatelsky-uver">Podnikateľský úver</option>
+                        <option value="akvizicia">Akvizícia firmy</option>
+                        <option value="iny">Iný</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Požadovaná výška úveru</label>
+                      <select {...register("loanAmount")} className="flex h-11 md:h-12 w-full rounded-md border border-primary-foreground/10 bg-charcoal text-primary-foreground px-3 py-2 text-sm sm:text-base appearance-none">
+                        <option value="">Vyberte rozsah</option>
+                        <option value="10-50k">10 000 – 50 000 €</option>
+                        <option value="50-100k">50 000 – 100 000 €</option>
+                        <option value="100-250k">100 000 – 250 000 €</option>
+                        <option value="250-500k">250 000 – 500 000 €</option>
+                        <option value="500k+">500 000 € a viac</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Správa</label>
+                      <Textarea {...register("message")} placeholder="Popíšte váš projekt alebo potrebu financovania..." rows={3} className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none text-base" />
+                    </div>
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-xs sm:text-sm">
+                      {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
+                    </Button>
+                  </form>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.2} className="flex flex-col justify-between">
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Priamy kontakt</h3>
+                  <div className="space-y-5 sm:space-y-6 md:space-y-8">
+                    <div>
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Email</p>
+                      <a href="mailto:info@assetra.sk" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">info@assetra.sk</a>
+                    </div>
+                    <div>
+                      <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Kancelária</p>
+                      <p className="text-base sm:text-lg md:text-xl text-primary-foreground">Bratislava, Slovensko</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-primary-foreground/10">
+                  <h4 className="font-serif text-base sm:text-lg mb-3 sm:mb-4 text-primary-foreground">Chcete investovať do úverov?</h4>
+                  <p className="text-xs sm:text-sm text-primary-foreground/40 font-light mb-4">
+                    Ak chcete zhodnocovať kapitál investíciou do zabezpečených úverov, navštívte sekciu pre investorov.
+                  </p>
+                  <Link
+                    to="/pre-investorov#kontakt"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base"
+                  >
+                    Chcem investovať
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </AnimatedSection>
+            </div>
           </div>
         </section>
 
