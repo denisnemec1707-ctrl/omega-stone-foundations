@@ -31,6 +31,8 @@ const faqs = [
   { question: "Aká je minimálna výška investície?", answer: "Minimálna investícia je 10 000 €. Väčšie investície môžu kvalifikovať na individuálne podmienky." },
   { question: "Môžem vybrať investíciu predčasne?", answer: "Investície sú viazané na dohodnuté obdobie. V mimoriadnych prípadoch môžeme vyhovieť žiadostiam s poplatkom za predčasný výstup." },
   { question: "Do akých sektorov investujete?", answer: "Investujeme do troch hlavných oblastí – nehnuteľnosti (realitný flipping), akvizície zabehnutých firiem (private equity) a zabezpečené úvery (private credit)." },
+  { question: "Aké sú riziká investície?", answer: "Primárne riziko je spojené s podmienkami na realitnom trhu. Toto zmierňujeme konzervatívnou akvizíciou — kupujeme iba nehnuteľnosti výrazne pod trhovou hodnotou. Každá investícia je navyše krytá fyzickými nehnuteľnosťami." },
+  { question: "Čo sa stane s mojím kapitálom na konci obdobia?", answer: "Na konci investičného obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi. Kapitál môžete reinvestovať alebo vybrať." },
 ];
 
 const testimonials = [
