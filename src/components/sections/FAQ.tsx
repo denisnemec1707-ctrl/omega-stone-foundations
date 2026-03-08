@@ -8,7 +8,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/Ani
 
 const faqs = [
   {
-    question: "Ako sa generuje 10% ročný výnos?",
+    question: "Ako sa generuje 12% ročný výnos?",
     answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu. Marža medzi akvizičnými nákladmi a predajnou cenou pokrýva váš fixný výnos, náklady na rekonštrukciu a prevádzkové výdavky. Ide o reálny zisk z reálnych transakcií, nie úroky z požičiavania ani výnosy z finančných trhov."
   },
   {
