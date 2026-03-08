@@ -27,13 +27,13 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Investori */}
+              {/* Spoločnosť */}
               <div>
-                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Investori</h4>
+                <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">Spoločnosť</h4>
                 <ul className="space-y-2.5 sm:space-y-3">
+                  <li><Link to="/projekty" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Portfólio</Link></li>
                   <li><Link to="/pre-investorov" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Pre investorov</Link></li>
-                  <li><Link to="/pre-investorov#kalkulacka" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kalkulačka výnosov</Link></li>
-                  <li><Link to="/pre-investorov#kontakt" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kontakt</Link></li>
+                  <li><Link to="/kariera" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kariéra</Link></li>
                 </ul>
               </div>
 
