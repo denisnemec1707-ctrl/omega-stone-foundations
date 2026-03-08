@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageMeta from "@/components/PageMeta";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import {
@@ -24,6 +25,10 @@ const faqs = [
 const RealEstate = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Nehnuteľnosti a realitný flipping | ASSETRA Investments"
+        description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 10% ročný výnos."
+      />
       <Header />
       <main>
         <SubpageHero

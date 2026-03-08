@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageMeta from "@/components/PageMeta";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -30,9 +31,11 @@ const VerticalCard = ({
 
   return (
     <Link to={href} className="block group">
-      <div
+      <motion.div
         ref={ref}
         className="relative rounded-xl sm:rounded-2xl overflow-hidden min-h-[380px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
+        whileHover={{ scale: 1.01, y: -4 }}
+        transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <motion.div
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
@@ -41,7 +44,7 @@ const VerticalCard = ({
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
         </motion.div>
@@ -59,7 +62,7 @@ const VerticalCard = ({
                 whileHover={{ scale: 1.05 }}
               >
                 Zobraziť viac
-                <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </motion.div>
             </div>
             <p className="text-primary-foreground/80 text-sm sm:text-base md:text-lg font-light leading-relaxed">
@@ -67,7 +70,7 @@ const VerticalCard = ({
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };
@@ -83,6 +86,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="ASSETRA Investments | Súkromná investičná spoločnosť"
+        description="Súkromná investičná spoločnosť zameraná na dlhodobý rast. Nehnuteľnosti, private equity a zabezpečené úvery na Slovensku."
+      />
       <Header />
       <main>
         {/* Hero Section */}
@@ -165,6 +172,31 @@ const Index = () => {
             href="/private-equity"
           />
         </section>
+
+        {/* CTA Section */}
+        <AnimatedSection>
+          <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 mt-8 sm:mt-12 md:mt-16 py-16 sm:py-24 md:py-32">
+            <div className="px-5 sm:px-8 md:px-12 lg:px-16">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 sm:gap-10">
+                <div className="max-w-2xl">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4 sm:mb-6">
+                    Začnite investovať s ASSETRA
+                  </h2>
+                  <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
+                    Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.
+                  </p>
+                </div>
+                <Link
+                  to="/pre-investorov#kontakt"
+                  className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
+                >
+                  Chcem investovať
+                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
 
         <div className="h-16 sm:h-24 md:h-32" />
       </main>

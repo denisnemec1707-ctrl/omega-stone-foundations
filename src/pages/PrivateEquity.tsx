@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageMeta from "@/components/PageMeta";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import {
@@ -23,6 +24,10 @@ const faqs = [
 const PrivateEquity = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Akvizície a private equity | ASSETRA Investments"
+        description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Dlhodobé partnerstvá s dôrazom na rast."
+      />
       <Header />
       <main>
         <SubpageHero
