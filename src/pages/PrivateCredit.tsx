@@ -31,7 +31,7 @@ const PrivateCredit = () => {
       <Header />
       <main>
         <SubpageHero
-          label="Private Credit"
+          label="Financovanie"
           title="Zabezpečené"
           titleAccent="úvery"
           description="Poskytujeme financovanie pre právnické osoby a realitné projekty. Rýchle schválenie, flexibilné podmienky."
