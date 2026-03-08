@@ -140,7 +140,7 @@ const ForInvestors = () => {
           <div className="px-5 sm:px-8 md:px-12 lg:px-16">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
               {[
-                { value: "10%", label: "Fixný ročný výnos", desc: "Zmluvne garantovaný výnos na celé investičné obdobie." },
+                { value: "12%", label: "Fixný ročný výnos", desc: "Zmluvne garantovaný výnos na celé investičné obdobie." },
                 { value: "Mesačne", label: "Výplata výnosov", desc: "Pravidelný pasívny príjem každý mesiac." },
                 { value: "10 000 €", label: "Minimálna investícia", desc: "Začnite investovať od 10 000 eur." },
                 { value: "Reálne", label: "Zabezpečenie aktívami", desc: "Každá investícia je krytá fyzickými nehnuteľnosťami." },
