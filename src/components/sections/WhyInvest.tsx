@@ -21,7 +21,7 @@ const WhyInvest = () => {
         <StaggerContainer className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 md:gap-12 lg:gap-16" staggerDelay={0.1}>
           <StaggerItem className="text-center p-2 sm:p-0">
             <p className="font-serif text-2xl sm:text-4xl md:text-display-sm text-gold mb-2 sm:mb-3 md:mb-4">
-              <AnimatedCounter value={10} suffix="%" />
+              <AnimatedCounter value={12} suffix="%" />
             </p>
             <h3 className="font-serif text-base sm:text-lg md:text-xl mb-1 sm:mb-2 md:mb-3">Fixný ročný výnos</h3>
             <p className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed">

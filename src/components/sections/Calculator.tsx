@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const Calculator = () => {
   const [investment, setInvestment] = useState(50000);
   const [duration, setDuration] = useState(12);
-  const annualRate = 0.10;
+  const annualRate = 0.12;
 
   const calculations = useMemo(() => {
     const monthlyRate = annualRate / 12;
@@ -44,7 +44,7 @@ const Calculator = () => {
               Vypočítajte si svoje <span className="text-gold">výnosy</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed px-2 sm:px-0">
-              Pozrite sa, koľko by ste zarobili s fixným 10% ročným výnosom od ASSETRA.
+              Pozrite sa, koľko by ste zarobili s fixným 12% ročným výnosom od ASSETRA.
             </p>
           </AnimatedSection>
 
@@ -103,7 +103,7 @@ const Calculator = () => {
                 <div className="pt-4 sm:pt-4 md:pt-6 border-t border-border">
                   <div className="flex justify-between text-xs sm:text-xs md:text-sm text-muted-foreground mb-2">
                     <span>Ročná výnosová sadzba</span>
-                    <span className="text-gold">10% fixne</span>
+                    <span className="text-gold">12% fixne</span>
                   </div>
                   <div className="flex justify-between text-xs sm:text-xs md:text-sm text-muted-foreground">
                     <span>Frekvencia výplat</span>

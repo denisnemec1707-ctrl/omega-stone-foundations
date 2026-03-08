@@ -245,7 +245,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-serif text-xl md:text-2xl text-gold mb-1">
-                      <AnimatedCounter value={10} suffix="%" />
+                      <AnimatedCounter value={12} suffix="%" />
                     </p>
                     <p className="text-xs text-muted-foreground">Ročný výnos</p>
                   </div>

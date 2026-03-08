@@ -8,7 +8,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/Ani
 
 const faqs = [
   {
-    question: "Ako sa generuje 10% ročný výnos?",
+    question: "Ako sa generuje 12% ročný výnos?",
     answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu. Marža medzi akvizičnými nákladmi a predajnou cenou pokrýva váš fixný výnos, náklady na rekonštrukciu a prevádzkové výdavky. Ide o reálny zisk z reálnych transakcií, nie úroky z požičiavania ani výnosy z finančných trhov."
   },
   {
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Ako a kedy sa vyplácajú výnosy?",
-    answer: "Výnosy sa vyplácajú mesačne, priamo na váš určený bankový účet. Platby sa realizujú v rovnaký deň každý mesiac počas celého investičného obdobia. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu (10% ÷ 12 = 0,833% mesačne z vašej istiny)."
+    answer: "Výnosy sa vyplácajú mesačne, priamo na váš určený bankový účet. Platby sa realizujú v rovnaký deň každý mesiac počas celého investičného obdobia. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu (12% ÷ 12 = 1% mesačne z vašej istiny)."
   },
   {
     question: "Aké sú riziká investície?",

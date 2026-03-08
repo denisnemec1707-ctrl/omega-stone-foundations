@@ -1,42 +1,138 @@
 
+# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
 
-## Zmena výnosovej sadzby z 10% na 12% p.a.
+## Prehľad
 
-Jednoduchá zmena textu a výpočtov naprieč celým projektom. Žiadne nové súbory, žiadne štrukturálne zmeny.
+Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
 
-### Súbory a zmeny
+1. **Page Transitions** - plynulé prechody medzi stránkami
+2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
+3. **Header Animation** - dynamický header reagujúci na scroll
 
-**1. `src/components/sections/Hero.tsx`** (riadok 38)
-- `10% ročný výnos` → `12% ročný výnos`
+---
 
-**2. `src/components/sections/WhyInvest.tsx`** (riadok 24)
-- `AnimatedCounter value={10}` → `value={12}`
+## 1. Page Transitions (Prechody medzi stránkami)
 
-**3. `src/components/sections/Calculator.tsx`**
-- Riadok 11: `annualRate = 0.10` → `0.12`
-- Riadok 47: text `10%` → `12%`
-- Riadok 106: text `10% fixne` → `12% fixne`
+### Čo to urobí:
+- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
+- Nová stránka sa plynulo "objaví" (fade-in)
+- Stránka pôsobí ako jedna súvislá aplikácia
 
-**4. `src/components/sections/FAQ.tsx`** (riadok 11-12)
-- FAQ otázka a odpoveď: `10%` → `12%`
+### Technická implementácia:
 
-**5. `src/components/sections/Contact.tsx`** (riadok 248)
-- `AnimatedCounter value={10}` → `value={12}`
+**Nový súbor `src/components/PageTransition.tsx`:**
+```text
+- Wrapper komponent využívajúci AnimatePresence z framer-motion
+- Fade + jemný posun nahor pri vstupe
+- Fade + jemný posun nadol pri odchode
+- Trvanie: 300ms
+```
 
-**6. `src/pages/ForInvestors.tsx`**
-- Riadok 27: FAQ text `10%` → `12%`
-- Riadok 75: výpočet `0.10` → `0.12`
-- Riadok 115: PageMeta description `10%` → `12%`
-- Riadok 123: SubpageHero description `10%` → `12%`
-- Riadok 143: stats value `"10%"` → `"12%"`
-- Riadok 408: `AnimatedCounter value={10}` → `value={12}`
+**Úprava `src/App.tsx`:**
+```text
+- Import PageTransition komponentu
+- Obalenie Routes do AnimatePresence
+- Každá Route dostane PageTransition wrapper
+- Použitie location.key pre správne animácie
+```
 
-**7. `src/pages/Index.tsx`** (riadok 186)
-- CTA text `10%` → `12%`
+---
 
-**8. `src/pages/RealEstate.tsx`**
-- Riadok 17: FAQ text `10%` → `12%`
-- Riadok 30: PageMeta description `10%` → `12%`
+## 2. Scroll Progress Indicator
 
-Celkovo cca 15 zmien v 8 súboroch -- všetko textové/číselné nahradenie.
+### Čo to urobí:
+- Tenká zlatá línia priamo pod headerom
+- Začína na 0% šírky, končí na 100% šírky
+- Vizuálne ukazuje koľko stránky používateľ prešiel
 
+### Technická implementácia:
+
+**Nový súbor `src/components/ScrollProgress.tsx`:**
+```text
+- Použitie framer-motion useScroll hook
+- Sticky pozícia pod headerom (top: výška headeru)
+- Zlatá farba (bg-gold)
+- Výška: 2px
+- scaleX transformácia podľa scrollYProgress
+- transformOrigin: left
+```
+
+**Úprava `src/App.tsx`:**
+```text
+- Import ScrollProgress komponentu
+- Umiestnenie pod BrowserRouter, pred Routes
+```
+
+---
+
+## 3. Header Animation
+
+### Čo to urobí:
+- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
+- Zvýši sa backdrop blur a priehľadnosť pozadia
+- Logo sa jemne zmenší
+- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
+- Hover efekt na logo (zlatá farba)
+
+### Technická implementácia:
+
+**Úprava `src/components/layout/Header.tsx`:**
+```text
+- Nový custom hook pre sledovanie scroll pozície
+- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
+- Animácie:
+  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
+  - Background: bg-background/80 → bg-background/95
+  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
+  - Logo: text-xl → text-lg s transition
+- Hover efekt na logo pomocou framer-motion
+```
+
+---
+
+## Vizuálny príklad
+
+```text
++----------------------------------------------------------+
+|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
+|=========================================================|← Scroll Progress (0%)
+|                                                          |
+|            Súkromná investičná spoločnosť                |
+|                                                          |
++----------------------------------------------------------+
+
+        ↓ Po scrollovaní 50px+ ↓
+
++----------------------------------------------------------+
+| ASSETRA investments   RE  PE  PC      [Header - compact] |
+|===========================|← Scroll Progress (50%)       |
+|                                                          |
+```
+
+---
+
+## Súbory na vytvorenie
+
+| Súbor | Účel |
+|-------|------|
+| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
+| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
+| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
+
+## Súbory na úpravu
+
+| Súbor | Zmeny |
+|-------|-------|
+| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
+| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
+
+---
+
+## Očakávaný výsledok
+
+Po implementácii:
+- Stránka bude pôsobiť ako profesionálna single-page aplikácia
+- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
+- Header bude reagovať na interakciu a pôsobiť dynamicky
+- Všetky animácie budú rýchle (200-400ms) a nenápadné
+- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`

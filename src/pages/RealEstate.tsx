@@ -14,7 +14,7 @@ import {
 import verticalRealestate from "@/assets/vertical-realestate.jpg";
 
 const faqs = [
-  { question: "Ako sa generuje 10% ročný výnos?", answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu." },
+  { question: "Ako sa generuje 12% ročný výnos?", answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu." },
   { question: "Je moja investícia zabezpečená nehnuteľnosťami?", answer: "Áno. Každé euro, ktoré investujete, je nasadené do akvizície fyzických nehnuteľností. Celý kapitálový fond je zabezpečený realitnými aktívami." },
   { question: "Aký je typický investičný horizont?", answer: "Štandardné investičné obdobia sa pohybujú od 12 do 18 mesiacov. Na konci každého obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi." },
   { question: "Ako a kedy sa vyplácajú výnosy?", answer: "Výnosy sa vyplácajú mesačne, priamo na váš bankový účet. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu." },
@@ -27,7 +27,7 @@ const RealEstate = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Nehnuteľnosti a realitný flipping | ASSETRA Investments"
-        description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 10% ročný výnos."
+        description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 12% ročný výnos."
       />
       <Header />
       <main>
@@ -71,7 +71,7 @@ const RealEstate = () => {
           <div className="px-5 sm:px-8 md:px-12 lg:px-16">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
               {[
-                { value: "10%", label: "Fixný ročný výnos", desc: "Váš výnos je vopred určený a zmluvne garantovaný." },
+                { value: "12%", label: "Fixný ročný výnos", desc: "Váš výnos je vopred určený a zmluvne garantovaný." },
                 { value: "Mesačne", label: "Pravidelný príjem", desc: "Dostávajte svoje výnosy každý mesiac." },
                 { value: "Reálne", label: "Zabezpečenie aktívami", desc: "Každá investícia je viazaná na fyzické nehnuteľnosti." },
                 { value: "12–36", label: "Mesačné cykly", desc: "Krátke investičné horizonty s definovanými výstupmi." },

@@ -24,7 +24,7 @@ import {
 import heroMountains from "@/assets/hero-mountains.jpg";
 
 const faqs = [
-  { question: "Ako sa generuje 10% ročný výnos?", answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu." },
+  { question: "Ako sa generuje 12% ročný výnos?", answer: "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu." },
   { question: "Je moja investícia zabezpečená?", answer: "Áno. Každé euro, ktoré investujete, je nasadené do akvizície fyzických nehnuteľností. Celý kapitálový fond je zabezpečený realitnými aktívami." },
   { question: "Aký je typický investičný horizont?", answer: "Štandardné investičné obdobia sa pohybujú od 12 do 24 mesiacov. Na konci každého obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi." },
   { question: "Ako a kedy sa vyplácajú výnosy?", answer: "Výnosy sa vyplácajú mesačne, priamo na váš bankový účet. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu." },
@@ -72,7 +72,7 @@ const ForInvestors = () => {
   });
 
   const calculations = useMemo(() => {
-    const monthlyRate = 0.10 / 12;
+    const monthlyRate = 0.12 / 12;
     const monthlyPayout = investment * monthlyRate;
     const totalReturn = monthlyPayout * duration;
     return {
@@ -112,7 +112,7 @@ const ForInvestors = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Pre investorov | ASSETRA Investments"
-        description="Investujte s istotou. Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+        description="Investujte s istotou. Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
       />
       <Header />
       <main>
@@ -120,7 +120,7 @@ const ForInvestors = () => {
           label="Pre investorov"
           title="Investujte"
           titleAccent="s istotou"
-          description="Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+          description="Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
           image={heroMountains}
         />
 
@@ -140,7 +140,7 @@ const ForInvestors = () => {
           <div className="px-5 sm:px-8 md:px-12 lg:px-16">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
               {[
-                { value: "10%", label: "Fixný ročný výnos", desc: "Zmluvne garantovaný výnos na celé investičné obdobie." },
+                { value: "12%", label: "Fixný ročný výnos", desc: "Zmluvne garantovaný výnos na celé investičné obdobie." },
                 { value: "Mesačne", label: "Výplata výnosov", desc: "Pravidelný pasívny príjem každý mesiac." },
                 { value: "10 000 €", label: "Minimálna investícia", desc: "Začnite investovať od 10 000 eur." },
                 { value: "Reálne", label: "Zabezpečenie aktívami", desc: "Každá investícia je krytá fyzickými nehnuteľnosťami." },
@@ -405,7 +405,7 @@ const ForInvestors = () => {
                       <p className="text-xs text-primary-foreground/40">Min. investícia</p>
                     </div>
                     <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={10} suffix="%" /></p>
+                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={12} suffix="%" /></p>
                       <p className="text-xs text-primary-foreground/40">Ročný výnos</p>
                     </div>
                     <div>
