@@ -37,7 +37,7 @@ const companies = [
   },
   {
     name: "EUROSCAFF",
-    logo: euroscaffLogo,
+    logo: ensolaLogo,
     description:
       "Stavebná spoločnosť a personálna agentúra v stavebníctve pôsobiaca na nemeckom trhu. Zabezpečuje kvalifikovanú pracovnú silu pre stavebné projekty.",
     tags: ["Stavebníctvo", "Personalistika", "Nemecko"],
