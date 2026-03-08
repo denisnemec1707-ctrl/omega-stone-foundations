@@ -54,6 +54,14 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        <Route
+          path="/pre-investorov"
+          element={
+            <PageTransition>
+              <ForInvestors />
+            </PageTransition>
+          }
+        />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"
