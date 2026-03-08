@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PageMeta from "@/components/PageMeta";
 import SubpageHero from "@/components/sections/SubpageHero";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { AnimatedCounter, AnimatedValue } from "@/components/AnimatedCounter";
@@ -13,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Accordion,
   AccordionContent,
@@ -29,6 +31,24 @@ const faqs = [
   { question: "Aká je minimálna výška investície?", answer: "Minimálna investícia je 10 000 €. Väčšie investície môžu kvalifikovať na individuálne podmienky." },
   { question: "Môžem vybrať investíciu predčasne?", answer: "Investície sú viazané na dohodnuté obdobie. V mimoriadnych prípadoch môžeme vyhovieť žiadostiam s poplatkom za predčasný výstup." },
   { question: "Do akých sektorov investujete?", answer: "Investujeme do troch hlavných oblastí – nehnuteľnosti (realitný flipping), akvizície zabehnutých firiem (private equity) a zabezpečené úvery (private credit)." },
+];
+
+const testimonials = [
+  {
+    quote: "S ASSETRA som začal investovať pred rokom. Mesačné výplaty prichádzajú presne a spoľahlivo, presne ako bolo dohodnuté v zmluve.",
+    author: "Investor z Bratislavy",
+    detail: "Investícia od 50 000 €",
+  },
+  {
+    quote: "Oceňujem transparentnosť a profesionálny prístup. Vždy presne viem, do čoho sú moje peniaze investované a aký výnos môžem očakávať.",
+    author: "Investor z Košíc",
+    detail: "Investícia od 100 000 €",
+  },
+  {
+    quote: "Po rokoch hľadania spoľahlivého zhodnotenia kapitálu som našiel riešenie, ktoré skutočne funguje. Reálne aktíva, reálne výnosy.",
+    author: "Investor z Prahy",
+    detail: "Investícia od 25 000 €",
+  },
 ];
 
 const contactSchema = z.object({
@@ -67,15 +87,33 @@ const ForInvestors = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Investor form submitted:", { name: data.name, email: data.email });
-    toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 24 hodín." });
-    reset();
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase.from("investor_inquiries").insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        investment_amount: data.investmentAmount || null,
+        investment_interest: data.investmentInterest || null,
+        message: data.message || null,
+      });
+
+      if (error) throw error;
+
+      toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 24 hodín." });
+      reset();
+    } catch {
+      toast.error("Nepodarilo sa odoslať žiadosť", { description: "Skúste to prosím znova neskôr." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Pre investorov | ASSETRA Investments"
+        description="Investujte s istotou. Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+      />
       <Header />
       <main>
         <SubpageHero
@@ -228,6 +266,34 @@ const ForInvestors = () => {
           </div>
         </section>
 
+        {/* Social Proof / Testimonials */}
+        <AnimatedSection>
+          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-10 sm:mb-14 md:mb-20">
+                Čo hovoria naši investori
+              </h2>
+              <StaggerContainer className="grid md:grid-cols-3 gap-6 sm:gap-8">
+                {testimonials.map((t, i) => (
+                  <StaggerItem key={i}>
+                    <motion.div
+                      className="border-l-2 border-foreground/15 pl-5 sm:pl-6 py-2 h-full hover:border-foreground/40 transition-colors"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <p className="font-serif text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed mb-4 sm:mb-6 italic">
+                        "{t.quote}"
+                      </p>
+                      <p className="text-sm font-medium text-foreground">{t.author}</p>
+                      <p className="text-xs text-muted-foreground">{t.detail}</p>
+                    </motion.div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+          </section>
+        </AnimatedSection>
+
         {/* FAQ */}
         <AnimatedSection>
           <section className="py-16 sm:py-24 md:py-32 lg:py-40">
@@ -238,7 +304,7 @@ const ForInvestors = () => {
               <div className="max-w-3xl">
                 <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                   {faqs.map((faq, i) => (
-                    <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-foreground/30 transition-colors">
+                    <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-foreground/30 transition-colors hover:border-foreground/20">
                       <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-foreground py-4 sm:py-5 text-foreground/70">
                         {faq.question}
                       </AccordionTrigger>
