@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "Ako a kedy sa vyplácajú výnosy?",
-    answer: "Výnosy sa vyplácajú mesačne, priamo na váš určený bankový účet. Platby sa realizujú v rovnaký deň každý mesiac počas celého investičného obdobia. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu (10% ÷ 12 = 0,833% mesačne z vašej istiny)."
+    answer: "Výnosy sa vyplácajú mesačne, priamo na váš určený bankový účet. Platby sa realizujú v rovnaký deň každý mesiac počas celého investičného obdobia. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu (12% ÷ 12 = 1% mesačne z vašej istiny)."
   },
   {
     question: "Aké sú riziká investície?",

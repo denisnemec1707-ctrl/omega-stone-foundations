@@ -103,7 +103,7 @@ const Calculator = () => {
                 <div className="pt-4 sm:pt-4 md:pt-6 border-t border-border">
                   <div className="flex justify-between text-xs sm:text-xs md:text-sm text-muted-foreground mb-2">
                     <span>Ročná výnosová sadzba</span>
-                    <span className="text-gold">10% fixne</span>
+                    <span className="text-gold">12% fixne</span>
                   </div>
                   <div className="flex justify-between text-xs sm:text-xs md:text-sm text-muted-foreground">
                     <span>Frekvencia výplat</span>

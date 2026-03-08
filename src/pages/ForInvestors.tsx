@@ -405,7 +405,7 @@ const ForInvestors = () => {
                       <p className="text-xs text-primary-foreground/40">Min. investícia</p>
                     </div>
                     <div>
-                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={10} suffix="%" /></p>
+                      <p className="font-serif text-xl sm:text-2xl mb-1 text-primary-foreground"><AnimatedCounter value={12} suffix="%" /></p>
                       <p className="text-xs text-primary-foreground/40">Ročný výnos</p>
                     </div>
                     <div>

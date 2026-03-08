@@ -27,7 +27,7 @@ const RealEstate = () => {
     <div className="min-h-screen bg-background">
       <PageMeta
         title="Nehnuteľnosti a realitný flipping | ASSETRA Investments"
-        description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 10% ročný výnos."
+        description="Nakupujeme nehnuteľnosti pod trhovú hodnotu, rekonštruujeme ich a predávame s výrazným zhodnotením. Fixný 12% ročný výnos."
       />
       <Header />
       <main>

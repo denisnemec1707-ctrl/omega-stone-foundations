@@ -183,7 +183,7 @@ const Index = () => {
                     Začnite investovať s ASSETRA
                   </h2>
                   <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
-                    Fixný 10% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.
+                    Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.
                   </p>
                 </div>
                 <Link

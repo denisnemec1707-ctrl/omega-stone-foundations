@@ -35,7 +35,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          10% ročný výnos<br />
+          12% ročný výnos<br />
           <span className="text-gold">Vyplácaný mesačne</span>
         </motion.h1>
         
