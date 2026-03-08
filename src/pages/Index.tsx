@@ -1,259 +1,175 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Briefcase, Landmark, Shield, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-import { motion } from "framer-motion";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import heroMountains from "@/assets/hero-mountains.jpg";
+import verticalRealestate from "@/assets/vertical-realestate.jpg";
+import verticalCredit from "@/assets/vertical-credit.jpg";
+import verticalEquity from "@/assets/vertical-equity.jpg";
+
+const VerticalCard = ({
+  title,
+  description,
+  image,
+  href,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
+  return (
+    <Link to={href} className="block group">
+      <div
+        ref={ref}
+        className="relative rounded-2xl overflow-hidden min-h-[500px] sm:min-h-[600px] md:min-h-[700px]"
+      >
+        {/* Parallax BG image */}
+        <motion.div
+          className="absolute inset-0 w-full h-[130%] -top-[15%]"
+          style={{ y }}
+        >
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </motion.div>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+
+        {/* Content */}
+        <div className="relative z-10 h-full min-h-[500px] sm:min-h-[600px] md:min-h-[700px] flex flex-col justify-end p-8 sm:p-12 md:p-16">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-end">
+            <div>
+              <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary-foreground mb-4 leading-tight">
+                {title}
+              </h3>
+              <motion.div
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary-foreground/30 text-primary-foreground text-sm tracking-wide group-hover:bg-primary-foreground/10 transition-colors"
+                whileHover={{ scale: 1.05 }}
+              >
+                Zobraziť viac
+                <ArrowUpRight className="w-4 h-4" />
+              </motion.div>
+            </div>
+            <p className="text-primary-foreground/80 text-base sm:text-lg font-light leading-relaxed">
+              {description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 const Index = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(heroScroll, [0, 1], [0, 200]);
+  const heroOpacity = useTransform(heroScroll, [0, 0.8], [1, 0]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="min-h-[70vh] sm:min-h-[75vh] flex items-center justify-center pt-20 sm:pt-24">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16 pb-8 sm:pb-12">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.p
-                className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                Súkromná investičná spoločnosť
-              </motion.p>
-              <motion.h1
-                className="font-serif text-3xl sm:text-4xl md:text-display-md lg:text-display-lg mb-6 sm:mb-8 leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                ASSETRA <span className="text-gold">investments</span>
-              </motion.h1>
-              <motion.p
-                className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-2 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                Investujeme do nehnuteľností, akvizícií zabehnutých firiem a poskytujeme zabezpečené úvery.
-                Naša stratégia je založená na konzervativnom prístupe s dôrazom na ochranu kapitálu.
-              </motion.p>
+        {/* Hero Section - Full screen with mountain image */}
+        <section ref={heroRef} className="relative h-screen overflow-hidden rounded-2xl mx-4 sm:mx-6 mt-4 sm:mt-6">
+          <motion.div className="absolute inset-0" style={{ y: heroY }}>
+            <img
+              src={heroMountains}
+              alt="Mountain landscape"
+              className="w-full h-[120%] object-cover"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
 
-              <motion.div
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <Button
-                  asChild
-                  className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
-                >
-                  <Link to="/real-estate#kontakt">Investovať do nehnuteľností</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
-                >
-                  <Link to="/real-estate#preco-investovat">Zistiť viac o investíciách</Link>
-                </Button>
-              </motion.div>
+          <motion.div
+            className="relative z-10 h-full flex flex-col justify-between p-8 sm:p-12 md:p-16"
+            style={{ opacity: heroOpacity }}
+          >
+            {/* Giant name */}
+            <div className="flex-1 flex items-center justify-center">
+              <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] text-primary-foreground tracking-tight leading-none text-center">
+                ASSETRA
+              </h1>
             </div>
-          </div>
-        </section>
 
-        {/* Three Verticals Section */}
-        <section className="py-8 sm:py-16 md:py-24">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <AnimatedSection className="text-center mb-10 sm:mb-16">
-              <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4">
-                Naše investičné vertikály
+            {/* Bottom subtitle */}
+            <div className="max-w-3xl">
+              <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/90 leading-tight">
+                Súkromná investičná spoločnosť zameraná na dlhodobý rast
               </p>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md">
-                Tri piliere <span className="text-gold">rastu</span>
-              </h2>
-            </AnimatedSection>
-
-            <StaggerContainer className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-12" staggerDelay={0.15}>
-              {/* Real Estate */}
-              <StaggerItem>
-                <Link
-                  to="/real-estate"
-                  className="group block bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300 h-full"
-                >
-                  <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }}>
-                    <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
-                  </motion.div>
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
-                    Real Estate
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                    Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu.
-                    Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame.
-                  </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
-                    Zistiť viac <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
-              </StaggerItem>
-
-              {/* Private Equity */}
-              <StaggerItem>
-                <Link
-                  to="/private-equity"
-                  className="group block bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300 h-full"
-                >
-                  <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }}>
-                    <Briefcase className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
-                  </motion.div>
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
-                    Private Equity
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                    Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie.
-                    Hľadáme príležitosti s jasným potenciálom rastu.
-                  </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
-                    Zistiť viac <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
-              </StaggerItem>
-
-              {/* Private Credit */}
-              <StaggerItem>
-                <Link
-                  to="/private-credit"
-                  className="group block bg-card p-6 sm:p-8 lg:p-10 border border-border hover:border-primary shadow-sm hover:shadow-md transition-all duration-300 h-full"
-                >
-                  <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }}>
-                    <Landmark className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-4 sm:mb-6" />
-                  </motion.div>
-                  <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:text-primary transition-colors">
-                    Private Credit
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed mb-4 sm:mb-6">
-                    Financujeme právnické osoby a realitné projekty zabezpečenými úvermi.
-                    Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície.
-                  </p>
-                  <span className="inline-flex items-center text-xs sm:text-sm tracking-wide uppercase text-primary group-hover:gap-3 gap-2 transition-all py-2">
-                    Zistiť viac <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
-              </StaggerItem>
-            </StaggerContainer>
-          </div>
+            </div>
+          </motion.div>
         </section>
 
-        {/* Investment CTA Banner */}
+        {/* About Statement */}
         <AnimatedSection>
-          <section className="py-12 sm:py-16 md:py-20 bg-charcoal border-y border-border">
-            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
-                  <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted">
-                    Zabezpečené investície
-                  </p>
-                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-4 sm:mb-6 text-white">
-                  Fixný výnos <span className="text-gold">10% ročne</span>
+          <section className="py-24 sm:py-32 md:py-40">
+            <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-20">
+              <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug text-foreground max-w-5xl">
+                ASSETRA investments je súkromná investičná spoločnosť so sídlom na Slovensku. Spravujeme diverzifikované portfólio naprieč nehnuteľnosťami, akvizíciami firiem a zabezpečenými úvermi.
+              </p>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Diverzifikované portfólio heading */}
+        <AnimatedSection>
+          <section className="pb-16 sm:pb-20">
+            <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-20">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+                <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+                  Diverzifikované portfólio
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
-                  Mesačné vyplácanie výnosov • Investícia zabezpečená reálnymi nehnuteľnosťami • Minimálna investícia od 10 000 €
+                <p className="text-lg sm:text-xl text-muted-foreground font-light leading-relaxed md:pt-4">
+                  Naša stratégia je založená na konzervativnom prístupe s dôrazom na ochranu kapitálu a generovanie stabilných výnosov prostredníctvom reálnych aktív a overených investičných stratégií.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
-                  <Button
-                    asChild
-                    className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm transition-transform duration-200 hover:scale-105 active:scale-95"
-                  >
-                    <Link to="/real-estate#kontakt">Začať investovať</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm transition-transform duration-200 hover:scale-105 active:scale-95"
-                  >
-                    <Link to="/real-estate#kalkulacka">Vypočítať výnos</Link>
-                  </Button>
-                </div>
               </div>
             </div>
           </section>
         </AnimatedSection>
 
-        {/* About Section */}
-        <section className="py-12 sm:py-20 md:py-32 border-t border-border">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-            <AnimatedSection className="max-w-4xl mx-auto text-center">
-              <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-4 sm:mb-6">
-                O spoločnosti
-              </p>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8">
-                Konzervativný prístup k <span className="text-gold">investíciám</span>
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-6 sm:mb-8 px-2 sm:px-0">
-                ASSETRA investments je súkromná investičná spoločnosť so sídlom na Slovensku.
-                Naša filozofia je založená na ochrane kapitálu a generovaní stabilných výnosov
-                prostredníctvom reálnych aktív a overených investičných stratégií.
-              </p>
-              <p className="text-sm sm:text-base text-muted-foreground font-light leading-relaxed px-2 sm:px-0">
-                Každá investícia je zabezpečená reálnymi aktívami – nehnuteľnosťami, podielmi vo firmách
-                alebo záložným právom. Transparentnosť a bezpečnosť sú našimi hlavnými hodnotami.
-              </p>
-
-              <div className="mt-8 sm:mt-10">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-11 md:h-12 px-6 sm:px-8 text-sm transition-transform duration-200 hover:scale-105 active:scale-95"
-                >
-                  <Link to="/real-estate">Preskúmať investičné možnosti</Link>
-                </Button>
-              </div>
-            </AnimatedSection>
-          </div>
+        {/* Vertical Cards */}
+        <section className="px-4 sm:px-6 space-y-6 sm:space-y-8">
+          <VerticalCard
+            title="Nehnuteľnosti a realitný flipping"
+            description="Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame s výrazným zhodnotením."
+            image={verticalRealestate}
+            href="/real-estate"
+          />
+          <VerticalCard
+            title="Zabezpečené úvery"
+            description="Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície a stabilné, rizikovo vyvážené výnosy."
+            image={verticalCredit}
+            href="/private-credit"
+          />
+          <VerticalCard
+            title="Akvizície a private equity"
+            description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty."
+            image={verticalEquity}
+            href="/private-equity"
+          />
         </section>
 
-        {/* Contact CTA */}
-        <AnimatedSection>
-          <section id="kontakt" className="py-12 sm:py-20 md:py-32 border-t border-border bg-charcoal">
-            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-16">
-              <div className="max-w-3xl mx-auto text-center">
-                <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
-                  <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
-                  <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted">
-                    Začnite investovať
-                  </p>
-                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm mb-6 sm:mb-8 text-white">
-                  Máte záujem o <span className="text-gold">investovanie?</span>
-                </h2>
-                <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
-                  Zistite viac o našich zabezpečených investíciách do nehnuteľností s fixným výnosom 10% ročne.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
-                  <Button
-                    asChild
-                    className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-8 sm:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
-                  >
-                    <Link to="/real-estate#kontakt">Chcem investovať</Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-border hover:border-gold hover:text-gold active:border-gold active:text-gold font-medium tracking-wide uppercase h-12 md:h-14 px-8 sm:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
-                  >
-                    <Link to="/real-estate">Dozvedieť sa viac</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
-        </AnimatedSection>
+        {/* Spacer */}
+        <div className="h-24 sm:h-32" />
       </main>
       <Footer />
     </div>
