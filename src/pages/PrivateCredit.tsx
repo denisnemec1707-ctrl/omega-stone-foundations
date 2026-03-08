@@ -76,22 +76,25 @@ const PrivateCredit = () => {
           </section>
         </AnimatedSection>
 
-        {/* Financing Types - Dark block */}
-        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
-          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase mb-3 sm:mb-4 text-primary-foreground/40">
-                Typy financovania
-              </p>
-              <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground">
-                  Čo <span className="text-primary">financujeme</span>
+        {/* Financing Types */}
+        <AnimatedSection>
+          <section className="pb-10 sm:pb-16 md:pb-20">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                  Čo financujeme
                 </h2>
-                <p className="text-base sm:text-lg font-light leading-relaxed md:pt-2 text-primary-foreground/60">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
                   Ponúkame dva hlavné typy financovania pre právnické osoby.
                 </p>
               </div>
-            </AnimatedSection>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Financing Types - Dark block */}
+        <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
+          <div className="px-5 sm:px-8 md:px-12 lg:px-16">
             <StaggerContainer className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
               {[
                 { title: "Realitné projekty", desc: "Financovanie akvizícií, developmentu a rekonštrukcií nehnuteľností.", params: ["Výška: 10 000 – 500 000 €", "Splatnosť: 3–24 mesiacov", "LTV do 70%"] },
@@ -100,9 +103,9 @@ const PrivateCredit = () => {
                 <StaggerItem key={i}>
                   <div className="border border-primary-foreground/10 p-5 sm:p-8 h-full rounded-xl">
                     <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 text-primary-foreground">{type.title}</h3>
-                    <p className="text-sm sm:text-base text-primary-foreground/50 font-light leading-relaxed mb-4">{type.desc}</p>
+                    <p className="text-sm sm:text-base text-primary-foreground/40 font-light leading-relaxed mb-4">{type.desc}</p>
                     <ul className="space-y-2">
-                      {type.params.map((p, j) => <li key={j} className="text-xs sm:text-sm text-primary">• {p}</li>)}
+                      {type.params.map((p, j) => <li key={j} className="text-xs sm:text-sm text-primary-foreground/60">• {p}</li>)}
                     </ul>
                   </div>
                 </StaggerItem>
@@ -112,42 +115,41 @@ const PrivateCredit = () => {
         </section>
 
         {/* Benefits */}
-        <section className="py-16 sm:py-24 md:py-32">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase mb-3 sm:mb-4 text-muted-foreground">
-                Prečo my
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-foreground">
-                Výhody <span className="text-primary">spolupráce</span>
-              </h2>
-            </AnimatedSection>
-            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {[
-                { value: "5 dní", label: "Rýchle schválenie", desc: "Rozhodnutie do 5 pracovných dní." },
-                { value: "Flexibilné", label: "Podmienky", desc: "Individuálny prístup ku každému projektu." },
-                { value: "0 €", label: "Skryté poplatky", desc: "Jasná úroková sadzba od začiatku." },
-                { value: "Min.", label: "Byrokracia", desc: "Zameriavame sa na podstatu projektu." },
-              ].map((item, i) => (
-                <StaggerItem key={i} className="text-center">
-                  <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary mb-2 sm:mb-3">{item.value}</p>
-                  <h3 className="font-serif text-sm sm:text-base md:text-lg mb-1 sm:mb-2">{item.label}</h3>
-                  <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
+        <AnimatedSection>
+          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start mb-10 sm:mb-14 md:mb-20">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                  Výhody spolupráce
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
+                  Rýchle rozhodnutia, flexibilné podmienky a transparentné náklady.
+                </p>
+              </div>
+              <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                {[
+                  { value: "5 dní", label: "Rýchle schválenie", desc: "Rozhodnutie do 5 pracovných dní." },
+                  { value: "Flexibilné", label: "Podmienky", desc: "Individuálny prístup ku každému projektu." },
+                  { value: "0 €", label: "Skryté poplatky", desc: "Jasná úroková sadzba od začiatku." },
+                  { value: "Min.", label: "Byrokracia", desc: "Zameriavame sa na podstatu projektu." },
+                ].map((item, i) => (
+                  <StaggerItem key={i} className="text-center">
+                    <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-2 sm:mb-3">{item.value}</p>
+                    <h3 className="font-serif text-sm sm:text-base md:text-lg mb-1 sm:mb-2">{item.label}</h3>
+                    <p className="text-muted-foreground font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+          </section>
+        </AnimatedSection>
 
         {/* Process - Dark block */}
         <section className="bg-charcoal rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-16 sm:py-24 md:py-32">
           <div className="px-5 sm:px-8 md:px-12 lg:px-16">
             <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase mb-3 sm:mb-4 text-primary-foreground/40">
-                Proces schvaľovania
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground">
-                Ako to <span className="text-primary">funguje</span>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground max-w-3xl">
+                Ako to funguje
               </h2>
             </AnimatedSection>
             <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
@@ -158,9 +160,9 @@ const PrivateCredit = () => {
                 { step: "04", title: "Čerpanie", desc: "Po podpise uvoľníme financie." },
               ].map((item, i) => (
                 <StaggerItem key={i}>
-                  <span className="font-serif text-5xl sm:text-6xl text-primary/20 block mb-2">{item.step}</span>
+                  <span className="font-serif text-5xl sm:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
                   <h3 className="font-serif text-lg sm:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
-                  <p className="text-primary-foreground/50 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-primary-foreground/40 font-light text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -168,43 +170,39 @@ const PrivateCredit = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 sm:py-24 md:py-32">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase mb-3 sm:mb-4 text-muted-foreground">
-                Časté otázky
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-foreground">
-                Otázky o <span className="text-primary">financovaní</span>
+        <AnimatedSection>
+          <section className="py-16 sm:py-24 md:py-32 lg:py-40">
+            <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-10 sm:mb-14 md:mb-20">
+                Často kladené otázky
               </h2>
-            </AnimatedSection>
-            <div className="max-w-3xl">
-              <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-                {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-primary transition-colors">
-                    <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-primary py-4 sm:py-5">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <div className="max-w-3xl">
+                <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+                  {faqs.map((faq, i) => (
+                    <AccordionItem key={i} value={`item-${i}`} className="border border-border px-4 sm:px-6 data-[state=open]:border-foreground/30 transition-colors">
+                      <AccordionTrigger className="text-left font-serif text-sm sm:text-base md:text-lg hover:no-underline hover:text-foreground py-4 sm:py-5 text-foreground/70">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground font-light text-xs sm:text-sm md:text-base leading-relaxed pb-4 sm:pb-5">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </AnimatedSection>
 
         {/* Contact */}
-        <section id="kontakt" className="py-16 sm:py-24 md:py-32">
+        <section id="kontakt" className="py-16 sm:py-24 md:py-32 lg:py-40">
           <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
             <AnimatedSection className="mb-10 sm:mb-14 md:mb-20">
-              <p className="text-xs sm:text-sm tracking-ultra-wide uppercase text-muted-foreground mb-3 sm:mb-4">Potrebujete financovanie?</p>
-              <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-                  Kontaktujte <span className="text-primary">nás</span>
+              <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+                  Kontaktujte nás
                 </h2>
-                <p className="text-base sm:text-lg font-light leading-relaxed md:pt-2 text-muted-foreground">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
                   Máte projekt, ktorý potrebuje financovanie? Vyplňte formulár alebo nás kontaktujte priamo.
                 </p>
               </div>
@@ -217,21 +215,21 @@ const PrivateCredit = () => {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     <div>
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Meno *</label>
-                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary h-11 md:h-12" />
+                      <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
                       {errors.name && <p className="text-destructive text-xs mt-1">{errors.name.message}</p>}
                     </div>
                     <div>
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Email *</label>
-                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary h-11 md:h-12" />
+                      <Input {...register("email")} type="email" placeholder="jan.novak@email.sk" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
                       {errors.email && <p className="text-destructive text-xs mt-1">{errors.email.message}</p>}
                     </div>
                     <div>
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Telefón</label>
-                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary h-11 md:h-12" />
+                      <Input {...register("phone")} type="tel" placeholder="+421 900 000 000" className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
                     </div>
                     <div>
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Spoločnosť *</label>
-                      <Input {...register("companyName")} placeholder="Vaša spoločnosť s.r.o." className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary h-11 md:h-12" />
+                      <Input {...register("companyName")} placeholder="Vaša spoločnosť s.r.o." className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12" />
                       {errors.companyName && <p className="text-destructive text-xs mt-1">{errors.companyName.message}</p>}
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -268,10 +266,10 @@ const PrivateCredit = () => {
                     </div>
                     <div>
                       <label className="text-xs sm:text-sm tracking-wide uppercase text-primary-foreground/40 mb-2 block">Popis projektu *</label>
-                      <Textarea {...register("message")} placeholder="Opíšte váš projekt..." rows={4} className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary resize-none" />
+                      <Textarea {...register("message")} placeholder="Opíšte váš projekt..." rows={4} className="bg-charcoal-light border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 resize-none" />
                       {errors.message && <p className="text-destructive text-xs mt-1">{errors.message.message}</p>}
                     </div>
-                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-foreground hover:bg-primary-foreground/90 text-charcoal font-medium tracking-wide uppercase h-12 md:h-14 text-sm">
                       {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
                     </Button>
                   </form>
@@ -284,7 +282,7 @@ const PrivateCredit = () => {
                   <div className="space-y-6 sm:space-y-8">
                     <div>
                       <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Email</p>
-                      <a href="mailto:credit@assetra.sk" className="text-lg sm:text-xl hover:text-primary transition-colors">credit@assetra.sk</a>
+                      <a href="mailto:credit@assetra.sk" className="text-lg sm:text-xl hover:text-muted-foreground transition-colors">credit@assetra.sk</a>
                     </div>
                     <div>
                       <p className="text-xs sm:text-sm tracking-wide uppercase text-muted-foreground mb-2">Kancelária</p>
