@@ -163,7 +163,7 @@ const Index = () => {
             title="Zabezpečené úvery"
             description="Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície a stabilné, rizikovo vyvážené výnosy."
             image={verticalCredit}
-            href="/private-credit"
+            href="/uvery"
           />
           <VerticalCard
             title="Akvizície a private equity"
