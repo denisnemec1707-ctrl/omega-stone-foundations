@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      assistant_applications: {
+        Row: {
+          city: string
+          consent_given: boolean
+          created_at: string
+          cv_path: string
+          earliest_start: string
+          email: string
+          expected_salary: string
+          full_name: string
+          id: string
+          motivation: string
+          phone: string
+        }
+        Insert: {
+          city: string
+          consent_given?: boolean
+          created_at?: string
+          cv_path: string
+          earliest_start: string
+          email: string
+          expected_salary: string
+          full_name: string
+          id?: string
+          motivation: string
+          phone: string
+        }
+        Update: {
+          city?: string
+          consent_given?: boolean
+          created_at?: string
+          cv_path?: string
+          earliest_start?: string
+          email?: string
+          expected_salary?: string
+          full_name?: string
+          id?: string
+          motivation?: string
+          phone?: string
+        }
+        Relationships: []
+      }
       contact_inquiries: {
         Row: {
           annual_turnover: string | null
