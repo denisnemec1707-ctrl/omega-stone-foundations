@@ -19,6 +19,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Portfolio from "./pages/Portfolio";
 import Careers from "./pages/Careers";
+import AssistantCEO from "./pages/AssistantCEO";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -98,6 +99,14 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Careers />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/kariera/asistent-ceo"
+          element={
+            <PageTransition>
+              <AssistantCEO />
             </PageTransition>
           }
         />
