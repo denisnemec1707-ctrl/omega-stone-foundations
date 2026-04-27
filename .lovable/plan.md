@@ -1,138 +1,73 @@
+## Plán: Landing page pre nábor asistenta/ky CEO
 
-# Top 3 Animácie - Page Transitions, Scroll Progress, Header Animation ✅ DOKONČENÉ
+### Stratégia
+Samostatná landing page na `/kariera/asistent-ceo` (executive pozícia = vlastná stránka, vhodné na cielenú reklamu) + karta na `/kariera` ktorá tam vedie. Existujúce karty (Obchodný zástupca, Projektový manažér) zostávajú.
 
-## Prehľad
+### 1. Nová stránka `src/pages/AssistantCEO.tsx`
+Dark/charcoal estetika konzistentná so zvyškom webu.
 
-Implementujeme tri pokročilé animácie, ktoré výrazne zlepšia používateľský zážitok:
+**Sekcie:**
+- **Hero** (SubpageHero): label „Kariéra · Executive", title „Asistent/ka", titleAccent „CEO"
+- **O úlohe** — pracuješ priamo s CEO, koordinácia portfólia (Ensola, Woodsteel, EUROSCAFF, History Caffe), správa kalendára, príprava podkladov, komunikácia s partnermi
+- **Koho hľadáme** — profil: spoľahlivosť, diskrétnosť, výborná SK/EN komunikácia, organizačné zručnosti, samostatnosť, vodičák B
+- **Čo ponúkame** — práca priamo s CEO, vhľad do investičnej skupiny, flexibilná forma (úväzok/miesto doladíme podľa kandidáta), priestor na rast
+- **Formulár prihlášky** (dark charcoal karta, react-hook-form + zod):
+  - Meno a priezvisko *
+  - Email *
+  - Telefón *
+  - Mesto / región *
+  - Motivácia — prečo táto pozícia (textarea) *
+  - Očakávaná hrubá mzda (text/select rozsahy) *
+  - Najskorší možný nástup *
+  - **CV upload** (PDF/DOC/DOCX, max 5 MB) *
+  - Súhlas so spracovaním osobných údajov (checkbox, link na `/ochrana-osobnych-udajov`) *
+  - Submit → upload do storage → insert do DB → invoke edge function → toast „Ďakujeme, ozveme sa"
 
-1. **Page Transitions** - plynulé prechody medzi stránkami
-2. **Scroll Progress Indicator** - tenká zlatá línia ukazujúca progres scrollovania
-3. **Header Animation** - dynamický header reagujúci na scroll
+### 2. Backend (Lovable Cloud)
 
----
+**Storage bucket** `cv-uploads` (private):
+- RLS: anon môže `INSERT`, nikto nemôže `SELECT`/`DELETE` cez klienta
+- CV cesta: `assistant-ceo/{uuid}-{sanitized-filename}.pdf`
 
-## 1. Page Transitions (Prechody medzi stránkami)
+**Nová tabuľka** `assistant_applications`:
+- `id` uuid PK, `created_at` timestamptz
+- `full_name`, `email`, `phone`, `city`, `motivation`, `expected_salary`, `earliest_start` text
+- `cv_path` text (cesta v storage bucket)
+- `consent_given` boolean
+- RLS: `anon + authenticated` môžu len `INSERT`, žiadne SELECT/UPDATE/DELETE pre klienta
 
-### Čo to urobí:
-- Pri prechode na novú stránku sa aktuálna stránka plynulo "odchádza" (fade-out)
-- Nová stránka sa plynulo "objaví" (fade-in)
-- Stránka pôsobí ako jedna súvislá aplikácia
+### 3. Email notifikácia s prílohou
 
-### Technická implementácia:
+Keďže chceš email s **prílohou (CV)** na zadanú adresu, potrebujeme:
 
-**Nový súbor `src/components/PageTransition.tsx`:**
-```text
-- Wrapper komponent využívajúci AnimatePresence z framer-motion
-- Fade + jemný posun nahor pri vstupe
-- Fade + jemný posun nadol pri odchode
-- Trvanie: 300ms
-```
+a) **Email infra setup**: 
+- Skontrolovať / nastaviť email doménu (`email_domain--check_email_domain_status`)
+- Ak nie je nastavená, ukázať dialóg na setup email domény
+- Spustiť `setup_email_infra` + `scaffold_transactional_email`
 
-**Úprava `src/App.tsx`:**
-```text
-- Import PageTransition komponentu
-- Obalenie Routes do AnimatePresence
-- Každá Route dostane PageTransition wrapper
-- Použitie location.key pre správne animácie
-```
+b) **Edge function** `notify-assistant-application`:
+- Prijme `applicationId`
+- Načíta záznam z `assistant_applications`
+- Stiahne CV zo storage cez service role
+- Pošle email s prílohou cez Resend API (Lovable transactional email **nepodporuje prílohy** — pre prílohy treba Resend connector). 
+- **Alternatíva** ak nechceš Resend: pošleme cez Lovable transactional email s **download linkom** na CV (signed URL platná 7 dní) namiesto prílohy.
 
----
+### Otázka pred implementáciou
+Lovable email systém **nepodporuje prílohy**. Pre prílohu CV priamo v emaile potrebujeme **Resend connector** (free tier 3 000 emailov/mes, stačí pripojiť cez konektor). Alternatívou je poslať email cez Lovable s **download linkom** na CV (klikneš → stiahneš). Funkčne identické, len jeden klik navyše.
 
-## 2. Scroll Progress Indicator
+→ **Odporúčam download link cez Lovable** (jednoduchšie, žiadne ďalšie účty). Pred implementáciou sa ťa však pre istotu opýtam, ktorú možnosť chceš.
 
-### Čo to urobí:
-- Tenká zlatá línia priamo pod headerom
-- Začína na 0% šírky, končí na 100% šírky
-- Vizuálne ukazuje koľko stránky používateľ prešiel
+### 4. Ďalšie zmeny
+- **`src/pages/Careers.tsx`** — pridať tretiu kartu „Asistent/ka CEO" s odznakom „Hľadáme teraz" ktorá linkuje na `/kariera/asistent-ceo`
+- **`src/App.tsx`** — route `/kariera/asistent-ceo`
+- **`src/components/layout/Footer.tsx`** — voliteľne pridať link pod sekciu Kariéra
+- **Email príjemcu** — defaultne `kariera@assetra.sk`, potvrdím s tebou alebo poviem inú adresu
 
-### Technická implementácia:
+### Súhrn
+- 1 nová stránka, 1 nová route
+- 1 nová DB tabuľka + 1 storage bucket s RLS
+- 1 nová edge function pre email notifikáciu
+- Email infra setup (ak ešte nie je)
+- Aktualizácia Careers stránky (nová karta)
 
-**Nový súbor `src/components/ScrollProgress.tsx`:**
-```text
-- Použitie framer-motion useScroll hook
-- Sticky pozícia pod headerom (top: výška headeru)
-- Zlatá farba (bg-gold)
-- Výška: 2px
-- scaleX transformácia podľa scrollYProgress
-- transformOrigin: left
-```
-
-**Úprava `src/App.tsx`:**
-```text
-- Import ScrollProgress komponentu
-- Umiestnenie pod BrowserRouter, pred Routes
-```
-
----
-
-## 3. Header Animation
-
-### Čo to urobí:
-- Pri scrollovaní nadol sa header zmenší (padding sa zredukuje)
-- Zvýši sa backdrop blur a priehľadnosť pozadia
-- Logo sa jemne zmenší
-- Pri scrollovaní nahor na začiatok sa vráti do pôvodného stavu
-- Hover efekt na logo (zlatá farba)
-
-### Technická implementácia:
-
-**Úprava `src/components/layout/Header.tsx`:**
-```text
-- Nový custom hook pre sledovanie scroll pozície
-- Dynamické CSS triedy podľa scroll pozície (threshold: 50px)
-- Animácie:
-  - Výška: h-20 → h-16 (desktop), h-16 → h-14 (mobile)
-  - Background: bg-background/80 → bg-background/95
-  - Backdrop blur: backdrop-blur-sm → backdrop-blur-md
-  - Logo: text-xl → text-lg s transition
-- Hover efekt na logo pomocou framer-motion
-```
-
----
-
-## Vizuálny príklad
-
-```text
-+----------------------------------------------------------+
-|  ASSETRA investments    RE  PE  PC    [Header - normal]  |
-|=========================================================|← Scroll Progress (0%)
-|                                                          |
-|            Súkromná investičná spoločnosť                |
-|                                                          |
-+----------------------------------------------------------+
-
-        ↓ Po scrollovaní 50px+ ↓
-
-+----------------------------------------------------------+
-| ASSETRA investments   RE  PE  PC      [Header - compact] |
-|===========================|← Scroll Progress (50%)       |
-|                                                          |
-```
-
----
-
-## Súbory na vytvorenie
-
-| Súbor | Účel |
-|-------|------|
-| `src/components/PageTransition.tsx` | Wrapper pre page transition animácie |
-| `src/components/ScrollProgress.tsx` | Scroll progress indicator komponent |
-| `src/hooks/useScrollPosition.tsx` | Custom hook pre sledovanie scroll pozície |
-
-## Súbory na úpravu
-
-| Súbor | Zmeny |
-|-------|-------|
-| `src/App.tsx` | AnimatePresence, PageTransition, ScrollProgress |
-| `src/components/layout/Header.tsx` | Dynamické štýly, hover efekty, useScrollPosition |
-
----
-
-## Očakávaný výsledok
-
-Po implementácii:
-- Stránka bude pôsobiť ako profesionálna single-page aplikácia
-- Používateľ bude mať vizuálnu spätnú väzbu o svojom progrese na stránke
-- Header bude reagovať na interakciu a pôsobiť dynamicky
-- Všetky animácie budú rýchle (200-400ms) a nenápadné
-- Accessibility: Animácie budú rešpektovať `prefers-reduced-motion`
+Po schválení sa ťa najprv opýtam na preferenciu **príloha vs download link** a na **email adresu pre notifikácie**, potom všetko zrealizujem.
