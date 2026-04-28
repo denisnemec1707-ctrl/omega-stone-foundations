@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submitForm";
 import {
   Accordion,
   AccordionContent,
@@ -60,6 +60,7 @@ const contactSchema = z.object({
   investmentAmount: z.string().trim().max(50).optional().or(z.literal("")),
   investmentInterest: z.string().trim().optional().or(z.literal("")),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
+  website: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -88,18 +89,29 @@ const ForInvestors = () => {
     new Intl.NumberFormat("sk-SK", { style: "currency", currency: "EUR", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
 
   const onSubmit = async (data: ContactFormData) => {
+    if (data.website) {
+      reset();
+      toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 24 hodín." });
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("investor_inquiries").insert({
+      await submitForm(import.meta.env.VITE_WEBHOOK_INVESTOR_INQUIRY, {
+        form_source: "pre-investorov",
+        submitted_at: new Date().toISOString(),
         name: data.name,
         email: data.email,
         phone: data.phone || null,
         investment_amount: data.investmentAmount || null,
         investment_interest: data.investmentInterest || null,
         message: data.message || null,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : null,
+        landing_page:
+          typeof window !== "undefined"
+            ? window.location.pathname + window.location.search
+            : null,
       });
-
-      if (error) throw error;
 
       toast.success("Žiadosť bola odoslaná", { description: "Budeme vás kontaktovať do 24 hodín." });
       reset();
@@ -340,6 +352,14 @@ const ForInvestors = () => {
                 <div className="bg-charcoal-light p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl">
                   <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Žiadosť o investíciu</h3>
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
+                    <input
+                      {...register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div>
                       <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Meno a priezvisko *</label>
                       <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />

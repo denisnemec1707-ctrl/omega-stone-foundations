@@ -41,7 +41,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { submitFormWithFile } from "@/lib/submitForm";
 
 const ACCEPTED_CV_TYPES = [
   "application/pdf",
@@ -85,6 +85,7 @@ const formSchema = z.object({
   consent: z.literal(true, {
     errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
   }),
+  website: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -137,39 +138,52 @@ const AssistantCEO = () => {
       motivation: "",
       earliestStart: "",
       consent: false as unknown as true,
+      website: "",
     },
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (values.website) {
+      setSubmitted(true);
+      form.reset();
+      return;
+    }
     setSubmitting(true);
     try {
       const file = values.cv;
       const ext = file.name.split(".").pop() ?? "pdf";
       const safeName = sanitizeFileName(file.name.replace(/\.[^.]+$/, ""));
-      const path = `assistant-ceo/${crypto.randomUUID()}-${safeName}.${ext}`;
+      const renamedFile = new File(
+        [file],
+        `${crypto.randomUUID()}-${safeName}.${ext}`,
+        { type: file.type },
+      );
 
-      const { error: uploadError } = await supabase.storage
-        .from("cv-uploads")
-        .upload(path, file, {
-          contentType: file.type,
-          upsert: false,
-        });
-      if (uploadError) throw uploadError;
-
-      const { error: insertError } = await supabase
-        .from("assistant_applications")
-        .insert({
+      await submitFormWithFile(
+        import.meta.env.VITE_WEBHOOK_ASISTENT_CEO,
+        {
+          form_source: "asistent-ceo",
+          submitted_at: new Date().toISOString(),
           full_name: values.fullName,
           email: values.email,
           phone: values.phone,
           city: values.city,
           motivation: values.motivation,
-          expected_salary: "Neuvedené",
           earliest_start: values.earliestStart,
-          cv_path: path,
+          cv_filename: renamedFile.name,
+          cv_size_bytes: renamedFile.size,
+          cv_mime_type: renamedFile.type,
           consent_given: values.consent,
-        });
-      if (insertError) throw insertError;
+          user_agent:
+            typeof navigator !== "undefined" ? navigator.userAgent : null,
+          landing_page:
+            typeof window !== "undefined"
+              ? window.location.pathname + window.location.search
+              : null,
+        },
+        renamedFile,
+        "cv",
+      );
 
       setSubmitted(true);
       form.reset();
@@ -298,6 +312,14 @@ const AssistantCEO = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-5 sm:space-y-6"
                   >
+                    <input
+                      {...form.register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}

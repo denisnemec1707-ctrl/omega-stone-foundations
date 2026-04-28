@@ -41,7 +41,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submitForm";
 
 const investmentAmountOptions = [
   "10 000 – 49 000 € (bez záložného práva, len výnimkou)",
@@ -88,6 +88,7 @@ const formSchema = z.object({
   consent: z.literal(true, {
     errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
   }),
+  website: z.string().optional(), // honeypot
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -151,37 +152,42 @@ const Investovat = () => {
       contactPreference: "",
       message: "",
       consent: false as unknown as true,
+      website: "",
     },
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (values.website) {
+      setSubmitted(true);
+      form.reset();
+      return;
+    }
     setSubmitting(true);
     try {
-      const { error } = await supabase
-        .from("investment_inquiries")
-        .insert({
-          full_name: values.fullName,
-          email: values.email,
-          phone: values.phone,
-          investment_amount: values.investmentAmount,
-          investment_horizon: values.investmentHorizon,
-          contact_preference: values.contactPreference,
-          message: values.message || null,
-          consent_given: values.consent,
-          utm_source: utm.utm_source,
-          utm_medium: utm.utm_medium,
-          utm_campaign: utm.utm_campaign,
-          utm_content: utm.utm_content,
-          utm_term: utm.utm_term,
-          referrer: utm.referrer,
-          user_agent:
-            typeof navigator !== "undefined" ? navigator.userAgent : null,
-          landing_page:
-            typeof window !== "undefined"
-              ? window.location.pathname + window.location.search
-              : null,
-        });
-      if (error) throw error;
+      await submitForm(import.meta.env.VITE_WEBHOOK_INVESTOVAT, {
+        form_source: "investovat",
+        submitted_at: new Date().toISOString(),
+        full_name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        investment_amount: values.investmentAmount,
+        investment_horizon: values.investmentHorizon,
+        contact_preference: values.contactPreference,
+        message: values.message || null,
+        consent_given: values.consent,
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_content: utm.utm_content,
+        utm_term: utm.utm_term,
+        referrer: utm.referrer,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : null,
+        landing_page:
+          typeof window !== "undefined"
+            ? window.location.pathname + window.location.search
+            : null,
+      });
 
       setSubmitted(true);
       form.reset();
@@ -347,6 +353,14 @@ const Investovat = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-5 sm:space-y-6"
                   >
+                    <input
+                      {...form.register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}

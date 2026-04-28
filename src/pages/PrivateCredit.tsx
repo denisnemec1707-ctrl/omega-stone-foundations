@@ -19,7 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submitForm";
 import verticalCredit from "@/assets/vertical-credit.jpg";
 
 const faqs = [
@@ -38,6 +38,7 @@ const financingSchema = z.object({
   projectType: z.string().trim().max(100).optional().or(z.literal("")),
   loanAmount: z.string().trim().max(50).optional().or(z.literal("")),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
+  website: z.string().optional(),
 });
 
 type FinancingFormData = z.infer<typeof financingSchema>;
@@ -50,18 +51,30 @@ const PrivateCredit = () => {
   });
 
   const onSubmit = async (data: FinancingFormData) => {
+    if (data.website) {
+      reset();
+      toast.success("Žiadosť bola odoslaná", { description: "Ozveme sa vám do 5 pracovných dní." });
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("contact_inquiries").insert({
+      await submitForm(import.meta.env.VITE_WEBHOOK_BRAND_CONTACT, {
+        form_source: "uvery",
+        inquiry_type: "financing",
+        submitted_at: new Date().toISOString(),
         name: data.name,
         email: data.email,
         phone: data.phone || null,
         message: data.message || null,
-        inquiry_type: "financing" as const,
         project_type: data.projectType || null,
         loan_amount: data.loanAmount || null,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : null,
+        landing_page:
+          typeof window !== "undefined"
+            ? window.location.pathname + window.location.search
+            : null,
       });
-      if (error) throw error;
       toast.success("Žiadosť bola odoslaná", { description: "Ozveme sa vám do 5 pracovných dní." });
       reset();
     } catch {
@@ -235,6 +248,14 @@ const PrivateCredit = () => {
                 <div className="bg-charcoal-light p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl">
                   <h3 className="font-serif text-lg sm:text-xl mb-5 sm:mb-6 md:mb-8 text-primary-foreground">Žiadosť o úver</h3>
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
+                    <input
+                      {...register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div>
                       <label className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2 block">Meno a priezvisko *</label>
                       <Input {...register("name")} placeholder="Ján Novák" className="bg-charcoal border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 focus:border-primary-foreground/40 h-11 md:h-12 text-base" />

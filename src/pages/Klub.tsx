@@ -40,7 +40,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submitForm";
 
 const categoryOptions: { code: string; label: string }[] = [
   { code: "real_estate", label: "Nehnuteľnosti" },
@@ -85,6 +85,7 @@ const formSchema = z.object({
   consent: z.literal(true, {
     errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
   }),
+  website: z.string().optional(), // honeypot — must remain empty
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -147,41 +148,42 @@ const Klub = () => {
       investmentRange: "",
       timeHorizon: "",
       consent: false as unknown as true,
+      website: "",
     },
   });
 
   const onSubmit = async (values: FormValues) => {
+    // Honeypot: bots fill this hidden field. Silent reject (fake success).
+    if (values.website) {
+      setSubmitted(true);
+      form.reset();
+      return;
+    }
     setSubmitting(true);
     try {
-      const { error } = await supabase
-        .from("investor_club_subscribers")
-        .upsert(
-          {
-            full_name: values.fullName,
-            email: values.email,
-            phone: values.phone,
-            categories: values.categories,
-            investment_range: values.investmentRange,
-            time_horizon: values.timeHorizon,
-            consent_given: values.consent,
-            status: "active",
-            updated_at: new Date().toISOString(),
-            utm_source: utm.utm_source,
-            utm_medium: utm.utm_medium,
-            utm_campaign: utm.utm_campaign,
-            utm_content: utm.utm_content,
-            utm_term: utm.utm_term,
-            referrer: utm.referrer,
-            user_agent:
-              typeof navigator !== "undefined" ? navigator.userAgent : null,
-            landing_page:
-              typeof window !== "undefined"
-                ? window.location.pathname + window.location.search
-                : null,
-          },
-          { onConflict: "email" }
-        );
-      if (error) throw error;
+      await submitForm(import.meta.env.VITE_WEBHOOK_KLUB, {
+        form_source: "klub",
+        submitted_at: new Date().toISOString(),
+        full_name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        categories: values.categories.join(", "),
+        investment_range: values.investmentRange,
+        time_horizon: values.timeHorizon,
+        consent_given: values.consent,
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_content: utm.utm_content,
+        utm_term: utm.utm_term,
+        referrer: utm.referrer,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : null,
+        landing_page:
+          typeof window !== "undefined"
+            ? window.location.pathname + window.location.search
+            : null,
+      });
 
       setSubmitted(true);
       form.reset();
@@ -343,6 +345,15 @@ const Klub = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-5 sm:space-y-6"
                   >
+                    {/* Honeypot — hidden from real users */}
+                    <input
+                      {...form.register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}

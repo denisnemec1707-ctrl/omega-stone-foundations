@@ -41,7 +41,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submitForm";
 
 const industryOptions = [
   "Výroba",
@@ -110,6 +110,7 @@ const formSchema = z.object({
   consent: z.literal(true, {
     errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
   }),
+  website: z.string().optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -175,39 +176,44 @@ const PredamFirmu = () => {
       saleReason: "",
       message: "",
       consent: false as unknown as true,
+      website: "",
     },
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (values.website) {
+      setSubmitted(true);
+      form.reset();
+      return;
+    }
     setSubmitting(true);
     try {
-      const { error } = await supabase
-        .from("company_sale_inquiries")
-        .insert({
-          full_name: values.fullName,
-          email: values.email,
-          phone: values.phone,
-          company_name: values.companyName,
-          industry: values.industry,
-          annual_turnover: values.annualTurnover,
-          annual_ebitda: values.annualEbitda,
-          sale_reason: values.saleReason,
-          message: values.message || null,
-          consent_given: values.consent,
-          utm_source: utm.utm_source,
-          utm_medium: utm.utm_medium,
-          utm_campaign: utm.utm_campaign,
-          utm_content: utm.utm_content,
-          utm_term: utm.utm_term,
-          referrer: utm.referrer,
-          user_agent:
-            typeof navigator !== "undefined" ? navigator.userAgent : null,
-          landing_page:
-            typeof window !== "undefined"
-              ? window.location.pathname + window.location.search
-              : null,
-        });
-      if (error) throw error;
+      await submitForm(import.meta.env.VITE_WEBHOOK_PREDAM_FIRMU, {
+        form_source: "predam-firmu",
+        submitted_at: new Date().toISOString(),
+        full_name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        company_name: values.companyName,
+        industry: values.industry,
+        annual_turnover: values.annualTurnover,
+        annual_ebitda: values.annualEbitda,
+        sale_reason: values.saleReason,
+        message: values.message || null,
+        consent_given: values.consent,
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_content: utm.utm_content,
+        utm_term: utm.utm_term,
+        referrer: utm.referrer,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : null,
+        landing_page:
+          typeof window !== "undefined"
+            ? window.location.pathname + window.location.search
+            : null,
+      });
 
       setSubmitted(true);
       form.reset();
@@ -360,6 +366,14 @@ const PredamFirmu = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-5 sm:space-y-6"
                   >
+                    <input
+                      {...form.register("website")}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute left-[-9999px] w-px h-px opacity-0"
+                    />
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}
