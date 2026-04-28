@@ -167,6 +167,69 @@ export type Database = {
         }
         Relationships: []
       }
+      investment_inquiries: {
+        Row: {
+          consent_given: boolean
+          contact_preference: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          investment_amount: string
+          investment_horizon: string
+          landing_page: string | null
+          message: string | null
+          phone: string
+          referrer: string | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          consent_given?: boolean
+          contact_preference: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          investment_amount: string
+          investment_horizon: string
+          landing_page?: string | null
+          message?: string | null
+          phone: string
+          referrer?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          consent_given?: boolean
+          contact_preference?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          investment_amount?: string
+          investment_horizon?: string
+          landing_page?: string | null
+          message?: string | null
+          phone?: string
+          referrer?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
       investor_inquiries: {
         Row: {
           created_at: string

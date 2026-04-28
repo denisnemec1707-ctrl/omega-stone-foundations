@@ -34,6 +34,7 @@ const Footer = () => {
                 <ul className="space-y-2.5 sm:space-y-3">
                   <li><Link to="/projekty" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Portfólio</Link></li>
                   <li><Link to="/pre-investorov" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Pre investorov</Link></li>
+                  <li><Link to="/investovat" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Investovať</Link></li>
                   <li><Link to="/kariera" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Kariéra</Link></li>
                   <li><Link to="/kariera/asistent-ceo" className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">Asistent/ka CEO</Link></li>
                 </ul>

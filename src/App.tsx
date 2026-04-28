@@ -21,11 +21,12 @@ import Portfolio from "./pages/Portfolio";
 import Careers from "./pages/Careers";
 import AssistantCEO from "./pages/AssistantCEO";
 import PredamFirmu from "./pages/PredamFirmu";
+import Investovat from "./pages/Investovat";
 import NotFound from "./pages/NotFound";
 
 // Routes that bypass Preloader and PageTransition for fast LCP
 // (paid traffic landings — every 100 ms of delay hurts CPL).
-const FAST_LOAD_ROUTES = ["/predam-firmu"];
+const FAST_LOAD_ROUTES = ["/predam-firmu", "/investovat"];
 
 function isFastLoadPath(pathname: string) {
   return FAST_LOAD_ROUTES.some(
@@ -121,8 +122,9 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        {/* Paid-traffic landing — no PageTransition wrapper for fast LCP */}
+        {/* Paid-traffic landings — no PageTransition wrapper for fast LCP */}
         <Route path="/predam-firmu" element={<PredamFirmu />} />
+        <Route path="/investovat" element={<Investovat />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"
