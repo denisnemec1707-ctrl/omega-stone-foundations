@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_screenshot",
+      "mcp__Claude_Preview__preview_console_logs",
+      "mcp__Claude_Preview__preview_resize",
+      "mcp__Claude_Preview__preview_inspect",
+      "mcp__Claude_Preview__preview_logs",
+      "mcp__Claude_Preview__preview_snapshot",
+      "mcp__2e1414ff-db4b-4b74-94a4-ca50dd97cbe5__check_domain_availability_and_price",
+      "mcp__2e1414ff-db4b-4b74-94a4-ca50dd97cbe5__web_fetch_vercel_url",
+      "mcp__2e1414ff-db4b-4b74-94a4-ca50dd97cbe5__list_teams",
+      "mcp__2e1414ff-db4b-4b74-94a4-ca50dd97cbe5__list_projects",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__get_page_text"
+    ]
+  }
+}
