@@ -20,6 +20,7 @@ import {
   PHONE_DISPLAY,
   PHONE_TEL,
 } from "@/components/landing/LandingLayout";
+import heroMountains from "@/assets/hero-mountains.jpg";
 import {
   Form,
   FormControl,
@@ -209,8 +210,18 @@ const Investovat = () => {
       description="Súkromná investícia s fixným výnosom 9–12 % ročne. Krytá záložným právom na konkrétnu slovenskú nehnuteľnosť. Minimum 50 000 €. Nezáväzná konzultácia."
     >
       {/* HERO */}
-      <section className="relative overflow-hidden bg-charcoal text-primary-foreground">
-        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
+      <section className="relative overflow-hidden text-primary-foreground">
+        <div className="absolute inset-0">
+          <img
+            src={heroMountains}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary/80 mb-6 sm:mb-8">
               Pre súkromných investorov
