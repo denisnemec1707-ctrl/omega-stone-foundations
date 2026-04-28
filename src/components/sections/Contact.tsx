@@ -202,10 +202,10 @@ const Contact = () => {
                       Email
                     </p>
                     <a
-                      href="mailto:invest@assetra.sk"
+                      href="mailto:info@assetrainvestments.com"
                       className="text-lg md:text-xl text-foreground hover:text-gold transition-colors"
                     >
-                      invest@assetra.sk
+                      info@assetrainvestments.com
                     </a>
                   </StaggerItem>
 
@@ -214,10 +214,10 @@ const Contact = () => {
                       Telefón
                     </p>
                     <a
-                      href="tel:+421212345678"
+                      href="tel:+421911860788"
                       className="text-lg md:text-xl text-foreground hover:text-gold transition-colors"
                     >
-                      +421 2 123 456 78
+                      +421 911 860 788
                     </a>
                   </StaggerItem>
 

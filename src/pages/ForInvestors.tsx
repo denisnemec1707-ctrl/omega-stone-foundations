@@ -392,7 +392,7 @@ const ForInvestors = () => {
                   <div className="space-y-5 sm:space-y-6 md:space-y-8">
                     <div>
                       <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Email</p>
-                      <a href="mailto:invest@assetra.sk" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">invest@assetra.sk</a>
+                      <a href="mailto:info@assetrainvestments.com" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">info@assetrainvestments.com</a>
                     </div>
                     <div>
                       <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Kancelária</p>

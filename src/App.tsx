@@ -22,11 +22,13 @@ import Careers from "./pages/Careers";
 import AssistantCEO from "./pages/AssistantCEO";
 import PredamFirmu from "./pages/PredamFirmu";
 import Investovat from "./pages/Investovat";
+import FinancovanieNehnutelnosti from "./pages/FinancovanieNehnutelnosti";
+import Klub from "./pages/Klub";
 import NotFound from "./pages/NotFound";
 
 // Routes that bypass Preloader and PageTransition for fast LCP
 // (paid traffic landings — every 100 ms of delay hurts CPL).
-const FAST_LOAD_ROUTES = ["/predam-firmu", "/investovat"];
+const FAST_LOAD_ROUTES = ["/predam-firmu", "/investovat", "/financovanie-nehnutelnosti", "/kariera/asistent-ceo", "/klub"];
 
 function isFastLoadPath(pathname: string) {
   return FAST_LOAD_ROUTES.some(
@@ -114,17 +116,12 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
-        <Route
-          path="/kariera/asistent-ceo"
-          element={
-            <PageTransition>
-              <AssistantCEO />
-            </PageTransition>
-          }
-        />
         {/* Paid-traffic landings — no PageTransition wrapper for fast LCP */}
+        <Route path="/kariera/asistent-ceo" element={<AssistantCEO />} />
         <Route path="/predam-firmu" element={<PredamFirmu />} />
         <Route path="/investovat" element={<Investovat />} />
+        <Route path="/financovanie-nehnutelnosti" element={<FinancovanieNehnutelnosti />} />
+        <Route path="/klub" element={<Klub />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"

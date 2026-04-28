@@ -187,7 +187,7 @@ const Index = () => {
                   </p>
                 </div>
                 <Link
-                  to="/pre-investorov#kontakt"
+                  to="/investovat"
                   className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
                 >
                   Chcem investovať

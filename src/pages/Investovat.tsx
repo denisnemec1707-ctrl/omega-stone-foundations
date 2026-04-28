@@ -317,15 +317,29 @@ const Investovat = () => {
               </div>
 
               {submitted ? (
-                <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
-                  <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
-                  <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
-                    Ďakujeme
-                  </h3>
-                  <p className="text-primary-foreground/70 text-sm sm:text-base">
-                    Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24
-                    hodín v pracovných dňoch.
-                  </p>
+                <div className="max-w-2xl">
+                  <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center">
+                    <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
+                    <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
+                      Ďakujeme
+                    </h3>
+                    <p className="text-primary-foreground/70 text-sm sm:text-base">
+                      Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24
+                      hodín v pracovných dňoch.
+                    </p>
+                  </div>
+                  <div className="mt-6 sm:mt-8 text-center">
+                    <p className="text-primary-foreground/60 text-sm sm:text-base mb-3">
+                      Chcete vedieť aj o budúcich príležitostiach?
+                    </p>
+                    <Link
+                      to="/klub"
+                      className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground underline underline-offset-4 text-sm sm:text-base transition-colors"
+                    >
+                      Pridajte sa do ASSETRA Klubu
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
               ) : (
                 <Form {...form}>

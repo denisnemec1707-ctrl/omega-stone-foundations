@@ -3,14 +3,29 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { href: "/", label: "Domov" },
-  { href: "/nehnutelnosti", label: "Nehnuteľnosti" },
-  { href: "/akvizicie", label: "Akvizície" },
-  { href: "/uvery", label: "Úvery" },
-  { href: "/projekty", label: "Portfólio" },
-  { href: "/pre-investorov", label: "Pre investorov" },
-  { href: "/kariera", label: "Kariéra" },
+type NavLink = { href: string; label: string };
+type NavGroup = { heading?: string; links: NavLink[] };
+
+const navGroups: NavGroup[] = [
+  {
+    links: [{ href: "/", label: "Domov" }],
+  },
+  {
+    heading: "Čo robíme",
+    links: [
+      { href: "/nehnutelnosti", label: "Nehnuteľnosti" },
+      { href: "/akvizicie", label: "Akvizície" },
+      { href: "/uvery", label: "Úvery" },
+    ],
+  },
+  {
+    links: [
+      { href: "/pre-investorov", label: "Pre investorov" },
+      { href: "/klub", label: "ASSETRA Klub" },
+      { href: "/projekty", label: "Portfólio" },
+      { href: "/kariera", label: "Kariéra" },
+    ],
+  },
 ];
 
 const Header = () => {
@@ -75,29 +90,52 @@ const Header = () => {
               onClick={() => setIsOpen(false)}
             />
 
-            <nav className="relative z-10 flex flex-col items-center gap-1 sm:gap-2">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                >
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "block font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl py-2 sm:py-3 transition-colors duration-200",
-                      location.pathname === link.href
-                        ? "text-primary-foreground"
-                        : "text-primary-foreground/50 hover:text-primary-foreground"
+            <nav className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 max-h-[90vh] overflow-y-auto py-8 px-4">
+              {navGroups.map((group, gi) => {
+                const baseDelay = navGroups
+                  .slice(0, gi)
+                  .reduce((acc, g) => acc + g.links.length + (g.heading ? 1 : 0), 0);
+                return (
+                  <div key={gi} className="flex flex-col items-center">
+                    {group.heading && (
+                      <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.4, delay: baseDelay * 0.06 }}
+                        className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/40 mb-2 sm:mb-3"
+                      >
+                        {group.heading}
+                      </motion.span>
                     )}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    {group.links.map((link, li) => {
+                      const delay = (baseDelay + (group.heading ? 1 : 0) + li) * 0.06;
+                      return (
+                        <motion.div
+                          key={link.href}
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 15 }}
+                          transition={{ duration: 0.4, delay }}
+                        >
+                          <Link
+                            to={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                              "block font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-1 sm:py-1.5 transition-colors duration-200 text-center",
+                              location.pathname === link.href
+                                ? "text-primary-foreground"
+                                : "text-primary-foreground/50 hover:text-primary-foreground"
+                            )}
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </nav>
           </motion.div>
         )}

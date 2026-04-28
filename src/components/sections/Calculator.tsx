@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -191,8 +192,15 @@ const Calculator = () => {
               asChild
               className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
             >
-              <a href="#kontakt">Chcem investovať</a>
+              <Link to="/investovat">Chcem investovať</Link>
             </Button>
+            <p className="mt-4 text-xs sm:text-sm text-muted-foreground/70">
+              alebo sa pridajte do{" "}
+              <Link to="/klub" className="underline underline-offset-4 hover:text-foreground transition-colors">
+                ASSETRA Klubu
+              </Link>{" "}
+              pre budúce príležitosti
+            </p>
           </AnimatedSection>
         </div>
       </div>

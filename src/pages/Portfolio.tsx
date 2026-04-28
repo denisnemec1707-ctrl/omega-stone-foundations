@@ -11,7 +11,6 @@ import historycaffeImg from "@/assets/historycaffe.jpg";
 import euroscaffLogo from "@/assets/euroscaff-logo.png";
 import sutovce1 from "@/assets/sutovce-1.jpg";
 import sutovce2 from "@/assets/sutovce-2.jpg";
-import crossrockLogo from "@/assets/crossrock-logo.png";
 
 const companies = [
   {
@@ -138,6 +137,27 @@ const Portfolio = () => {
           </div>
         </section>
 
+        {/* Brixstone Capital */}
+        <section className="py-16 sm:py-24 md:py-32">
+          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+            <AnimatedSection>
+              <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16">
+                <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/40 mb-3 block">
+                  Realitná divízia
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl text-primary-foreground mb-4">
+                  Brixstone Capital
+                </h3>
+                <p className="text-primary-foreground/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl">
+                  Prostredníctvom spoločnosti Brixstone Capital obchodujeme s nehnuteľnosťami
+                  v rámci územia Slovenskej republiky. Vlastníme pozemky, byty a rodinné domy
+                  po celom Slovensku.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* Nové Šútovce */}
         <section className="py-16 sm:py-24 md:py-32">
           <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
@@ -183,35 +203,6 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Crossrock Capital */}
-        <section className="py-16 sm:py-24 md:py-32">
-          <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-            <AnimatedSection>
-              <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                <div className="flex-shrink-0">
-                  <img
-                    src={crossrockLogo}
-                    alt="Crossrock Capital logo"
-                    className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-80"
-                  />
-                </div>
-                <div>
-                  <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/40 mb-3 block">
-                    Naša história
-                  </span>
-                  <h3 className="font-serif text-xl sm:text-2xl md:text-3xl text-primary-foreground mb-4">
-                    Crossrock Capital
-                  </h3>
-                  <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed">
-                    V minulosti sme boli súčasťou spoločnosti Crossrock Capital, kde sme spoločne
-                    zobchodovali desiatky nehnuteľností. Táto skúsenosť formovala náš prístup
-                    k investíciám a položila základy pre vznik ASSETRA investments.
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
       </main>
       <Footer />
     </>

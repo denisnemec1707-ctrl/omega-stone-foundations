@@ -66,7 +66,7 @@ const Careers = () => {
                       Hľadáme teraz
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mb-3">
-                      Asistent/ka CEO
+                      Asistent CEO
                     </h3>
                     <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed max-w-2xl">
                       Pracujte priamo s CEO našej investičnej skupiny. Koordinácia portfólia,
@@ -162,10 +162,10 @@ const Careers = () => {
                   Pošlite nám svoj životopis a krátky motivačný list. Ozveme sa Vám do niekoľkých dní.
                 </p>
                 <a
-                  href="mailto:kariera@assetra.sk"
+                  href="mailto:info@assetrainvestments.com"
                   className="group inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-7 py-3 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg"
                 >
-                  kariera@assetra.sk
+                  info@assetrainvestments.com
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>

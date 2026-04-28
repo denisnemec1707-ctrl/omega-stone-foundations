@@ -91,8 +91,8 @@ const PrivacyPolicy = () => {
                   <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground mb-3 sm:mb-4">8. Kontakt</h2>
                   <p className="text-sm sm:text-base">
                     V prípade otázok týkajúcich sa ochrany osobných údajov nás kontaktujte na{" "}
-                    <a href="mailto:info@assetra.sk" className="text-foreground underline underline-offset-4 hover:text-foreground/70 transition-colors">
-                      info@assetra.sk
+                    <a href="mailto:info@assetrainvestments.com" className="text-foreground underline underline-offset-4 hover:text-foreground/70 transition-colors">
+                      info@assetrainvestments.com
                     </a>.
                   </p>
                 </div>

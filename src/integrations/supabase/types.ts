@@ -230,6 +230,141 @@ export type Database = {
         }
         Relationships: []
       }
+      investor_club_subscribers: {
+        Row: {
+          categories: string[]
+          consent_given: boolean
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          investment_range: string
+          landing_page: string | null
+          last_contacted_at: string | null
+          phone: string
+          referrer: string | null
+          status: string
+          time_horizon: string
+          unsubscribe_token: string
+          updated_at: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          categories: string[]
+          consent_given?: boolean
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          investment_range: string
+          landing_page?: string | null
+          last_contacted_at?: string | null
+          phone: string
+          referrer?: string | null
+          status?: string
+          time_horizon: string
+          unsubscribe_token?: string
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          categories?: string[]
+          consent_given?: boolean
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          investment_range?: string
+          landing_page?: string | null
+          last_contacted_at?: string | null
+          phone?: string
+          referrer?: string | null
+          status?: string
+          time_horizon?: string
+          unsubscribe_token?: string
+          updated_at?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
+      property_financing_inquiries: {
+        Row: {
+          consent_given: boolean
+          contact_preference: string
+          created_at: string
+          email: string
+          financing_amount: string
+          full_name: string
+          id: string
+          landing_page: string | null
+          message: string | null
+          phone: string
+          referrer: string | null
+          situation_type: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          consent_given?: boolean
+          contact_preference: string
+          created_at?: string
+          email: string
+          financing_amount: string
+          full_name: string
+          id?: string
+          landing_page?: string | null
+          message?: string | null
+          phone: string
+          referrer?: string | null
+          situation_type: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          consent_given?: boolean
+          contact_preference?: string
+          created_at?: string
+          email?: string
+          financing_amount?: string
+          full_name?: string
+          id?: string
+          landing_page?: string | null
+          message?: string | null
+          phone?: string
+          referrer?: string | null
+          situation_type?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
       investor_inquiries: {
         Row: {
           created_at: string

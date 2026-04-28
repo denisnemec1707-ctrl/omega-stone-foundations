@@ -287,7 +287,7 @@ const PrivateCredit = () => {
                   <div className="space-y-5 sm:space-y-6 md:space-y-8">
                     <div>
                       <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Email</p>
-                      <a href="mailto:info@assetra.sk" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">info@assetra.sk</a>
+                      <a href="mailto:info@assetrainvestments.com" className="text-base sm:text-lg md:text-xl text-primary-foreground hover:text-primary-foreground/70 transition-colors break-all">info@assetrainvestments.com</a>
                     </div>
                     <div>
                       <p className="text-[10px] sm:text-xs md:text-sm tracking-wide uppercase text-primary-foreground/40 mb-1.5 sm:mb-2">Kancelária</p>
@@ -300,13 +300,21 @@ const PrivateCredit = () => {
                   <p className="text-xs sm:text-sm text-primary-foreground/40 font-light mb-4">
                     Ak chcete zhodnocovať kapitál investíciou do zabezpečených úverov, navštívte sekciu pre investorov.
                   </p>
-                  <Link
-                    to="/pre-investorov#kontakt"
-                    className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base"
-                  >
-                    Chcem investovať
-                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
+                  <div className="flex flex-col items-start gap-2">
+                    <Link
+                      to="/investovat"
+                      className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base"
+                    >
+                      Chcem investovať
+                      <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                    <Link
+                      to="/klub"
+                      className="text-xs sm:text-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 transition-colors"
+                    >
+                      alebo sa pridajte do ASSETRA Klubu
+                    </Link>
+                  </div>
                 </div>
               </AnimatedSection>
             </div>

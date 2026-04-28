@@ -106,13 +106,21 @@ const RealEstate = () => {
                     Fixný 12% ročný výnos zabezpečený reálnymi nehnuteľnosťami. Vyplňte nezáväzný formulár.
                   </p>
                 </div>
-                <Link
-                  to="/pre-investorov#kontakt"
-                  className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg self-start"
-                >
-                  Chcem investovať
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                <div className="flex flex-col items-start md:items-end gap-2">
+                  <Link
+                    to="/investovat"
+                    className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg"
+                  >
+                    Chcem investovať
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
+                  <Link
+                    to="/klub"
+                    className="text-xs sm:text-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 transition-colors"
+                  >
+                    alebo sa pridajte do ASSETRA Klubu
+                  </Link>
+                </div>
               </div>
             </AnimatedSection>
           </div>
