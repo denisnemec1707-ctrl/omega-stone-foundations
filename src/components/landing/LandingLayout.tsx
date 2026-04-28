@@ -25,9 +25,13 @@ export const LandingLayout = ({
     <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/40">
       <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          <div className="font-serif text-xl sm:text-2xl tracking-tight text-foreground">
+          <Link
+            to="/"
+            aria-label="Späť na hlavnú stránku ASSETRA Investments"
+            className="font-serif text-xl sm:text-2xl tracking-tight text-foreground hover:text-primary transition-colors"
+          >
             ASSETRA
-          </div>
+          </Link>
           <a
             href={`tel:${PHONE_TEL}`}
             className="flex items-center gap-2 text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors"
