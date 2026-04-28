@@ -84,12 +84,13 @@ user explicitne požiada o merge do zálohy. Inak `lovable` necháme tak.
 | `/pre-investorov` | `ForInvestors.tsx` | Brand investor page |
 | `/kariera` | `Careers.tsx` | Kariéra hub |
 | `/kariera/asistent-ceo` | `AssistantCEO.tsx` | Lovable-built role landing s CV uploadom |
-| `/predam-firmu` ⭐ | `PredamFirmu.tsx` | **Paid-traffic landing** pre majiteľov firiem (Meta+Google ads, ~100 €/mes test rozpočet). Stripped header, lead form 10-poľný, UTM capture do `landing_page` + `utm_*` stĺpcov v DB. |
+| `/predam-firmu` ⭐ | `PredamFirmu.tsx` | **Paid-traffic landing** pre majiteľov firiem (Meta ads). Hero (image + obrovský H1 "Odkúpime Vašu firmu.") + 4 key-point karty + lead form (10 polí) → `company_sale_inquiries` v Supabase s UTM capture. |
+| `/investovat` ⭐ | `Investovat.tsx` | **Paid-traffic landing** pre súkromných investorov (Meta ads). Hero (image + obrovský H1 "9 – 12 % ročne") + 4 key-point karty + lead form (8 polí) → `investment_inquiries` v Supabase s UTM capture. |
 | `/ochrana-udajov`, `/obchodne-podmienky` | … | Legal |
 
 **`FAST_LOAD_ROUTES` v `App.tsx`** — paths v tomto array bypassujú Preloader
-+ PageTransition (rýchly LCP pre paid traffic). Aktuálne: `["/predam-firmu"]`.
-Budúce paid landings (investor, flipper) sem pridaj.
++ PageTransition (rýchly LCP pre paid traffic). Aktuálne:
+`["/predam-firmu", "/investovat"]`. Budúcu flipper landing sem pridaj.
 
 ## Brand & kontakt
 
@@ -103,34 +104,45 @@ Budúce paid landings (investor, flipper) sem pridaj.
 
 ## Convention pre paid-traffic landings
 
-Aktuálne má `/predam-firmu` vlastný stripped header + minimal footer
-**inline v komponente.** Ak budeme stavať ďalšie landing (investor, flipper),
-**rozhodni sa s userom**:
-- (a) **Extract `LandingLayout` komponent** so stripped header + minimal
-  footer, share medzi všetkými paid landings. Cleaner, ale extra súbor.
-- (b) **Inline copy-paste** v každej landing page. Faster initial dev, viac
-  diff-u keď chceš zmeniť headerov ASSETRA logo / phone naprieč všetkými.
+**Shared `LandingLayout`** komponent v
+[src/components/landing/LandingLayout.tsx](src/components/landing/LandingLayout.tsx)
+— stripped sticky header (clickable ASSETRA logo → `/`, tel CTA) +
+minimal footer. Exportuje aj konstanty `PHONE_DISPLAY`, `PHONE_TEL`,
+`EMAIL`. Každý nový paid landing ho používa.
 
-Default pre druhú a tretiu landing: rovno **(a) extract**, lebo už máme 3
-landingy → jasná winuje DRY.
+**Štandardná štruktúra paid landing** (drží sa `/predam-firmu` aj
+`/investovat`):
+1. Hero: `<img heroMountains>` + 2-vrstvový gradient (`from-black/85 via-black/60 to-black/30` zľava + `from-black/50 via-transparent to-transparent` zhora) + obrovský serif H1 (text-6xl → 9xl) + krátky sub (text-2xl → 5xl serif) + 2 CTA (primary biele s tmavým textom + tel outline).
+2. 4 key-point karty (`bg-secondary/50` cards, neutrálne `bg-foreground/5` icon container, `text-foreground` icon).
+3. Lead form na `bg-charcoal` paneli — UTM capture do dedikovanej
+   tabuľky, 24h response message.
 
-Dáta podobne — buď:
-- (i) **Per-landing tabuľky** ako teraz (`company_sale_inquiries`,
-  `assistant_applications`, …) — čistá separácia
-- (ii) **Jedna `landing_inquiries` tabuľka s `landing_type` enum** + JSON
-  `payload` stĺpec pre per-landing fields — DRY, ale slabšia type safety
+**Žiadne** FAQ, "Pre koho", "Ako to funguje" proces, "Prečo cez nás",
+risk reversal, "Mechanizmus výnosu" sekcie — user explicitne preferuje
+minimalist flow (hero → 4 karty → form). Tieto sekcie boli skúšané
+v `feat(investovat): rewrite copy for higher conversion` (commit
+`2ebc4bf`) a stiahnuté späť — ak ich chceš znovu, pozri tam.
 
-User prefer (i) zatiaľ.
+**Žiadne modré accenty.** Brand má `--primary: 212 100% 47%` (modrá),
+ale paid landings to neuznávajú — primary CTA je `bg-primary-foreground
+text-charcoal` (biele tlačítko + tmavý text), accenty sú
+`text-primary-foreground`/`text-foreground` neutrálne. To bolo zmenené
+v commite `f76b52d` (Investovat) a `28fba62` (PredamFirmu).
+
+**Dáta**: per-landing tabuľky (`company_sale_inquiries`,
+`investment_inquiries`, …) — čistá separácia, žiadny enum/JSON pool.
 
 ## Permissions / Claude Code setup
 
 `.claude/settings.json` má allowlist pre čisto read-only MCP toolov (preview
-screenshots, console logs, Vercel domain checks, Chrome tabs reads). Mutating
-operácie (Bash mutácie, Vercel deploy, Edit/Write na súbory) **stále vyžadujú
-confirm** — to je zámerné.
+screenshots, console logs, Vercel domain checks, Chrome tabs reads).
 
-User testoval option `--dangerously-skip-permissions` ale rozhodol sa pre
-narrow allowlist namiesto tej dynamitu.
+**Od session 2026-04-28** user prešiel na `claude
+--dangerously-skip-permissions` v termináli — žiadne potvrdenia. Z toho
+vyplýva: pred deštruktívnymi operáciami (rm, force-push, sudo, git reset
+--hard) explicitne pomenuj v texte čo ideš robiť a počkaj jeden krok;
+defaultne **nepushuj** na origin a **nedeployuj** bez explicitného user
+príkazu.
 
 ---
 
@@ -138,22 +150,22 @@ narrow allowlist namiesto tej dynamitu.
 
 ## ⚠️ Na začiatku ďalšieho session
 
-Ak prvá user message naznačuje, že chce stavať **investor** alebo
-**flipper-financing** landing page, **predtým než napíšeš akýkoľvek kód
-spýtaj sa userovho** týchto otázok (zoskupené aby sa to dalo odpovedať
-v jednej správe):
+**Investor landing `/investovat` je hotová** (commit `fc0afa3` … `28fba62`,
+2026-04-28). Parametre produktu pre referenciu:
+- Pôžička s fixným úrokom **9 – 12 % p.a.**, zabezpečená záložným právom
+  na konkrétnu slovenskú nehnuteľnosť.
+- Mesačná renta + bonus pri vrátení istiny. Doba viazanosti 3 – 5 rokov.
+- Min. 50 000 € (so záložným právom). Výnimočne od 10 000 € bez
+  záložného práva. Od 300 000 € možnosť spoluinvestičnej spolupráce
+  (deal-by-deal partnership).
+- Regulácia: user ju má vyriešenú samostatne — neovlplyvňuje copy.
+- Tabuľka `investment_inquiries` (migrácia
+  `20260428120000_create_investment_inquiries.sql` ⚠️ na
+  aplikovanie do live Supabase).
 
-### Investor landing
-1. **Aký typ investora?** Retail (10–50k €), HNW (100k+ €), inštitucionálni?
-2. **Aký produkt im ponúkaš?** Pôžička s úrokom % p.a., equity v projekte,
-   dlhopis, alebo spoluinvestícia do konkrétneho realitného/firemného projektu?
-3. **Očakávaný výnos % p.a.** a **doba viazanosti**?
-4. **Min/max investícia?**
-5. **Regulácia** — je produkt regulovaný NBS (alebo equiv.)? Ak áno, pridať
-   povinné disclaimers ("kapitálové investície zahŕňajú riziko straty atď.").
-6. **URL preference?** `/investovat` (action), `/investicie` (entity), iný?
-   `/pre-investorov` už existuje ako brand verzia — paid landing musí mať
-   inú cestu.
+Ak prvá user message naznačuje **flipper-financing landing**, predtým
+než napíšeš akýkoľvek kód spýtaj sa týchto otázok (zoskupené aby sa to
+dalo odpovedať v jednej správe):
 
 ### Flipper financing landing
 1. **Špecifikácia produktu:**
@@ -170,14 +182,14 @@ v jednej správe):
 6. **URL preference?** `/financovanie-flipov`, `/uver-na-flip`, `/bridge-loan`,
    iný?
 
-### Po odpovediach diskutuj s userom o
-- **Shared `LandingLayout`** komponent extract pred implementáciou (default:
-  áno, rozšír)
-- **DB design** — pokračovať v per-landing tabuľkách alebo zjednotiť?
-  (default: per-landing)
-- Či má zmysel **predefinovať reklamné copy** (headline + sub) v pár
-  variantoch ešte pred implementáciou, aby user vedel rovno odštartovať
-  Meta/Google kampaň po deploye
+### Po odpovediach
+- **Použi `LandingLayout`** + **drž sa štandardnej štruktúry** (hero image
+  + obrovský H1 + krátky sub + 2 CTA + 4 karty + form). User
+  explicitne preferuje minimalist flow — žiadne extra sekcie.
+- **DB**: nová per-landing tabuľka (mirror schémy
+  `company_sale_inquiries` / `investment_inquiries`).
+- **Farby**: žiadne modré accenty (viď "Convention pre paid-traffic
+  landings" vyššie).
 
 ## Prvá akcia v novom session (ak je dev práca)
 
