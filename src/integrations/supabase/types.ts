@@ -56,6 +56,75 @@ export type Database = {
         }
         Relationships: []
       }
+      company_sale_inquiries: {
+        Row: {
+          annual_ebitda: string
+          annual_turnover: string
+          company_name: string
+          consent_given: boolean
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          industry: string
+          landing_page: string | null
+          message: string | null
+          phone: string
+          referrer: string | null
+          sale_reason: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          annual_ebitda: string
+          annual_turnover: string
+          company_name: string
+          consent_given?: boolean
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          industry: string
+          landing_page?: string | null
+          message?: string | null
+          phone: string
+          referrer?: string | null
+          sale_reason: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          annual_ebitda?: string
+          annual_turnover?: string
+          company_name?: string
+          consent_given?: boolean
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          industry?: string
+          landing_page?: string | null
+          message?: string | null
+          phone?: string
+          referrer?: string | null
+          sale_reason?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
       contact_inquiries: {
         Row: {
           annual_turnover: string | null

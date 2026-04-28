@@ -20,7 +20,18 @@ import Terms from "./pages/Terms";
 import Portfolio from "./pages/Portfolio";
 import Careers from "./pages/Careers";
 import AssistantCEO from "./pages/AssistantCEO";
+import PredamFirmu from "./pages/PredamFirmu";
 import NotFound from "./pages/NotFound";
+
+// Routes that bypass Preloader and PageTransition for fast LCP
+// (paid traffic landings — every 100 ms of delay hurts CPL).
+const FAST_LOAD_ROUTES = ["/predam-firmu"];
+
+function isFastLoadPath(pathname: string) {
+  return FAST_LOAD_ROUTES.some(
+    (r) => pathname === r || pathname.startsWith(r + "/")
+  );
+}
 
 const queryClient = new QueryClient();
 
@@ -110,6 +121,8 @@ const AnimatedRoutes = () => {
             </PageTransition>
           }
         />
+        {/* Paid-traffic landing — no PageTransition wrapper for fast LCP */}
+        <Route path="/predam-firmu" element={<PredamFirmu />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route
           path="*"
@@ -126,6 +139,9 @@ const AnimatedRoutes = () => {
 
 const App = () => {
   const [showPreloader, setShowPreloader] = useState(() => {
+    if (typeof window !== "undefined" && isFastLoadPath(window.location.pathname)) {
+      return false;
+    }
     return !sessionStorage.getItem("preloader-shown");
   });
 
