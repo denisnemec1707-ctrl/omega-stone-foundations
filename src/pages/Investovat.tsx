@@ -223,7 +223,7 @@ const Investovat = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
-            <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary/80 mb-6 sm:mb-8">
+            <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
               Pre súkromných investorov
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
@@ -235,7 +235,7 @@ const Investovat = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
                 href="#formular"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-base font-medium"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
                 Chcem nezáväznú konzultáciu
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -280,8 +280,8 @@ const Investovat = () => {
             ].map((b) => (
               <AnimatedSection key={b.title}>
                 <div className="bg-secondary/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                    <b.icon className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center mb-5">
+                    <b.icon className="w-5 h-5 text-foreground" />
                   </div>
                   <h3 className="font-serif text-lg sm:text-xl text-foreground mb-2 leading-snug">
                     {b.title}
@@ -317,8 +317,8 @@ const Investovat = () => {
               </div>
 
               {submitted ? (
-                <div className="rounded-2xl border border-primary/30 bg-primary/10 p-6 sm:p-8 text-center max-w-2xl">
-                  <CheckCircle2 className="w-10 h-10 text-primary mx-auto mb-4" />
+                <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
+                  <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
                   <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
                     Ďakujeme
                   </h3>
@@ -346,7 +346,7 @@ const Investovat = () => {
                               <Input
                                 {...field}
                                 placeholder="Ján Novák"
-                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary"
+                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
                             <FormMessage />
@@ -366,7 +366,7 @@ const Investovat = () => {
                                 {...field}
                                 type="email"
                                 placeholder="jan@email.sk"
-                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary"
+                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
                             <FormMessage />
@@ -386,7 +386,7 @@ const Investovat = () => {
                                 {...field}
                                 type="tel"
                                 placeholder="+421 900 000 000"
-                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary"
+                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
                             <FormMessage />
@@ -406,7 +406,7 @@ const Investovat = () => {
                               value={field.value}
                             >
                               <FormControl>
-                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary">
+                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
                                   <SelectValue placeholder="Telefón / Email" />
                                 </SelectTrigger>
                               </FormControl>
@@ -438,7 +438,7 @@ const Investovat = () => {
                               value={field.value}
                             >
                               <FormControl>
-                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary">
+                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
                                   <SelectValue placeholder="Vyberte rozsah" />
                                 </SelectTrigger>
                               </FormControl>
@@ -467,7 +467,7 @@ const Investovat = () => {
                               value={field.value}
                             >
                               <FormControl>
-                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary">
+                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
                                   <SelectValue placeholder="Vyberte horizont" />
                                 </SelectTrigger>
                               </FormControl>
@@ -498,7 +498,7 @@ const Investovat = () => {
                               {...field}
                               rows={4}
                               placeholder="Napr. otázky alebo konkrétne očakávania…"
-                              className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary"
+                              className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                             />
                           </FormControl>
                           <FormMessage />
@@ -518,7 +518,7 @@ const Investovat = () => {
                                 onCheckedChange={(v) =>
                                   field.onChange(v === true)
                                 }
-                                className="mt-1 border-primary-foreground/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                                className="mt-1 border-primary-foreground/40 data-[state=checked]:bg-primary-foreground data-[state=checked]:border-primary-foreground"
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
@@ -527,7 +527,7 @@ const Investovat = () => {
                               v zmysle{" "}
                               <Link
                                 to="/ochrana-udajov"
-                                className="text-primary underline underline-offset-2"
+                                className="text-primary-foreground underline underline-offset-2"
                               >
                                 zásad ochrany osobných údajov
                               </Link>
@@ -542,7 +542,7 @@ const Investovat = () => {
                     <Button
                       type="submit"
                       disabled={submitting}
-                      className="w-full sm:w-auto group rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base"
+                      className="w-full sm:w-auto group rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 px-8 py-6 text-base"
                     >
                       {submitting ? (
                         <>
