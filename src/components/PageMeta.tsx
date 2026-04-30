@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { type RouteKey, LOCALES, getLocalizedPath } from "@/i18n/routes";
+import { type RouteKey, type Locale, LOCALES, getLocalizedPath, getLocaleFromPath } from "@/i18n/routes";
 
 interface PageMetaProps {
   title: string;
@@ -26,6 +26,35 @@ const PageMeta = ({ title, description, routeKey }: PageMetaProps) => {
     if (ogTitle) ogTitle.setAttribute("content", title);
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", description);
+
+    // og:url + og:locale
+    const ogLocaleMap: Record<Locale, string> = { sk: "sk_SK", en: "en_US", cs: "cs_CZ" };
+    const currentLocale = getLocaleFromPath(window.location.pathname);
+
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement("meta");
+      ogUrl.setAttribute("property", "og:url");
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute("content", BASE_URL + window.location.pathname);
+
+    let ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (!ogLocale) {
+      ogLocale = document.createElement("meta");
+      ogLocale.setAttribute("property", "og:locale");
+      document.head.appendChild(ogLocale);
+    }
+    ogLocale.setAttribute("content", ogLocaleMap[currentLocale]);
+
+    // canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", BASE_URL + window.location.pathname);
 
     // hreflang tags
     const existingHreflangs = document.querySelectorAll('link[data-hreflang]');

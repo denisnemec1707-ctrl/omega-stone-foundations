@@ -29,10 +29,15 @@ export async function submitForm(
       "Webhook URL nie je nakonfigurovaná. Nastavte VITE_WEBHOOK_* v .env / Vercel env.",
     );
   }
+  // Auto-detect locale from URL path for lead attribution
+  const locale = typeof window !== "undefined"
+    ? (window.location.pathname.startsWith("/en") ? "en" : window.location.pathname.startsWith("/cs") ? "cs" : "sk")
+    : "sk";
+
   const res = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify({ ...payload, locale, landing_url: typeof window !== "undefined" ? window.location.href : "" }),
   });
   if (!res.ok) {
     throw new Error(`Webhook submission failed (HTTP ${res.status}).`);
@@ -54,7 +59,13 @@ export async function submitFormWithFile(
       "Webhook URL nie je nakonfigurovaná. Nastavte VITE_WEBHOOK_* v .env / Vercel env.",
     );
   }
+  const locale = typeof window !== "undefined"
+    ? (window.location.pathname.startsWith("/en") ? "en" : window.location.pathname.startsWith("/cs") ? "cs" : "sk")
+    : "sk";
+
   const fd = new FormData();
+  fd.append("locale", locale);
+  fd.append("landing_url", typeof window !== "undefined" ? window.location.href : "");
   for (const [key, value] of Object.entries(payload)) {
     if (value !== null && value !== undefined) {
       fd.append(key, String(value));

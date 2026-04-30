@@ -36,7 +36,7 @@
       },
       {
         "title": "Kupujeme nemovitost",
-        "description": "Váš kapitál financuje nákup pečlivě vybraných nemovitostí. Akvírujeme pouze aktiva s cenou minimálně 20 % pod tržní hodnotou, čímž zajišťujeme vestavěnou marži pro vaše výnosy a naše operace."
+        "description": "Váš kapitál financuje nákup pečlivě vybraných nemovitostí. Nakupujeme pouze aktiva s cenou minimálně 20 % pod tržní hodnotou, čímž zajišťujeme vestavěnou marži pro Vaše výnosy a naše operace."
       },
       {
         "title": "Rekonstrukce a prodej",
@@ -123,7 +123,7 @@
     "title": "Často kladené",
     "titleAccent": "otázky",
     "items": [
-      { "q": "Jak se generuje 12% roční výnos?", "a": "Náš výnos pochází ze ziskové marže na realitních transakcích. Akvírujeme nemovitosti minimálně 20 % pod tržní hodnotou, rekonstruujeme je a prodáváme za férovou tržní cenu." },
+      { "q": "Jak se generuje 12% roční výnos?", "a": "Náš výnos pochází ze ziskové marže na realitních transakcích. Nakupujeme nemovitosti minimálně 20 % pod tržní hodnotou, rekonstruujeme je a prodáváme za férovou tržní cenu." },
       { "q": "Je moje investice zajištěna?", "a": "Ano. Každé euro, které investujete, je nasazeno do akvizice fyzických nemovitostí. Celý kapitálový fond je zajištěn realitními aktivy." },
       { "q": "Jaký je typický investiční horizont?", "a": "Standardní investiční období se pohybují od 12 do 24 měsíců. Na konci každého období se vám vrátí celá jistina spolu se všemi získanými výnosy." },
       { "q": "Jak a kdy se vyplácejí výnosy?", "a": "Výnosy se vyplácejí měsíčně, přímo na váš bankovní účet. Vaše měsíční výplata se vypočítá jako 1/12 vašeho ročního výnosu." },

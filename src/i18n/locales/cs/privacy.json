@@ -7,7 +7,7 @@
   "sections": {
     "controller": {
       "title": "1. Správce",
-      "text": "Správcem osobních údajů je společnost ASSETRA investments s.r.o., se sídlem v Bratislavě, Slovenská republika (dále jen 'společnost'). Společnost zpracovává osobní údaje v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 18/2018 Z. z. o ochrane osobných údajov."
+      "text": "Správcem osobních údajů je společnost ASSETRA investments s.r.o., se sídlem v Bratislavě, Slovenská republika (dále jen 'společnost'). Společnost zpracovává osobní údaje v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 18/2018 Z. z. o ochraně osobních údajů."
     },
     "purpose": {
       "title": "2. Účel zpracování",
@@ -48,7 +48,7 @@
         "Na přenositelnost údajů",
         "Vznést námitku proti zpracování",
         "Odvolat souhlas se zpracováním",
-        "Podat stížnost na Úrad na ochranu osobných údajov SR"
+        "Podat stížnost na Úřad na ochranu osobních údajů SR"
       ]
     },
     "cookies": {
