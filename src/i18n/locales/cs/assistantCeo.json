@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "Asistent CEO — junior pozice | ASSETRA Investments",
+    "description": "Junior asistent jednatele investiční skupiny ASSETRA. Práce přímo u CEO, koordinace portfolia firem, příprava podkladů."
+  },
+  "hero": {
+    "label": "Kariéra · Junior pozice",
+    "title": "Asistent CEO.",
+    "subtitle": "Pracujte přímo u jednatele společnosti.",
+    "cta": "Poslat přihlášku"
+  },
+  "keyPoints": {
+    "ceo": { "title": "Přímo u jednatele", "text": "Reálný vhled do vedení, akvizic a rozhodnutí." },
+    "bonus": { "title": "Výkonnostní bonusy", "text": "K základní mzdě bonusy a odměny navázané na reálné výsledky práce." },
+    "junior": { "title": "Junior pozice", "text": "Hledáme spolehlivost a chuť učit se. Vhodné i pro studenta VŠ. Praxe na C-level není podmínkou." }
+  },
+  "startOptions": {
+    "immediately": "Ihned",
+    "2weeks": "Do 2 týdnů",
+    "1month": "Do 1 měsíce",
+    "2months": "Do 2 měsíců",
+    "other": "Jiné — uvedu v motivaci"
+  },
+  "form": {
+    "heading": "Přihláška",
+    "title": "Pošlete nám svou přihlášku",
+    "description": "Vyplňte formulář a přiložte aktuální CV. Ozveme se Vám v nejbližších pracovních dnech.",
+    "fullName": "Jméno a příjmení *",
+    "email": "Email *",
+    "phone": "Telefon *",
+    "city": "Město / region *",
+    "motivation": "Proč Vás tato pozice zaujala? *",
+    "motivationPlaceholder": "Napište nám pár vět o sobě a Vaší motivaci…",
+    "availability": "Nejdříve možný nástup *",
+    "availabilityPlaceholder": "Vyberte termín",
+    "cv": "Životopis (PDF, DOC, DOCX, max 5 MB) *",
+    "cvPlaceholder": "Klikněte pro nahrání CV",
+    "submit": "Odeslat přihlášku",
+    "submitting": "Odesílám…"
+  },
+  "consent": "Souhlasím se zpracováním osobních údajů pro účely výběrového řízení v souladu se zásadami ochrany osobních údajů.",
+  "success": {
+    "title": "Děkujeme",
+    "text": "Vaše přihláška byla úspěšně odeslána. Ozveme se Vám v nejbližších dnech."
+  }
+}

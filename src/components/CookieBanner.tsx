@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
 const CookieBanner = () => {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation("common");
+  const locale = useLocale();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -35,8 +40,8 @@ const CookieBanner = () => {
         >
           <div className="bg-charcoal rounded-2xl p-5 sm:p-6 shadow-2xl border border-foreground/5">
             <p className="text-sm text-primary-foreground/70 font-light leading-relaxed mb-4">
-              Táto stránka používa cookies na zlepšenie vášho zážitku. Používaním stránky súhlasíte s ich spracovaním v súlade s{" "}
-              <Link to="/ochrana-udajov" className="underline underline-offset-2 hover:text-primary-foreground transition-colors">GDPR</Link>.
+              {t("cookie.text")}{" "}
+              <Link to={getLocalizedPath("privacy", locale)} className="underline underline-offset-2 hover:text-primary-foreground transition-colors">{t("cookie.gdpr")}</Link>.
             </p>
             <div className="flex gap-3">
               <button
@@ -44,13 +49,13 @@ const CookieBanner = () => {
                 className="flex-1 px-4 py-2.5 rounded-full bg-primary-foreground text-charcoal text-sm font-medium tracking-wide hover:bg-primary-foreground/90 transition-colors"
                 style={{ color: "hsl(220, 20%, 12%)" }}
               >
-                Súhlasím
+                {t("cookie.accept")}
               </button>
               <button
                 onClick={handleReject}
                 className="flex-1 px-4 py-2.5 rounded-full border border-primary-foreground/20 text-primary-foreground text-sm tracking-wide hover:bg-primary-foreground/5 transition-colors"
               >
-                Odmietnuť
+                {t("cookie.reject")}
               </button>
             </div>
           </div>

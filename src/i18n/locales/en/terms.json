@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "title": "Terms & Conditions | ASSETRA Investments",
+    "description": "Terms and conditions of ASSETRA investments s.r.o. for the use of the website and services."
+  },
+  "title": "Terms & Conditions",
+  "sections": {
+    "intro": {
+      "title": "1. General Provisions",
+      "text": "These terms and conditions govern the rights and obligations related to the use of the website assetrainvestments.com operated by ASSETRA investments s.r.o. with its registered office in Bratislava, Slovak Republic (hereinafter referred to as the \"Company\")."
+    },
+    "content": {
+      "title": "2. Nature of Content",
+      "text": "The content of this website is for informational purposes only and does not constitute investment advice, an offer to sell, or a solicitation to buy any financial instruments. All information about returns, projects, and investment opportunities is indicative and subject to change."
+    },
+    "risk": {
+      "title": "3. Investment Risk",
+      "text": "Every investment involves risk. Past returns are not a guarantee of future results. The value of investments can both increase and decrease. Investors should consider their financial circumstances and, if necessary, consult an independent financial adviser before making any investment decision."
+    },
+    "ip": {
+      "title": "4. Intellectual Property",
+      "text": "All content on this website, including texts, graphics, logos, images, and software, is protected by copyright and other intellectual property laws. Any copying, reproduction, or distribution without prior written consent of the Company is prohibited."
+    },
+    "liability": {
+      "title": "5. Limitation of Liability",
+      "text": "The Company shall not be liable for any direct or indirect damage arising in connection with the use of this website or reliance on the information provided herein. The Company reserves the right to change the content of the website at any time without prior notice."
+    },
+    "thirdParty": {
+      "title": "6. Third-Party Links",
+      "text": "The website may contain links to third-party websites. The Company has no control over the content of such websites and accepts no responsibility for them."
+    },
+    "law": {
+      "title": "7. Governing Law",
+      "text": "These terms and conditions are governed by the laws of the Slovak Republic. Any disputes shall be resolved by the competent courts of the Slovak Republic."
+    },
+    "contact": {
+      "title": "8. Contact",
+      "text": "For any questions, please contact us at info@assetrainvestments.com."
+    }
+  },
+  "lastUpdated": "Last updated: March 2025"
+}

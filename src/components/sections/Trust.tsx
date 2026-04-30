@@ -1,29 +1,13 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 
 const Trust = () => {
-  const trustItems = [
-    {
-      title: "Konzervatívna akvizícia",
-      description: "Kupujeme iba nehnuteľnosti s cenou 20% alebo viac pod trhovou hodnotou. Táto marža chráni pred trhovými výkyvmi a zabezpečuje ziskovosť aj v nepriaznivých podmienkach.",
-      highlighted: true,
-    },
-    {
-      title: "Zabezpečenie reálnymi aktívami",
-      description: "Každá investícia je krytá fyzickými nehnuteľnosťami. Na rozdiel od finančných nástrojov si nehnuteľnosť zachováva vnútornú hodnotu bez ohľadu na trhový sentiment.",
-      highlighted: false,
-    },
-    {
-      title: "Krátke cykly",
-      description: "Investičné obdobia 12–36 mesiacov limitujú expozíciu voči dlhodobým trhovým zmenám. Kapitál sa vracia a môže byť reinvestovaný alebo vybraný v pravidelných intervaloch.",
-      highlighted: false,
-    },
-    {
-      title: "Prevádzkové skúsenosti",
-      description: "Náš tím dokončil desiatky akvizično-rekonštrukčno-predajných cyklov. Rozumieme slovenskému realitnému trhu, miestnym predpisom a ekonomike rekonštrukcií.",
-      highlighted: false,
-    },
-  ];
+  const { t } = useTranslation("forInvestors");
+  const trustItems = t("trust.items", { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>;
 
   return (
     <section id="dovera" className="py-12 sm:py-20 md:py-32 lg:py-48 bg-charcoal">
@@ -31,13 +15,13 @@ const Trust = () => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="text-center mb-8 sm:mb-10 md:mb-16">
             <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
-              Riadenie rizík
+              {t("trust.label")}
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md mb-4 sm:mb-6 md:mb-8 text-white">
-              Ochrana kapitálu <span className="text-gold">na prvom mieste</span>
+              {t("trust.title")} <span className="text-gold">{t("trust.titleAccent")}</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed px-2 sm:px-0">
-              Každú transakciu štruktúrujeme s bezpečnosťou vášho kapitálu ako primárnou prioritou.
+              {t("trust.description")}
             </p>
           </AnimatedSection>
 
@@ -46,7 +30,7 @@ const Trust = () => {
               <StaggerItem
                 key={index}
                 className={`border-l-2 pl-4 sm:pl-6 md:pl-8 ${
-                  item.highlighted ? "border-gold" : "border-border"
+                  index === 0 ? "border-gold" : "border-border"
                 }`}
               >
                 <h3 className="font-serif text-lg sm:text-xl md:text-2xl mb-2 sm:mb-3 md:mb-4 text-white">
@@ -64,7 +48,7 @@ const Trust = () => {
               asChild
               className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
             >
-              <a href="#kontakt">Kontaktovať nás</a>
+              <a href="#kontakt">{t("trust.cta")}</a>
             </Button>
           </AnimatedSection>
         </div>

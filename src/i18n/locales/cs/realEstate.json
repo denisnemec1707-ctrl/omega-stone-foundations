@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Nemovitosti a realitní flipping | ASSETRA Investments",
+    "description": "Nakupujeme podhodnocené nemovitosti, rekonstruujeme je a prodáváme s výrazným zhodnocením. Specializujeme se na realitní flipping na Slovensku."
+  },
+  "hero": {
+    "label": "Náš sektor",
+    "title": "Nemovitosti",
+    "titleAccent": "a realitní flipping",
+    "description": "Specializujeme se na akvizici podhodnocených nemovitostí, jejich komplexní rekonstrukci a následný prodej za tržní cenu."
+  },
+  "intro": "Vyhledáváme problémové a podhodnocené rezidenční nemovitosti na slovenském trhu. Po akvizici jim přidáváme hodnotu komplexní rekonstrukcí a prodáváme za férovou tržní cenu.",
+  "howItWorks": {
+    "label": "Jak funguje realitní flipping",
+    "description": "Náš obchodní model je postaven na nákupu nemovitostí minimálně 20 % pod tržní hodnotu, jejich rekonstrukci a následném prodeji.",
+    "steps": {
+      "acquisition": {
+        "title": "Akvizice",
+        "text": "Vyhledáváme nemovitosti pod tržní hodnotu — exekuce, dědictví, urgentní prodeje."
+      },
+      "reconstruction": {
+        "title": "Rekonstrukce",
+        "text": "Komplexní obnova s vlastním týmem. Zaměřujeme se na maximalizaci hodnoty při kontrolovaných nákladech."
+      },
+      "sale": {
+        "title": "Prodej",
+        "text": "Nemovitost prodáváme za férovou tržní cenu. Typická marže je 20 % a více."
+      },
+      "repeat": {
+        "title": "Opakování",
+        "text": "Celý cyklus trvá 12–36 měsíců. Kapitál se reinvestuje do dalších projektů."
+      }
+    }
+  },
+  "stats": {
+    "margin": { "value": "20%+", "label": "Cílová marže", "text": "Na každém projektu cílíme minimálně 20% ziskovou marži." },
+    "cycles": { "value": "12–36", "label": "Měsíční cykly", "text": "Krátké investiční horizonty s definovanými výstupy." },
+    "market": { "value": "SK", "label": "Trh", "text": "Zaměřujeme se na slovenský rezidenční trh." },
+    "assets": { "value": "Reálná", "label": "Aktiva", "text": "Každý projekt je vázán na fyzickou nemovitost." }
+  },
+  "cta": {
+    "heading": "Máte zájem investovat?",
+    "text": "Fixní 12% roční výnos zajištěný reálnými nemovitostmi. Vyplňte nezávazný formulář.",
+    "clubLink": "nebo se připojte do ASSETRA Klubu",
+    "button": "Chci investovat"
+  }
+}

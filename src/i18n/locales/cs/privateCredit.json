@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Zajištěné úvěry | ASSETRA Investments",
+    "description": "Poskytujeme financování pro právnické osoby a realitní projekty. Rychlé schválení, flexibilní podmínky a transparentní náklady."
+  },
+  "hero": {
+    "label": "Financování",
+    "title": "Zajištěné",
+    "titleAccent": "úvěry",
+    "description": "Poskytujeme financování pro právnické osoby a realitní projekty. Rychlé schválení, flexibilní podmínky."
+  },
+  "intro": "Poskytujeme zajištěné úvěry pro právnické osoby a realitní projekty. Rychlá rozhodnutí, flexibilní podmínky a transparentní náklady.",
+  "whatWeFinance": {
+    "label": "Co financujeme",
+    "description": "Nabízíme dva hlavní typy financování pro právnické osoby.",
+    "realEstate": {
+      "title": "Realitní projekty",
+      "text": "Financování akvizic, developmentu a rekonstrukcí nemovitostí.",
+      "amount": "Výše: 10 000 – 500 000 €",
+      "term": "Splatnost: 3–24 měsíců",
+      "ltv": "LTV do 70 %"
+    },
+    "business": {
+      "title": "Podnikatelské úvěry",
+      "text": "Financování provozního kapitálu, akvizic a expanze.",
+      "amount": "Výše: 10 000 – 500 000 €",
+      "term": "Splatnost: 3–24 měsíců",
+      "collateral": "Zajištění aktivy"
+    }
+  },
+  "benefits": {
+    "label": "Výhody spolupráce",
+    "description": "Rychlá rozhodnutí, flexibilní podmínky a transparentní náklady.",
+    "fast": { "value": "5 dnů", "title": "Rychlé schválení", "text": "Rozhodnutí do 5 pracovních dnů." },
+    "flexible": { "value": "Flexibilní", "title": "Flexibilní", "subtitle": "Podmínky", "text": "Individuální přístup ke každému projektu." },
+    "noFees": { "value": "0 €", "title": "0 €", "subtitle": "Skryté poplatky", "text": "Jasná úroková sazba od začátku." },
+    "minBureaucracy": { "value": "Min.", "title": "Min.", "subtitle": "Byrokracie", "text": "Zaměřujeme se na podstatu projektu." }
+  },
+  "process": {
+    "label": "Jak to funguje",
+    "steps": {
+      "request": { "title": "Žádost", "text": "Kontaktujte nás s popisem projektu." },
+      "analysis": { "title": "Analýza", "text": "Vyhodnotíme projekt a zajištění." },
+      "offer": { "title": "Nabídka", "text": "Konkrétní nabídka s podmínkami." },
+      "funding": { "title": "Čerpání", "text": "Po podpisu uvolníme finance." }
+    }
+  },
+  "faq": {
+    "label": "Časté otázky",
+    "items": [
+      { "q": "Jaké zajištění požadujete?", "a": "Zástavní právo na nemovitost nebo zástavu na obchodní podíl. Akceptujeme i zástavu na movitý majetek firmy." },
+      { "q": "Jaká je maximální výše úvěru?", "a": "Pro realitní projekty do 2 000 000 €, pro podnikatelské úvěry do 1 000 000 €." },
+      { "q": "Jak rychle mohu získat finance?", "a": "Rozhodujeme do 5 pracovních dnů. Čerpání do 2 týdnů od schválení." },
+      { "q": "Jaké jsou úrokové sazby?", "a": "Od 10 % do 18 % p.a. v závislosti na typu projektu a kvalitě zajištění." },
+      { "q": "Mohu splatit úvěr předčasně?", "a": "Ano, kdykoli bez poplatků. Úroky se počítají jen za skutečné čerpání." },
+      { "q": "Financujete i fyzické osoby?", "a": "Ne, financujeme výhradně právnické osoby – s.r.o. a a.s." }
+    ]
+  },
+  "form": {
+    "heading": "Požádat o financování",
+    "description": "Vyplňte formulář a ozveme se vám do 5 pracovních dnů s konkrétními podmínkami.",
+    "title": "Žádost o úvěr",
+    "fullName": "Jméno a příjmení *",
+    "namePlaceholder": "Jan Novák",
+    "email": "Email *",
+    "emailPlaceholder": "jan.novak@email.cz",
+    "phone": "Telefon",
+    "phonePlaceholder": "+420 900 000 000",
+    "projectType": "Typ projektu",
+    "projectTypePlaceholder": "Vyberte typ",
+    "loanAmount": "Požadovaná výše úvěru",
+    "loanAmountPlaceholder": "Vyberte rozsah",
+    "message": "Zpráva",
+    "messagePlaceholder": "Popište váš projekt nebo potřebu financování...",
+    "submit": "Odeslat žádost"
+  },
+  "projectTypes": {
+    "realEstate": "Realitní projekt",
+    "business": "Podnikatelský úvěr",
+    "acquisition": "Akvizice firmy",
+    "other": "Jiný"
+  },
+  "loanAmounts": {
+    "10to50k": "10 000 – 50 000 €",
+    "50to100k": "50 000 – 100 000 €",
+    "100to250k": "100 000 – 250 000 €",
+    "250to500k": "250 000 – 500 000 €",
+    "over500k": "500 000 € a více"
+  },
+  "directContact": {
+    "title": "Přímý kontakt",
+    "email": "Email",
+    "office": "Kancelář",
+    "officeValue": "Bratislava, Slovensko"
+  },
+  "investCta": {
+    "heading": "Chcete investovat do úvěrů?",
+    "text": "Pokud chcete zhodnocovat kapitál investicí do zajištěných úvěrů, navštivte sekci pro investory.",
+    "button": "Chci investovat",
+    "clubLink": "nebo se připojte do ASSETRA Klubu"
+  }
+}

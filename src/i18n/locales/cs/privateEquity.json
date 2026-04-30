@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Akvizice firem | ASSETRA Investments",
+    "description": "Vyhledáváme fungující, zaběhnuté firmy na slovenském a českém trhu vhodné k odkoupení. Férová cena a diskrétní proces."
+  },
+  "hero": {
+    "label": "Náš sektor",
+    "title": "Akvizice",
+    "titleAccent": "zaběhnutých firem",
+    "description": "Hledáme fungující, ziskové firmy na slovenském a českém trhu. Nabízíme férovou cenu a diskrétní proces."
+  },
+  "intro": "Vyhledáváme fungující, zaběhnuté firmy na slovenském a českém trhu vhodné k odkoupení. Investujeme prostřednictvím dlouhodobých partnerství s důrazem na růst hodnoty.",
+  "criteria": {
+    "label": "Investiční kritéria",
+    "description": "Zaměřujeme se na zaběhnuté firmy s jasným potenciálem růstu a stabilním týmem.",
+    "turnover": { "value": "1–10 mil. €", "label": "Obrat", "text": "Hledáme firmy s ročním obratem v rozmezí 1 až 10 milionů eur." },
+    "profitability": { "value": "2+ roky", "label": "Ziskovost", "text": "Firma musí být zisková minimálně 2 roky po sobě." },
+    "market": { "value": "SK/CZ", "label": "Trh", "text": "Zaměřujeme se na slovenský a český trh s potenciálem expanze." },
+    "team": { "value": "Stabilní", "label": "Tým", "text": "Preferujeme firmy se zaběhnutým managementem a loajálním týmem." }
+  },
+  "process": {
+    "label": "Jak to funguje",
+    "description": "Od prvního kontaktu po uzavření transakce.",
+    "steps": {
+      "contact": { "title": "Prvotní kontakt", "text": "Nezávazná konzultace o vaší firmě. Podepíšeme NDA." },
+      "dueDiligence": { "title": "Due diligence", "text": "Detailní analýza finančních výkazů a obchodního modelu." },
+      "valuation": { "title": "Ocenění a nabídka", "text": "Férová nabídka na základě tržního ocenění." },
+      "closing": { "title": "Uzavření transakce", "text": "Finalizace dokumentů a převod vlastnictví." }
+    }
+  },
+  "investCta": {
+    "heading": "Máte zájem investovat?",
+    "text": "Investujte do akvizic firem s fixním ročním výnosem. Vyplňte nezávazný formulář.",
+    "button": "Chci investovat",
+    "clubLink": "nebo se připojte do ASSETRA Klubu"
+  },
+  "sellCta": {
+    "heading": "Prodáváte firmu?",
+    "text": "Vyplňte formulář a ozveme se vám s nezávaznou nabídkou."
+  },
+  "form": {
+    "title": "Žádost o prodej firmy",
+    "fullName": "Jméno a příjmení *",
+    "namePlaceholder": "Jan Novák",
+    "email": "Email *",
+    "emailPlaceholder": "jan.novak@email.cz",
+    "phone": "Telefon",
+    "phonePlaceholder": "+420 900 000 000",
+    "companyName": "Název firmy",
+    "companyNamePlaceholder": "Název vaší firmy",
+    "turnover": "Roční obrat",
+    "turnoverPlaceholder": "Vyberte rozsah",
+    "message": "Zpráva",
+    "messagePlaceholder": "Stručný popis vaší firmy a důvod prodeje...",
+    "submit": "Odeslat žádost"
+  },
+  "turnoverOptions": {
+    "under1m": "Pod 1 mil. €",
+    "1to3m": "1 – 3 mil. €",
+    "3to5m": "3 – 5 mil. €",
+    "5to10m": "5 – 10 mil. €",
+    "over10m": "Nad 10 mil. €"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Careers | ASSETRA investments",
+    "description": "Join ASSETRA investments. We are looking for sales representatives and project managers for our portfolio companies."
+  },
+  "hero": {
+    "label": "Careers",
+    "title": "Join",
+    "titleAccent": "our team",
+    "description": "We are looking for talented people who want to grow with us. Become part of a team that builds a portfolio of successful companies."
+  },
+  "featured": {
+    "label": "Hiring Now",
+    "title": "CEO Assistant",
+    "text": "Work directly with the CEO of our investment group. Portfolio coordination, document preparation, calendar management, and communication with partners across companies.",
+    "cta": "Position details"
+  },
+  "openPositions": {
+    "label": "Open Positions",
+    "title": "We are looking for team members",
+    "description": "We are currently looking for sales representatives and project managers for our portfolio companies. We offer work in a dynamic environment with real impact on company growth."
+  },
+  "positions": {
+    "salesRep": {
+      "title": "Sales Representative",
+      "type": "Full-time",
+      "description": "We are looking for experienced sales representatives for our portfolio companies. You will be responsible for acquiring new clients, building business relationships, and achieving sales targets.",
+      "requirements": [
+        "Experience in B2B or B2C sales",
+        "Communication and presentation skills",
+        "Proactive approach and results orientation",
+        "Category B driving licence"
+      ]
+    },
+    "projectManager": {
+      "title": "Project Manager",
+      "type": "Full-time",
+      "description": "For our growing portfolio, we are looking for project managers to lead key projects across industries — from construction and energy to hospitality.",
+      "requirements": [
+        "Experience in project management",
+        "Ability to work with multiple teams simultaneously",
+        "Analytical thinking and organisational skills",
+        "Knowledge of project management methodologies (a plus)"
+      ]
+    }
+  },
+  "cta": {
+    "heading": "Interested in a position?",
+    "text": "Send us your CV and a brief cover letter. We will get back to you within a few days."
+  },
+  "requirementsLabel": "Requirements"
+}

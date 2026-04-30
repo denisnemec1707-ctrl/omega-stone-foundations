@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Secured Loans | ASSETRA Investments",
+    "description": "We provide financing for legal entities and real estate projects. Fast approval, flexible terms, and transparent costs."
+  },
+  "hero": {
+    "label": "Financing",
+    "title": "Secured",
+    "titleAccent": "Loans",
+    "description": "We provide financing for legal entities and real estate projects. Fast approval, flexible terms."
+  },
+  "intro": "We provide secured loans for legal entities and real estate projects. Fast decisions, flexible terms, and transparent costs.",
+  "whatWeFinance": {
+    "label": "What We Finance",
+    "description": "We offer two main types of financing for legal entities.",
+    "realEstate": {
+      "title": "Real Estate Projects",
+      "text": "Financing for property acquisitions, development, and renovations.",
+      "amount": "Amount: €10,000 – €500,000",
+      "term": "Term: 3–24 months",
+      "ltv": "LTV up to 70%"
+    },
+    "business": {
+      "title": "Business Loans",
+      "text": "Financing for working capital, acquisitions, and expansion.",
+      "amount": "Amount: €10,000 – €500,000",
+      "term": "Term: 3–24 months",
+      "collateral": "Asset-backed collateral"
+    }
+  },
+  "benefits": {
+    "label": "Benefits of Working with Us",
+    "description": "Fast decisions, flexible terms, and transparent costs.",
+    "fast": { "value": "5 days", "title": "Fast Approval", "text": "Decision within 5 business days." },
+    "flexible": { "value": "Flexible", "title": "Flexible", "subtitle": "Terms", "text": "Individual approach to every project." },
+    "noFees": { "value": "€0", "title": "€0", "subtitle": "Hidden Fees", "text": "Clear interest rate from the start." },
+    "minBureaucracy": { "value": "Min.", "title": "Min.", "subtitle": "Bureaucracy", "text": "We focus on the substance of the project." }
+  },
+  "process": {
+    "label": "How It Works",
+    "steps": {
+      "request": { "title": "Application", "text": "Contact us with a description of your project." },
+      "analysis": { "title": "Analysis", "text": "We evaluate the project and collateral." },
+      "offer": { "title": "Offer", "text": "A concrete offer with terms and conditions." },
+      "funding": { "title": "Disbursement", "text": "After signing, we release the funds." }
+    }
+  },
+  "faq": {
+    "label": "Frequently Asked Questions",
+    "items": [
+      { "q": "What collateral do you require?", "a": "A lien on real property or a pledge on a business share. We also accept a pledge on the company's movable assets." },
+      { "q": "What is the maximum loan amount?", "a": "Up to €2,000,000 for real estate projects and up to €1,000,000 for business loans." },
+      { "q": "How quickly can I receive funding?", "a": "We decide within 5 business days. Disbursement within 2 weeks of approval." },
+      { "q": "What are the interest rates?", "a": "From 10% to 18% p.a. depending on the project type and quality of collateral." },
+      { "q": "Can I repay the loan early?", "a": "Yes, at any time without penalties. Interest is only charged on the actual drawdown period." },
+      { "q": "Do you finance individuals?", "a": "No, we exclusively finance legal entities — LLCs and joint-stock companies." }
+    ]
+  },
+  "form": {
+    "heading": "Apply for Financing",
+    "description": "Fill out the form and we will get back to you within 5 business days with specific terms.",
+    "title": "Loan Application",
+    "fullName": "Full name *",
+    "namePlaceholder": "John Smith",
+    "email": "Email *",
+    "emailPlaceholder": "john.smith@email.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+421 900 000 000",
+    "projectType": "Project type",
+    "projectTypePlaceholder": "Select type",
+    "loanAmount": "Requested loan amount",
+    "loanAmountPlaceholder": "Select range",
+    "message": "Message",
+    "messagePlaceholder": "Describe your project or financing needs...",
+    "submit": "Submit request"
+  },
+  "projectTypes": {
+    "realEstate": "Real estate project",
+    "business": "Business loan",
+    "acquisition": "Company acquisition",
+    "other": "Other"
+  },
+  "loanAmounts": {
+    "10to50k": "€10,000 – €50,000",
+    "50to100k": "€50,000 – €100,000",
+    "100to250k": "€100,000 – €250,000",
+    "250to500k": "€250,000 – €500,000",
+    "over500k": "€500,000 and above"
+  },
+  "directContact": {
+    "title": "Direct Contact",
+    "email": "Email",
+    "office": "Office",
+    "officeValue": "Bratislava, Slovakia"
+  },
+  "investCta": {
+    "heading": "Want to invest in loans?",
+    "text": "If you want to grow your capital by investing in secured loans, visit our investor section.",
+    "button": "I want to invest",
+    "clubLink": "or join the ASSETRA Club"
+  }
+}

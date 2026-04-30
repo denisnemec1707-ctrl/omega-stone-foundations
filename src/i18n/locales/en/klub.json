@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "ASSETRA Club | Investment Opportunities Before Public Offering",
+    "description": "Join the ASSETRA Club and receive information about selected investment opportunities (real estate, company acquisitions, secured loans) before they go public."
+  },
+  "hero": {
+    "label": "For private investors",
+    "title": "ASSETRA Club.",
+    "subtitle": "Investment opportunities before public offering.",
+    "cta": "Register"
+  },
+  "keyPoints": {
+    "earlyAccess": { "title": "Early access", "text": "We send you selected opportunities before they go public." },
+    "noCommitment": { "title": "No commitments", "text": "Membership is free. No fees, no commissions. You respond only when you want to." },
+    "preferences": { "title": "Your preferences", "text": "We only send what matches your profile — type, scope, and horizon." },
+    "discretion": { "title": "Discretion", "text": "Specific details are shared under NDA. We do not share your data with anyone." }
+  },
+  "intro": "After free registration, we will send you a selection of interesting investment opportunities — property buyouts, real estate project financing, and acquisitions of established Slovak companies. Only when there is something that matches your profile.",
+  "interestOptions": {
+    "realEstate": "Real Estate",
+    "acquisitions": "Company Acquisitions",
+    "loans": "Secured Loans",
+    "coInvestment": "Co-investments (deal-by-deal)"
+  },
+  "investmentAmountOptions": {
+    "10to49k": "€10,000 – €49,000",
+    "50to99k": "€50,000 – €99,000",
+    "100to299k": "€100,000 – €299,000",
+    "over300k": "€300,000 and above"
+  },
+  "horizonOptions": {
+    "short": "Short-term (up to 12 months)",
+    "medium": "Medium-term (1 – 3 years)",
+    "long": "Long-term (3+ years)",
+    "flexible": "Flexible — depending on the opportunity"
+  },
+  "form": {
+    "heading": "Registration",
+    "title": "Join the club",
+    "description": "It takes 2 minutes to complete. We only send when there is something interesting — no spam.",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone *",
+    "interests": "What opportunities are you interested in? *",
+    "investmentAmount": "Planned investment amount *",
+    "investmentAmountPlaceholder": "Select range",
+    "horizon": "Time horizon *",
+    "horizonPlaceholder": "Select horizon",
+    "submit": "Register",
+    "submitting": "Registering..."
+  },
+  "consent": "I consent to the processing of my personal data for the purposes of receiving investment opportunities in accordance with the privacy policy. You can unsubscribe at any time.",
+  "success": {
+    "title": "You're in the club",
+    "text": "Thank you. We will reach out when there is something interesting."
+  }
+}

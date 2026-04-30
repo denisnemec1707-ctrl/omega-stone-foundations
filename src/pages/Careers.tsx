@@ -5,50 +5,45 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import PageMeta from "@/components/PageMeta";
 import { ArrowUpRight, Briefcase, Users, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const positions = [
-  {
-    title: "Obchodný zástupca",
-    icon: Users,
-    type: "Plný úväzok",
-    description:
-      "Hľadáme skúsených obchodných zástupcov pre naše portfóliové spoločnosti. Budete zodpovedný za akvizíciu nových klientov, budovanie obchodných vzťahov a dosahovanie predajných cieľov.",
-    requirements: [
-      "Skúsenosti v B2B alebo B2C predaji",
-      "Komunikačné a prezentačné zručnosti",
-      "Proaktívny prístup a orientácia na výsledky",
-      "Vodičský preukaz skupiny B",
-    ],
-  },
-  {
-    title: "Projektový manažér",
-    icon: Briefcase,
-    type: "Plný úväzok",
-    description:
-      "Pre naše rastúce portfólio hľadáme projektových manažérov, ktorí budú riadiť kľúčové projekty naprieč odvetviami — od stavebníctva cez energetiku až po gastro.",
-    requirements: [
-      "Skúsenosti s riadením projektov",
-      "Schopnosť pracovať s viacerými tímami súčasne",
-      "Analytické myslenie a organizačné schopnosti",
-      "Znalosť projektového riadenia (výhodou)",
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
 const Careers = () => {
+  const { t } = useTranslation("careers");
+  const locale = useLocale();
+
+  const positions = [
+    {
+      title: t("positions.salesRep.title"),
+      icon: Users,
+      type: t("positions.salesRep.type"),
+      description: t("positions.salesRep.description"),
+      requirements: t("positions.salesRep.requirements", { returnObjects: true }) as string[],
+    },
+    {
+      title: t("positions.projectManager.title"),
+      icon: Briefcase,
+      type: t("positions.projectManager.type"),
+      description: t("positions.projectManager.description"),
+      requirements: t("positions.projectManager.requirements", { returnObjects: true }) as string[],
+    },
+  ];
+
   return (
     <>
       <PageMeta
-        title="Kariéra | ASSETRA investments"
-        description="Pridajte sa k ASSETRA investments. Hľadáme obchodných zástupcov a projektových manažérov pre naše portfóliové spoločnosti."
+        title={t("meta.title")}
+        description={t("meta.description")}
+        routeKey="careers"
       />
       <Header />
       <main>
         <SubpageHero
-          label="Kariéra"
-          title="Pridajte sa"
-          titleAccent="k nám"
-          description="Hľadáme talentovaných ľudí, ktorí chcú rásť spolu s nami. Staňte sa súčasťou tímu, ktorý buduje portfólio úspešných spoločností."
+          label={t("hero.label")}
+          title={t("hero.title")}
+          titleAccent={t("hero.titleAccent")}
+          description={t("hero.description")}
         />
 
         {/* Featured: Assistant CEO */}
@@ -56,25 +51,24 @@ const Careers = () => {
           <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
             <AnimatedSection>
               <Link
-                to="/kariera/asistent-ceo"
+                to={getLocalizedPath("assistantCeo", locale)}
                 className="group block bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 hover:bg-charcoal/90 transition-colors"
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
                   <div className="flex-1">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] sm:text-xs tracking-[0.2em] uppercase mb-4">
                       <Sparkles className="w-3 h-3" />
-                      Hľadáme teraz
+                      {t("featured.label")}
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mb-3">
-                      Asistent CEO
+                      {t("featured.title")}
                     </h3>
                     <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed max-w-2xl">
-                      Pracujte priamo s CEO našej investičnej skupiny. Koordinácia portfólia,
-                      príprava podkladov, kalendár a komunikácia s partnermi naprieč firmami.
+                      {t("featured.text")}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-primary-foreground group-hover:gap-3 transition-all">
-                    <span className="text-sm sm:text-base">Detail pozície</span>
+                    <span className="text-sm sm:text-base">{t("featured.cta")}</span>
                     <ArrowUpRight className="w-5 h-5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -89,15 +83,13 @@ const Careers = () => {
             <AnimatedSection>
               <div className="max-w-3xl">
                 <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                  Otvorené pozície
+                  {t("openPositions.label")}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mt-3 mb-4 sm:mb-6 leading-tight">
-                  Hľadáme posily do tímu
+                  {t("openPositions.title")}
                 </h2>
                 <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
-                  Pre naše portfóliové spoločnosti aktuálne hľadáme obchodných zástupcov
-                  a projektových manažérov. Ponúkame prácu v dynamickom prostredí
-                  s reálnym dopadom na rast firiem.
+                  {t("openPositions.description")}
                 </p>
               </div>
             </AnimatedSection>
@@ -129,7 +121,7 @@ const Careers = () => {
 
                     <div className="mt-auto">
                       <h4 className="text-xs tracking-widest uppercase text-muted-foreground mb-3">
-                        Požiadavky
+                        {t("requirementsLabel")}
                       </h4>
                       <ul className="space-y-2">
                         {pos.requirements.map((req) => (
@@ -156,10 +148,10 @@ const Careers = () => {
             <AnimatedSection>
               <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center">
                 <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mb-4">
-                  Zaujala Vás niektorá pozícia?
+                  {t("cta.heading")}
                 </h3>
                 <p className="text-primary-foreground/60 text-sm sm:text-base mb-8 max-w-xl mx-auto">
-                  Pošlite nám svoj životopis a krátky motivačný list. Ozveme sa Vám do niekoľkých dní.
+                  {t("cta.text")}
                 </p>
                 <a
                   href="mailto:info@assetrainvestments.com"

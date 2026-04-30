@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Privacy Policy | ASSETRA Investments",
+    "description": "Information on the processing and protection of personal data by ASSETRA investments s.r.o. in accordance with the GDPR."
+  },
+  "title": "Privacy Policy",
+  "sections": {
+    "controller": {
+      "title": "1. Data Controller",
+      "text": "The data controller is ASSETRA investments s.r.o., with its registered office in Bratislava, Slovak Republic (hereinafter referred to as the \"Company\"). The Company processes personal data in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council (GDPR) and Slovak Act No. 18/2018 Coll. on the Protection of Personal Data."
+    },
+    "purpose": {
+      "title": "2. Purpose of Processing",
+      "intro": "We process personal data for the following purposes:",
+      "items": [
+        "Processing investment enquiries and financing applications",
+        "Communication with potential investors and business partners",
+        "Fulfilment of legal obligations (accounting, tax duties)",
+        "Improvement of our services and website"
+      ]
+    },
+    "scope": {
+      "title": "3. Scope of Processed Data",
+      "intro": "We process the following categories of personal data:",
+      "items": [
+        "Identification data (first name, surname)",
+        "Contact data (email, phone number)",
+        "Investment interest data (planned investment amount, area of interest)",
+        "Technical data from cookies (IP address, browser type)"
+      ]
+    },
+    "legalBasis": {
+      "title": "4. Legal Basis",
+      "text": "We process personal data on the basis of consent of the data subject (Art. 6(1)(a) GDPR), legitimate interest of the controller (Art. 6(1)(f) GDPR), and performance of a contract or pre-contractual relations (Art. 6(1)(b) GDPR)."
+    },
+    "retention": {
+      "title": "5. Retention Period",
+      "text": "We retain personal data for the period necessary to fulfil the purpose of processing, but no longer than 3 years from the last contact, unless a longer statutory retention obligation applies."
+    },
+    "rights": {
+      "title": "6. Rights of the Data Subject",
+      "intro": "As a data subject, you have the right to:",
+      "items": [
+        "Access your personal data",
+        "Rectification of inaccurate data",
+        "Erasure of data (right to be forgotten)",
+        "Restriction of processing",
+        "Data portability",
+        "Object to processing",
+        "Withdraw consent to processing",
+        "Lodge a complaint with the Office for Personal Data Protection of the Slovak Republic"
+      ]
+    },
+    "cookies": {
+      "title": "7. Cookies",
+      "text": "Our website uses cookies to ensure basic functionality and improve user experience. You can manage cookies in your browser settings. More information can be found in the cookie banner upon your first visit to the website."
+    },
+    "contact": {
+      "title": "8. Contact",
+      "text": "For any questions regarding the protection of personal data, please contact us at info@assetrainvestments.com."
+    }
+  },
+  "lastUpdated": "Last updated: March 2025"
+}

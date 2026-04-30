@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Real Estate & Property Flipping | ASSETRA Investments",
+    "description": "We acquire undervalued properties, renovate them, and sell at a significant profit. We specialise in property flipping in Slovakia."
+  },
+  "hero": {
+    "label": "Our Sector",
+    "title": "Real Estate",
+    "titleAccent": "& Property Flipping",
+    "description": "We specialise in acquiring undervalued properties, carrying out comprehensive renovations, and selling them at market price."
+  },
+  "intro": "We seek distressed and undervalued residential properties in the Slovak market. After acquisition, we add value through comprehensive renovation and sell at fair market price.",
+  "howItWorks": {
+    "label": "How property flipping works",
+    "description": "Our business model is built on purchasing properties at least 20% below market value, renovating them, and selling them on.",
+    "steps": {
+      "acquisition": {
+        "title": "Acquisition",
+        "text": "We source properties below market value — foreclosures, estates, urgent sales."
+      },
+      "reconstruction": {
+        "title": "Renovation",
+        "text": "Comprehensive refurbishment with our own team. We focus on maximising value while controlling costs."
+      },
+      "sale": {
+        "title": "Sale",
+        "text": "We sell the property at fair market price. Typical margin is 20% or more."
+      },
+      "repeat": {
+        "title": "Repeat",
+        "text": "The full cycle takes 12–36 months. Capital is reinvested into new projects."
+      }
+    }
+  },
+  "stats": {
+    "margin": { "value": "20%+", "label": "Target Margin", "text": "We target a minimum 20% profit margin on every project." },
+    "cycles": { "value": "12–36", "label": "Month Cycles", "text": "Short investment horizons with defined exit points." },
+    "market": { "value": "SK", "label": "Market", "text": "We focus on the Slovak residential market." },
+    "assets": { "value": "Real", "label": "Assets", "text": "Every project is backed by a physical property." }
+  },
+  "cta": {
+    "heading": "Interested in investing?",
+    "text": "Fixed 12% annual return secured by real property. Fill out a non-binding form.",
+    "clubLink": "or join the ASSETRA Club",
+    "button": "I want to invest"
+  }
+}

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -8,19 +11,37 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/Ani
 import verticalRealestate from "@/assets/vertical-realestate.jpg";
 
 const RealEstate = () => {
+  const { t } = useTranslation("realEstate");
+  const locale = useLocale();
+
+  const steps = [
+    { step: "01", title: t("howItWorks.steps.acquisition.title"), desc: t("howItWorks.steps.acquisition.text") },
+    { step: "02", title: t("howItWorks.steps.reconstruction.title"), desc: t("howItWorks.steps.reconstruction.text") },
+    { step: "03", title: t("howItWorks.steps.sale.title"), desc: t("howItWorks.steps.sale.text") },
+    { step: "04", title: t("howItWorks.steps.repeat.title"), desc: t("howItWorks.steps.repeat.text") },
+  ];
+
+  const stats = [
+    { value: t("stats.margin.value"), label: t("stats.margin.label"), desc: t("stats.margin.text") },
+    { value: t("stats.cycles.value"), label: t("stats.cycles.label"), desc: t("stats.cycles.text") },
+    { value: t("stats.market.value"), label: t("stats.market.label"), desc: t("stats.market.text") },
+    { value: t("stats.assets.value"), label: t("stats.assets.label"), desc: t("stats.assets.text") },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title="Nehnuteľnosti a realitný flipping | ASSETRA Investments"
-        description="Nakupujeme podhodnotené nehnuteľnosti, rekonštruujeme ich a predávame s výrazným zhodnotením. Špecializujeme sa na realitný flipping na Slovensku."
+        title={t("meta.title")}
+        description={t("meta.description")}
+        routeKey="realEstate"
       />
       <Header />
       <main>
         <SubpageHero
-          label="Náš sektor"
-          title="Nehnuteľnosti"
-          titleAccent="a realitný flipping"
-          description="Špecializujeme sa na akvizíciu podhodnotených nehnuteľností, ich komplexnú rekonštrukciu a následný predaj za trhovú cenu."
+          label={t("hero.label")}
+          title={t("hero.title")}
+          titleAccent={t("hero.titleAccent")}
+          description={t("hero.description")}
           image={verticalRealestate}
         />
 
@@ -29,7 +50,7 @@ const RealEstate = () => {
           <section className="py-16 sm:py-24 md:py-32 lg:py-40">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug text-foreground max-w-5xl">
-                Vyhľadávame problémové a podhodnotené rezidenčné nehnuteľnosti na slovenskom trhu. Po akvizícii im pridávame hodnotu komplexnou rekonštrukciou a predávame za férovú trhovú cenu.
+                {t("intro")}
               </p>
             </div>
           </section>
@@ -41,10 +62,10 @@ const RealEstate = () => {
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                  Ako funguje realitný flipping
+                  {t("howItWorks.label")}
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
-                  Náš obchodný model je postavený na nákupe nehnuteľností minimálne 20% pod trhovú hodnotu, ich rekonštrukcii a následnom predaji.
+                  {t("howItWorks.description")}
                 </p>
               </div>
             </div>
@@ -55,12 +76,7 @@ const RealEstate = () => {
         <section className="bg-charcoal rounded-xl sm:rounded-2xl md:rounded-3xl mx-3 sm:mx-4 md:mx-6 my-4 sm:my-6 py-12 sm:py-16 md:py-24 lg:py-32">
           <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
             <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
-              {[
-                { step: "01", title: "Akvizícia", desc: "Vyhľadávame nehnuteľnosti pod trhovú hodnotu — exekúcie, dedičstvá, urgentné predaje." },
-                { step: "02", title: "Rekonštrukcia", desc: "Komplexná obnova s vlastným tímom. Zameriavame sa na maximalizáciu hodnoty pri kontrolovaných nákladoch." },
-                { step: "03", title: "Predaj", desc: "Nehnuteľnosť predávame za férovú trhovú cenu. Typická marža je 20% a viac." },
-                { step: "04", title: "Opakovanie", desc: "Celý cyklus trvá 12–36 mesiacov. Kapitál sa reinvestuje do ďalších projektov." },
-              ].map((item, i) => (
+              {steps.map((item, i) => (
                 <StaggerItem key={i}>
                   <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-primary-foreground/10 block mb-2">{item.step}</span>
                   <h3 className="font-serif text-base sm:text-lg md:text-xl mb-2 sm:mb-3 text-primary-foreground">{item.title}</h3>
@@ -76,12 +92,7 @@ const RealEstate = () => {
           <section className="py-16 sm:py-24 md:py-32 lg:py-40">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
-                {[
-                  { value: "20%+", label: "Cieľová marža", desc: "Na každom projekte cielime minimálne 20% ziskovú maržu." },
-                  { value: "12–36", label: "Mesačné cykly", desc: "Krátke investičné horizonty s definovanými výstupmi." },
-                  { value: "SK", label: "Trh", desc: "Zameriavame sa na slovenský rezidenčný trh." },
-                  { value: "Reálne", label: "Aktíva", desc: "Každý projekt je viazaný na fyzickú nehnuteľnosť." },
-                ].map((item, i) => (
+                {stats.map((item, i) => (
                   <StaggerItem key={i} className="text-center">
                     <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-2 sm:mb-3">{item.value}</p>
                     <h3 className="font-serif text-sm sm:text-base md:text-lg mb-1 sm:mb-2">{item.label}</h3>
@@ -100,25 +111,25 @@ const RealEstate = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 sm:gap-6 md:gap-8">
                 <div className="max-w-2xl">
                   <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-primary-foreground mb-3 sm:mb-4">
-                    Máte záujem investovať?
+                    {t("cta.heading")}
                   </h2>
                   <p className="text-primary-foreground/50 font-light text-sm sm:text-base md:text-lg leading-relaxed">
-                    Fixný 12% ročný výnos zabezpečený reálnymi nehnuteľnosťami. Vyplňte nezáväzný formulár.
+                    {t("cta.text")}
                   </p>
                 </div>
                 <div className="flex flex-col items-start md:items-end gap-2">
                   <Link
-                    to="/investovat"
+                    to={getLocalizedPath("forInvestors", locale)}
                     className="group inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-sm sm:text-base md:text-lg"
                   >
-                    Chcem investovať
+                    {t("cta.button")}
                     <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Link>
                   <Link
-                    to="/klub"
+                    to={getLocalizedPath("club", locale)}
                     className="text-xs sm:text-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 transition-colors"
                   >
-                    alebo sa pridajte do ASSETRA Klubu
+                    {t("cta.clubLink")}
                   </Link>
                 </div>
               </div>

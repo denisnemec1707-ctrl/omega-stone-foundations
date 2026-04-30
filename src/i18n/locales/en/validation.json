@@ -1,0 +1,77 @@
+{
+  "required": "This field is required",
+  "fullName": {
+    "min": "Please enter your full name",
+    "max": "Name is too long"
+  },
+  "name": {
+    "required": "Name is required",
+    "max": "Name can be up to 100 characters"
+  },
+  "email": {
+    "invalid": "Invalid email address",
+    "max": "Email can be up to 255 characters"
+  },
+  "phone": {
+    "min": "Please enter a phone number",
+    "max": "Phone number can be up to 20 characters"
+  },
+  "city": {
+    "min": "Please enter a city"
+  },
+  "message": {
+    "required": "Message is required",
+    "max": "Message can be up to 1,000 characters",
+    "max2000": "Maximum 2,000 characters"
+  },
+  "motivation": {
+    "min": "Please write at least a few sentences (min. 30 characters)"
+  },
+  "amount": {
+    "max": "Amount can be up to 50 characters"
+  },
+  "company": {
+    "min": "Please enter the company name or ID number"
+  },
+  "select": {
+    "industry": "Please select an industry",
+    "turnover": "Please select annual turnover",
+    "ebitda": "Please select EBITDA range",
+    "reason": "Please select a reason for selling",
+    "investmentAmount": "Please select planned investment amount",
+    "investmentHorizon": "Please select planned horizon",
+    "contactPreference": "Please select preferred contact method",
+    "financingType": "Please select financing type",
+    "financingAmount": "Please select financing amount",
+    "availability": "Please select availability",
+    "interests": "Please select at least one category",
+    "clubAmount": "Please select planned investment amount",
+    "clubHorizon": "Please select time horizon"
+  },
+  "cv": {
+    "required": "Please attach your CV",
+    "size": "File is larger than 5 MB",
+    "format": "Allowed formats: PDF, DOC, DOCX"
+  },
+  "consent": {
+    "required": "You must consent to data processing"
+  },
+  "toast": {
+    "success": "Request submitted",
+    "successDesc": "We will get back to you within the next few days.",
+    "success24h": "Request submitted",
+    "success24hDesc": "We will get back to you within 24 hours on business days.",
+    "error": "Something went wrong",
+    "errorDesc": "The request could not be submitted. Please try again or give us a call.",
+    "thankYou": "Thank you",
+    "thankYouDesc": "Your request has been successfully submitted. We will get back to you within 24 hours on business days.",
+    "applicationSent": "Application submitted",
+    "applicationSentDesc": "Thank you. We will get back to you within the next few days.",
+    "messageSent": "Message sent",
+    "messageSentDesc": "We will contact you within 24 hours."
+  },
+  "form": {
+    "submit": "Submit request",
+    "submitting": "Submitting..."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "CEO Assistant — Junior Position | ASSETRA Investments",
+    "description": "Junior assistant to the CEO of the ASSETRA investment group. Work directly with the CEO, portfolio coordination, document preparation."
+  },
+  "hero": {
+    "label": "Careers · Junior Position",
+    "title": "CEO Assistant.",
+    "subtitle": "Work directly with the company's CEO.",
+    "cta": "Submit application"
+  },
+  "keyPoints": {
+    "ceo": { "title": "Directly with the CEO", "text": "Real insight into leadership, acquisitions, and decision-making." },
+    "bonus": { "title": "Performance bonuses", "text": "Base salary plus bonuses and rewards tied to real work results." },
+    "junior": { "title": "Junior position", "text": "We are looking for reliability and eagerness to learn. Suitable for university students too. C-level experience is not required." }
+  },
+  "startOptions": {
+    "immediately": "Immediately",
+    "2weeks": "Within 2 weeks",
+    "1month": "Within 1 month",
+    "2months": "Within 2 months",
+    "other": "Other — I will specify in my cover letter"
+  },
+  "form": {
+    "heading": "Application",
+    "title": "Submit your application",
+    "description": "Fill out the form and attach your current CV. We will get back to you within the next business days.",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone *",
+    "city": "City / region *",
+    "motivation": "Why are you interested in this position? *",
+    "motivationPlaceholder": "Tell us a few sentences about yourself and your motivation...",
+    "availability": "Earliest possible start date *",
+    "availabilityPlaceholder": "Select a date",
+    "cv": "CV (PDF, DOC, DOCX, max 5 MB) *",
+    "cvPlaceholder": "Click to upload CV",
+    "submit": "Submit application",
+    "submitting": "Submitting..."
+  },
+  "consent": "I consent to the processing of my personal data for the purposes of the recruitment process in accordance with the privacy policy.",
+  "success": {
+    "title": "Thank You",
+    "text": "Your application has been successfully submitted. We will contact you within the next few days."
+  }
+}

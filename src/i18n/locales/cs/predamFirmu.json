@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "title": "Odkoupíme Vaši firmu | Férová nabídka do 7 dnů | ASSETRA Investments",
+    "description": "Soukromá investiční skupina ASSETRA hledá funkční slovenské firmy s obratem od 200 000 €. Přímý odkup, bez zprostředkovatelů, bez provizí. Férová nabídka do 7 dnů."
+  },
+  "hero": {
+    "label": "Pro majitele zaběhnutých firem",
+    "title": "Odkoupíme Vaši firmu.",
+    "subtitle": "Přímý investor. Férová nabídka do 7 dnů.",
+    "cta": "Získat předběžnou nabídku"
+  },
+  "keyPoints": {
+    "directInvestor": { "title": "Přímý investor", "text": "Jsme samotný kupující. Bez provizí, bez zprostředkovatelů." },
+    "nda": { "title": "NDA před prvními čísly", "text": "Diskrétnost garantována od prvního kontaktu." },
+    "offer": { "title": "Nabídka do 7 dnů", "text": "Po prohlídce firmy do týdne víte, zda a za kolik." },
+    "turnover": { "title": "Obrat od 200 000 €", "text": "EBITDA od 120 000 €. Funkční slovenské firmy ve stabilních odvětvích." }
+  },
+  "industryOptions": {
+    "manufacturing": "Výroba",
+    "services": "Služby",
+    "ecommerce": "E-commerce",
+    "gastro": "Gastronomie",
+    "realEstate": "Real estate",
+    "construction": "Stavebnictví",
+    "it": "IT",
+    "other": "Jiné"
+  },
+  "turnoverOptions": {
+    "200to500k": "200 000 – 500 000 €",
+    "500to1m": "500 000 – 1 mil. €",
+    "1to3m": "1 – 3 mil. €",
+    "3to10m": "3 – 10 mil. €",
+    "over10m": "10 mil. € a více",
+    "under200k": "Pod 200 000 € (mimo naše zaměření)"
+  },
+  "ebitdaOptions": {
+    "120to250k": "120 – 250 tis. €",
+    "250to500k": "250 – 500 tis. €",
+    "500to1m": "500 tis. – 1 mil. €",
+    "over1m": "1 mil. € a více",
+    "under120k": "Pod 120 tis. € (mimo naše zaměření)",
+    "undisclosed": "Zatím neřeknu"
+  },
+  "reasonOptions": {
+    "retirement": "Odchod do důchodu",
+    "generational": "Generační výměna",
+    "health": "Zdravotní důvody",
+    "strategic": "Strategické rozhodnutí",
+    "financial": "Finanční důvody",
+    "other": "Jiné — uvedu ve zprávě"
+  },
+  "form": {
+    "heading": "Předběžná žádost",
+    "title": "Pošlete nám předběžnou žádost",
+    "description": "Vyplnění zabere 3 – 5 minut. Ozveme se Vám do 24 hodin v pracovních dnech. Před jakoukoli další komunikací se zavážeme NDA.",
+    "fullName": "Jméno a příjmení *",
+    "email": "Email *",
+    "phone": "Telefon *",
+    "company": "Název firmy / IČO *",
+    "companyPlaceholder": "Moje firma s.r.o. / 12345678",
+    "industry": "Odvětví *",
+    "industryPlaceholder": "Vyberte odvětví",
+    "turnover": "Roční obrat *",
+    "turnoverPlaceholder": "Vyberte rozsah",
+    "ebitda": "Roční EBITDA / čistý zisk *",
+    "ebitdaPlaceholder": "Vyberte rozsah",
+    "reason": "Důvod prodeje *",
+    "reasonPlaceholder": "Vyberte důvod",
+    "message": "Krátká zpráva (volitelné)",
+    "messagePlaceholder": "Co byste nám chtěli říci o vaší firmě nebo situaci…",
+    "submit": "Odeslat předběžnou žádost",
+    "submitting": "Odesílám…"
+  },
+  "consent": "Souhlasím se zpracováním osobních údajů pro účely komunikace ohledně prodeje firmy v souladu se zásadami ochrany osobních údajů.",
+  "success": {
+    "title": "Děkujeme",
+    "text": "Vaše žádost byla úspěšně odeslána. Ozveme se Vám do 24 hodin v pracovních dnech."
+  }
+}

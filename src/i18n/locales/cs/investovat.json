@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "9–12 % ročně | Investice kryté nemovitostmi | ASSETRA Investments",
+    "description": "Soukromá investice s fixním výnosem 9–12 % ročně. Krytá zástavním právem na konkrétní slovenskou nemovitost. Minimum 50 000 €. Nezávazná konzultace."
+  },
+  "hero": {
+    "label": "Pro soukromé investory",
+    "title": "9 – 12 % ročně",
+    "subtitle": "Investice kryté nemovitostmi.",
+    "cta": "Chci nezávaznou konzultaci"
+  },
+  "keyPoints": {
+    "collateral": { "title": "Zástavní právo na nemovitost", "text": "Vaši půjčku zajistíme zástavním právem zapsaným v katastru." },
+    "rent": { "title": "Měsíční renta + bonus", "text": "Část výnosu měsíčně na účet, zbytek jako bonus při vrácení jistiny." },
+    "term": { "title": "Doba vázanosti 3 – 5 let", "text": "Fixní úrok na celou dobu, dohodnutý ve smlouvě." },
+    "minimum": { "title": "Minimum 50 000 €", "text": "Výjimečně i od 10 000 € (bez zástavního práva, individuálně)." }
+  },
+  "investmentAmountOptions": {
+    "10to49k": "10 000 – 49 000 € (bez zástavního práva, jen výjimečně)",
+    "50to99k": "50 000 – 99 000 €",
+    "100to299k": "100 000 – 299 000 €",
+    "over300k": "300 000 € a více (možnost spoluinvestiční spolupráce)"
+  },
+  "investmentHorizonOptions": {
+    "3years": "3 roky",
+    "4years": "4 roky",
+    "5years": "5 let",
+    "flexible": "Flexibilní — dohodneme individuálně"
+  },
+  "contactPreferenceOptions": {
+    "phone": "Telefon",
+    "email": "Email"
+  },
+  "form": {
+    "heading": "Nezávazná konzultace",
+    "title": "Spočítejme Váš konkrétní výnos",
+    "description": "Vyplnění zabere 2 minuty. Ozveme se Vám do 24 hodin v pracovních dnech.",
+    "fullName": "Jméno a příjmení *",
+    "email": "Email *",
+    "phone": "Telefon *",
+    "contactPreference": "Preferovaný kontakt *",
+    "contactPreferencePlaceholder": "Telefon / Email",
+    "investmentAmount": "Plánovaná výše investice *",
+    "investmentAmountPlaceholder": "Vyberte rozsah",
+    "investmentHorizon": "Plánovaný horizont *",
+    "investmentHorizonPlaceholder": "Vyberte horizont",
+    "message": "Krátká zpráva (volitelné)",
+    "messagePlaceholder": "Např. otázky nebo konkrétní očekávání…",
+    "submit": "Odeslat žádost",
+    "submitting": "Odesílám…"
+  },
+  "consent": "Souhlasím se zpracováním osobních údajů pro účely komunikace ohledně investiční spolupráce v souladu se zásadami ochrany osobních údajů.",
+  "success": {
+    "title": "Děkujeme",
+    "text": "Vaše žádost byla úspěšně odeslána. Ozveme se Vám do 24 hodin v pracovních dnech.",
+    "clubPrompt": "Chcete vědět i o budoucích příležitostech?",
+    "clubLink": "Připojte se do ASSETRA Klubu"
+  }
+}

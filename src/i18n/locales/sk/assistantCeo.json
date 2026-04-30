@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "Asistent CEO — junior pozícia | ASSETRA Investments",
+    "description": "Junior asistent konateľa investičnej skupiny ASSETRA. Práca priamo pri CEO, koordinácia portfólia firiem, príprava podkladov."
+  },
+  "hero": {
+    "label": "Kariéra · Junior pozícia",
+    "title": "Asistent CEO.",
+    "subtitle": "Pracujte priamo pri konateľovi spoločnosti.",
+    "cta": "Poslať prihlášku"
+  },
+  "keyPoints": {
+    "ceo": { "title": "Priamo pri konateľovi", "text": "Reálny vhľad do vedenia, akvizícií a rozhodnutí." },
+    "bonus": { "title": "Výkonnostné bonusy", "text": "K základnej mzde bonusy a odmeny naviazané na reálne výsledky práce." },
+    "junior": { "title": "Junior pozícia", "text": "Hľadáme spoľahlivosť a chuť učiť sa. Vhodné aj pre študenta VŠ. Prax na C-level nie je podmienka." }
+  },
+  "startOptions": {
+    "immediately": "Ihneď",
+    "2weeks": "Do 2 týždňov",
+    "1month": "Do 1 mesiaca",
+    "2months": "Do 2 mesiacov",
+    "other": "Iné — uvediem v motivácii"
+  },
+  "form": {
+    "heading": "Prihláška",
+    "title": "Pošlite nám svoju prihlášku",
+    "description": "Vyplňte formulár a priložte aktuálne CV. Ozveme sa Vám v najbližších pracovných dňoch.",
+    "fullName": "Meno a priezvisko *",
+    "email": "Email *",
+    "phone": "Telefón *",
+    "city": "Mesto / región *",
+    "motivation": "Prečo Vás táto pozícia zaujala? *",
+    "motivationPlaceholder": "Napíšte nám pár viet o sebe a Vašej motivácii…",
+    "availability": "Najskorší možný nástup *",
+    "availabilityPlaceholder": "Vyberte termín",
+    "cv": "Životopis (PDF, DOC, DOCX, max 5 MB) *",
+    "cvPlaceholder": "Kliknite pre nahratie CV",
+    "submit": "Odoslať prihlášku",
+    "submitting": "Odosielam…"
+  },
+  "consent": "Súhlasím so spracovaním osobných údajov pre účely výberového konania v zmysle zásad ochrany osobných údajov.",
+  "success": {
+    "title": "Ďakujeme",
+    "text": "Vaša prihláška bola úspešne odoslaná. Ozveme sa Vám v najbližších dňoch."
+  }
+}

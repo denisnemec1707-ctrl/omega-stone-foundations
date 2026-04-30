@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "For Investors | ASSETRA Investments",
+    "description": "Invest with confidence. Fixed 12% annual return paid monthly. Your capital is secured by real assets."
+  },
+  "hero": {
+    "label": "For Investors",
+    "title": "Invest",
+    "titleAccent": "with confidence",
+    "description": "Fixed 12% annual return paid monthly. Your capital is secured by real assets.",
+    "backToMain": "Back to main",
+    "landingLabel": "Investment with fixed returns",
+    "landingTitle": "12% annual return",
+    "landingTitleAccent": "Paid monthly",
+    "landingDescription": "Your capital is secured by real estate in excess value. Predictable returns backed by real assets, not market speculation.",
+    "ctaInvest": "Start investing",
+    "ctaCalculator": "Calculate returns"
+  },
+  "intro": "ASSETRA investments offers investors a simple and transparent way to grow their capital. Predictable returns backed by real assets, without unnecessary complexity.",
+  "stats": {
+    "return": { "value": "12%", "label": "Fixed Annual Return", "text": "Contractually guaranteed return for the entire investment period." },
+    "payout": { "value": "Monthly", "label": "Return Payouts", "text": "Regular passive income every month." },
+    "minInvestment": { "value": "€10,000", "label": "Minimum Investment", "text": "Start investing from €10,000." },
+    "collateral": { "value": "Real", "label": "Asset-Backed", "text": "Every investment is backed by physical real estate." }
+  },
+  "howItWorks": {
+    "label": "How It Works",
+    "description": "A simple and transparent process from first contact to regular return payouts.",
+    "steps": {
+      "contact": { "title": "Contact Us", "text": "Fill out the form below. We will get back to you within 24 hours with specific terms." },
+      "consultation": { "title": "Consultation", "text": "An in-person meeting where we explain the details and answer all your questions." },
+      "contract": { "title": "Contract Signing", "text": "Transparent contract terms with a fixed return and collateral." },
+      "returns": { "title": "Monthly Returns", "text": "From the first month, you receive regular payouts directly to your account." }
+    },
+    "modelLabel": "Investment Model",
+    "modelTitle": "How your capital",
+    "modelTitleAccent": "works",
+    "modelSteps": [
+      {
+        "title": "You invest",
+        "description": "You commit capital for a defined period (typically 12–36 months). Your investment terms — return rate, payout schedule, and duration — are fixed at contract signing."
+      },
+      {
+        "title": "We buy property",
+        "description": "Your capital finances the purchase of carefully selected properties. We acquire only assets priced at least 20% below market value, ensuring a built-in margin for your returns and our operations."
+      },
+      {
+        "title": "Renovation and sale",
+        "description": "We renovate the property to market standard and sell at fair market price. The profit margin covers your fixed return, operating costs, and our profit."
+      },
+      {
+        "title": "You receive returns",
+        "description": "Throughout the entire investment period, you receive monthly payouts. At the end of the cycle, your full principal is returned. You can then choose to reinvest or withdraw your capital entirely."
+      }
+    ],
+    "modelCta": "Start investing"
+  },
+  "calculator": {
+    "label": "Investment Calculator",
+    "title": "Calculate",
+    "titleAccent": "your returns",
+    "description": "See how much you would earn with a fixed 12% annual return from ASSETRA.",
+    "investmentAmount": "Investment amount",
+    "investmentDuration": "Investment duration",
+    "annualRate": "Annual return rate",
+    "rateValue": "12% fixed",
+    "payoutFrequency": "Payout frequency",
+    "payoutValue": "Monthly",
+    "results": "Your returns",
+    "monthlyPayout": "Monthly payout",
+    "totalReturn": "Total return",
+    "totalEnd": "Total at maturity",
+    "totalEndNote": "(Principal + Returns)",
+    "months": "months",
+    "min": "€10,000",
+    "max": "€500,000",
+    "minMonths": "6 months",
+    "maxMonths": "24 months",
+    "interested": "Interested in these returns? Contact us for more information.",
+    "cta": "I want to invest",
+    "clubLink": "or join the ASSETRA Club for future opportunities",
+    "clubLinkPrefix": "or join",
+    "clubLinkText": "ASSETRA Club",
+    "clubLinkSuffix": "for future opportunities",
+    "totalReturnFor": "Total return for"
+  },
+  "whyInvest": {
+    "label": "Benefits for Investors",
+    "title": "Why invest with ASSETRA",
+    "description": "We offer a simple investment model with clear terms, predictable returns, and real asset backing.",
+    "items": {
+      "return": { "value": "12%", "title": "Fixed Annual Return", "text": "Your return is predetermined and contractually guaranteed. No market volatility, no surprises." },
+      "monthly": { "value": "Monthly", "title": "Regular Income", "text": "Receive your returns every month. Consistent cash flow you can plan with." },
+      "assets": { "value": "Real", "title": "Asset-Backed", "text": "Every investment is tied to physical real estate. Tangible collateral, not paper promises." },
+      "cycles": { "value": "12–36", "title": "Month Cycles", "text": "Short investment horizons with defined exit points. Your capital is not locked indefinitely." },
+      "margins": { "value": "20%+", "title": "Operating Margins", "text": "Our acquisition model targets a minimum 20% profit margin, ensuring coverage of your fixed return." },
+      "fullReturn": { "value": "Full", "title": "Capital Return", "text": "At the end of each cycle, you receive your full principal plus all earned returns. Simple and complete." }
+    },
+    "cta": "I am interested in investing"
+  },
+  "testimonials": {
+    "label": "What our investors say",
+    "items": [
+      {
+        "text": "I started investing with ASSETRA a year ago. Monthly payouts arrive precisely and reliably, exactly as agreed in the contract.",
+        "author": "Investor from Bratislava",
+        "amount": "Investment from €50,000"
+      },
+      {
+        "text": "I appreciate the transparency and professional approach. I always know exactly where my money is invested and what return I can expect.",
+        "author": "Investor from Košice",
+        "amount": "Investment from €100,000"
+      },
+      {
+        "text": "After years of searching for a reliable way to grow my capital, I found a solution that truly works. Real assets, real returns.",
+        "author": "Investor from Prague",
+        "amount": "Investment from €25,000"
+      }
+    ]
+  },
+  "faq": {
+    "label": "Frequently Asked Questions",
+    "title": "Frequently asked",
+    "titleAccent": "questions",
+    "items": [
+      { "q": "How is the 12% annual return generated?", "a": "Our return comes from the profit margin on real estate transactions. We acquire properties at least 20% below market value, renovate them, and sell at fair market price." },
+      { "q": "Is my investment secured?", "a": "Yes. Every euro you invest is deployed into the acquisition of physical real estate. The entire capital fund is backed by real estate assets." },
+      { "q": "What is the typical investment horizon?", "a": "Standard investment periods range from 12 to 24 months. At the end of each period, your full principal is returned along with all earned returns." },
+      { "q": "How and when are returns paid out?", "a": "Returns are paid monthly, directly to your bank account. Your monthly payout is calculated as 1/12 of your annual return." },
+      { "q": "What is the minimum investment amount?", "a": "The minimum investment is €10,000. Larger investments may qualify for individual terms." },
+      { "q": "Can I withdraw my investment early?", "a": "Investments are tied to the agreed period. In exceptional cases, we can accommodate requests subject to an early exit fee." },
+      { "q": "Which sectors do you invest in?", "a": "We invest in three main areas — real estate (property flipping), acquisition of established companies (private equity), and secured loans (private credit)." },
+      { "q": "What are the investment risks?", "a": "The primary risk is related to real estate market conditions. We mitigate this through conservative acquisition — we only buy properties significantly below market value. Every investment is additionally backed by physical real estate." },
+      { "q": "What happens to my capital at the end of the period?", "a": "At the end of the investment period, your full principal is returned along with all earned returns. You can reinvest or withdraw your capital." }
+    ]
+  },
+  "form": {
+    "heading": "Start Investing",
+    "description": "Fill out the form and we will get back to you within 24 hours with specific partnership terms.",
+    "title": "Investment Application",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone",
+    "investmentAmount": "Planned investment",
+    "investmentArea": "Area of interest",
+    "message": "Message",
+    "messagePlaceholder": "Your investment goals or questions...",
+    "submit": "Submit request",
+    "namePlaceholder": "John Smith",
+    "emailPlaceholder": "john.smith@email.com",
+    "phonePlaceholder": "+421 900 000 000",
+    "investmentAmountPlaceholder": "Select range",
+    "investmentAreaPlaceholder": "Select area"
+  },
+  "investmentAmounts": {
+    "10to25k": "€10,000 – €25,000",
+    "25to50k": "€25,000 – €50,000",
+    "50to100k": "€50,000 – €100,000",
+    "100to250k": "€100,000 – €250,000",
+    "over250k": "€250,000 and above"
+  },
+  "investmentAreas": {
+    "realEstate": "Real Estate – property flipping",
+    "equity": "Private Equity – company acquisitions",
+    "credit": "Private Credit – secured loans",
+    "all": "I'm interested in all areas"
+  },
+  "directContact": {
+    "title": "Direct Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "office": "Office",
+    "officeValue": "Bratislava, Slovakia",
+    "conditions": "Investment Terms",
+    "minInvestment": "Min. investment",
+    "annualReturn": "Annual return",
+    "months": "Months"
+  },
+  "contact": {
+    "label": "Start Investing",
+    "title": "Contact",
+    "titleAccent": "us",
+    "description": "Fill out the form and our investment team will get back to you within 24 hours with complete information about investment opportunities.",
+    "formTitle": "Information Request",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone",
+    "investmentAmount": "Planned investment amount",
+    "message": "Message *",
+    "namePlaceholder": "John Smith",
+    "emailPlaceholder": "john.smith@email.com",
+    "phonePlaceholder": "+421 900 000 000",
+    "amountPlaceholder": "e.g. €50,000",
+    "messagePlaceholder": "Describe your investment goals or questions...",
+    "submit": "Submit request",
+    "submitting": "Submitting..."
+  },
+  "trust": {
+    "label": "Risk Management",
+    "title": "Capital protection",
+    "titleAccent": "comes first",
+    "description": "We structure every transaction with the safety of your capital as the primary priority.",
+    "items": [
+      {
+        "title": "Conservative Acquisition",
+        "description": "We only buy properties priced 20% or more below market value. This margin protects against market fluctuations and ensures profitability even in adverse conditions."
+      },
+      {
+        "title": "Real Asset Backing",
+        "description": "Every investment is backed by physical real estate. Unlike financial instruments, property retains intrinsic value regardless of market sentiment."
+      },
+      {
+        "title": "Short Cycles",
+        "description": "Investment periods of 12–36 months limit exposure to long-term market changes. Capital is returned and can be reinvested or withdrawn at regular intervals."
+      },
+      {
+        "title": "Operational Experience",
+        "description": "Our team has completed dozens of acquisition-renovation-sale cycles. We understand the Slovak real estate market, local regulations, and renovation economics."
+      }
+    ],
+    "cta": "Contact us"
+  }
+}

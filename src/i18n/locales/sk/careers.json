@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Kariéra | ASSETRA investments",
+    "description": "Pridajte sa k ASSETRA investments. Hľadáme obchodných zástupcov a projektových manažérov pre naše portfóliové spoločnosti."
+  },
+  "hero": {
+    "label": "Kariéra",
+    "title": "Pridajte sa",
+    "titleAccent": "k nám",
+    "description": "Hľadáme talentovaných ľudí, ktorí chcú rásť spolu s nami. Staňte sa súčasťou tímu, ktorý buduje portfólio úspešných spoločností."
+  },
+  "featured": {
+    "label": "Hľadáme teraz",
+    "title": "Asistent CEO",
+    "text": "Pracujte priamo s CEO našej investičnej skupiny. Koordinácia portfólia, príprava podkladov, kalendár a komunikácia s partnermi naprieč firmami.",
+    "cta": "Detail pozície"
+  },
+  "openPositions": {
+    "label": "Otvorené pozície",
+    "title": "Hľadáme posily do tímu",
+    "description": "Pre naše portfóliové spoločnosti aktuálne hľadáme obchodných zástupcov a projektových manažérov. Ponúkame prácu v dynamickom prostredí s reálnym dopadom na rast firiem."
+  },
+  "positions": {
+    "salesRep": {
+      "title": "Obchodný zástupca",
+      "type": "Full-time",
+      "description": "Hľadáme skúsených obchodných zástupcov pre naše portfóliové spoločnosti. Budete zodpovedný za akvizíciu nových klientov, budovanie obchodných vzťahov a dosahovanie predajných cieľov.",
+      "requirements": [
+        "Skúsenosti v B2B alebo B2C predaji",
+        "Komunikačné a prezentačné zručnosti",
+        "Proaktívny prístup a orientácia na výsledky",
+        "Vodičský preukaz skupiny B"
+      ]
+    },
+    "projectManager": {
+      "title": "Projektový manažér",
+      "type": "Full-time",
+      "description": "Pre naše rastúce portfólio hľadáme projektových manažérov, ktorí budú riadiť kľúčové projekty naprieč odvetviami — od stavebníctva cez energetiku až po gastro.",
+      "requirements": [
+        "Skúsenosti s riadením projektov",
+        "Schopnosť pracovať s viacerými tímami súčasne",
+        "Analytické myslenie a organizačné schopnosti",
+        "Znalosť projektového riadenia (výhodou)"
+      ]
+    }
+  },
+  "cta": {
+    "heading": "Zaujala Vás niektorá pozícia?",
+    "text": "Pošlite nám svoj životopis a krátky motivačný list. Ozveme sa Vám do niekoľkých dní."
+  },
+  "requirementsLabel": "Požiadavky"
+}

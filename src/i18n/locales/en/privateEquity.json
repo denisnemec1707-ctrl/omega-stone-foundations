@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Company Acquisitions | ASSETRA Investments",
+    "description": "We seek established, profitable companies in the Slovak and Czech markets suitable for acquisition. Fair pricing and a discreet process."
+  },
+  "hero": {
+    "label": "Our Sector",
+    "title": "Acquisitions",
+    "titleAccent": "of established companies",
+    "description": "We seek profitable, well-run companies in the Slovak and Czech markets. We offer fair pricing and a discreet process."
+  },
+  "intro": "We seek established, profitable companies in the Slovak and Czech markets suitable for acquisition. We invest through long-term partnerships with a focus on value growth.",
+  "criteria": {
+    "label": "Investment Criteria",
+    "description": "We focus on established companies with clear growth potential and a stable team.",
+    "turnover": { "value": "€1–10M", "label": "Turnover", "text": "We look for companies with annual turnover between €1 million and €10 million." },
+    "profitability": { "value": "2+ years", "label": "Profitability", "text": "The company must have been profitable for at least 2 consecutive years." },
+    "market": { "value": "SK/CZ", "label": "Market", "text": "We focus on the Slovak and Czech markets with expansion potential." },
+    "team": { "value": "Stable", "label": "Team", "text": "We prefer companies with established management and a loyal team." }
+  },
+  "process": {
+    "label": "How It Works",
+    "description": "From first contact to closing the transaction.",
+    "steps": {
+      "contact": { "title": "Initial Contact", "text": "A non-binding consultation about your company. We sign an NDA." },
+      "dueDiligence": { "title": "Due Diligence", "text": "Detailed analysis of financial statements and the business model." },
+      "valuation": { "title": "Valuation & Offer", "text": "A fair offer based on market valuation." },
+      "closing": { "title": "Closing", "text": "Finalisation of documents and transfer of ownership." }
+    }
+  },
+  "investCta": {
+    "heading": "Interested in investing?",
+    "text": "Invest in company acquisitions with a fixed annual return. Fill out a non-binding form.",
+    "button": "I want to invest",
+    "clubLink": "or join ASSETRA Club"
+  },
+  "sellCta": {
+    "heading": "Selling your company?",
+    "text": "Fill out the form and we will get back to you with a non-binding offer."
+  },
+  "form": {
+    "title": "Company Sale Request",
+    "fullName": "Full name *",
+    "namePlaceholder": "John Smith",
+    "email": "Email *",
+    "emailPlaceholder": "john.smith@email.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+421 900 000 000",
+    "companyName": "Company name",
+    "companyNamePlaceholder": "Your company name",
+    "turnover": "Annual turnover",
+    "turnoverPlaceholder": "Select range",
+    "message": "Message",
+    "messagePlaceholder": "Brief description of your company and reason for sale...",
+    "submit": "Submit request"
+  },
+  "turnoverOptions": {
+    "under1m": "Under €1M",
+    "1to3m": "€1 – 3M",
+    "3to5m": "€3 – 5M",
+    "5to10m": "€5 – 10M",
+    "over10m": "Over €10M"
+  }
+}

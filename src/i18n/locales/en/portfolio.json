@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Our Portfolio | ASSETRA investments",
+    "description": "Portfolio of small local businesses we co-own — Ensola, Woodsteel, History Caffe & Bakery, EUROSCAFF, and real estate projects."
+  },
+  "hero": {
+    "label": "Portfolio",
+    "title": "Our",
+    "titleAccent": "companies",
+    "description": "We build and co-own a portfolio of small local businesses with growth potential across various industries."
+  },
+  "activeInvestments": "Active Investments",
+  "companiesCount": "Companies in our portfolio",
+  "companies": {
+    "ensola": {
+      "name": "Ensola",
+      "description": "Sales and installation of heat pumps, smart home solutions, and photovoltaic systems. Modern energy solutions for homes and businesses.",
+      "tags": ["Heat Pumps", "Photovoltaics", "Smart Home"]
+    },
+    "woodsteel": {
+      "name": "Woodsteel",
+      "description": "Manufacturing and installation of glass enclosures, pergolas, and conservatories. Currently operating in three countries — Slovakia, Czech Republic, and Austria.",
+      "tags": ["Glass Enclosures", "Pergolas", "SK · CZ · AT"]
+    },
+    "historyCaffe": {
+      "name": "History Caffe & Bakery",
+      "description": "A local cafe with its own bakery. An authentic concept combining quality coffee with freshly baked pastries.",
+      "tags": ["Cafe", "Bakery", "Local Concept"]
+    },
+    "euroscaff": {
+      "name": "EUROSCAFF",
+      "description": "A construction company and staffing agency in the construction sector operating in the German market. Providing qualified workforce for construction projects.",
+      "tags": ["Construction", "Staffing", "Germany"]
+    }
+  },
+  "pendingAcquisition": {
+    "label": "Ongoing Acquisition",
+    "title": "Expanding our portfolio",
+    "text": "We are currently in the process of acquiring a company focused on trading metallurgical materials. Details will be published upon completion of the transaction."
+  },
+  "realEstateDivision": {
+    "label": "Real Estate Division",
+    "title": "Brixstone Capital",
+    "text": "Through Brixstone Capital, we trade real estate within the territory of the Slovak Republic. We own land, apartments, and houses across Slovakia."
+  },
+  "project": {
+    "label": "Real Estate Project",
+    "title": "Nové Šútovce 1",
+    "text": "Sale of building plots in Šútovce. Prepared parcels on a gentle slope with complete infrastructure (utilities + road). An ideal location in the Hornonitrianska basin ensures quick construction and unobstructed views of the surrounding countryside.",
+    "partner": "Completed in partnership with BAK spol. s.r.o.",
+    "alt1": "Nové Šútovce - building plots",
+    "alt2": "Nové Šútovce - parcels"
+  }
+}

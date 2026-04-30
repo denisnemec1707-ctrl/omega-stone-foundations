@@ -1,36 +1,44 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+import { useLocale, useSwitchLocale } from "@/i18n/hooks";
+import { getLocalizedPath, LOCALES, type Locale, type RouteKey } from "@/i18n/routes";
 
-type NavLink = { href: string; label: string };
-type NavGroup = { heading?: string; links: NavLink[] };
+type NavLink = { routeKey: RouteKey; labelKey: string };
+type NavGroup = { headingKey?: string; links: NavLink[] };
 
 const navGroups: NavGroup[] = [
   {
-    links: [{ href: "/", label: "Domov" }],
+    links: [{ routeKey: "home", labelKey: "nav.home" }],
   },
   {
-    heading: "Čo robíme",
+    headingKey: "nav.whatWeDo",
     links: [
-      { href: "/nehnutelnosti", label: "Nehnuteľnosti" },
-      { href: "/akvizicie", label: "Akvizície" },
-      { href: "/uvery", label: "Úvery" },
+      { routeKey: "realEstate", labelKey: "nav.realEstate" },
+      { routeKey: "acquisitions", labelKey: "nav.acquisitions" },
+      { routeKey: "loans", labelKey: "nav.loans" },
     ],
   },
   {
     links: [
-      { href: "/pre-investorov", label: "Pre investorov" },
-      { href: "/klub", label: "ASSETRA Klub" },
-      { href: "/projekty", label: "Portfólio" },
-      { href: "/kariera", label: "Kariéra" },
+      { routeKey: "forInvestors", labelKey: "nav.forInvestors" },
+      { routeKey: "club", labelKey: "nav.club" },
+      { routeKey: "portfolio", labelKey: "nav.portfolio" },
+      { routeKey: "careers", labelKey: "nav.careers" },
     ],
   },
 ];
 
+const localeLabels: Record<Locale, string> = { sk: "SK", en: "EN", cs: "CZ" };
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation("common");
+  const locale = useLocale();
+  const switchLocale = useSwitchLocale();
 
   return (
     <>
@@ -50,7 +58,7 @@ const Header = () => {
           "text-xs sm:text-sm font-medium tracking-wide",
           isOpen ? "text-primary-foreground" : "text-foreground"
         )}>
-          Menu
+          {t("nav.menu")}
         </span>
         <div className={cn(
           "w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center",
@@ -91,44 +99,72 @@ const Header = () => {
             />
 
             <nav className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 max-h-[90vh] overflow-y-auto py-8 px-4">
+              {/* Language Switcher */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4, delay: 0 }}
+                className="flex items-center gap-3 mb-2"
+              >
+                {LOCALES.map((loc) => (
+                  <button
+                    key={loc}
+                    onClick={() => {
+                      switchLocale(loc);
+                      setIsOpen(false);
+                    }}
+                    className={cn(
+                      "text-xs sm:text-sm tracking-[0.2em] uppercase px-3 py-1.5 rounded-full transition-colors duration-200",
+                      locale === loc
+                        ? "bg-primary-foreground/20 text-primary-foreground font-medium"
+                        : "text-primary-foreground/40 hover:text-primary-foreground/70"
+                    )}
+                  >
+                    {localeLabels[loc]}
+                  </button>
+                ))}
+              </motion.div>
+
               {navGroups.map((group, gi) => {
                 const baseDelay = navGroups
                   .slice(0, gi)
-                  .reduce((acc, g) => acc + g.links.length + (g.heading ? 1 : 0), 0);
+                  .reduce((acc, g) => acc + g.links.length + (g.headingKey ? 1 : 0), 0);
                 return (
                   <div key={gi} className="flex flex-col items-center">
-                    {group.heading && (
+                    {group.headingKey && (
                       <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.4, delay: baseDelay * 0.06 }}
+                        transition={{ duration: 0.4, delay: (baseDelay + 1) * 0.06 }}
                         className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/40 mb-2 sm:mb-3"
                       >
-                        {group.heading}
+                        {t(group.headingKey)}
                       </motion.span>
                     )}
                     {group.links.map((link, li) => {
-                      const delay = (baseDelay + (group.heading ? 1 : 0) + li) * 0.06;
+                      const delay = (baseDelay + (group.headingKey ? 1 : 0) + li + 1) * 0.06;
+                      const href = getLocalizedPath(link.routeKey, locale);
                       return (
                         <motion.div
-                          key={link.href}
+                          key={link.routeKey}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 15 }}
                           transition={{ duration: 0.4, delay }}
                         >
                           <Link
-                            to={link.href}
+                            to={href}
                             onClick={() => setIsOpen(false)}
                             className={cn(
                               "block font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-1 sm:py-1.5 transition-colors duration-200 text-center",
-                              location.pathname === link.href
+                              location.pathname === href
                                 ? "text-primary-foreground"
                                 : "text-primary-foreground/50 hover:text-primary-foreground"
                             )}
                           >
-                            {link.label}
+                            {t(link.labelKey)}
                           </Link>
                         </motion.div>
                       );

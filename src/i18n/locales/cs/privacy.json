@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Ochrana osobních údajů | ASSETRA Investments",
+    "description": "Informace o zpracování a ochraně osobních údajů společností ASSETRA investments s.r.o. v souladu s GDPR."
+  },
+  "title": "Ochrana osobních údajů",
+  "sections": {
+    "controller": {
+      "title": "1. Správce",
+      "text": "Správcem osobních údajů je společnost ASSETRA investments s.r.o., se sídlem v Bratislavě, Slovenská republika (dále jen 'společnost'). Společnost zpracovává osobní údaje v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 18/2018 Z. z. o ochrane osobných údajov."
+    },
+    "purpose": {
+      "title": "2. Účel zpracování",
+      "intro": "Osobní údaje zpracováváme pro následující účely:",
+      "items": [
+        "Zpracování investičních poptávek a žádostí o financování",
+        "Komunikace s potenciálními investory a obchodními partnery",
+        "Plnění zákonných povinností (účetnictví, daňové povinnosti)",
+        "Zlepšování našich služeb a webové stránky"
+      ]
+    },
+    "scope": {
+      "title": "3. Rozsah zpracovávaných údajů",
+      "intro": "Zpracováváme následující kategorie osobních údajů:",
+      "items": [
+        "Identifikační údaje (jméno, příjmení)",
+        "Kontaktní údaje (email, telefonní číslo)",
+        "Údaje o investičním zájmu (plánovaná výše investice, oblast zájmu)",
+        "Technické údaje z cookies (IP adresa, typ prohlížeče)"
+      ]
+    },
+    "legalBasis": {
+      "title": "4. Právní základ",
+      "text": "Osobní údaje zpracováváme na základě souhlasu dotčené osoby (čl. 6 odst. 1 písm. a) GDPR), oprávněného zájmu správce (čl. 6 odst. 1 písm. f) GDPR) a plnění smlouvy nebo předsmluvních vztahů (čl. 6 odst. 1 písm. b) GDPR)."
+    },
+    "retention": {
+      "title": "5. Doba uchovávání",
+      "text": "Osobní údaje uchováváme po dobu nezbytnou ke splnění účelu zpracování, maximálně však 3 roky od posledního kontaktu, pokud zákonná povinnost uchovávání není delší."
+    },
+    "rights": {
+      "title": "6. Práva dotčené osoby",
+      "intro": "Jako dotčená osoba máte právo:",
+      "items": [
+        "Na přístup ke svým osobním údajům",
+        "Na opravu nesprávných údajů",
+        "Na výmaz údajů (právo být zapomenut)",
+        "Na omezení zpracování",
+        "Na přenositelnost údajů",
+        "Vznést námitku proti zpracování",
+        "Odvolat souhlas se zpracováním",
+        "Podat stížnost na Úrad na ochranu osobných údajov SR"
+      ]
+    },
+    "cookies": {
+      "title": "7. Cookies",
+      "text": "Naše webová stránka používá cookies k zajištění základní funkčnosti a zlepšení uživatelského zážitku. Cookies můžete spravovat v nastavení svého prohlížeče. Více informací najdete v cookie banneru při první návštěvě stránky."
+    },
+    "contact": {
+      "title": "8. Kontakt",
+      "text": "V případě dotazů týkajících se ochrany osobních údajů nás kontaktujte na info@assetrainvestments.com."
+    }
+  },
+  "lastUpdated": "Poslední aktualizace: Březen 2025"
+}

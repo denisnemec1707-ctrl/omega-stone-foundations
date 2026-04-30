@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "title": "ASSETRA Investments | Súkromná investičná spoločnosť",
+    "description": "Súkromná investičná spoločnosť zameraná na dlhodobý rast. Nehnuteľnosti, private equity a zabezpečené úvery na Slovensku."
+  },
+  "hero": {
+    "subtitle": "Súkromná investičná spoločnosť zameraná na dlhodobý rast"
+  },
+  "about": {
+    "label": "O ASSETRA investments",
+    "title": "Špecialisti na realitné",
+    "titleAccent": "akvizície",
+    "p1": "ASSETRA investments je slovenská investičná spoločnosť špecializujúca sa na akvizíciu, rekonštrukciu a predaj podhodnotených rezidenčných nehnuteľností. Pôsobíme výlučne na trhoch, ktoré dôkladne poznáme, a zameriavame sa na príležitosti, kde môžeme získať aktíva výrazne pod trhovou cenou.",
+    "p2": "Náš tím identifikuje núdzové predaje, likvidácie dedičstiev a motivovaných predajcov. Nehnuteľnosti rekonštruujeme na trhový štandard a predávame za férovú trhovú hodnotu. Táto marža — rozdiel medzi akvizičnými nákladmi a konečnou predajnou cenou — je to, čo generuje konzistentné výnosy pre našich investorov.",
+    "p3": "Nešpekulujeme na trhových pohyboch. Neobchodujeme s finančnými nástrojmi. Kupujeme reálne nehnuteľnosti, zhodnocujeme ich a predávame. Tento priamočiary model sa osvedčil naprieč rôznymi trhovými podmienkami."
+  },
+  "portfolio": {
+    "label": "Diverzifikované portfólio",
+    "description": "Naša stratégia je založená na konzervativnom prístupe s dôrazom na ochranu kapitálu a generovanie stabilných výnosov prostredníctvom reálnych aktív a overených investičných stratégií."
+  },
+  "cards": {
+    "realEstate": {
+      "title": "Nehnuteľnosti a realitný flipping",
+      "text": "Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame s výrazným zhodnotením."
+    },
+    "loans": {
+      "title": "Zabezpečené úvery",
+      "text": "Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície a stabilné, rizikovo vyvážené výnosy."
+    },
+    "equity": {
+      "title": "Akvizície a private equity",
+      "text": "Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty."
+    },
+    "more": "Zobraziť viac"
+  },
+  "cta": {
+    "heading": "Začnite investovať s ASSETRA",
+    "text": "Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.",
+    "button": "Chcem investovať"
+  },
+  "aboutStatement": "ASSETRA investments je súkromná investičná spoločnosť so sídlom na Slovensku. Spravujeme diverzifikované portfólio naprieč nehnuteľnosťami, akvizíciami firiem a zabezpečenými úvermi."
+}

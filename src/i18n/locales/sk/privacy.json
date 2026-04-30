@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Ochrana osobných údajov | ASSETRA Investments",
+    "description": "Informácie o spracovaní a ochrane osobných údajov spoločnosťou ASSETRA investments s.r.o. v súlade s GDPR."
+  },
+  "title": "Ochrana osobných údajov",
+  "sections": {
+    "controller": {
+      "title": "1. Prevádzkovateľ",
+      "text": "Prevádzkovateľom osobných údajov je spoločnosť ASSETRA investments s.r.o., so sídlom v Bratislave, Slovenská republika (ďalej len 'spoločnosť'). Spoločnosť spracúva osobné údaje v súlade s Nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) a zákonom č. 18/2018 Z. z. o ochrane osobných údajov."
+    },
+    "purpose": {
+      "title": "2. Účel spracovania",
+      "intro": "Osobné údaje spracúvame na nasledovné účely:",
+      "items": [
+        "Spracovanie investičných dopytov a žiadostí o financovanie",
+        "Komunikácia s potenciálnymi investormi a obchodnými partnermi",
+        "Plnenie zákonných povinností (účtovníctvo, daňové povinnosti)",
+        "Zlepšovanie našich služieb a webovej stránky"
+      ]
+    },
+    "scope": {
+      "title": "3. Rozsah spracúvaných údajov",
+      "intro": "Spracúvame nasledovné kategórie osobných údajov:",
+      "items": [
+        "Identifikačné údaje (meno, priezvisko)",
+        "Kontaktné údaje (email, telefónne číslo)",
+        "Údaje o investičnom záujme (plánovaná výška investície, oblasť záujmu)",
+        "Technické údaje z cookies (IP adresa, typ prehliadača)"
+      ]
+    },
+    "legalBasis": {
+      "title": "4. Právny základ",
+      "text": "Osobné údaje spracúvame na základe súhlasu dotknutej osoby (čl. 6 ods. 1 písm. a) GDPR), oprávneného záujmu prevádzkovateľa (čl. 6 ods. 1 písm. f) GDPR) a plnenia zmluvy alebo predzmluvných vzťahov (čl. 6 ods. 1 písm. b) GDPR)."
+    },
+    "retention": {
+      "title": "5. Doba uchovávania",
+      "text": "Osobné údaje uchovávame po dobu nevyhnutnú na splnenie účelu spracovania, maximálne však 3 roky od posledného kontaktu, ak nie je zákonná povinnosť uchovávania dlhšia."
+    },
+    "rights": {
+      "title": "6. Práva dotknutej osoby",
+      "intro": "Ako dotknutá osoba máte právo:",
+      "items": [
+        "Na prístup k svojim osobným údajom",
+        "Na opravu nesprávnych údajov",
+        "Na vymazanie údajov (právo na zabudnutie)",
+        "Na obmedzenie spracovania",
+        "Na prenositeľnosť údajov",
+        "Namietať proti spracovaniu",
+        "Odvolať súhlas so spracovaním",
+        "Podať sťažnosť na Úrad na ochranu osobných údajov SR"
+      ]
+    },
+    "cookies": {
+      "title": "7. Cookies",
+      "text": "Naša webová stránka používa cookies na zabezpečenie základnej funkčnosti a zlepšenie používateľského zážitku. Cookies môžete spravovať v nastaveniach svojho prehliadača. Viac informácií nájdete v cookie banneri pri prvej návšteve stránky."
+    },
+    "contact": {
+      "title": "8. Kontakt",
+      "text": "V prípade otázok týkajúcich sa ochrany osobných údajov nás kontaktujte na info@assetrainvestments.com."
+    }
+  },
+  "lastUpdated": "Posledná aktualizácia: Marec 2025"
+}

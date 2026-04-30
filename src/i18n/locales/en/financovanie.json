@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Property Financing Within 24 Hours | ASSETRA Investments",
+    "description": "Short-term property financing for agents and flippers. Up to €800,000, your equity only 20%, approval within 24 hours."
+  },
+  "hero": {
+    "label": "For agents, flippers, and property owners",
+    "title": "We finance your properties.",
+    "subtitle": "Short-term, up to €800,000, with approval within 24 hours.",
+    "cta": "Get a financing offer"
+  },
+  "keyPoints": {
+    "amount": { "title": "Financing up to €800,000", "text": "Short-term for 3–6 months. For flips, buyouts, and property purchases." },
+    "equity": { "title": "Your equity only 20%", "text": "Leverage effect — your capital works more efficiently and delivers higher returns." },
+    "approval": { "title": "Approval within 24 hours", "text": "No weeks of waiting like with a bank. A concrete offer within one business day." },
+    "noBureaucracy": { "title": "No bureaucracy", "text": "Direct investor, not a bank. We decide quickly and transparently." }
+  },
+  "situationOptions": {
+    "purchase": "Property purchase financing",
+    "flip": "Flip financing (renovation + sale)",
+    "buyout": "Quick buyout without price reduction",
+    "loan": "Loan against your own property",
+    "stress": "Distressed situation financing",
+    "other": "Other situation"
+  },
+  "amountOptions": {
+    "under100k": "Up to €100,000",
+    "100to300k": "€100,000 – €300,000",
+    "300to500k": "€300,000 – €500,000",
+    "500to800k": "€500,000 – €800,000",
+    "over800k": "Over €800,000 (individual terms)"
+  },
+  "contactPreferenceOptions": {
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "form": {
+    "heading": "Non-Binding Offer",
+    "title": "Let's prepare a tailored offer for you",
+    "description": "It takes 2 minutes to complete. We will get back to you within 24 hours on business days.",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone *",
+    "contactPreference": "Preferred contact method *",
+    "contactPreferencePlaceholder": "Phone / Email",
+    "financingType": "What type of financing do you need? *",
+    "financingTypePlaceholder": "Select situation",
+    "financingAmount": "Required financing amount *",
+    "financingAmountPlaceholder": "Select range",
+    "description_field": "Property / situation description (optional)",
+    "descriptionPlaceholder": "E.g. location, purchase price, planned profit, timeline...",
+    "submit": "Submit request",
+    "submitting": "Submitting..."
+  },
+  "consent": "I consent to the processing of my personal data for the purposes of communication regarding financing in accordance with the privacy policy.",
+  "success": {
+    "title": "Thank you",
+    "text": "Your request has been successfully submitted. We will get back to you within 24 hours on business days."
+  }
+}

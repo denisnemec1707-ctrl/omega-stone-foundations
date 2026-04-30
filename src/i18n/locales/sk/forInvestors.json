@@ -1,0 +1,302 @@
+{
+  "meta": {
+    "title": "Pre investorov | ASSETRA Investments",
+    "description": "Investujte s istotou. Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami."
+  },
+  "hero": {
+    "label": "Pre investorov",
+    "title": "Investujte",
+    "titleAccent": "s istotou",
+    "description": "Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami.",
+    "backToMain": "Späť na hlavnú",
+    "landingLabel": "Investícia s fixným výnosom",
+    "landingTitle": "12% ročný výnos",
+    "landingTitleAccent": "Vyplácaný mesačne",
+    "landingDescription": "Váš kapitál je zabezpečený nehnuteľnosťami v nadhodnote. Predvídateľné výnosy podporené reálnymi aktívami, nie trhovými špekuláciami.",
+    "ctaInvest": "Začať investovať",
+    "ctaCalculator": "Vypočítať výnos"
+  },
+  "intro": "ASSETRA investments ponúka investorom jednoduchý a transparentný spôsob, ako zhodnotiť kapitál. Predvídateľné výnosy podporené reálnymi aktívami, bez zbytočnej komplexnosti.",
+  "stats": {
+    "return": {
+      "value": "12%",
+      "label": "Fixný ročný výnos",
+      "text": "Zmluvne garantovaný výnos na celé investičné obdobie."
+    },
+    "payout": {
+      "value": "Mesačne",
+      "label": "Výplata výnosov",
+      "text": "Pravidelný pasívny príjem každý mesiac."
+    },
+    "minInvestment": {
+      "value": "10 000 €",
+      "label": "Minimálna investícia",
+      "text": "Začnite investovať od 10 000 eur."
+    },
+    "collateral": {
+      "value": "Reálne",
+      "label": "Zabezpečenie aktívami",
+      "text": "Každá investícia je krytá fyzickými nehnuteľnosťami."
+    }
+  },
+  "howItWorks": {
+    "label": "Ako to funguje",
+    "description": "Jednoduchý a transparentný proces od prvého kontaktu po pravidelnú výplatu výnosov.",
+    "steps": {
+      "contact": {
+        "title": "Kontaktujte nás",
+        "text": "Vyplňte formulár nižšie. Ozveme sa vám do 24 hodín s konkrétnymi podmienkami."
+      },
+      "consultation": {
+        "title": "Konzultácia",
+        "text": "Osobné stretnutie, kde vysvetlíme detaily a zodpovieme všetky otázky."
+      },
+      "contract": {
+        "title": "Podpis zmluvy",
+        "text": "Transparentné zmluvné podmienky s fixovaným výnosom a zabezpečením."
+      },
+      "returns": {
+        "title": "Mesačné výnosy",
+        "text": "Od prvého mesiaca dostávate pravidelné výplaty priamo na účet."
+      }
+    },
+    "modelLabel": "Investičný model",
+    "modelTitle": "Ako váš kapitál",
+    "modelTitleAccent": "pracuje",
+    "modelSteps": [
+      {
+        "title": "Investujete",
+        "description": "Záväzujete kapitál na definované obdobie (zvyčajne 12–36 mesiacov). Vaše investičné podmienky — výnosová sadzba, výplatný kalendár a trvanie — sú fixované pri podpise zmluvy."
+      },
+      {
+        "title": "Kupujeme nehnuteľnosť",
+        "description": "Váš kapitál financuje nákup starostlivo vybraných nehnuteľností. Akvizujeme iba aktíva s cenou minimálne 20% pod trhovou hodnotou, čím zabezpečujeme vstavanú maržu pre vaše výnosy a naše operácie."
+      },
+      {
+        "title": "Rekonštrukcia a predaj",
+        "description": "Nehnuteľnosť rekonštruujeme na trhový štandard a predávame za férovú trhovú cenu. Zisková marža pokrýva váš fixný výnos, prevádzkové náklady a náš zisk."
+      },
+      {
+        "title": "Dostávate výnosy",
+        "description": "Počas celého investičného obdobia dostávate mesačné výplaty. Na konci cyklu sa vám vráti celá istina. Potom sa môžete rozhodnúť reinvestovať alebo kapitál kompletne vybrať."
+      }
+    ],
+    "modelCta": "Začať investovať"
+  },
+  "calculator": {
+    "label": "Investičná kalkulačka",
+    "title": "Vypočítajte si svoje",
+    "titleAccent": "výnosy",
+    "description": "Pozrite sa, koľko by ste zarobili s fixným 12% ročným výnosom od ASSETRA.",
+    "investmentAmount": "Výška investície",
+    "investmentDuration": "Doba investície",
+    "annualRate": "Ročná výnosová sadzba",
+    "rateValue": "12% fixne",
+    "payoutFrequency": "Frekvencia výplat",
+    "payoutValue": "Mesačne",
+    "results": "Vaše výnosy",
+    "monthlyPayout": "Mesačná výplata",
+    "totalReturn": "Celkový výnos",
+    "totalEnd": "Celkom na konci",
+    "totalEndNote": "(Istina + Výnosy)",
+    "months": "mesiacov",
+    "min": "10 000 €",
+    "max": "500 000 €",
+    "minMonths": "6 mesiacov",
+    "maxMonths": "24 mesiacov",
+    "interested": "Zaujali vás tieto výnosy? Kontaktujte nás pre viac informácií.",
+    "cta": "Chcem investovať",
+    "clubLink": "alebo sa pridajte do ASSETRA Klubu pre budúce príležitosti",
+    "clubLinkPrefix": "alebo sa pridajte do",
+    "clubLinkText": "ASSETRA Klubu",
+    "clubLinkSuffix": "pre budúce príležitosti",
+    "totalReturnFor": "Celkový výnos za"
+  },
+  "whyInvest": {
+    "label": "Výhody pre investorov",
+    "title": "Prečo investovať s ASSETRA",
+    "description": "Ponúkame jednoduchý investičný model s jasnými podmienkami, predvídateľnými výnosmi a zabezpečením reálnymi aktívami.",
+    "items": {
+      "return": {
+        "value": "12%",
+        "title": "Fixný ročný výnos",
+        "text": "Váš výnos je vopred určený a zmluvne garantovaný. Žiadna trhová volatilita, žiadne prekvapenia."
+      },
+      "monthly": {
+        "value": "Mesačne",
+        "title": "Pravidelný príjem",
+        "text": "Dostávajte svoje výnosy každý mesiac. Konzistentný cash flow, s ktorým môžete plánovať."
+      },
+      "assets": {
+        "value": "Reálne",
+        "title": "Zabezpečenie aktívami",
+        "text": "Každá investícia je viazaná na fyzické nehnuteľnosti. Hmatateľné zabezpečenie, nie papierové sľuby."
+      },
+      "cycles": {
+        "value": "12–36",
+        "title": "Mesačné cykly",
+        "text": "Krátke investičné horizonty s definovanými výstupnými bodmi. Váš kapitál nie je uzamknutý na neurčito."
+      },
+      "margins": {
+        "value": "20%+",
+        "title": "Prevádzkové marže",
+        "text": "Náš akvizičný model cieli na minimálne 20% ziskové marže, čím zabezpečuje pokrytie vášho fixného výnosu."
+      },
+      "fullReturn": {
+        "value": "Plná",
+        "title": "Návratnosť kapitálu",
+        "text": "Na konci cyklu dostanete späť celú istinu plus všetky získané výnosy. Jednoducho a kompletne."
+      }
+    },
+    "cta": "Mám záujem investovať"
+  },
+  "testimonials": {
+    "label": "Čo hovoria naši investori",
+    "items": [
+      {
+        "text": "S ASSETRA som začal investovať pred rokom. Mesačné výplaty prichádzajú presne a spoľahlivo, presne ako bolo dohodnuté v zmluve.",
+        "author": "Investor z Bratislavy",
+        "amount": "Investícia od 50 000 €"
+      },
+      {
+        "text": "Oceňujem transparentnosť a profesionálny prístup. Vždy presne viem, do čoho sú moje peniaze investované a aký výnos môžem očakávať.",
+        "author": "Investor z Košíc",
+        "amount": "Investícia od 100 000 €"
+      },
+      {
+        "text": "Po rokoch hľadania spoľahlivého zhodnotenia kapitálu som našiel riešenie, ktoré skutočne funguje. Reálne aktíva, reálne výnosy.",
+        "author": "Investor z Prahy",
+        "amount": "Investícia od 25 000 €"
+      }
+    ]
+  },
+  "faq": {
+    "label": "Časté otázky",
+    "title": "Často kladené",
+    "titleAccent": "otázky",
+    "items": [
+      {
+        "q": "Ako sa generuje 12% ročný výnos?",
+        "a": "Náš výnos pochádza zo ziskovej marže na realitných transakciách. Akvizujeme nehnuteľnosti minimálne 20% pod trhovou hodnotou, rekonštruujeme ich a predávame za férovú trhovú cenu."
+      },
+      {
+        "q": "Je moja investícia zabezpečená?",
+        "a": "Áno. Každé euro, ktoré investujete, je nasadené do akvizície fyzických nehnuteľností. Celý kapitálový fond je zabezpečený realitnými aktívami."
+      },
+      {
+        "q": "Aký je typický investičný horizont?",
+        "a": "Štandardné investičné obdobia sa pohybujú od 12 do 24 mesiacov. Na konci každého obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi."
+      },
+      {
+        "q": "Ako a kedy sa vyplácajú výnosy?",
+        "a": "Výnosy sa vyplácajú mesačne, priamo na váš bankový účet. Vaša mesačná výplata sa vypočíta ako 1/12 vášho ročného výnosu."
+      },
+      {
+        "q": "Aká je minimálna výška investície?",
+        "a": "Minimálna investícia je 10 000 €. Väčšie investície môžu kvalifikovať na individuálne podmienky."
+      },
+      {
+        "q": "Môžem vybrať investíciu predčasne?",
+        "a": "Investície sú viazané na dohodnuté obdobie. V mimoriadnych prípadoch môžeme vyhovieť žiadostiam s poplatkom za predčasný výstup."
+      },
+      {
+        "q": "Do akých sektorov investujete?",
+        "a": "Investujeme do troch hlavných oblastí – nehnuteľnosti (realitný flipping), akvizície zabehnutých firiem (private equity) a zabezpečené úvery (private credit)."
+      },
+      {
+        "q": "Aké sú riziká investície?",
+        "a": "Primárne riziko je spojené s podmienkami na realitnom trhu. Toto zmierňujeme konzervatívnou akvizíciou — kupujeme iba nehnuteľnosti výrazne pod trhovou hodnotou. Každá investícia je navyše krytá fyzickými nehnuteľnosťami."
+      },
+      {
+        "q": "Čo sa stane s mojím kapitálom na konci obdobia?",
+        "a": "Na konci investičného obdobia sa vám vráti celá istina spolu so všetkými získanými výnosmi. Kapitál môžete reinvestovať alebo vybrať."
+      }
+    ]
+  },
+  "form": {
+    "heading": "Začnite investovať",
+    "description": "Vyplňte formulár a ozveme sa vám do 24 hodín s konkrétnymi podmienkami spolupráce.",
+    "title": "Žiadosť o investíciu",
+    "fullName": "Meno a priezvisko *",
+    "email": "Email *",
+    "phone": "Telefón",
+    "investmentAmount": "Plánovaná investícia",
+    "investmentArea": "Oblasť záujmu",
+    "message": "Správa",
+    "messagePlaceholder": "Vaše investičné ciele alebo otázky...",
+    "submit": "Odoslať žiadosť",
+    "namePlaceholder": "Ján Novák",
+    "emailPlaceholder": "jan.novak@email.sk",
+    "phonePlaceholder": "+421 900 000 000",
+    "investmentAmountPlaceholder": "Vyberte rozsah",
+    "investmentAreaPlaceholder": "Vyberte oblasť"
+  },
+  "investmentAmounts": {
+    "10to25k": "10 000 – 25 000 €",
+    "25to50k": "25 000 – 50 000 €",
+    "50to100k": "50 000 – 100 000 €",
+    "100to250k": "100 000 – 250 000 €",
+    "over250k": "250 000 € a viac"
+  },
+  "investmentAreas": {
+    "realEstate": "Real Estate – nehnuteľnosti",
+    "equity": "Private Equity – akvizície firiem",
+    "credit": "Private Credit – zabezpečené úvery",
+    "all": "Zaujíma ma všetko"
+  },
+  "directContact": {
+    "title": "Priamy kontakt",
+    "email": "Email",
+    "phone": "Telefón",
+    "office": "Kancelária",
+    "officeValue": "Bratislava, Slovensko",
+    "conditions": "Investičné podmienky",
+    "minInvestment": "Min. investícia",
+    "annualReturn": "Ročný výnos",
+    "months": "Mesiacov"
+  },
+  "contact": {
+    "label": "Začnite investovať",
+    "title": "Kontaktujte",
+    "titleAccent": "nás",
+    "description": "Vyplňte formulár a náš investičný tím sa vám ozve do 24 hodín s kompletnými informáciami o investičných možnostiach.",
+    "formTitle": "Žiadosť o informácie",
+    "fullName": "Meno a priezvisko *",
+    "email": "Email *",
+    "phone": "Telefón",
+    "investmentAmount": "Plánovaná výška investície",
+    "message": "Správa *",
+    "namePlaceholder": "Ján Novák",
+    "emailPlaceholder": "jan.novak@email.sk",
+    "phonePlaceholder": "+421 900 000 000",
+    "amountPlaceholder": "napr. 50 000 €",
+    "messagePlaceholder": "Opíšte vaše investičné ciele alebo otázky...",
+    "submit": "Odoslať žiadosť",
+    "submitting": "Odosielam..."
+  },
+  "trust": {
+    "label": "Riadenie rizík",
+    "title": "Ochrana kapitálu",
+    "titleAccent": "na prvom mieste",
+    "description": "Každú transakciu štruktúrujeme s bezpečnosťou vášho kapitálu ako primárnou prioritou.",
+    "items": [
+      {
+        "title": "Konzervatívna akvizícia",
+        "description": "Kupujeme iba nehnuteľnosti s cenou 20% alebo viac pod trhovou hodnotou. Táto marža chráni pred trhovými výkyvmi a zabezpečuje ziskovosť aj v nepriaznivých podmienkach."
+      },
+      {
+        "title": "Zabezpečenie reálnymi aktívami",
+        "description": "Každá investícia je krytá fyzickými nehnuteľnosťami. Na rozdiel od finančných nástrojov si nehnuteľnosť zachováva vnútornú hodnotu bez ohľadu na trhový sentiment."
+      },
+      {
+        "title": "Krátke cykly",
+        "description": "Investičné obdobia 12–36 mesiacov limitujú expozíciu voči dlhodobým trhovým zmenám. Kapitál sa vracia a môže byť reinvestovaný alebo vybraný v pravidelných intervaloch."
+      },
+      {
+        "title": "Prevádzkové skúsenosti",
+        "description": "Náš tím dokončil desiatky akvizično-rekonštrukčno-predajných cyklov. Rozumieme slovenskému realitnému trhu, miestnym predpisom a ekonomike rekonštrukcií."
+      }
+    ],
+    "cta": "Kontaktovať nás"
+  }
+}

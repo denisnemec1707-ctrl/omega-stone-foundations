@@ -7,6 +7,8 @@ import { AnimatePresence } from "framer-motion";
 import { ScrollToTop } from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
 import Preloader from "./components/Preloader";
+import LocaleWrapper from "./components/LocaleWrapper";
+import GeoRedirect from "./components/GeoRedirect";
 import { useState, useCallback } from "react";
 
 import { PageTransition } from "./components/PageTransition";
@@ -26,17 +28,63 @@ import FinancovanieNehnutelnosti from "./pages/FinancovanieNehnutelnosti";
 import Klub from "./pages/Klub";
 import NotFound from "./pages/NotFound";
 
-// Routes that bypass Preloader and PageTransition for fast LCP
-// (paid traffic landings — every 100 ms of delay hurts CPL).
-const FAST_LOAD_ROUTES = ["/predam-firmu", "/investovat", "/financovanie-nehnutelnosti", "/kariera/asistent-ceo", "/klub"];
-
-function isFastLoadPath(pathname: string) {
-  return FAST_LOAD_ROUTES.some(
-    (r) => pathname === r || pathname.startsWith(r + "/")
-  );
-}
+import { isFastLoadPath } from "./i18n/routes";
 
 const queryClient = new QueryClient();
+
+/** Returns page route elements for use inside a layout Route */
+function pageRoutes() {
+  return [
+    // Standard routes with PageTransition
+    <Route key="home" index element={<PageTransition><Index /></PageTransition>} />,
+    <Route key="nehnutelnosti" path="nehnutelnosti" element={<PageTransition><RealEstate /></PageTransition>} />,
+    <Route key="real-estate" path="real-estate" element={<PageTransition><RealEstate /></PageTransition>} />,
+    <Route key="nemovitosti" path="nemovitosti" element={<PageTransition><RealEstate /></PageTransition>} />,
+
+    <Route key="akvizicie" path="akvizicie" element={<PageTransition><PrivateEquity /></PageTransition>} />,
+    <Route key="acquisitions" path="acquisitions" element={<PageTransition><PrivateEquity /></PageTransition>} />,
+    <Route key="akvizice" path="akvizice" element={<PageTransition><PrivateEquity /></PageTransition>} />,
+
+    <Route key="uvery" path="uvery" element={<PageTransition><PrivateCredit /></PageTransition>} />,
+    <Route key="loans" path="loans" element={<PageTransition><PrivateCredit /></PageTransition>} />,
+
+    <Route key="pre-investorov" path="pre-investorov" element={<PageTransition><ForInvestors /></PageTransition>} />,
+    <Route key="for-investors" path="for-investors" element={<PageTransition><ForInvestors /></PageTransition>} />,
+    <Route key="pro-investory" path="pro-investory" element={<PageTransition><ForInvestors /></PageTransition>} />,
+
+    <Route key="ochrana-udajov" path="ochrana-udajov" element={<PageTransition><PrivacyPolicy /></PageTransition>} />,
+    <Route key="privacy-policy" path="privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />,
+    <Route key="ochrana-udaju" path="ochrana-udaju" element={<PageTransition><PrivacyPolicy /></PageTransition>} />,
+
+    <Route key="obchodne-podmienky" path="obchodne-podmienky" element={<PageTransition><Terms /></PageTransition>} />,
+    <Route key="terms" path="terms" element={<PageTransition><Terms /></PageTransition>} />,
+    <Route key="obchodni-podminky" path="obchodni-podminky" element={<PageTransition><Terms /></PageTransition>} />,
+
+    <Route key="projekty" path="projekty" element={<PageTransition><Portfolio /></PageTransition>} />,
+    <Route key="portfolio" path="portfolio" element={<PageTransition><Portfolio /></PageTransition>} />,
+
+    <Route key="kariera" path="kariera" element={<PageTransition><Careers /></PageTransition>} />,
+    <Route key="careers" path="careers" element={<PageTransition><Careers /></PageTransition>} />,
+
+    // Fast-load routes — no PageTransition wrapper for fast LCP
+    <Route key="asistent-ceo" path="kariera/asistent-ceo" element={<AssistantCEO />} />,
+    <Route key="ceo-assistant" path="careers/ceo-assistant" element={<AssistantCEO />} />,
+
+    <Route key="predam-firmu" path="predam-firmu" element={<PredamFirmu />} />,
+    <Route key="sell-your-company" path="sell-your-company" element={<PredamFirmu />} />,
+    <Route key="prodam-firmu" path="prodam-firmu" element={<PredamFirmu />} />,
+
+    <Route key="investovat" path="investovat" element={<Investovat />} />,
+    <Route key="invest" path="invest" element={<Investovat />} />,
+
+    <Route key="financovanie-nehnutelnosti" path="financovanie-nehnutelnosti" element={<FinancovanieNehnutelnosti />} />,
+    <Route key="property-financing" path="property-financing" element={<FinancovanieNehnutelnosti />} />,
+    <Route key="financovani-nemovitosti" path="financovani-nemovitosti" element={<FinancovanieNehnutelnosti />} />,
+
+    <Route key="klub" path="klub" element={<Klub />} />,
+    <Route key="club" path="club" element={<Klub />} />,
+  ];
+}
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -44,85 +92,22 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageTransition>
-              <Index />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/nehnutelnosti"
-          element={
-            <PageTransition>
-              <RealEstate />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/akvizicie"
-          element={
-            <PageTransition>
-              <PrivateEquity />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/uvery"
-          element={
-            <PageTransition>
-              <PrivateCredit />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/pre-investorov"
-          element={
-            <PageTransition>
-              <ForInvestors />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/ochrana-udajov"
-          element={
-            <PageTransition>
-              <PrivacyPolicy />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/obchodne-podmienky"
-          element={
-            <PageTransition>
-              <Terms />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/projekty"
-          element={
-            <PageTransition>
-              <Portfolio />
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/kariera"
-          element={
-            <PageTransition>
-              <Careers />
-            </PageTransition>
-          }
-        />
-        {/* Paid-traffic landings — no PageTransition wrapper for fast LCP */}
-        <Route path="/kariera/asistent-ceo" element={<AssistantCEO />} />
-        <Route path="/predam-firmu" element={<PredamFirmu />} />
-        <Route path="/investovat" element={<Investovat />} />
-        <Route path="/financovanie-nehnutelnosti" element={<FinancovanieNehnutelnosti />} />
-        <Route path="/klub" element={<Klub />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        {/* SK routes (default, no prefix) */}
+        <Route element={<LocaleWrapper locale="sk" />}>
+          {pageRoutes()}
+        </Route>
+
+        {/* EN routes */}
+        <Route path="/en" element={<LocaleWrapper locale="en" />}>
+          {pageRoutes()}
+        </Route>
+
+        {/* CS routes */}
+        <Route path="/cs" element={<LocaleWrapper locale="cs" />}>
+          {pageRoutes()}
+        </Route>
+
+        {/* Catch-all 404 */}
         <Route
           path="*"
           element={
@@ -157,6 +142,7 @@ const App = () => {
         {showPreloader && <Preloader onComplete={handlePreloaderComplete} />}
         <BrowserRouter>
           <ScrollToTop />
+          <GeoRedirect />
           <CookieBanner />
           <AnimatedRoutes />
         </BrowserRouter>

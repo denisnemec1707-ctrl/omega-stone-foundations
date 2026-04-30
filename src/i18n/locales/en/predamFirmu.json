@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "title": "We Will Buy Your Company | Fair Offer Within 7 Days | ASSETRA Investments",
+    "description": "ASSETRA, a private investment group, is looking for functional Slovak companies with turnover from €200,000. Direct acquisition, no intermediaries, no commissions. Fair offer within 7 days."
+  },
+  "hero": {
+    "label": "For owners of established companies",
+    "title": "We will buy your company.",
+    "subtitle": "Direct investor. Fair offer within 7 days.",
+    "cta": "Get a preliminary offer"
+  },
+  "keyPoints": {
+    "directInvestor": { "title": "Direct investor", "text": "We are the buyer. No commissions, no intermediaries." },
+    "nda": { "title": "NDA before any figures", "text": "Confidentiality guaranteed from first contact." },
+    "offer": { "title": "Offer within 7 days", "text": "After reviewing your company, you will know within a week whether and for how much." },
+    "turnover": { "title": "Turnover from €200,000", "text": "EBITDA from €120,000. Functional Slovak companies in stable industries." }
+  },
+  "industryOptions": {
+    "manufacturing": "Manufacturing",
+    "services": "Services",
+    "ecommerce": "E-commerce",
+    "gastro": "Hospitality",
+    "realEstate": "Real estate",
+    "construction": "Construction",
+    "it": "IT",
+    "other": "Other"
+  },
+  "turnoverOptions": {
+    "200to500k": "€200,000 – €500,000",
+    "500to1m": "€500,000 – €1M",
+    "1to3m": "€1 – 3M",
+    "3to10m": "€3 – 10M",
+    "over10m": "€10M and above",
+    "under200k": "Under €200,000 (outside our scope)"
+  },
+  "ebitdaOptions": {
+    "120to250k": "€120 – 250K",
+    "250to500k": "€250 – 500K",
+    "500to1m": "€500K – €1M",
+    "over1m": "€1M and above",
+    "under120k": "Under €120K (outside our scope)",
+    "undisclosed": "Prefer not to disclose yet"
+  },
+  "reasonOptions": {
+    "retirement": "Retirement",
+    "generational": "Generational transition",
+    "health": "Health reasons",
+    "strategic": "Strategic decision",
+    "financial": "Financial reasons",
+    "other": "Other — I will specify in the message"
+  },
+  "form": {
+    "heading": "Preliminary Request",
+    "title": "Submit a preliminary request",
+    "description": "It takes 3–5 minutes to complete. We will get back to you within 24 hours on business days. We commit to an NDA before any further communication.",
+    "fullName": "Full name *",
+    "email": "Email *",
+    "phone": "Phone *",
+    "company": "Company name / ID number *",
+    "companyPlaceholder": "My Company s.r.o. / 12345678",
+    "industry": "Industry *",
+    "industryPlaceholder": "Select industry",
+    "turnover": "Annual turnover *",
+    "turnoverPlaceholder": "Select range",
+    "ebitda": "Annual EBITDA / net profit *",
+    "ebitdaPlaceholder": "Select range",
+    "reason": "Reason for selling *",
+    "reasonPlaceholder": "Select reason",
+    "message": "Short message (optional)",
+    "messagePlaceholder": "What would you like to tell us about your company or situation...",
+    "submit": "Submit preliminary request",
+    "submitting": "Submitting..."
+  },
+  "consent": "I consent to the processing of my personal data for the purposes of communication regarding the sale of my company in accordance with the privacy policy.",
+  "success": {
+    "title": "Thank you",
+    "text": "Your request has been successfully submitted. We will get back to you within 24 hours on business days."
+  }
+}

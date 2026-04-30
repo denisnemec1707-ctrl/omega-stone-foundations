@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
   Bell,
@@ -41,54 +42,42 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { submitForm } from "@/lib/submitForm";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
-const categoryOptions: { code: string; label: string }[] = [
-  { code: "real_estate", label: "Nehnuteľnosti" },
-  { code: "private_equity", label: "Akvizície firiem" },
-  { code: "secured_loans", label: "Zabezpečené úvery" },
-  { code: "co_investment", label: "Spoluinvestície (deal-by-deal)" },
-];
+const useFormSchema = () => {
+  const { t } = useTranslation("validation");
+  return useMemo(
+    () =>
+      z.object({
+        fullName: z
+          .string()
+          .trim()
+          .min(2, { message: t("fullName.min") })
+          .max(120, { message: t("fullName.max") }),
+        email: z.string().trim().email({ message: t("email.invalid") }).max(255),
+        phone: z
+          .string()
+          .trim()
+          .min(6, { message: t("phone.min") })
+          .max(40),
+        categories: z
+          .array(z.string())
+          .min(1, { message: t("select.interests") }),
+        investmentRange: z
+          .string()
+          .min(1, { message: t("select.clubAmount") }),
+        timeHorizon: z.string().min(1, { message: t("select.clubHorizon") }),
+        consent: z.literal(true, {
+          errorMap: () => ({ message: t("consent.required") }),
+        }),
+        website: z.string().optional(),
+      }),
+    [t],
+  );
+};
 
-const investmentRangeOptions = [
-  "10 000 – 49 000 €",
-  "50 000 – 99 000 €",
-  "100 000 – 299 000 €",
-  "300 000 € a viac",
-];
-
-const timeHorizonOptions = [
-  "Krátkodobo (do 12 mesiacov)",
-  "Strednodobo (1 – 3 roky)",
-  "Dlhodobo (3+ rokov)",
-  "Flexibilné — podľa príležitosti",
-];
-
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .trim()
-    .min(2, { message: "Zadajte celé meno" })
-    .max(120, { message: "Meno je príliš dlhé" }),
-  email: z.string().trim().email({ message: "Neplatný email" }).max(255),
-  phone: z
-    .string()
-    .trim()
-    .min(6, { message: "Zadajte telefónne číslo" })
-    .max(40),
-  categories: z
-    .array(z.string())
-    .min(1, { message: "Vyberte aspoň jednu kategóriu" }),
-  investmentRange: z
-    .string()
-    .min(1, { message: "Vyberte plánovanú výšku investície" }),
-  timeHorizon: z.string().min(1, { message: "Vyberte časový horizont" }),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
-  }),
-  website: z.string().optional(), // honeypot — must remain empty
-});
-
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<ReturnType<typeof useFormSchema>>;
 
 type UtmData = {
   utm_source: string | null;
@@ -123,6 +112,10 @@ function readUtmFromUrl(): UtmData {
 }
 
 const Klub = () => {
+  const { t } = useTranslation("klub");
+  const { t: tVal } = useTranslation("validation");
+  const locale = useLocale();
+  const formSchema = useFormSchema();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [utm, setUtm] = useState<UtmData>({
@@ -137,6 +130,27 @@ const Klub = () => {
   useEffect(() => {
     setUtm(readUtmFromUrl());
   }, []);
+
+  const categoryOptions = [
+    { code: "real_estate", label: t("interestOptions.realEstate") },
+    { code: "private_equity", label: t("interestOptions.acquisitions") },
+    { code: "secured_loans", label: t("interestOptions.loans") },
+    { code: "co_investment", label: t("interestOptions.coInvestment") },
+  ];
+
+  const investmentRangeOptions = [
+    { value: "10to49k", label: t("investmentAmountOptions.10to49k") },
+    { value: "50to99k", label: t("investmentAmountOptions.50to99k") },
+    { value: "100to299k", label: t("investmentAmountOptions.100to299k") },
+    { value: "over300k", label: t("investmentAmountOptions.over300k") },
+  ];
+
+  const timeHorizonOptions = [
+    { value: "short", label: t("horizonOptions.short") },
+    { value: "medium", label: t("horizonOptions.medium") },
+    { value: "long", label: t("horizonOptions.long") },
+    { value: "flexible", label: t("horizonOptions.flexible") },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -153,7 +167,6 @@ const Klub = () => {
   });
 
   const onSubmit = async (values: FormValues) => {
-    // Honeypot: bots fill this hidden field. Silent reject (fake success).
     if (values.website) {
       setSubmitted(true);
       form.reset();
@@ -188,17 +201,14 @@ const Klub = () => {
       setSubmitted(true);
       form.reset();
       toast({
-        title: "Ste v klube",
-        description: "Ozveme sa Vám keď bude niečo zaujímavé.",
+        title: t("success.title"),
+        description: t("success.text"),
       });
     } catch (err) {
       console.error("Klub subscription submit error", err);
       toast({
-        title: "Niečo sa pokazilo",
-        description:
-          "Registrácia sa nepodarila. Skúste to znova alebo nám zavolajte na " +
-          PHONE_DISPLAY +
-          ".",
+        title: tVal("toast.error"),
+        description: tVal("toast.errorDesc"),
         variant: "destructive",
       });
     } finally {
@@ -208,8 +218,8 @@ const Klub = () => {
 
   return (
     <LandingLayout
-      title="ASSETRA Klub | Investičné príležitosti pred verejnou ponukou"
-      description="Pridajte sa do ASSETRA Klubu a dostávajte informácie o vybraných investičných príležitostiach (nehnuteľnosti, akvizície firiem, zabezpečené úvery) skôr, než idú na verejnosť."
+      title={t("meta.title")}
+      description={t("meta.description")}
     >
       {/* HERO */}
       <section className="relative overflow-hidden text-primary-foreground">
@@ -226,20 +236,20 @@ const Klub = () => {
         <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
-              Pre súkromných investorov
+              {t("hero.label")}
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
-              ASSETRA Klub.
+              {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
-              Investičné príležitosti pred verejnou ponukou.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
                 href="#registracia"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
-                Zaregistrovať sa
+                {t("hero.cta")}
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <a
@@ -254,17 +264,13 @@ const Klub = () => {
         </div>
       </section>
 
-      {/* KĽÚČOVÉ BODY */}
+      {/* KEY POINTS */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="max-w-3xl mb-12 sm:mb-16">
               <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
-                Po bezplatnej registrácii Vám pošleme výber zaujímavých investičných príležitostí —
-                <strong className="text-foreground"> výkupy nehnuteľností</strong>,
-                <strong className="text-foreground"> úverovanie realitných projektov</strong> a
-                <strong className="text-foreground"> akvizície fungujúcich slovenských spoločností</strong>.
-                Vždy len keď je niečo, čo zodpovedá Vášmu profilu.
+                {t("intro")}
               </p>
             </div>
           </AnimatedSection>
@@ -272,23 +278,23 @@ const Klub = () => {
             {[
               {
                 icon: Bell,
-                title: "Prednostný prístup",
-                text: "Vybrané príležitosti Vám pošleme skôr, než idú na verejnosť.",
+                title: t("keyPoints.earlyAccess.title"),
+                text: t("keyPoints.earlyAccess.text"),
               },
               {
                 icon: Sparkles,
-                title: "Bez záväzkov",
-                text: "Členstvo je bezplatné. Žiadne fees, žiadne provízie. Reagujete len keď chcete.",
+                title: t("keyPoints.noCommitment.title"),
+                text: t("keyPoints.noCommitment.text"),
               },
               {
                 icon: SlidersHorizontal,
-                title: "Vaše preferencie",
-                text: "Posielame iba to, čo zodpovedá Vášmu profilu — typ, rozsah a horizont.",
+                title: t("keyPoints.preferences.title"),
+                text: t("keyPoints.preferences.text"),
               },
               {
                 icon: ShieldCheck,
-                title: "Diskrétnosť",
-                text: "Konkrétne detaily zdieľame pod NDA. Vaše údaje nezdieľame s nikým.",
+                title: t("keyPoints.discretion.title"),
+                text: t("keyPoints.discretion.text"),
               },
             ].map((b) => (
               <AnimatedSection key={b.title}>
@@ -309,23 +315,20 @@ const Klub = () => {
         </div>
       </section>
 
-      {/* REGISTRÁCIA */}
+      {/* REGISTRATION */}
       <section id="registracia" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16">
               <div className="max-w-2xl mb-8 sm:mb-12">
                 <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/50">
-                  Registrácia
+                  {t("form.heading")}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mt-3 mb-4 leading-tight">
-                  Pridajte sa do klubu
+                  {t("form.title")}
                 </h2>
                 <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed">
-                  Vyplnenie zaberie 2 minúty.{" "}
-                  <strong className="text-primary-foreground">
-                    Posielame iba keď je niečo zaujímavé — žiadny spam.
-                  </strong>
+                  {t("form.description")}
                 </p>
               </div>
 
@@ -333,10 +336,10 @@ const Klub = () => {
                 <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
                   <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
                   <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
-                    Ste v klube
+                    {t("success.title")}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm sm:text-base">
-                    Ďakujeme. Ozveme sa Vám keď bude niečo zaujímavé pre Váš profil.
+                    {t("success.text")}
                   </p>
                 </div>
               ) : (
@@ -345,7 +348,7 @@ const Klub = () => {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-5 sm:space-y-6"
                   >
-                    {/* Honeypot — hidden from real users */}
+                    {/* Honeypot */}
                     <input
                       {...form.register("website")}
                       type="text"
@@ -361,12 +364,12 @@ const Klub = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Meno a priezvisko *
+                              {t("form.fullName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Ján Novák"
+                                placeholder="Jan Novak"
                                 className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
@@ -380,7 +383,7 @@ const Klub = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Email *
+                              {t("form.email")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -402,7 +405,7 @@ const Klub = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Telefón *
+                            {t("form.phone")}
                           </FormLabel>
                           <FormControl>
                             <Input
@@ -423,7 +426,7 @@ const Klub = () => {
                       render={() => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            O aké príležitosti máte záujem? *
+                            {t("form.interests")}
                           </FormLabel>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-2">
                             {categoryOptions.map((opt) => (
@@ -479,7 +482,7 @@ const Klub = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Plánovaná výška investície *
+                              {t("form.investmentAmount")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -487,13 +490,13 @@ const Klub = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte rozsah" />
+                                  <SelectValue placeholder={t("form.investmentAmountPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {investmentRangeOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -508,7 +511,7 @@ const Klub = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Časový horizont *
+                              {t("form.horizon")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -516,13 +519,13 @@ const Klub = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte horizont" />
+                                  <SelectValue placeholder={t("form.horizonPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {timeHorizonOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -547,15 +550,14 @@ const Klub = () => {
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
-                              Súhlasím so spracovaním osobných údajov pre účely
-                              zasielania investičných príležitostí v zmysle{" "}
+                              {t("consent").split("zásad ochrany osobných údajov")[0]}
                               <Link
-                                to="/ochrana-udajov"
+                                to={getLocalizedPath("privacy", locale)}
                                 className="text-primary-foreground underline underline-offset-2"
                               >
-                                zásad ochrany osobných údajov
+                                {t("consent").match(/zásad ochrany osobných údajov/)?.[0] ?? "zásad ochrany osobných údajov"}
                               </Link>
-                              . Z odberu sa môžete kedykoľvek odhlásiť.
+                              {t("consent").split("zásad ochrany osobných údajov")[1] ?? "."}
                             </FormLabel>
                           </div>
                           <FormMessage />
@@ -571,11 +573,11 @@ const Klub = () => {
                       {submitting ? (
                         <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Odosielam…
+                          {t("form.submitting")}
                         </>
                       ) : (
                         <>
-                          Pridať sa do klubu
+                          {t("form.submit")}
                           <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </>
                       )}

@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "title": "Kariéra | ASSETRA investments",
+    "description": "Přidejte se k ASSETRA investments. Hledáme obchodní zástupce a projektové manažery pro naše portfoliové společnosti."
+  },
+  "hero": {
+    "label": "Kariéra",
+    "title": "Přidejte se",
+    "titleAccent": "k nám",
+    "description": "Hledáme talentované lidi, kteří chtějí růst spolu s námi. Staňte se součástí týmu, který buduje portfolio úspěšných společností."
+  },
+  "featured": {
+    "label": "Hledáme nyní",
+    "title": "Asistent CEO",
+    "text": "Pracujte přímo s CEO naší investiční skupiny. Koordinace portfolia, příprava podkladů, kalendář a komunikace s partnery napříč firmami.",
+    "cta": "Detail pozice"
+  },
+  "openPositions": {
+    "label": "Otevřené pozice",
+    "title": "Hledáme posily do týmu",
+    "description": "Pro naše portfoliové společnosti aktuálně hledáme obchodní zástupce a projektové manažery. Nabízíme práci v dynamickém prostředí s reálným dopadem na růst firem."
+  },
+  "positions": {
+    "salesRep": {
+      "title": "Obchodní zástupce",
+      "type": "Full-time",
+      "description": "Hledáme zkušené obchodní zástupce pro naše portfoliové společnosti. Budete zodpovědný za akvizici nových klientů, budování obchodních vztahů a dosahování prodejních cílů.",
+      "requirements": [
+        "Zkušenosti v B2B nebo B2C prodeji",
+        "Komunikační a prezentační dovednosti",
+        "Proaktivní přístup a orientace na výsledky",
+        "Řidičský průkaz skupiny B"
+      ]
+    },
+    "projectManager": {
+      "title": "Projektový manažer",
+      "type": "Full-time",
+      "description": "Pro naše rostoucí portfolio hledáme projektové manažery, kteří budou řídit klíčové projekty napříč odvětvími — od stavebnictví přes energetiku až po gastro.",
+      "requirements": [
+        "Zkušenosti s řízením projektů",
+        "Schopnost pracovat s více týmy současně",
+        "Analytické myšlení a organizační schopnosti",
+        "Znalost projektového řízení (výhodou)"
+      ]
+    }
+  },
+  "cta": {
+    "heading": "Zaujala Vás některá pozice?",
+    "text": "Pošlete nám svůj životopis a krátký motivační dopis. Ozveme se Vám během několika dnů."
+  },
+  "requirementsLabel": "Požadavky"
+}

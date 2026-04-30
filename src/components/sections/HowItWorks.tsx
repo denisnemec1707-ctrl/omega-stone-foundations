@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { motion } from "framer-motion";
@@ -57,36 +58,11 @@ const Step = ({ number, title, description, isHighlighted = false }: StepProps) 
 };
 
 const HowItWorks = () => {
-  const steps = [
-    {
-      number: 1,
-      title: "Investujete",
-      description:
-        "Záväzujete kapitál na definované obdobie (zvyčajne 12–36 mesiacov). Vaše investičné podmienky — výnosová sadzba, výplatný kalendár a trvanie — sú fixované pri podpise zmluvy.",
-      isHighlighted: true,
-    },
-    {
-      number: 2,
-      title: "Kupujeme nehnuteľnosť",
-      description:
-        "Váš kapitál financuje nákup starostlivo vybraných nehnuteľností. Akvizujeme iba aktíva s cenou minimálne 20% pod trhovou hodnotou, čím zabezpečujeme vstavanú maržu pre vaše výnosy a naše operácie.",
-      isHighlighted: false,
-    },
-    {
-      number: 3,
-      title: "Rekonštrukcia a predaj",
-      description:
-        "Nehnuteľnosť rekonštruujeme na trhový štandard a predávame za férovú trhovú cenu. Zisková marža pokrýva váš fixný výnos, prevádzkové náklady a náš zisk.",
-      isHighlighted: false,
-    },
-    {
-      number: 4,
-      title: "Dostávate výnosy",
-      description:
-        "Počas celého investičného obdobia dostávate mesačné výplaty. Na konci cyklu sa vám vráti celá istina. Potom sa môžete rozhodnúť reinvestovať alebo kapitál kompletne vybrať.",
-      isHighlighted: true,
-    },
-  ];
+  const { t } = useTranslation("forInvestors");
+  const modelSteps = t("howItWorks.modelSteps", { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>;
 
   return (
     <section id="ako-to-funguje" className="py-12 sm:py-20 md:py-32 lg:py-48">
@@ -94,18 +70,24 @@ const HowItWorks = () => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="text-center mb-10 sm:mb-12 md:mb-20">
             <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
-              Investičný model
+              {t("howItWorks.modelLabel")}
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md">
-              Ako váš kapitál <span className="text-gold">pracuje</span>
+              {t("howItWorks.modelTitle")} <span className="text-gold">{t("howItWorks.modelTitleAccent")}</span>
             </h2>
           </AnimatedSection>
 
           <div className="relative">
             <AnimatedProgressLine />
             <StaggerContainer className="space-y-6 sm:space-y-10 md:space-y-16" staggerDelay={0.15}>
-              {steps.map((step) => (
-                <Step key={step.number} {...step} />
+              {modelSteps.map((step, index) => (
+                <Step
+                  key={index}
+                  number={index + 1}
+                  title={step.title}
+                  description={step.description}
+                  isHighlighted={index === 0 || index === modelSteps.length - 1}
+                />
               ))}
             </StaggerContainer>
           </div>
@@ -115,7 +97,7 @@ const HowItWorks = () => {
               asChild
               className="bg-gold hover:bg-gold/90 active:bg-gold/80 text-background font-medium tracking-wide uppercase h-12 md:h-14 px-6 sm:px-8 md:px-10 text-sm md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
             >
-              <a href="#kontakt">Začať investovať</a>
+              <a href="#kontakt">{t("howItWorks.modelCta")}</a>
             </Button>
           </AnimatedSection>
         </div>

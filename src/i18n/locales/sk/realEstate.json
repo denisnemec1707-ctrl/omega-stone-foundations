@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Nehnuteľnosti a realitný flipping | ASSETRA Investments",
+    "description": "Nakupujeme podhodnotené nehnuteľnosti, rekonštruujeme ich a predávame s výrazným zhodnotením. Špecializujeme sa na realitný flipping na Slovensku."
+  },
+  "hero": {
+    "label": "Náš sektor",
+    "title": "Nehnuteľnosti",
+    "titleAccent": "a realitný flipping",
+    "description": "Špecializujeme sa na akvizíciu podhodnotených nehnuteľností, ich komplexnú rekonštrukciu a následný predaj za trhovú cenu."
+  },
+  "intro": "Vyhľadávame problémové a podhodnotené rezidenčné nehnuteľnosti na slovenskom trhu. Po akvizícii im pridávame hodnotu komplexnou rekonštrukciou a predávame za férovú trhovú cenu.",
+  "howItWorks": {
+    "label": "Ako funguje realitný flipping",
+    "description": "Náš obchodný model je postavený na nákupe nehnuteľností minimálne 20% pod trhovú hodnotu, ich rekonštrukcii a následnom predaji.",
+    "steps": {
+      "acquisition": {
+        "title": "Akvizícia",
+        "text": "Vyhľadávame nehnuteľnosti pod trhovú hodnotu — exekúcie, dedičstvá, urgentné predaje."
+      },
+      "reconstruction": {
+        "title": "Rekonštrukcia",
+        "text": "Komplexná obnova s vlastným tímom. Zameriavame sa na maximalizáciu hodnoty pri kontrolovaných nákladoch."
+      },
+      "sale": {
+        "title": "Predaj",
+        "text": "Nehnuteľnosť predávame za férovú trhovú cenu. Typická marža je 20% a viac."
+      },
+      "repeat": {
+        "title": "Opakovanie",
+        "text": "Celý cyklus trvá 12–36 mesiacov. Kapitál sa reinvestuje do ďalších projektov."
+      }
+    }
+  },
+  "stats": {
+    "margin": {
+      "value": "20%+",
+      "label": "Cieľová marža",
+      "text": "Na každom projekte cielime minimálne 20% ziskovú maržu."
+    },
+    "cycles": {
+      "value": "12–36",
+      "label": "Mesačné cykly",
+      "text": "Krátke investičné horizonty s definovanými výstupmi."
+    },
+    "market": {
+      "value": "SK",
+      "label": "Trh",
+      "text": "Zameriavame sa na slovenský rezidenčný trh."
+    },
+    "assets": {
+      "value": "Reálne",
+      "label": "Aktíva",
+      "text": "Každý projekt je viazaný na fyzickú nehnuteľnosť."
+    }
+  },
+  "cta": {
+    "heading": "Máte záujem investovať?",
+    "text": "Fixný 12% ročný výnos zabezpečený reálnymi nehnuteľnosťami. Vyplňte nezáväzný formulár.",
+    "clubLink": "alebo sa pridajte do ASSETRA Klubu",
+    "button": "Chcem investovať"
+  }
+}

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -42,6 +43,8 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { submitFormWithFile } from "@/lib/submitForm";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
 const ACCEPTED_CV_TYPES = [
   "application/pdf",
@@ -50,71 +53,52 @@ const ACCEPTED_CV_TYPES = [
 ];
 const MAX_CV_SIZE = 5 * 1024 * 1024; // 5 MB
 
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .trim()
-    .min(2, { message: "Zadajte celé meno" })
-    .max(120, { message: "Meno je príliš dlhé" }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: "Neplatný email" })
-    .max(255),
-  phone: z
-    .string()
-    .trim()
-    .min(6, { message: "Zadajte telefónne číslo" })
-    .max(40),
-  city: z.string().trim().min(2, { message: "Zadajte mesto" }).max(120),
-  motivation: z
-    .string()
-    .trim()
-    .min(30, { message: "Napíšte aspoň pár viet (min. 30 znakov)" })
-    .max(2000, { message: "Maximálne 2000 znakov" }),
-  earliestStart: z.string().min(1, { message: "Vyberte dostupnosť" }),
-  cv: z
-    .instanceof(File, { message: "Priložte CV" })
-    .refine((f) => f.size > 0, { message: "Priložte CV" })
-    .refine((f) => f.size <= MAX_CV_SIZE, {
-      message: "Súbor je väčší ako 5 MB",
-    })
-    .refine((f) => ACCEPTED_CV_TYPES.includes(f.type), {
-      message: "Povolené formáty: PDF, DOC, DOCX",
-    }),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
-  }),
-  website: z.string().optional(),
-});
+const useFormSchema = () => {
+  const { t } = useTranslation("validation");
+  return useMemo(
+    () =>
+      z.object({
+        fullName: z
+          .string()
+          .trim()
+          .min(2, { message: t("fullName.min") })
+          .max(120, { message: t("fullName.max") }),
+        email: z
+          .string()
+          .trim()
+          .email({ message: t("email.invalid") })
+          .max(255),
+        phone: z
+          .string()
+          .trim()
+          .min(6, { message: t("phone.min") })
+          .max(40),
+        city: z.string().trim().min(2, { message: t("city.min") }).max(120),
+        motivation: z
+          .string()
+          .trim()
+          .min(30, { message: t("motivation.min") })
+          .max(2000, { message: t("message.max2000") }),
+        earliestStart: z.string().min(1, { message: t("select.availability") }),
+        cv: z
+          .instanceof(File, { message: t("cv.required") })
+          .refine((f) => f.size > 0, { message: t("cv.required") })
+          .refine((f) => f.size <= MAX_CV_SIZE, {
+            message: t("cv.size"),
+          })
+          .refine((f) => ACCEPTED_CV_TYPES.includes(f.type), {
+            message: t("cv.format"),
+          }),
+        consent: z.literal(true, {
+          errorMap: () => ({ message: t("consent.required") }),
+        }),
+        website: z.string().optional(),
+      }),
+    [t],
+  );
+};
 
-type FormValues = z.infer<typeof formSchema>;
-
-const keyPoints = [
-  {
-    icon: UserRound,
-    title: "Priamo pri konateľovi",
-    text: "Reálny vhľad do vedenia, akvizícií a rozhodnutí.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Výkonnostné bonusy",
-    text: "K základnej mzde bonusy a odmeny naviazané na reálne výsledky práce.",
-  },
-  {
-    icon: Sparkles,
-    title: "Junior pozícia",
-    text: "Hľadáme spoľahlivosť a chuť učiť sa. Vhodné aj pre študenta VŠ. Prax na C-level nie je podmienka.",
-  },
-];
-
-const startOptions = [
-  "Ihneď",
-  "Do 2 týždňov",
-  "Do 1 mesiaca",
-  "Do 2 mesiacov",
-  "Iné — uvediem v motivácii",
-];
+type FormValues = z.infer<ReturnType<typeof useFormSchema>>;
 
 function sanitizeFileName(name: string) {
   return name
@@ -125,8 +109,38 @@ function sanitizeFileName(name: string) {
 }
 
 const AssistantCEO = () => {
+  const { t } = useTranslation("assistantCeo");
+  const { t: tVal } = useTranslation("validation");
+  const locale = useLocale();
+  const formSchema = useFormSchema();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const keyPoints = [
+    {
+      icon: UserRound,
+      title: t("keyPoints.ceo.title"),
+      text: t("keyPoints.ceo.text"),
+    },
+    {
+      icon: TrendingUp,
+      title: t("keyPoints.bonus.title"),
+      text: t("keyPoints.bonus.text"),
+    },
+    {
+      icon: Sparkles,
+      title: t("keyPoints.junior.title"),
+      text: t("keyPoints.junior.text"),
+    },
+  ];
+
+  const startOptions = [
+    { value: "immediately", label: t("startOptions.immediately") },
+    { value: "2weeks", label: t("startOptions.2weeks") },
+    { value: "1month", label: t("startOptions.1month") },
+    { value: "2months", label: t("startOptions.2months") },
+    { value: "other", label: t("startOptions.other") },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -188,15 +202,14 @@ const AssistantCEO = () => {
       setSubmitted(true);
       form.reset();
       toast({
-        title: "Prihláška odoslaná",
-        description: "Ďakujeme. Ozveme sa Vám v najbližších dňoch.",
+        title: tVal("toast.applicationSent"),
+        description: tVal("toast.applicationSentDesc"),
       });
     } catch (err) {
       console.error("Application submit error", err);
       toast({
-        title: "Niečo sa pokazilo",
-        description:
-          "Prihlášku sa nepodarilo odoslať. Skúste to znova alebo nás kontaktujte na info@assetrainvestments.com.",
+        title: tVal("toast.error"),
+        description: tVal("toast.errorDesc"),
         variant: "destructive",
       });
     } finally {
@@ -206,8 +219,8 @@ const AssistantCEO = () => {
 
   return (
     <LandingLayout
-      title="Asistent CEO — junior pozícia | ASSETRA Investments"
-      description="Junior asistent konateľa investičnej skupiny ASSETRA. Práca priamo pri CEO, koordinácia portfólia firiem, príprava podkladov."
+      title={t("meta.title")}
+      description={t("meta.description")}
     >
       {/* HERO */}
       <section className="relative overflow-hidden text-primary-foreground">
@@ -224,20 +237,20 @@ const AssistantCEO = () => {
         <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
-              Kariéra · Junior pozícia
+              {t("hero.label")}
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
-              Asistent CEO.
+              {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
-              Pracujte priamo pri konateľovi spoločnosti.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
                 href="#prihlaska"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
-                Poslať prihlášku
+                {t("hero.cta")}
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <a
@@ -252,7 +265,7 @@ const AssistantCEO = () => {
         </div>
       </section>
 
-      {/* KĽÚČOVÉ BODY */}
+      {/* KEY POINTS */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
@@ -275,23 +288,20 @@ const AssistantCEO = () => {
         </div>
       </section>
 
-      {/* PRIHLÁŠKA */}
+      {/* FORM */}
       <section id="prihlaska" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16">
               <div className="max-w-2xl mb-8 sm:mb-12">
                 <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/50">
-                  Prihláška
+                  {t("form.heading")}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mt-3 mb-4 leading-tight">
-                  Pošlite nám svoju prihlášku
+                  {t("form.title")}
                 </h2>
                 <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed">
-                  Vyplňte formulár a priložte aktuálne CV.{" "}
-                  <strong className="text-primary-foreground">
-                    Ozveme sa Vám v najbližších pracovných dňoch.
-                  </strong>
+                  {t("form.description")}
                 </p>
               </div>
 
@@ -299,11 +309,10 @@ const AssistantCEO = () => {
                 <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
                   <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
                   <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
-                    Ďakujeme
+                    {t("success.title")}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm sm:text-base">
-                    Vaša prihláška bola úspešne odoslaná. Ozveme sa Vám
-                    v najbližších dňoch.
+                    {t("success.text")}
                   </p>
                 </div>
               ) : (
@@ -327,12 +336,12 @@ const AssistantCEO = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Meno a priezvisko *
+                              {t("form.fullName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Ján Novák"
+                                placeholder="Jan Novak"
                                 className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
@@ -346,7 +355,7 @@ const AssistantCEO = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Email *
+                              {t("form.email")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -366,7 +375,7 @@ const AssistantCEO = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Telefón *
+                              {t("form.phone")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -386,7 +395,7 @@ const AssistantCEO = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Mesto / región *
+                              {t("form.city")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -407,13 +416,13 @@ const AssistantCEO = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Prečo Vás táto pozícia zaujala? *
+                            {t("form.motivation")}
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               {...field}
                               rows={5}
-                              placeholder="Napíšte nám pár viet o sebe a Vašej motivácii…"
+                              placeholder={t("form.motivationPlaceholder")}
                               className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                             />
                           </FormControl>
@@ -428,7 +437,7 @@ const AssistantCEO = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Najskorší možný nástup *
+                            {t("form.availability")}
                           </FormLabel>
                           <Select
                             onValueChange={field.onChange}
@@ -436,13 +445,13 @@ const AssistantCEO = () => {
                           >
                             <FormControl>
                               <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                <SelectValue placeholder="Vyberte termín" />
+                                <SelectValue placeholder={t("form.availabilityPlaceholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {startOptions.map((s) => (
-                                <SelectItem key={s} value={s}>
-                                  {s}
+                                <SelectItem key={s.value} value={s.value}>
+                                  {s.label}
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -459,7 +468,7 @@ const AssistantCEO = () => {
                       render={({ field: { onChange, value, ...rest } }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Životopis (PDF, DOC, DOCX, max 5 MB) *
+                            {t("form.cv")}
                           </FormLabel>
                           <FormControl>
                             <label
@@ -470,7 +479,7 @@ const AssistantCEO = () => {
                               <span className="text-sm text-primary-foreground/70 truncate">
                                 {value instanceof File
                                   ? value.name
-                                  : "Kliknite pre nahratie CV"}
+                                  : t("form.cvPlaceholder")}
                               </span>
                               <input
                                 {...rest}
@@ -504,13 +513,12 @@ const AssistantCEO = () => {
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
-                              Súhlasím so spracovaním osobných údajov pre účely
-                              výberového konania v zmysle{" "}
+                              {t("consent").split("zásad ochrany osobných údajov")[0]}
                               <Link
-                                to="/ochrana-udajov"
+                                to={getLocalizedPath("privacy", locale)}
                                 className="text-primary-foreground underline underline-offset-2"
                               >
-                                zásad ochrany osobných údajov
+                                {t("consent").match(/zásad ochrany osobných údajov/)?.[0] ?? "zásad ochrany osobných údajov"}
                               </Link>
                               .
                             </FormLabel>
@@ -528,11 +536,11 @@ const AssistantCEO = () => {
                       {submitting ? (
                         <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Odosielam…
+                          {t("form.submitting")}
                         </>
                       ) : (
                         <>
-                          Odoslať prihlášku
+                          {t("form.submit")}
                           <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </>
                       )}

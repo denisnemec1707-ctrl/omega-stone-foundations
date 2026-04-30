@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Financovanie nehnuteľností do 24 hodín | ASSETRA Investments",
+    "description": "Krátkodobé financovanie nehnuteľností pre maklérov a flipperov. Až do 800 000 €, vaša spoluúčasť len 20 %, schválenie do 24 hodín."
+  },
+  "hero": {
+    "label": "Pre maklérov, flipperov a majiteľov nehnuteľností",
+    "title": "Financujeme Vaše nehnuteľnosti.",
+    "subtitle": "Krátkodobo, až do 800 000 €, so schválením do 24 hodín.",
+    "cta": "Chcem ponuku financovania"
+  },
+  "keyPoints": {
+    "amount": { "title": "Financovanie do 800 000 €", "text": "Krátkodobo na 3 – 6 mesiacov. Pre flipy, výkupy aj kúpu nehnuteľností." },
+    "equity": { "title": "Vaša spoluúčasť len 20 %", "text": "Pákový efekt — Váš kapitál pracuje efektívnejšie a prináša vyššie výnosy." },
+    "approval": { "title": "Schválenie do 24 hodín", "text": "Žiadne týždne čakania ako v banke. Konkrétna ponuka v pracovný deň." },
+    "noBureaucracy": { "title": "Bez byrokracie", "text": "Priamy investor, nie banka. Rozhodujeme rýchlo a transparentne." }
+  },
+  "situationOptions": {
+    "purchase": "Financovanie kúpy nehnuteľnosti",
+    "flip": "Financovanie flipu (rekonštrukcia + predaj)",
+    "buyout": "Rýchly výkup bez zníženia ceny",
+    "loan": "Pôžička proti vlastnej nehnuteľnosti",
+    "stress": "Financovanie stresovej situácie",
+    "other": "Iná situácia"
+  },
+  "amountOptions": {
+    "under100k": "Do 100 000 €",
+    "100to300k": "100 000 – 300 000 €",
+    "300to500k": "300 000 – 500 000 €",
+    "500to800k": "500 000 – 800 000 €",
+    "over800k": "Viac ako 800 000 € (individuálne)"
+  },
+  "contactPreferenceOptions": {
+    "phone": "Telefón",
+    "email": "Email"
+  },
+  "form": {
+    "heading": "Nezáväzná ponuka",
+    "title": "Pripravme Vám ponuku na mieru",
+    "description": "Vyplnenie zaberie 2 minúty. Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+    "fullName": "Meno a priezvisko *",
+    "email": "Email *",
+    "phone": "Telefón *",
+    "contactPreference": "Preferovaný kontakt *",
+    "contactPreferencePlaceholder": "Telefón / Email",
+    "financingType": "Aký typ financovania potrebujete? *",
+    "financingTypePlaceholder": "Vyberte situáciu",
+    "financingAmount": "Požadovaná výška financovania *",
+    "financingAmountPlaceholder": "Vyberte rozsah",
+    "description_field": "Popis nehnuteľnosti / situácie (voliteľné)",
+    "descriptionPlaceholder": "Napr. lokalita, kúpna cena, plánovaný zisk, časový horizont…",
+    "submit": "Odoslať — ozveme sa do 24 h",
+    "submitting": "Odosielam…"
+  },
+  "consent": "Súhlasím so spracovaním osobných údajov pre účely komunikácie ohľadom financovania v zmysle zásad ochrany osobných údajov.",
+  "success": {
+    "title": "Ďakujeme",
+    "text": "Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24 hodín v pracovných dňoch."
+  }
+}

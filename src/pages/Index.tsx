@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -16,11 +19,13 @@ const VerticalCard = ({
   description,
   image,
   href,
+  ctaLabel,
 }: {
   title: string;
   description: string;
   image: string;
   href: string;
+  ctaLabel: string;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -61,7 +66,7 @@ const VerticalCard = ({
                 className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full border border-primary-foreground/30 text-primary-foreground text-xs sm:text-sm tracking-wide group-hover:bg-primary-foreground/10 transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
-                Zobraziť viac
+                {ctaLabel}
                 <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </motion.div>
             </div>
@@ -76,6 +81,9 @@ const VerticalCard = ({
 };
 
 const Index = () => {
+  const { t } = useTranslation("index");
+  const locale = useLocale();
+
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
@@ -87,8 +95,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
-        title="ASSETRA Investments | Súkromná investičná spoločnosť"
-        description="Súkromná investičná spoločnosť zameraná na dlhodobý rast. Nehnuteľnosti, private equity a zabezpečené úvery na Slovensku."
+        title={t("meta.title")}
+        description={t("meta.description")}
+        routeKey="home"
       />
       <Header />
       <main>
@@ -118,7 +127,7 @@ const Index = () => {
 
             <div className="max-w-xl md:max-w-2xl lg:max-w-3xl">
               <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-foreground/90 leading-snug">
-                Súkromná investičná spoločnosť zameraná na dlhodobý rast
+                {t("hero.subtitle")}
               </p>
             </div>
           </motion.div>
@@ -129,7 +138,7 @@ const Index = () => {
           <section className="py-16 sm:py-24 md:py-32 lg:py-40">
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug text-foreground max-w-5xl">
-                ASSETRA investments je súkromná investičná spoločnosť so sídlom na Slovensku. Spravujeme diverzifikované portfólio naprieč nehnuteľnosťami, akvizíciami firiem a zabezpečenými úvermi.
+                {t("aboutStatement")}
               </p>
             </div>
           </section>
@@ -141,10 +150,10 @@ const Index = () => {
             <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
               <div className="flex flex-col gap-5 sm:gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-16 md:items-start">
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
-                  Diverzifikované portfólio
+                  {t("portfolio.label")}
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed md:pt-2 lg:pt-4">
-                  Naša stratégia je založená na konzervativnom prístupe s dôrazom na ochranu kapitálu a generovanie stabilných výnosov prostredníctvom reálnych aktív a overených investičných stratégií.
+                  {t("portfolio.description")}
                 </p>
               </div>
             </div>
@@ -154,22 +163,25 @@ const Index = () => {
         {/* Vertical Cards */}
         <section className="px-3 sm:px-4 md:px-6 space-y-4 sm:space-y-6 md:space-y-8">
           <VerticalCard
-            title="Nehnuteľnosti a realitný flipping"
-            description="Nakupujeme nehnuteľnosti pod trhovú hodnotu prostredníctvom realitného flippingu. Špecializujeme sa na problémové nehnuteľnosti, ktorým pridávame hodnotu a následne predávame s výrazným zhodnotením."
+            title={t("cards.realEstate.title")}
+            description={t("cards.realEstate.text")}
             image={verticalRealestate}
-            href="/nehnutelnosti"
+            href={getLocalizedPath("realEstate", locale)}
+            ctaLabel={t("cards.more")}
           />
           <VerticalCard
-            title="Zabezpečené úvery"
-            description="Financujeme právnické osoby a realitné projekty zabezpečenými úvermi. Ponúkame flexibilné podmienky s dôrazom na bezpečnosť investície a stabilné, rizikovo vyvážené výnosy."
+            title={t("cards.loans.title")}
+            description={t("cards.loans.text")}
             image={verticalCredit}
-            href="/uvery"
+            href={getLocalizedPath("loans", locale)}
+            ctaLabel={t("cards.more")}
           />
           <VerticalCard
-            title="Akvizície a private equity"
-            description="Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty."
+            title={t("cards.equity.title")}
+            description={t("cards.equity.text")}
             image={verticalEquity}
-            href="/akvizicie"
+            href={getLocalizedPath("acquisitions", locale)}
+            ctaLabel={t("cards.more")}
           />
         </section>
 
@@ -180,17 +192,17 @@ const Index = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 sm:gap-10">
                 <div className="max-w-2xl">
                   <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-4 sm:mb-6">
-                    Začnite investovať s ASSETRA
+                    {t("cta.heading")}
                   </h2>
                   <p className="text-primary-foreground/50 font-light text-base sm:text-lg leading-relaxed">
-                    Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.
+                    {t("cta.text")}
                   </p>
                 </div>
                 <Link
-                  to="/investovat"
+                  to={getLocalizedPath("forInvestors", locale)}
                   className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
                 >
-                  Chcem investovať
+                  {t("cta.button")}
                   <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>

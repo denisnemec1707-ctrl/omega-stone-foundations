@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,39 +11,50 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/Ani
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { motion } from "framer-motion";
 
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(1, { message: "Meno je povinné" })
-    .max(100, { message: "Meno môže mať maximálne 100 znakov" }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: "Neplatná emailová adresa" })
-    .max(255, { message: "Email môže mať maximálne 255 znakov" }),
-  phone: z
-    .string()
-    .trim()
-    .max(20, { message: "Telefón môže mať maximálne 20 znakov" })
-    .optional()
-    .or(z.literal("")),
-  investmentAmount: z
-    .string()
-    .trim()
-    .max(50, { message: "Suma môže mať maximálne 50 znakov" })
-    .optional()
-    .or(z.literal("")),
-  message: z
-    .string()
-    .trim()
-    .min(1, { message: "Správa je povinná" })
-    .max(1000, { message: "Správa môže mať maximálne 1000 znakov" }),
-});
+const useContactSchema = () => {
+  const { t } = useTranslation("validation");
 
-type ContactFormData = z.infer<typeof contactSchema>;
+  return useMemo(
+    () =>
+      z.object({
+        name: z
+          .string()
+          .trim()
+          .min(1, { message: t("name.required") })
+          .max(100, { message: t("name.max") }),
+        email: z
+          .string()
+          .trim()
+          .email({ message: t("email.invalid") })
+          .max(255, { message: t("email.max") }),
+        phone: z
+          .string()
+          .trim()
+          .max(20, { message: t("phone.max") })
+          .optional()
+          .or(z.literal("")),
+        investmentAmount: z
+          .string()
+          .trim()
+          .max(50, { message: t("amount.max") })
+          .optional()
+          .or(z.literal("")),
+        message: z
+          .string()
+          .trim()
+          .min(1, { message: t("message.required") })
+          .max(1000, { message: t("message.max") }),
+      }),
+    [t]
+  );
+};
+
+type ContactFormData = z.infer<ReturnType<typeof useContactSchema>>;
 
 const Contact = () => {
+  const { t } = useTranslation("forInvestors");
+  const { t: tv } = useTranslation("validation");
+  const contactSchema = useContactSchema();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -68,8 +80,8 @@ const Contact = () => {
       messageLength: data.message.length,
     });
 
-    toast.success("Správa bola odoslaná", {
-      description: "Budeme vás kontaktovať do 24 hodín.",
+    toast.success(tv("toast.messageSent"), {
+      description: tv("toast.messageSentDesc"),
     });
 
     reset();
@@ -82,13 +94,13 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection className="text-center mb-8 sm:mb-12 md:mb-16">
             <p className="text-[10px] sm:text-xs md:text-sm tracking-ultra-wide uppercase text-gold-muted mb-3 sm:mb-4 md:mb-6">
-              Začnite investovať
+              {t("contact.label")}
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-display-sm lg:text-display-md mb-4 sm:mb-6 md:mb-8">
-              Kontaktujte <span className="text-gold">nás</span>
+              {t("contact.title")} <span className="text-gold">{t("contact.titleAccent")}</span>
             </h2>
             <p className="text-muted-foreground font-light text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto px-2 sm:px-0">
-              Vyplňte formulár a náš investičný tím sa vám ozve do 24 hodín s kompletnými informáciami o investičných možnostiach.
+              {t("contact.description")}
             </p>
           </AnimatedSection>
 
@@ -101,17 +113,17 @@ const Contact = () => {
                 transition={{ duration: 0.3 }}
               >
                 <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
-                  Žiadosť o informácie
+                  {t("contact.formTitle")}
                 </h3>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 md:space-y-6">
                   <div>
                     <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                      Meno a priezvisko *
+                      {t("contact.fullName")}
                     </label>
                     <Input
                       {...register("name")}
-                      placeholder="Ján Novák"
+                      placeholder={t("contact.namePlaceholder")}
                       className="bg-background border-border focus:border-gold h-11 md:h-12 transition-all duration-200"
                     />
                     {errors.name && (
@@ -121,12 +133,12 @@ const Contact = () => {
 
                   <div>
                     <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                      Email *
+                      {t("contact.email")}
                     </label>
                     <Input
                       {...register("email")}
                       type="email"
-                      placeholder="jan.novak@email.sk"
+                      placeholder={t("contact.emailPlaceholder")}
                       className="bg-background border-border focus:border-gold h-11 md:h-12 transition-all duration-200"
                     />
                     {errors.email && (
@@ -136,12 +148,12 @@ const Contact = () => {
 
                   <div>
                     <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                      Telefón
+                      {t("contact.phone")}
                     </label>
                     <Input
                       {...register("phone")}
                       type="tel"
-                      placeholder="+421 900 000 000"
+                      placeholder={t("contact.phonePlaceholder")}
                       className="bg-background border-border focus:border-gold h-11 md:h-12 transition-all duration-200"
                     />
                     {errors.phone && (
@@ -151,11 +163,11 @@ const Contact = () => {
 
                   <div>
                     <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                      Plánovaná výška investície
+                      {t("contact.investmentAmount")}
                     </label>
                     <Input
                       {...register("investmentAmount")}
-                      placeholder="napr. 50 000 €"
+                      placeholder={t("contact.amountPlaceholder")}
                       className="bg-background border-border focus:border-gold h-11 md:h-12 transition-all duration-200"
                     />
                     {errors.investmentAmount && (
@@ -165,11 +177,11 @@ const Contact = () => {
 
                   <div>
                     <label className="text-xs md:text-sm tracking-wide uppercase text-muted-foreground mb-2 block">
-                      Správa *
+                      {t("contact.message")}
                     </label>
                     <Textarea
                       {...register("message")}
-                      placeholder="Opíšte vaše investičné ciele alebo otázky..."
+                      placeholder={t("contact.messagePlaceholder")}
                       rows={4}
                       className="bg-background border-border focus:border-gold resize-none transition-all duration-200"
                     />
@@ -183,7 +195,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full bg-gold hover:bg-gold/90 text-background font-medium tracking-wide uppercase h-12 md:h-14 text-sm md:text-base transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    {isSubmitting ? "Odosielam..." : "Odoslať žiadosť"}
+                    {isSubmitting ? t("contact.submitting") : t("contact.submit")}
                   </Button>
                 </form>
               </motion.div>
@@ -193,13 +205,13 @@ const Contact = () => {
             <AnimatedSection delay={0.2} className="flex flex-col justify-between">
               <div>
                 <h3 className="font-serif text-xl md:text-2xl mb-6 md:mb-8">
-                  Priamy kontakt
+                  {t("directContact.title")}
                 </h3>
 
                 <StaggerContainer className="space-y-6 md:space-y-8" staggerDelay={0.1}>
                   <StaggerItem>
                     <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                      Email
+                      {t("directContact.email")}
                     </p>
                     <a
                       href="mailto:info@assetrainvestments.com"
@@ -211,7 +223,7 @@ const Contact = () => {
 
                   <StaggerItem>
                     <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                      Telefón
+                      {t("directContact.phone")}
                     </p>
                     <a
                       href="tel:+421911860788"
@@ -223,10 +235,10 @@ const Contact = () => {
 
                   <StaggerItem>
                     <p className="text-xs md:text-sm tracking-wide uppercase text-gold-muted mb-2">
-                      Kancelária
+                      {t("directContact.office")}
                     </p>
                     <p className="text-lg md:text-xl text-foreground">
-                      Bratislava, Slovensko
+                      {t("directContact.officeValue")}
                     </p>
                   </StaggerItem>
                 </StaggerContainer>
@@ -234,24 +246,24 @@ const Contact = () => {
 
               <AnimatedSection delay={0.4} className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-border">
                 <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
-                  Investičné podmienky
+                  {t("directContact.conditions")}
                 </p>
                 <div className="grid grid-cols-3 gap-4 md:gap-6 text-center">
                   <div>
                     <p className="font-serif text-xl md:text-2xl text-gold mb-1">
-                      <AnimatedCounter value={10000} formatValue={(v) => `${v.toLocaleString("sk-SK")} €`} />
+                      <AnimatedCounter value={10000} formatValue={(v) => `${v.toLocaleString("sk-SK")} \u20AC`} />
                     </p>
-                    <p className="text-xs text-muted-foreground">Min. investícia</p>
+                    <p className="text-xs text-muted-foreground">{t("directContact.minInvestment")}</p>
                   </div>
                   <div>
                     <p className="font-serif text-xl md:text-2xl text-gold mb-1">
                       <AnimatedCounter value={12} suffix="%" />
                     </p>
-                    <p className="text-xs text-muted-foreground">Ročný výnos</p>
+                    <p className="text-xs text-muted-foreground">{t("directContact.annualReturn")}</p>
                   </div>
                   <div>
                     <p className="font-serif text-xl md:text-2xl text-gold mb-1">12–24</p>
-                    <p className="text-xs text-muted-foreground">Mesiacov</p>
+                    <p className="text-xs text-muted-foreground">{t("directContact.months")}</p>
                   </div>
                 </div>
               </AnimatedSection>

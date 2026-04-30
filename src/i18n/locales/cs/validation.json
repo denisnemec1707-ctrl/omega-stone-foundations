@@ -1,0 +1,77 @@
+{
+  "required": "Toto pole je povinné",
+  "fullName": {
+    "min": "Zadejte celé jméno",
+    "max": "Jméno je příliš dlouhé"
+  },
+  "name": {
+    "required": "Jméno je povinné",
+    "max": "Jméno může mít maximálně 100 znaků"
+  },
+  "email": {
+    "invalid": "Neplatná emailová adresa",
+    "max": "Email může mít maximálně 255 znaků"
+  },
+  "phone": {
+    "min": "Zadejte telefonní číslo",
+    "max": "Telefon může mít maximálně 20 znaků"
+  },
+  "city": {
+    "min": "Zadejte město"
+  },
+  "message": {
+    "required": "Zpráva je povinná",
+    "max": "Zpráva může mít maximálně 1000 znaků",
+    "max2000": "Maximálně 2000 znaků"
+  },
+  "motivation": {
+    "min": "Napište alespoň pár vět (min. 30 znaků)"
+  },
+  "amount": {
+    "max": "Částka může mít maximálně 50 znaků"
+  },
+  "company": {
+    "min": "Zadejte název firmy nebo IČO"
+  },
+  "select": {
+    "industry": "Vyberte odvětví",
+    "turnover": "Vyberte roční obrat",
+    "ebitda": "Vyberte rozsah EBITDA",
+    "reason": "Vyberte důvod prodeje",
+    "investmentAmount": "Vyberte plánovanou výši investice",
+    "investmentHorizon": "Vyberte plánovaný horizont",
+    "contactPreference": "Vyberte preferovaný způsob kontaktu",
+    "financingType": "Vyberte typ financování",
+    "financingAmount": "Vyberte výši financování",
+    "availability": "Vyberte dostupnost",
+    "interests": "Vyberte alespoň jednu kategorii",
+    "clubAmount": "Vyberte plánovanou výši investice",
+    "clubHorizon": "Vyberte časový horizont"
+  },
+  "cv": {
+    "required": "Přiložte CV",
+    "size": "Soubor je větší než 5 MB",
+    "format": "Povolené formáty: PDF, DOC, DOCX"
+  },
+  "consent": {
+    "required": "Musíte souhlasit se zpracováním údajů"
+  },
+  "toast": {
+    "success": "Žádost byla odeslána",
+    "successDesc": "Ozveme se vám v nejbližších dnech.",
+    "success24h": "Žádost odeslána",
+    "success24hDesc": "Ozveme se Vám do 24 hodin v pracovních dnech.",
+    "error": "Něco se pokazilo",
+    "errorDesc": "Žádost se nepodařilo odeslat. Zkuste to znovu nebo nám zavolejte.",
+    "thankYou": "Děkujeme",
+    "thankYouDesc": "Vaše žádost byla úspěšně odeslána. Ozveme se Vám do 24 hodin v pracovních dnech.",
+    "applicationSent": "Přihláška odeslána",
+    "applicationSentDesc": "Děkujeme. Ozveme se Vám v nejbližších dnech.",
+    "messageSent": "Zpráva byla odeslána",
+    "messageSentDesc": "Budeme vás kontaktovat do 24 hodin."
+  },
+  "form": {
+    "submit": "Odeslat žádost",
+    "submitting": "Odesílám..."
+  }
+}

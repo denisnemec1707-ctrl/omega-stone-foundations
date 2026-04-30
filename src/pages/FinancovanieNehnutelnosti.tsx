@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
   Banknote,
@@ -42,59 +43,49 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { submitForm } from "@/lib/submitForm";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
-const situationOptions = [
-  "Financovanie kúpy nehnuteľnosti",
-  "Financovanie flipu (rekonštrukcia + predaj)",
-  "Rýchly výkup bez zníženia ceny",
-  "Pôžička proti vlastnej nehnuteľnosti",
-  "Financovanie stresovej situácie",
-  "Iná situácia",
-];
+const useFormSchema = () => {
+  const { t } = useTranslation("validation");
+  return useMemo(
+    () =>
+      z.object({
+        fullName: z
+          .string()
+          .trim()
+          .min(2, { message: t("fullName.min") })
+          .max(120, { message: t("fullName.max") }),
+        email: z.string().trim().email({ message: t("email.invalid") }).max(255),
+        phone: z
+          .string()
+          .trim()
+          .min(6, { message: t("phone.min") })
+          .max(40),
+        situationType: z
+          .string()
+          .min(1, { message: t("select.financingType") }),
+        financingAmount: z
+          .string()
+          .min(1, { message: t("select.financingAmount") }),
+        contactPreference: z
+          .string()
+          .min(1, { message: t("select.contactPreference") }),
+        message: z
+          .string()
+          .trim()
+          .max(2000, { message: t("message.max2000") })
+          .optional(),
+        consent: z.literal(true, {
+          errorMap: () => ({ message: t("consent.required") }),
+        }),
+        website: z.string().optional(),
+      }),
+    [t],
+  );
+};
 
-const amountOptions = [
-  "Do 100 000 €",
-  "100 000 – 300 000 €",
-  "300 000 – 500 000 €",
-  "500 000 – 800 000 €",
-  "Viac ako 800 000 € (individuálne)",
-];
-
-const contactPreferenceOptions = ["Telefón", "Email"];
-
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .trim()
-    .min(2, { message: "Zadajte celé meno" })
-    .max(120, { message: "Meno je príliš dlhé" }),
-  email: z.string().trim().email({ message: "Neplatný email" }).max(255),
-  phone: z
-    .string()
-    .trim()
-    .min(6, { message: "Zadajte telefónne číslo" })
-    .max(40),
-  situationType: z
-    .string()
-    .min(1, { message: "Vyberte typ financovania" }),
-  financingAmount: z
-    .string()
-    .min(1, { message: "Vyberte výšku financovania" }),
-  contactPreference: z
-    .string()
-    .min(1, { message: "Vyberte preferovaný spôsob kontaktu" }),
-  message: z
-    .string()
-    .trim()
-    .max(2000, { message: "Maximálne 2000 znakov" })
-    .optional(),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
-  }),
-  website: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<ReturnType<typeof useFormSchema>>;
 
 type UtmData = {
   utm_source: string | null;
@@ -129,6 +120,10 @@ function readUtmFromUrl(): UtmData {
 }
 
 const FinancovanieNehnutelnosti = () => {
+  const { t } = useTranslation("financovanie");
+  const { t: tVal } = useTranslation("validation");
+  const locale = useLocale();
+  const formSchema = useFormSchema();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [utm, setUtm] = useState<UtmData>({
@@ -143,6 +138,28 @@ const FinancovanieNehnutelnosti = () => {
   useEffect(() => {
     setUtm(readUtmFromUrl());
   }, []);
+
+  const situationOptions = [
+    { value: "purchase", label: t("situationOptions.purchase") },
+    { value: "flip", label: t("situationOptions.flip") },
+    { value: "buyout", label: t("situationOptions.buyout") },
+    { value: "loan", label: t("situationOptions.loan") },
+    { value: "stress", label: t("situationOptions.stress") },
+    { value: "other", label: t("situationOptions.other") },
+  ];
+
+  const amountOptions = [
+    { value: "under100k", label: t("amountOptions.under100k") },
+    { value: "100to300k", label: t("amountOptions.100to300k") },
+    { value: "300to500k", label: t("amountOptions.300to500k") },
+    { value: "500to800k", label: t("amountOptions.500to800k") },
+    { value: "over800k", label: t("amountOptions.over800k") },
+  ];
+
+  const contactPreferenceOptions = [
+    { value: "phone", label: t("contactPreferenceOptions.phone") },
+    { value: "email", label: t("contactPreferenceOptions.email") },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -195,17 +212,14 @@ const FinancovanieNehnutelnosti = () => {
       setSubmitted(true);
       form.reset();
       toast({
-        title: "Žiadosť odoslaná",
-        description: "Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+        title: tVal("toast.success24h"),
+        description: tVal("toast.success24hDesc"),
       });
     } catch (err) {
       console.error("Property financing inquiry submit error", err);
       toast({
-        title: "Niečo sa pokazilo",
-        description:
-          "Žiadosť sa nepodarilo odoslať. Skúste to znova alebo nám zavolajte na " +
-          PHONE_DISPLAY +
-          ".",
+        title: tVal("toast.error"),
+        description: tVal("toast.errorDesc"),
         variant: "destructive",
       });
     } finally {
@@ -215,8 +229,8 @@ const FinancovanieNehnutelnosti = () => {
 
   return (
     <LandingLayout
-      title="Financovanie nehnuteľností do 24 hodín | ASSETRA Investments"
-      description="Krátkodobé financovanie nehnuteľností pre maklérov a flipperov. Až do 800 000 €, vaša spoluúčasť len 20 %, schválenie do 24 hodín."
+      title={t("meta.title")}
+      description={t("meta.description")}
     >
       {/* HERO */}
       <section className="relative overflow-hidden text-primary-foreground">
@@ -233,20 +247,20 @@ const FinancovanieNehnutelnosti = () => {
         <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
-              Pre maklérov, flipperov a majiteľov nehnuteľností
+              {t("hero.label")}
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
-              Financujeme Vaše nehnuteľnosti.
+              {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
-              Krátkodobo, až do 800 000 €, so schválením do 24 hodín.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
                 href="#formular"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
-                Chcem ponuku financovania
+                {t("hero.cta")}
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <a
@@ -261,30 +275,30 @@ const FinancovanieNehnutelnosti = () => {
         </div>
       </section>
 
-      {/* KĽÚČOVÉ BODY */}
+      {/* KEY POINTS */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {[
               {
                 icon: Banknote,
-                title: "Financovanie do 800 000 €",
-                text: "Krátkodobo na 3 – 6 mesiacov. Pre flipy, výkupy aj kúpu nehnuteľností.",
+                title: t("keyPoints.amount.title"),
+                text: t("keyPoints.amount.text"),
               },
               {
                 icon: Coins,
-                title: "Vaša spoluúčasť len 20 %",
-                text: "Pákový efekt — Váš kapitál pracuje efektívnejšie a prináša vyššie výnosy.",
+                title: t("keyPoints.equity.title"),
+                text: t("keyPoints.equity.text"),
               },
               {
                 icon: CalendarClock,
-                title: "Schválenie do 24 hodín",
-                text: "Žiadne týždne čakania ako v banke. Konkrétna ponuka v pracovný deň.",
+                title: t("keyPoints.approval.title"),
+                text: t("keyPoints.approval.text"),
               },
               {
                 icon: ShieldCheck,
-                title: "Bez byrokracie",
-                text: "Priamy investor, nie banka. Rozhodujeme rýchlo a transparentne.",
+                title: t("keyPoints.noBureaucracy.title"),
+                text: t("keyPoints.noBureaucracy.text"),
               },
             ].map((b) => (
               <AnimatedSection key={b.title}>
@@ -305,23 +319,20 @@ const FinancovanieNehnutelnosti = () => {
         </div>
       </section>
 
-      {/* FORMULÁR */}
+      {/* FORM */}
       <section id="formular" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16">
               <div className="max-w-2xl mb-8 sm:mb-12">
                 <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/50">
-                  Nezáväzná ponuka
+                  {t("form.heading")}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mt-3 mb-4 leading-tight">
-                  Pripravme Vám ponuku na mieru
+                  {t("form.title")}
                 </h2>
                 <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed">
-                  Vyplnenie zaberie 2 minúty.{" "}
-                  <strong className="text-primary-foreground">
-                    Ozveme sa Vám do 24 hodín v pracovných dňoch.
-                  </strong>
+                  {t("form.description")}
                 </p>
               </div>
 
@@ -329,11 +340,10 @@ const FinancovanieNehnutelnosti = () => {
                 <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
                   <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
                   <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
-                    Ďakujeme
+                    {t("success.title")}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm sm:text-base">
-                    Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24
-                    hodín v pracovných dňoch.
+                    {t("success.text")}
                   </p>
                 </div>
               ) : (
@@ -357,12 +367,12 @@ const FinancovanieNehnutelnosti = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Meno a priezvisko *
+                              {t("form.fullName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Ján Novák"
+                                placeholder="Jan Novak"
                                 className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
@@ -376,7 +386,7 @@ const FinancovanieNehnutelnosti = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Email *
+                              {t("form.email")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -396,7 +406,7 @@ const FinancovanieNehnutelnosti = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Telefón *
+                              {t("form.phone")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -416,7 +426,7 @@ const FinancovanieNehnutelnosti = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Preferovaný kontakt *
+                              {t("form.contactPreference")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -424,13 +434,13 @@ const FinancovanieNehnutelnosti = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Telefón / Email" />
+                                  <SelectValue placeholder={t("form.contactPreferencePlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {contactPreferenceOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -447,7 +457,7 @@ const FinancovanieNehnutelnosti = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Aký typ financovania potrebujete? *
+                            {t("form.financingType")}
                           </FormLabel>
                           <Select
                             onValueChange={field.onChange}
@@ -455,13 +465,13 @@ const FinancovanieNehnutelnosti = () => {
                           >
                             <FormControl>
                               <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                <SelectValue placeholder="Vyberte situáciu" />
+                                <SelectValue placeholder={t("form.financingTypePlaceholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {situationOptions.map((s) => (
-                                <SelectItem key={s} value={s}>
-                                  {s}
+                                <SelectItem key={s.value} value={s.value}>
+                                  {s.label}
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -477,7 +487,7 @@ const FinancovanieNehnutelnosti = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Požadovaná výška financovania *
+                            {t("form.financingAmount")}
                           </FormLabel>
                           <Select
                             onValueChange={field.onChange}
@@ -485,13 +495,13 @@ const FinancovanieNehnutelnosti = () => {
                           >
                             <FormControl>
                               <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                <SelectValue placeholder="Vyberte rozsah" />
+                                <SelectValue placeholder={t("form.financingAmountPlaceholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {amountOptions.map((s) => (
-                                <SelectItem key={s} value={s}>
-                                  {s}
+                                <SelectItem key={s.value} value={s.value}>
+                                  {s.label}
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -507,13 +517,13 @@ const FinancovanieNehnutelnosti = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Popis nehnuteľnosti / situácie (voliteľné)
+                            {t("form.description_field")}
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               {...field}
                               rows={4}
-                              placeholder="Napr. lokalita, kúpna cena, plánovaný zisk, časový horizont…"
+                              placeholder={t("form.descriptionPlaceholder")}
                               className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                             />
                           </FormControl>
@@ -538,14 +548,12 @@ const FinancovanieNehnutelnosti = () => {
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
-                              Súhlasím so spracovaním osobných údajov pre
-                              účely komunikácie ohľadom financovania
-                              v zmysle{" "}
+                              {t("consent").split("zásad ochrany osobných údajov")[0]}
                               <Link
-                                to="/ochrana-udajov"
+                                to={getLocalizedPath("privacy", locale)}
                                 className="text-primary-foreground underline underline-offset-2"
                               >
-                                zásad ochrany osobných údajov
+                                {t("consent").match(/zásad ochrany osobných údajov/)?.[0] ?? "zásad ochrany osobných údajov"}
                               </Link>
                               .
                             </FormLabel>
@@ -563,11 +571,11 @@ const FinancovanieNehnutelnosti = () => {
                       {submitting ? (
                         <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Odosielam…
+                          {t("form.submitting")}
                         </>
                       ) : (
                         <>
-                          Odoslať — ozveme sa do 24 h
+                          {t("form.submit")}
                           <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </>
                       )}

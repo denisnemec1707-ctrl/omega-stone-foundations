@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Home",
+    "whatWeDo": "What We Do",
+    "realEstate": "Real Estate",
+    "acquisitions": "Acquisitions",
+    "loans": "Loans",
+    "forInvestors": "For Investors",
+    "club": "ASSETRA Club",
+    "portfolio": "Portfolio",
+    "careers": "Careers",
+    "menu": "Menu"
+  },
+  "footer": {
+    "sectors": "Sectors",
+    "forYou": "For You",
+    "sellCompany": "Selling your company?",
+    "invest": "Invest",
+    "propertyFinancing": "Property Financing",
+    "company": "Company",
+    "assistantCeo": "CEO Assistant",
+    "contact": "Contact",
+    "location": "Bratislava, Slovakia",
+    "ctaHeading": "Let's invest together",
+    "ctaText": "ASSETRA investments is built on solid foundations and long-term partnerships. If you are considering an investment in any of our sectors, we would be happy to connect with you.",
+    "ctaButton": "I want to invest",
+    "copyright": "© 2025 Assetra Investments s.r.o. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  },
+  "cookie": {
+    "text": "This website uses cookies to improve your experience. By using this site, you consent to their processing in accordance with the",
+    "gdpr": "GDPR",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "landing": {
+    "backToMain": "Back to ASSETRA Investments main page",
+    "call": "Call"
+  },
+  "notFound": {
+    "title": "404",
+    "text": "Page not found",
+    "back": "Back to homepage"
+  },
+  "languageSwitcher": {
+    "sk": "SK",
+    "en": "EN",
+    "cs": "CZ"
+  }
+}

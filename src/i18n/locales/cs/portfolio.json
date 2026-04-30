@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Naše portfolio | ASSETRA investments",
+    "description": "Portfolio malých lokálních podniků, které spoluvlastníme — Ensola, Woodsteel, History Caffe & Bakery, EUROSCAFF a realitní projekty."
+  },
+  "hero": {
+    "label": "Portfolio",
+    "title": "Naše",
+    "titleAccent": "společnosti",
+    "description": "Budujeme a spoluvlastníme portfolio malých lokálních podniků s potenciálem růstu napříč různými odvětvími."
+  },
+  "activeInvestments": "Aktivní investice",
+  "companiesCount": "Společnosti v našem portfoliu",
+  "companies": {
+    "ensola": {
+      "name": "Ensola",
+      "description": "Prodej a montáž tepelných čerpadel, smart home řešení a fotovoltaických systémů. Moderní energetická řešení pro domácnosti i firmy.",
+      "tags": ["Tepelná čerpadla", "Fotovoltaika", "Smart Home"]
+    },
+    "woodsteel": {
+      "name": "Woodsteel",
+      "description": "Výroba a montáž zasklení, pergol a zimních zahrad. Aktuálně působí ve třech zemích — Slovensko, Česko a Rakousko.",
+      "tags": ["Zasklení", "Pergoly", "SK · CZ · AT"]
+    },
+    "historyCaffe": {
+      "name": "History Caffe & Bakery",
+      "description": "Lokální kavárna s vlastní pekárnou. Autentický koncept spojující kvalitní kávu s čerstvě pečeným pečivem.",
+      "tags": ["Kavárna", "Pekárna", "Lokální koncept"]
+    },
+    "euroscaff": {
+      "name": "EUROSCAFF",
+      "description": "Stavební společnost a personální agentura ve stavebnictví působící na německém trhu. Zajišťuje kvalifikovanou pracovní sílu pro stavební projekty.",
+      "tags": ["Stavebnictví", "Personalistika", "Německo"]
+    }
+  },
+  "pendingAcquisition": {
+    "label": "Probíhající akvizice",
+    "title": "Rozšiřujeme portfolio",
+    "text": "Aktuálně probíhá akvizice společnosti zaměřené na obchod s hutnickým materiálem. Detaily zveřejníme po ukončení transakce."
+  },
+  "realEstateDivision": {
+    "label": "Realitní divize",
+    "title": "Brixstone Capital",
+    "text": "Prostřednictvím společnosti Brixstone Capital obchodujeme s nemovitostmi na území Slovenské republiky. Vlastníme pozemky, byty a rodinné domy po celém Slovensku."
+  },
+  "project": {
+    "label": "Realitní projekt",
+    "title": "Nové Šútovce 1",
+    "text": "Prodej stavebních pozemků v Šútovcích. Připravené parcely v mírném svahu s kompletní infrastrukturou (sítě + cesta). Ideální poloha v Hornonitrianské kotlině zaručuje rychlou výstavbu a nerušený výhled na okolní krajinu.",
+    "partner": "Realizováno ve spolupráci se společností BAK spol. s.r.o.",
+    "alt1": "Nové Šútovce - stavební pozemky",
+    "alt2": "Nové Šútovce - parcely"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "title": "Obchodní podmínky | ASSETRA Investments",
+    "description": "Obchodní podmínky společnosti ASSETRA investments s.r.o. pro používání webové stránky a služeb."
+  },
+  "title": "Obchodní podmínky",
+  "sections": {
+    "intro": {
+      "title": "1. Úvodní ustanovení",
+      "text": "Tyto obchodní podmínky upravují práva a povinnosti související s používáním webové stránky assetrainvestments.com provozované společností ASSETRA investments s.r.o. se sídlem v Bratislavě, Slovenská republika (dále jen 'společnost')."
+    },
+    "content": {
+      "title": "2. Povaha obsahu",
+      "text": "Obsah této webové stránky slouží výhradně k informativním účelům a nepředstavuje investiční poradenství, nabídku k prodeji ani výzvu ke koupi jakýchkoli finančních nástrojů. Všechny informace o výnosech, projektech a investičních příležitostech jsou orientační a mohou se měnit."
+    },
+    "risk": {
+      "title": "3. Investiční riziko",
+      "text": "Každá investice je spojena s rizikem. Minulé výnosy nejsou zárukou budoucích výsledků. Hodnota investic může růst i klesat. Investoři by měli zvážit své finanční možnosti a v případě potřeby konzultovat nezávislého finančního poradce před přijetím investičního rozhodnutí."
+    },
+    "ip": {
+      "title": "4. Duševní vlastnictví",
+      "text": "Veškerý obsah na této stránce včetně textů, grafiky, log, obrázků a softwaru je chráněn autorským právem a dalšími zákony o duševním vlastnictví. Jakékoli kopírování, reprodukce nebo distribuce bez předchozího písemného souhlasu společnosti je zakázáno."
+    },
+    "liability": {
+      "title": "5. Omezení odpovědnosti",
+      "text": "Společnost nenese odpovědnost za jakoukoli přímou nebo nepřímou škodu vzniklou v souvislosti s používáním této webové stránky nebo spoléháním se na informace na ní uvedené. Společnost si vyhrazuje právo kdykoli měnit obsah stránky bez předchozího upozornění."
+    },
+    "thirdParty": {
+      "title": "6. Odkazy na třetí strany",
+      "text": "Stránka může obsahovat odkazy na webové stránky třetích stran. Společnost nemá kontrolu nad obsahem těchto stránek a nenese za ně žádnou odpovědnost."
+    },
+    "law": {
+      "title": "7. Rozhodné právo",
+      "text": "Tyto obchodní podmínky se řídí právním řádem Slovenské republiky. Jakékoli spory budou řešeny příslušnými soudy Slovenské republiky."
+    },
+    "contact": {
+      "title": "8. Kontakt",
+      "text": "V případě dotazů nás kontaktujte na info@assetrainvestments.com."
+    }
+  },
+  "lastUpdated": "Poslední aktualizace: Březen 2025"
+}

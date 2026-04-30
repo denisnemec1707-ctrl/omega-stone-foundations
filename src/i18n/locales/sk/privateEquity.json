@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Akvizície firiem | ASSETRA Investments",
+    "description": "Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Férovú cenu a diskrétny proces."
+  },
+  "hero": {
+    "label": "Náš sektor",
+    "title": "Akvizície",
+    "titleAccent": "zabehnutých firiem",
+    "description": "Hľadáme fungujúce, ziskové firmy na slovenskom a českom trhu. Ponúkame férovú cenu a diskrétny proces."
+  },
+  "intro": "Vyhľadávame fungujúce, zabehnuté firmy na slovenskom a českom trhu vhodné na odkúpenie. Investujeme prostredníctvom dlhodobých partnerstiev s dôrazom na rast hodnoty.",
+  "criteria": {
+    "label": "Investičné kritériá",
+    "description": "Zameriavame sa na zabehnuté firmy s jasným potenciálom rastu a stabilným tímom.",
+    "turnover": { "value": "1–10 mil. €", "label": "Obrat", "text": "Hľadáme firmy s ročným obratom v rozmedzí 1 až 10 miliónov eur." },
+    "profitability": { "value": "2+ roky", "label": "Ziskovosť", "text": "Firma musí byť zisková minimálne 2 roky po sebe." },
+    "market": { "value": "SK/CZ", "label": "Trh", "text": "Zameriavame sa na slovenský a český trh s potenciálom expanzie." },
+    "team": { "value": "Stabilný", "label": "Tím", "text": "Preferujeme firmy so zabehnutým manažmentom a lojálnym tímom." }
+  },
+  "process": {
+    "label": "Ako to funguje",
+    "description": "Od prvého kontaktu po uzavretie transakcie.",
+    "steps": {
+      "contact": { "title": "Prvotný kontakt", "text": "Nezáväzná konzultácia o vašej firme. Podpíšeme NDA." },
+      "dueDiligence": { "title": "Due diligence", "text": "Detailná analýza finančných výkazov a obchodného modelu." },
+      "valuation": { "title": "Ocenenie a ponuka", "text": "Férová ponuka na základe trhového ocenenia." },
+      "closing": { "title": "Uzavretie transakcie", "text": "Finalizácia dokumentov a prevod vlastníctva." }
+    }
+  },
+  "investCta": {
+    "heading": "Máte záujem investovať?",
+    "text": "Investujte do akvizícií firiem s fixným ročným výnosom. Vyplňte nezáväzný formulár.",
+    "button": "Chcem investovať",
+    "clubLink": "alebo sa pridajte do ASSETRA Klubu"
+  },
+  "sellCta": {
+    "heading": "Predávate firmu?",
+    "text": "Vyplňte formulár a ozveme sa vám s nezáväznou ponukou."
+  },
+  "form": {
+    "title": "Žiadosť o predaj firmy",
+    "fullName": "Meno a priezvisko *",
+    "namePlaceholder": "Ján Novák",
+    "email": "Email *",
+    "emailPlaceholder": "jan.novak@email.sk",
+    "phone": "Telefón",
+    "phonePlaceholder": "+421 900 000 000",
+    "companyName": "Názov firmy",
+    "companyNamePlaceholder": "Názov vašej firmy",
+    "turnover": "Ročný obrat",
+    "turnoverPlaceholder": "Vyberte rozsah",
+    "message": "Správa",
+    "messagePlaceholder": "Stručný popis vašej firmy a dôvod predaja...",
+    "submit": "Odoslať žiadosť"
+  },
+  "turnoverOptions": {
+    "under1m": "Pod 1 mil. €",
+    "1to3m": "1 – 3 mil. €",
+    "3to5m": "3 – 5 mil. €",
+    "5to10m": "5 – 10 mil. €",
+    "over10m": "Nad 10 mil. €"
+  }
+}

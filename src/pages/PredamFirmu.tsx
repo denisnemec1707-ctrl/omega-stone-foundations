@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
   Building2,
@@ -42,78 +43,49 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { submitForm } from "@/lib/submitForm";
+import { useLocale } from "@/i18n/hooks";
+import { getLocalizedPath } from "@/i18n/routes";
 
-const industryOptions = [
-  "Výroba",
-  "Služby",
-  "E-commerce",
-  "Gastronómia",
-  "Real estate",
-  "Stavebníctvo",
-  "IT",
-  "Iné",
-];
+const useFormSchema = () => {
+  const { t } = useTranslation("validation");
+  return useMemo(
+    () =>
+      z.object({
+        fullName: z
+          .string()
+          .trim()
+          .min(2, { message: t("fullName.min") })
+          .max(120, { message: t("fullName.max") }),
+        email: z.string().trim().email({ message: t("email.invalid") }).max(255),
+        phone: z
+          .string()
+          .trim()
+          .min(6, { message: t("phone.min") })
+          .max(40),
+        companyName: z
+          .string()
+          .trim()
+          .min(2, { message: t("company.min") })
+          .max(200),
+        industry: z.string().min(1, { message: t("select.industry") }),
+        annualTurnover: z.string().min(1, { message: t("select.turnover") }),
+        annualEbitda: z.string().min(1, { message: t("select.ebitda") }),
+        saleReason: z.string().min(1, { message: t("select.reason") }),
+        message: z
+          .string()
+          .trim()
+          .max(2000, { message: t("message.max2000") })
+          .optional(),
+        consent: z.literal(true, {
+          errorMap: () => ({ message: t("consent.required") }),
+        }),
+        website: z.string().optional(),
+      }),
+    [t],
+  );
+};
 
-const turnoverOptions = [
-  "200 000 – 500 000 €",
-  "500 000 – 1 mil. €",
-  "1 – 3 mil. €",
-  "3 – 10 mil. €",
-  "10 mil. € a viac",
-  "Pod 200 000 € (mimo nášho zamerania)",
-];
-
-const ebitdaOptions = [
-  "120 – 250 tis. €",
-  "250 – 500 tis. €",
-  "500 tis. – 1 mil. €",
-  "1 mil. € a viac",
-  "Pod 120 tis. € (mimo nášho zamerania)",
-  "Nepoviem zatiaľ",
-];
-
-const reasonOptions = [
-  "Odchod do dôchodku",
-  "Generačná výmena",
-  "Zdravotné dôvody",
-  "Strategické rozhodnutie",
-  "Finančné dôvody",
-  "Iné — uvediem v správe",
-];
-
-const formSchema = z.object({
-  fullName: z
-    .string()
-    .trim()
-    .min(2, { message: "Zadajte celé meno" })
-    .max(120, { message: "Meno je príliš dlhé" }),
-  email: z.string().trim().email({ message: "Neplatný email" }).max(255),
-  phone: z
-    .string()
-    .trim()
-    .min(6, { message: "Zadajte telefónne číslo" })
-    .max(40),
-  companyName: z
-    .string()
-    .trim()
-    .min(2, { message: "Zadajte názov firmy alebo IČO" })
-    .max(200),
-  industry: z.string().min(1, { message: "Vyberte odvetvie" }),
-  annualTurnover: z.string().min(1, { message: "Vyberte ročný obrat" }),
-  annualEbitda: z.string().min(1, { message: "Vyberte rozsah EBITDA" }),
-  saleReason: z.string().min(1, { message: "Vyberte dôvod predaja" }),
-  message: z
-    .string()
-    .trim()
-    .max(2000, { message: "Maximálne 2000 znakov" })
-    .optional(),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: "Musíte súhlasiť so spracovaním údajov" }),
-  }),
-  website: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<ReturnType<typeof useFormSchema>>;
 
 type UtmData = {
   utm_source: string | null;
@@ -148,6 +120,10 @@ function readUtmFromUrl(): UtmData {
 }
 
 const PredamFirmu = () => {
+  const { t } = useTranslation("predamFirmu");
+  const { t: tVal } = useTranslation("validation");
+  const locale = useLocale();
+  const formSchema = useFormSchema();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [utm, setUtm] = useState<UtmData>({
@@ -162,6 +138,44 @@ const PredamFirmu = () => {
   useEffect(() => {
     setUtm(readUtmFromUrl());
   }, []);
+
+  const industryOptions = [
+    { value: "manufacturing", label: t("industryOptions.manufacturing") },
+    { value: "services", label: t("industryOptions.services") },
+    { value: "ecommerce", label: t("industryOptions.ecommerce") },
+    { value: "gastro", label: t("industryOptions.gastro") },
+    { value: "realEstate", label: t("industryOptions.realEstate") },
+    { value: "construction", label: t("industryOptions.construction") },
+    { value: "it", label: t("industryOptions.it") },
+    { value: "other", label: t("industryOptions.other") },
+  ];
+
+  const turnoverOptions = [
+    { value: "200to500k", label: t("turnoverOptions.200to500k") },
+    { value: "500to1m", label: t("turnoverOptions.500to1m") },
+    { value: "1to3m", label: t("turnoverOptions.1to3m") },
+    { value: "3to10m", label: t("turnoverOptions.3to10m") },
+    { value: "over10m", label: t("turnoverOptions.over10m") },
+    { value: "under200k", label: t("turnoverOptions.under200k") },
+  ];
+
+  const ebitdaOptions = [
+    { value: "120to250k", label: t("ebitdaOptions.120to250k") },
+    { value: "250to500k", label: t("ebitdaOptions.250to500k") },
+    { value: "500to1m", label: t("ebitdaOptions.500to1m") },
+    { value: "over1m", label: t("ebitdaOptions.over1m") },
+    { value: "under120k", label: t("ebitdaOptions.under120k") },
+    { value: "undisclosed", label: t("ebitdaOptions.undisclosed") },
+  ];
+
+  const reasonOptions = [
+    { value: "retirement", label: t("reasonOptions.retirement") },
+    { value: "generational", label: t("reasonOptions.generational") },
+    { value: "health", label: t("reasonOptions.health") },
+    { value: "strategic", label: t("reasonOptions.strategic") },
+    { value: "financial", label: t("reasonOptions.financial") },
+    { value: "other", label: t("reasonOptions.other") },
+  ];
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -218,17 +232,14 @@ const PredamFirmu = () => {
       setSubmitted(true);
       form.reset();
       toast({
-        title: "Žiadosť odoslaná",
-        description: "Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+        title: tVal("toast.success24h"),
+        description: tVal("toast.success24hDesc"),
       });
     } catch (err) {
       console.error("Company sale inquiry submit error", err);
       toast({
-        title: "Niečo sa pokazilo",
-        description:
-          "Žiadosť sa nepodarilo odoslať. Skúste to znova alebo nám zavolajte na " +
-          PHONE_DISPLAY +
-          ".",
+        title: tVal("toast.error"),
+        description: tVal("toast.errorDesc"),
         variant: "destructive",
       });
     } finally {
@@ -238,8 +249,8 @@ const PredamFirmu = () => {
 
   return (
     <LandingLayout
-      title="Odkúpime Vašu firmu | Férová ponuka do 7 dní | ASSETRA Investments"
-      description="Súkromná investičná skupina ASSETRA hľadá funkčné slovenské firmy s obratom od 200 000 €. Priamy odkup, bez sprostredkovateľov, bez provízií. Férová ponuka do 7 dní."
+      title={t("meta.title")}
+      description={t("meta.description")}
     >
       {/* HERO */}
       <section className="relative overflow-hidden text-primary-foreground">
@@ -256,20 +267,20 @@ const PredamFirmu = () => {
         <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-20 sm:py-28 md:py-36 lg:py-44">
           <div className="max-w-4xl">
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
-              Pre majiteľov zabehnutých firiem
+              {t("hero.label")}
             </span>
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
-              Odkúpime Vašu firmu.
+              {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
-              Priamy investor. Férová ponuka do 7 dní.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
                 href="#formular"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
-                Získať predbežnú ponuku
+                {t("hero.cta")}
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
               <a
@@ -284,30 +295,30 @@ const PredamFirmu = () => {
         </div>
       </section>
 
-      {/* KĽÚČOVÉ BODY */}
+      {/* KEY POINTS */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {[
               {
                 icon: HandCoins,
-                title: "Priamy investor",
-                text: "Sme samotný kupujúci. Bez provízií, bez sprostredkovateľov.",
+                title: t("keyPoints.directInvestor.title"),
+                text: t("keyPoints.directInvestor.text"),
               },
               {
                 icon: ShieldCheck,
-                title: "NDA pred prvými číslami",
-                text: "Diskrétnosť garantovaná od prvého kontaktu.",
+                title: t("keyPoints.nda.title"),
+                text: t("keyPoints.nda.text"),
               },
               {
                 icon: Timer,
-                title: "Ponuka do 7 dní",
-                text: "Po obhliadke firmy do týždňa viete, či a za koľko.",
+                title: t("keyPoints.offer.title"),
+                text: t("keyPoints.offer.text"),
               },
               {
                 icon: Building2,
-                title: "Obrat od 200 000 €",
-                text: "EBITDA od 120 000 €. Funkčné slovenské firmy v stabilných odvetviach.",
+                title: t("keyPoints.turnover.title"),
+                text: t("keyPoints.turnover.text"),
               },
             ].map((b) => (
               <AnimatedSection key={b.title}>
@@ -328,24 +339,20 @@ const PredamFirmu = () => {
         </div>
       </section>
 
-      {/* FORMULÁR */}
+      {/* FORM */}
       <section id="formular" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16">
               <div className="max-w-2xl mb-8 sm:mb-12">
                 <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/50">
-                  Predbežná žiadosť
+                  {t("form.heading")}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-foreground mt-3 mb-4 leading-tight">
-                  Pošlite nám predbežnú žiadosť
+                  {t("form.title")}
                 </h2>
                 <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed">
-                  Vyplnenie zaberie 3 – 5 minút.{" "}
-                  <strong className="text-primary-foreground">
-                    Ozveme sa Vám do 24 hodín v pracovných dňoch.
-                  </strong>{" "}
-                  Pred akoukoľvek ďalšou komunikáciou sa zaviažeme NDA.
+                  {t("form.description")}
                 </p>
               </div>
 
@@ -353,11 +360,10 @@ const PredamFirmu = () => {
                 <div className="rounded-2xl border border-primary-foreground/30 bg-primary-foreground/10 p-6 sm:p-8 text-center max-w-2xl">
                   <CheckCircle2 className="w-10 h-10 text-primary-foreground mx-auto mb-4" />
                   <h3 className="font-serif text-xl sm:text-2xl text-primary-foreground mb-2">
-                    Ďakujeme
+                    {t("success.title")}
                   </h3>
                   <p className="text-primary-foreground/70 text-sm sm:text-base">
-                    Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24
-                    hodín v pracovných dňoch.
+                    {t("success.text")}
                   </p>
                 </div>
               ) : (
@@ -381,12 +387,12 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Meno a priezvisko *
+                              {t("form.fullName")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Ján Novák"
+                                placeholder="Jan Novak"
                                 className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
@@ -400,7 +406,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Email *
+                              {t("form.email")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -420,7 +426,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Telefón *
+                              {t("form.phone")}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -440,12 +446,12 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Názov firmy / IČO *
+                              {t("form.company")}
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
-                                placeholder="Moja firma s.r.o. / 12345678"
+                                placeholder={t("form.companyPlaceholder")}
                                 className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                               />
                             </FormControl>
@@ -462,7 +468,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Odvetvie *
+                              {t("form.industry")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -470,13 +476,13 @@ const PredamFirmu = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte odvetvie" />
+                                  <SelectValue placeholder={t("form.industryPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {industryOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -491,7 +497,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Dôvod predaja *
+                              {t("form.reason")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -499,13 +505,13 @@ const PredamFirmu = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte dôvod" />
+                                  <SelectValue placeholder={t("form.reasonPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {reasonOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -523,7 +529,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Ročný obrat *
+                              {t("form.turnover")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -531,13 +537,13 @@ const PredamFirmu = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte rozsah" />
+                                  <SelectValue placeholder={t("form.turnoverPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {turnoverOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -552,7 +558,7 @@ const PredamFirmu = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              Ročná EBITDA / čistý zisk *
+                              {t("form.ebitda")}
                             </FormLabel>
                             <Select
                               onValueChange={field.onChange}
@@ -560,13 +566,13 @@ const PredamFirmu = () => {
                             >
                               <FormControl>
                                 <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder="Vyberte rozsah" />
+                                  <SelectValue placeholder={t("form.ebitdaPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
                                 {ebitdaOptions.map((s) => (
-                                  <SelectItem key={s} value={s}>
-                                    {s}
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
                                   </SelectItem>
                                 ))}
                               </SelectContent>
@@ -583,13 +589,13 @@ const PredamFirmu = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-primary-foreground/80">
-                            Krátka správa (voliteľné)
+                            {t("form.message")}
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               {...field}
                               rows={4}
-                              placeholder="Čo by ste nám chceli povedať o vašej firme alebo situácii…"
+                              placeholder={t("form.messagePlaceholder")}
                               className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
                             />
                           </FormControl>
@@ -614,14 +620,12 @@ const PredamFirmu = () => {
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
-                              Súhlasím so spracovaním osobných údajov pre
-                              účely komunikácie ohľadom predaja firmy
-                              v zmysle{" "}
+                              {t("consent").split("zásad ochrany osobných údajov")[0]}
                               <Link
-                                to="/ochrana-udajov"
+                                to={getLocalizedPath("privacy", locale)}
                                 className="text-primary-foreground underline underline-offset-2"
                               >
-                                zásad ochrany osobných údajov
+                                {t("consent").match(/zásad ochrany osobných údajov/)?.[0] ?? "zásad ochrany osobných údajov"}
                               </Link>
                               .
                             </FormLabel>
@@ -639,11 +643,11 @@ const PredamFirmu = () => {
                       {submitting ? (
                         <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Odosielam…
+                          {t("form.submitting")}
                         </>
                       ) : (
                         <>
-                          Odoslať predbežnú žiadosť
+                          {t("form.submit")}
                           <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </>
                       )}

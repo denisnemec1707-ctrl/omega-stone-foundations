@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Domov",
+    "whatWeDo": "Čo robíme",
+    "realEstate": "Nehnuteľnosti",
+    "acquisitions": "Akvizície",
+    "loans": "Úvery",
+    "forInvestors": "Pre investorov",
+    "club": "ASSETRA Klub",
+    "portfolio": "Portfólio",
+    "careers": "Kariéra",
+    "menu": "Menu"
+  },
+  "footer": {
+    "sectors": "Sektory",
+    "forYou": "Pre Vás",
+    "sellCompany": "Predáte firmu?",
+    "invest": "Investovať",
+    "propertyFinancing": "Financovanie nehnuteľností",
+    "company": "Spoločnosť",
+    "assistantCeo": "Asistent CEO",
+    "contact": "Kontakt",
+    "location": "Bratislava, Slovensko",
+    "ctaHeading": "Poďme investovať spoločne",
+    "ctaText": "ASSETRA investments stojí na pevných základoch a dlhodobých partnerstvách. Ak zvažujete investíciu do niektorého z našich sektorov, radi sa s Vami spojíme.",
+    "ctaButton": "Chcem investovať",
+    "copyright": "© 2025 Assetra Investments s.r.o. Všetky práva vyhradené.",
+    "privacy": "Ochrana osobných údajov",
+    "terms": "Obchodné podmienky"
+  },
+  "cookie": {
+    "text": "Táto stránka používa cookies na zlepšenie vášho zážitku. Používaním stránky súhlasíte s ich spracovaním v súlade s",
+    "gdpr": "GDPR",
+    "accept": "Súhlasím",
+    "reject": "Odmietnuť"
+  },
+  "landing": {
+    "backToMain": "Späť na hlavnú stránku ASSETRA Investments",
+    "call": "Zavolať"
+  },
+  "notFound": {
+    "title": "404",
+    "text": "Stránka nebola nájdená",
+    "back": "Späť na úvod"
+  },
+  "languageSwitcher": {
+    "sk": "SK",
+    "en": "EN",
+    "cs": "CZ"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "required": "Toto pole je povinné",
+  "fullName": {
+    "min": "Zadajte celé meno",
+    "max": "Meno je príliš dlhé"
+  },
+  "name": {
+    "required": "Meno je povinné",
+    "max": "Meno môže mať maximálne 100 znakov"
+  },
+  "email": {
+    "invalid": "Neplatná emailová adresa",
+    "max": "Email môže mať maximálne 255 znakov"
+  },
+  "phone": {
+    "min": "Zadajte telefónne číslo",
+    "max": "Telefón môže mať maximálne 20 znakov"
+  },
+  "city": {
+    "min": "Zadajte mesto"
+  },
+  "message": {
+    "required": "Správa je povinná",
+    "max": "Správa môže mať maximálne 1000 znakov",
+    "max2000": "Maximálne 2000 znakov"
+  },
+  "motivation": {
+    "min": "Napíšte aspoň pár viet (min. 30 znakov)"
+  },
+  "amount": {
+    "max": "Suma môže mať maximálne 50 znakov"
+  },
+  "company": {
+    "min": "Zadajte názov firmy alebo IČO"
+  },
+  "select": {
+    "industry": "Vyberte odvetvie",
+    "turnover": "Vyberte ročný obrat",
+    "ebitda": "Vyberte rozsah EBITDA",
+    "reason": "Vyberte dôvod predaja",
+    "investmentAmount": "Vyberte plánovanú výšku investície",
+    "investmentHorizon": "Vyberte plánovaný horizont",
+    "contactPreference": "Vyberte preferovaný spôsob kontaktu",
+    "financingType": "Vyberte typ financovania",
+    "financingAmount": "Vyberte výšku financovania",
+    "availability": "Vyberte dostupnosť",
+    "interests": "Vyberte aspoň jednu kategóriu",
+    "clubAmount": "Vyberte plánovanú výšku investície",
+    "clubHorizon": "Vyberte časový horizont"
+  },
+  "cv": {
+    "required": "Priložte CV",
+    "size": "Súbor je väčší ako 5 MB",
+    "format": "Povolené formáty: PDF, DOC, DOCX"
+  },
+  "consent": {
+    "required": "Musíte súhlasiť so spracovaním údajov"
+  },
+  "toast": {
+    "success": "Žiadosť bola odoslaná",
+    "successDesc": "Ozveme sa vám v najbližších dňoch.",
+    "success24h": "Žiadosť odoslaná",
+    "success24hDesc": "Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+    "error": "Niečo sa pokazilo",
+    "errorDesc": "Žiadosť sa nepodarilo odoslať. Skúste to znova alebo nám zavolajte.",
+    "thankYou": "Ďakujeme",
+    "thankYouDesc": "Vaša žiadosť bola úspešne odoslaná. Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+    "applicationSent": "Prihláška odoslaná",
+    "applicationSentDesc": "Ďakujeme. Ozveme sa Vám v najbližších dňoch.",
+    "messageSent": "Správa bola odoslaná",
+    "messageSentDesc": "Budeme vás kontaktovať do 24 hodín."
+  },
+  "form": {
+    "submit": "Odoslať žiadosť",
+    "submitting": "Odosielam..."
+  }
+}
