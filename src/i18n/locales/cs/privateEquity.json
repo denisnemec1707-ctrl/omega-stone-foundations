@@ -22,7 +22,7 @@
     "label": "Jak to funguje",
     "description": "Od prvního kontaktu po uzavření transakce.",
     "steps": {
-      "contact": { "title": "Prvotní kontakt", "text": "Nezávazná konzultace o vaší firmě. Podepíšeme NDA." },
+      "contact": { "title": "Prvotní kontakt", "text": "Nezávazná konzultace o Vaší firmě. Podepíšeme NDA." },
       "dueDiligence": { "title": "Due diligence", "text": "Detailní analýza finančních výkazů a obchodního modelu." },
       "valuation": { "title": "Ocenění a nabídka", "text": "Férová nabídka na základě tržního ocenění." },
       "closing": { "title": "Uzavření transakce", "text": "Finalizace dokumentů a převod vlastnictví." }
@@ -36,7 +36,7 @@
   },
   "sellCta": {
     "heading": "Prodáváte firmu?",
-    "text": "Vyplňte formulář a ozveme se vám s nezávaznou nabídkou."
+    "text": "Vyplňte formulář a ozveme se Vám s nezávaznou nabídkou."
   },
   "form": {
     "title": "Žádost o prodej firmy",
@@ -45,13 +45,13 @@
     "email": "Email *",
     "emailPlaceholder": "jan.novak@email.cz",
     "phone": "Telefon",
-    "phonePlaceholder": "+420 900 000 000",
+    "phonePlaceholder": "+420 777 000 000",
     "companyName": "Název firmy",
-    "companyNamePlaceholder": "Název vaší firmy",
+    "companyNamePlaceholder": "Název Vaší firmy",
     "turnover": "Roční obrat",
     "turnoverPlaceholder": "Vyberte rozsah",
     "message": "Zpráva",
-    "messagePlaceholder": "Stručný popis vaší firmy a důvod prodeje...",
+    "messagePlaceholder": "Stručný popis Vaší firmy a důvod prodeje...",
     "submit": "Odeslat žádost"
   },
   "turnoverOptions": {

@@ -58,20 +58,20 @@
   },
   "form": {
     "heading": "Požádat o financování",
-    "description": "Vyplňte formulář a ozveme se vám do 5 pracovních dnů s konkrétními podmínkami.",
+    "description": "Vyplňte formulář a ozveme se Vám do 5 pracovních dnů s konkrétními podmínkami.",
     "title": "Žádost o úvěr",
     "fullName": "Jméno a příjmení *",
     "namePlaceholder": "Jan Novák",
     "email": "Email *",
     "emailPlaceholder": "jan.novak@email.cz",
     "phone": "Telefon",
-    "phonePlaceholder": "+420 900 000 000",
+    "phonePlaceholder": "+420 777 000 000",
     "projectType": "Typ projektu",
     "projectTypePlaceholder": "Vyberte typ",
     "loanAmount": "Požadovaná výše úvěru",
     "loanAmountPlaceholder": "Vyberte rozsah",
     "message": "Zpráva",
-    "messagePlaceholder": "Popište váš projekt nebo potřebu financování...",
+    "messagePlaceholder": "Popište Váš projekt nebo potřebu financování...",
     "submit": "Odeslat žádost"
   },
   "projectTypes": {

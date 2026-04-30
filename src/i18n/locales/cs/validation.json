@@ -58,7 +58,7 @@
   },
   "toast": {
     "success": "Žádost byla odeslána",
-    "successDesc": "Ozveme se vám v nejbližších dnech.",
+    "successDesc": "Ozveme se Vám v nejbližších dnech.",
     "success24h": "Žádost odeslána",
     "success24hDesc": "Ozveme se Vám do 24 hodin v pracovních dnech.",
     "error": "Něco se pokazilo",
@@ -68,7 +68,7 @@
     "applicationSent": "Přihláška odeslána",
     "applicationSentDesc": "Děkujeme. Ozveme se Vám v nejbližších dnech.",
     "messageSent": "Zpráva byla odeslána",
-    "messageSentDesc": "Budeme vás kontaktovat do 24 hodin."
+    "messageSentDesc": "Budeme Vás kontaktovat do 24 hodin."
   },
   "form": {
     "submit": "Odeslat žádost",
