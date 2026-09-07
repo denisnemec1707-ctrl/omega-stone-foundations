@@ -15,13 +15,9 @@ import { PageTransition } from "./components/PageTransition";
 import Index from "./pages/Index";
 import RealEstate from "./pages/RealEstate";
 import PrivateEquity from "./pages/PrivateEquity";
-import PrivateCredit from "./pages/PrivateCredit";
-import ForInvestors from "./pages/ForInvestors";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Portfolio from "./pages/Portfolio";
-import Careers from "./pages/Careers";
-import AssistantCEO from "./pages/AssistantCEO";
 import PredamFirmu from "./pages/PredamFirmu";
 import Investovat from "./pages/Investovat";
 import FinancovanieNehnutelnosti from "./pages/FinancovanieNehnutelnosti";
@@ -45,12 +41,9 @@ function pageRoutes() {
     <Route key="acquisitions" path="acquisitions" element={<PageTransition><PrivateEquity /></PageTransition>} />,
     <Route key="akvizice" path="akvizice" element={<PageTransition><PrivateEquity /></PageTransition>} />,
 
-    <Route key="uvery" path="uvery" element={<PageTransition><PrivateCredit /></PageTransition>} />,
-    <Route key="loans" path="loans" element={<PageTransition><PrivateCredit /></PageTransition>} />,
 
-    <Route key="pre-investorov" path="pre-investorov" element={<PageTransition><ForInvestors /></PageTransition>} />,
-    <Route key="for-investors" path="for-investors" element={<PageTransition><ForInvestors /></PageTransition>} />,
-    <Route key="pro-investory" path="pro-investory" element={<PageTransition><ForInvestors /></PageTransition>} />,
+    // Hidden for now (pages kept in repo for future use):
+    // ForInvestors (/pre-investorov), Careers (/kariera), AssistantCEO (/kariera/asistent-ceo)
 
     <Route key="ochrana-udajov" path="ochrana-udajov" element={<PageTransition><PrivacyPolicy /></PageTransition>} />,
     <Route key="privacy-policy" path="privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />,
@@ -63,12 +56,6 @@ function pageRoutes() {
     <Route key="projekty" path="projekty" element={<PageTransition><Portfolio /></PageTransition>} />,
     <Route key="portfolio" path="portfolio" element={<PageTransition><Portfolio /></PageTransition>} />,
 
-    <Route key="kariera" path="kariera" element={<PageTransition><Careers /></PageTransition>} />,
-    <Route key="careers" path="careers" element={<PageTransition><Careers /></PageTransition>} />,
-
-    // Fast-load routes — no PageTransition wrapper for fast LCP
-    <Route key="asistent-ceo" path="kariera/asistent-ceo" element={<AssistantCEO />} />,
-    <Route key="ceo-assistant" path="careers/ceo-assistant" element={<AssistantCEO />} />,
 
     <Route key="predam-firmu" path="predam-firmu" element={<PredamFirmu />} />,
     <Route key="sell-your-company" path="sell-your-company" element={<PredamFirmu />} />,

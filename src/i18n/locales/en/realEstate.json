@@ -33,15 +33,31 @@
     }
   },
   "stats": {
-    "margin": { "value": "20%+", "label": "Target Margin", "text": "We target a minimum 20% profit margin on every project." },
-    "cycles": { "value": "12–36", "label": "Month Cycles", "text": "Short investment horizons with defined exit points." },
-    "market": { "value": "SK", "label": "Market", "text": "We focus on the Slovak residential market." },
-    "assets": { "value": "Real", "label": "Assets", "text": "Every project is backed by a physical property." }
+    "margin": {
+      "value": "20%+",
+      "label": "Target Margin",
+      "text": "We target a minimum 20% profit margin on every project."
+    },
+    "cycles": {
+      "value": "12–36",
+      "label": "Month Cycles",
+      "text": "Short investment horizons with defined exit points."
+    },
+    "market": {
+      "value": "SK",
+      "label": "Market",
+      "text": "We focus on the Slovak residential market."
+    },
+    "assets": {
+      "value": "Real",
+      "label": "Assets",
+      "text": "Every project is backed by a physical property."
+    }
   },
   "cta": {
     "heading": "Interested in investing?",
-    "text": "Fixed 12% annual return secured by real property. Fill out a non-binding form.",
+    "text": "Selected real-estate opportunities are opened to ASSETRA Club members — discreetly and with no obligations.",
     "clubLink": "or join the ASSETRA Club",
-    "button": "I want to invest"
+    "button": "Discover ASSETRA Club"
   }
 }

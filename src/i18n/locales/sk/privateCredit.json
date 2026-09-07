@@ -31,29 +31,75 @@
   "benefits": {
     "label": "Výhody spolupráce",
     "description": "Rýchle rozhodnutia, flexibilné podmienky a transparentné náklady.",
-    "fast": { "value": "5 dní", "title": "Rýchle schválenie", "text": "Rozhodnutie do 5 pracovných dní." },
-    "flexible": { "value": "Flexibilné", "title": "Podmienky", "text": "Individuálny prístup ku každému projektu." },
-    "noFees": { "value": "0 €", "title": "Skryté poplatky", "text": "Jasná úroková sadzba od začiatku." },
-    "minBureaucracy": { "value": "Min.", "title": "Byrokracia", "text": "Zameriavame sa na podstatu projektu." }
+    "fast": {
+      "value": "5 dní",
+      "title": "Rýchle schválenie",
+      "text": "Rozhodnutie do 5 pracovných dní."
+    },
+    "flexible": {
+      "value": "Flexibilné",
+      "title": "Podmienky",
+      "text": "Individuálny prístup ku každému projektu."
+    },
+    "noFees": {
+      "value": "0 €",
+      "title": "Skryté poplatky",
+      "text": "Jasná úroková sadzba od začiatku."
+    },
+    "minBureaucracy": {
+      "value": "Min.",
+      "title": "Byrokracia",
+      "text": "Zameriavame sa na podstatu projektu."
+    }
   },
   "process": {
     "label": "Ako to funguje",
     "steps": {
-      "request": { "title": "Žiadosť", "text": "Kontaktujte nás s popisom projektu." },
-      "analysis": { "title": "Analýza", "text": "Vyhodnotíme projekt a zabezpečenie." },
-      "offer": { "title": "Ponuka", "text": "Konkrétna ponuka s podmienkami." },
-      "funding": { "title": "Čerpanie", "text": "Po podpise uvoľníme financie." }
+      "request": {
+        "title": "Žiadosť",
+        "text": "Kontaktujte nás s popisom projektu."
+      },
+      "analysis": {
+        "title": "Analýza",
+        "text": "Vyhodnotíme projekt a zabezpečenie."
+      },
+      "offer": {
+        "title": "Ponuka",
+        "text": "Konkrétna ponuka s podmienkami."
+      },
+      "funding": {
+        "title": "Čerpanie",
+        "text": "Po podpise uvoľníme financie."
+      }
     }
   },
   "faq": {
     "label": "Časté otázky",
     "items": [
-      { "q": "Aké zabezpečenie požadujete?", "a": "Záložné právo na nehnuteľnosť alebo záloh na obchodný podiel. Akceptujeme aj záloh na hnuteľný majetok firmy." },
-      { "q": "Aká je maximálna výška úveru?", "a": "Pre realitné projekty do 2 000 000 €, pre podnikateľské úvery do 1 000 000 €." },
-      { "q": "Ako rýchlo môžem získať financie?", "a": "Rozhodujeme do 5 pracovných dní. Čerpanie do 2 týždňov od schválenia." },
-      { "q": "Aké sú úrokové sadzby?", "a": "Od 10% do 18% p.a. v závislosti od typu projektu a kvality zabezpečenia." },
-      { "q": "Môžem splatiť úver predčasne?", "a": "Áno, kedykoľvek bez poplatkov. Úroky sa počítajú len za skutočné čerpanie." },
-      { "q": "Financujete aj fyzické osoby?", "a": "Nie, financujeme výlučne právnické osoby – s.r.o. a a.s." }
+      {
+        "q": "Aké zabezpečenie požadujete?",
+        "a": "Záložné právo na nehnuteľnosť alebo záloh na obchodný podiel. Akceptujeme aj záloh na hnuteľný majetok firmy."
+      },
+      {
+        "q": "Aká je maximálna výška úveru?",
+        "a": "Pre realitné projekty do 2 000 000 €, pre podnikateľské úvery do 1 000 000 €."
+      },
+      {
+        "q": "Ako rýchlo môžem získať financie?",
+        "a": "Rozhodujeme do 5 pracovných dní. Čerpanie do 2 týždňov od schválenia."
+      },
+      {
+        "q": "Aké sú úrokové sadzby?",
+        "a": "Od 10% do 18% p.a. v závislosti od typu projektu a kvality zabezpečenia."
+      },
+      {
+        "q": "Môžem splatiť úver predčasne?",
+        "a": "Áno, kedykoľvek bez poplatkov. Úroky sa počítajú len za skutočné čerpanie."
+      },
+      {
+        "q": "Financujete aj fyzické osoby?",
+        "a": "Nie, financujeme výlučne právnické osoby – s.r.o. a a.s."
+      }
     ]
   },
   "form": {
@@ -95,8 +141,8 @@
   },
   "investCta": {
     "heading": "Chcete investovať do úverov?",
-    "text": "Ak chcete zhodnocovať kapitál investíciou do zabezpečených úverov, navštívte sekciu pre investorov.",
-    "button": "Chcem investovať",
+    "text": "Ak chcete zhodnocovať kapitál investíciou do zabezpečených úverov, pridajte sa do ASSETRA Klubu.",
+    "button": "Spoznať ASSETRA Klub",
     "clubLink": "alebo sa pridajte do ASSETRA Klubu"
   }
 }

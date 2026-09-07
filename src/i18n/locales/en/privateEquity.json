@@ -13,25 +13,53 @@
   "criteria": {
     "label": "Investment Criteria",
     "description": "We focus on established companies with clear growth potential and a stable team.",
-    "turnover": { "value": "€1–10M", "label": "Turnover", "text": "We look for companies with annual turnover between €1 million and €10 million." },
-    "profitability": { "value": "2+ years", "label": "Profitability", "text": "The company must have been profitable for at least 2 consecutive years." },
-    "market": { "value": "SK/CZ", "label": "Market", "text": "We focus on the Slovak and Czech markets with expansion potential." },
-    "team": { "value": "Stable", "label": "Team", "text": "We prefer companies with established management and a loyal team." }
+    "turnover": {
+      "value": "€1–10M",
+      "label": "Turnover",
+      "text": "We look for companies with annual turnover between €1 million and €10 million."
+    },
+    "profitability": {
+      "value": "2+ years",
+      "label": "Profitability",
+      "text": "The company must have been profitable for at least 2 consecutive years."
+    },
+    "market": {
+      "value": "SK/CZ",
+      "label": "Market",
+      "text": "We focus on the Slovak and Czech markets with expansion potential."
+    },
+    "team": {
+      "value": "Stable",
+      "label": "Team",
+      "text": "We prefer companies with established management and a loyal team."
+    }
   },
   "process": {
     "label": "How It Works",
     "description": "From first contact to closing the transaction.",
     "steps": {
-      "contact": { "title": "Initial Contact", "text": "A non-binding consultation about your company. We sign an NDA." },
-      "dueDiligence": { "title": "Due Diligence", "text": "Detailed analysis of financial statements and the business model." },
-      "valuation": { "title": "Valuation & Offer", "text": "A fair offer based on market valuation." },
-      "closing": { "title": "Closing", "text": "Finalisation of documents and transfer of ownership." }
+      "contact": {
+        "title": "Initial Contact",
+        "text": "A non-binding consultation about your company. We sign an NDA."
+      },
+      "dueDiligence": {
+        "title": "Due Diligence",
+        "text": "Detailed analysis of financial statements and the business model."
+      },
+      "valuation": {
+        "title": "Valuation & Offer",
+        "text": "A fair offer based on market valuation."
+      },
+      "closing": {
+        "title": "Closing",
+        "text": "Finalisation of documents and transfer of ownership."
+      }
     }
   },
   "investCta": {
     "heading": "Interested in investing?",
-    "text": "Invest in company acquisitions with a fixed annual return. Fill out a non-binding form.",
-    "button": "I want to invest",
+    "text": "Selected acquisition opportunities are opened to ASSETRA Club members — discreetly and with no obligations.",
+    "button": "Discover ASSETRA Club",
     "clubLink": "or join ASSETRA Club"
   },
   "sellCta": {

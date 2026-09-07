@@ -31,29 +31,78 @@
   "benefits": {
     "label": "Benefits of Working with Us",
     "description": "Fast decisions, flexible terms, and transparent costs.",
-    "fast": { "value": "5 days", "title": "Fast Approval", "text": "Decision within 5 business days." },
-    "flexible": { "value": "Flexible", "title": "Flexible", "subtitle": "Terms", "text": "Individual approach to every project." },
-    "noFees": { "value": "€0", "title": "€0", "subtitle": "Hidden Fees", "text": "Clear interest rate from the start." },
-    "minBureaucracy": { "value": "Min.", "title": "Min.", "subtitle": "Bureaucracy", "text": "We focus on the substance of the project." }
+    "fast": {
+      "value": "5 days",
+      "title": "Fast Approval",
+      "text": "Decision within 5 business days."
+    },
+    "flexible": {
+      "value": "Flexible",
+      "title": "Flexible",
+      "subtitle": "Terms",
+      "text": "Individual approach to every project."
+    },
+    "noFees": {
+      "value": "€0",
+      "title": "€0",
+      "subtitle": "Hidden Fees",
+      "text": "Clear interest rate from the start."
+    },
+    "minBureaucracy": {
+      "value": "Min.",
+      "title": "Min.",
+      "subtitle": "Bureaucracy",
+      "text": "We focus on the substance of the project."
+    }
   },
   "process": {
     "label": "How It Works",
     "steps": {
-      "request": { "title": "Application", "text": "Contact us with a description of your project." },
-      "analysis": { "title": "Analysis", "text": "We evaluate the project and collateral." },
-      "offer": { "title": "Offer", "text": "A concrete offer with terms and conditions." },
-      "funding": { "title": "Disbursement", "text": "After signing, we release the funds." }
+      "request": {
+        "title": "Application",
+        "text": "Contact us with a description of your project."
+      },
+      "analysis": {
+        "title": "Analysis",
+        "text": "We evaluate the project and collateral."
+      },
+      "offer": {
+        "title": "Offer",
+        "text": "A concrete offer with terms and conditions."
+      },
+      "funding": {
+        "title": "Disbursement",
+        "text": "After signing, we release the funds."
+      }
     }
   },
   "faq": {
     "label": "Frequently Asked Questions",
     "items": [
-      { "q": "What collateral do you require?", "a": "A lien on real property or a pledge on a business share. We also accept a pledge on the company's movable assets." },
-      { "q": "What is the maximum loan amount?", "a": "Up to €2,000,000 for real estate projects and up to €1,000,000 for business loans." },
-      { "q": "How quickly can I receive funding?", "a": "We decide within 5 business days. Disbursement within 2 weeks of approval." },
-      { "q": "What are the interest rates?", "a": "From 10% to 18% p.a. depending on the project type and quality of collateral." },
-      { "q": "Can I repay the loan early?", "a": "Yes, at any time without penalties. Interest is only charged on the actual drawdown period." },
-      { "q": "Do you finance individuals?", "a": "No, we exclusively finance legal entities — LLCs and joint-stock companies." }
+      {
+        "q": "What collateral do you require?",
+        "a": "A lien on real property or a pledge on a business share. We also accept a pledge on the company's movable assets."
+      },
+      {
+        "q": "What is the maximum loan amount?",
+        "a": "Up to €2,000,000 for real estate projects and up to €1,000,000 for business loans."
+      },
+      {
+        "q": "How quickly can I receive funding?",
+        "a": "We decide within 5 business days. Disbursement within 2 weeks of approval."
+      },
+      {
+        "q": "What are the interest rates?",
+        "a": "From 10% to 18% p.a. depending on the project type and quality of collateral."
+      },
+      {
+        "q": "Can I repay the loan early?",
+        "a": "Yes, at any time without penalties. Interest is only charged on the actual drawdown period."
+      },
+      {
+        "q": "Do you finance individuals?",
+        "a": "No, we exclusively finance legal entities — LLCs and joint-stock companies."
+      }
     ]
   },
   "form": {
@@ -95,8 +144,8 @@
   },
   "investCta": {
     "heading": "Want to invest in loans?",
-    "text": "If you want to grow your capital by investing in secured loans, visit our investor section.",
-    "button": "I want to invest",
+    "text": "If you want to grow your capital by investing in secured loans, join the ASSETRA Club.",
+    "button": "Discover ASSETRA Club",
     "clubLink": "or join the ASSETRA Club"
   }
 }

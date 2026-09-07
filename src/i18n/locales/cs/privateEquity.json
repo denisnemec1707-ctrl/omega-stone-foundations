@@ -13,25 +13,53 @@
   "criteria": {
     "label": "Investiční kritéria",
     "description": "Zaměřujeme se na zaběhnuté firmy s jasným potenciálem růstu a stabilním týmem.",
-    "turnover": { "value": "1–10 mil. €", "label": "Obrat", "text": "Hledáme firmy s ročním obratem v rozmezí 1 až 10 milionů eur." },
-    "profitability": { "value": "2+ roky", "label": "Ziskovost", "text": "Firma musí být zisková minimálně 2 roky po sobě." },
-    "market": { "value": "SK/CZ", "label": "Trh", "text": "Zaměřujeme se na slovenský a český trh s potenciálem expanze." },
-    "team": { "value": "Stabilní", "label": "Tým", "text": "Preferujeme firmy se zaběhnutým managementem a loajálním týmem." }
+    "turnover": {
+      "value": "1–10 mil. €",
+      "label": "Obrat",
+      "text": "Hledáme firmy s ročním obratem v rozmezí 1 až 10 milionů eur."
+    },
+    "profitability": {
+      "value": "2+ roky",
+      "label": "Ziskovost",
+      "text": "Firma musí být zisková minimálně 2 roky po sobě."
+    },
+    "market": {
+      "value": "SK/CZ",
+      "label": "Trh",
+      "text": "Zaměřujeme se na slovenský a český trh s potenciálem expanze."
+    },
+    "team": {
+      "value": "Stabilní",
+      "label": "Tým",
+      "text": "Preferujeme firmy se zaběhnutým managementem a loajálním týmem."
+    }
   },
   "process": {
     "label": "Jak to funguje",
     "description": "Od prvního kontaktu po uzavření transakce.",
     "steps": {
-      "contact": { "title": "Prvotní kontakt", "text": "Nezávazná konzultace o vaší firmě. Podepíšeme NDA." },
-      "dueDiligence": { "title": "Due diligence", "text": "Detailní analýza finančních výkazů a obchodního modelu." },
-      "valuation": { "title": "Ocenění a nabídka", "text": "Férová nabídka na základě tržního ocenění." },
-      "closing": { "title": "Uzavření transakce", "text": "Finalizace dokumentů a převod vlastnictví." }
+      "contact": {
+        "title": "Prvotní kontakt",
+        "text": "Nezávazná konzultace o vaší firmě. Podepíšeme NDA."
+      },
+      "dueDiligence": {
+        "title": "Due diligence",
+        "text": "Detailní analýza finančních výkazů a obchodního modelu."
+      },
+      "valuation": {
+        "title": "Ocenění a nabídka",
+        "text": "Férová nabídka na základě tržního ocenění."
+      },
+      "closing": {
+        "title": "Uzavření transakce",
+        "text": "Finalizace dokumentů a převod vlastnictví."
+      }
     }
   },
   "investCta": {
     "heading": "Máte zájem investovat?",
-    "text": "Investujte do akvizic firem s fixním ročním výnosem. Vyplňte nezávazný formulář.",
-    "button": "Chci investovat",
+    "text": "Vybrané akviziční příležitosti otevíráme členům ASSETRA Klubu — diskrétně a bez závazků.",
+    "button": "Poznat ASSETRA Klub",
     "clubLink": "nebo se připojte do ASSETRA Klubu"
   },
   "sellCta": {

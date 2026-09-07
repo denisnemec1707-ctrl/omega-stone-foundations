@@ -11,7 +11,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroMountains from "@/assets/hero-mountains.jpg";
 import verticalRealestate from "@/assets/vertical-realestate.jpg";
-import verticalCredit from "@/assets/vertical-credit.jpg";
 import verticalEquity from "@/assets/vertical-equity.jpg";
 
 const VerticalCard = ({
@@ -170,13 +169,6 @@ const Index = () => {
             ctaLabel={t("cards.more")}
           />
           <VerticalCard
-            title={t("cards.loans.title")}
-            description={t("cards.loans.text")}
-            image={verticalCredit}
-            href={getLocalizedPath("loans", locale)}
-            ctaLabel={t("cards.more")}
-          />
-          <VerticalCard
             title={t("cards.equity.title")}
             description={t("cards.equity.text")}
             image={verticalEquity}
@@ -199,7 +191,7 @@ const Index = () => {
                   </p>
                 </div>
                 <Link
-                  to={getLocalizedPath("forInvestors", locale)}
+                  to={getLocalizedPath("club", locale)}
                   className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-colors text-base sm:text-lg self-start"
                 >
                   {t("cta.button")}

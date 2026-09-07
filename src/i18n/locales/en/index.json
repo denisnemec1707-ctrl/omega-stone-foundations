@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "ASSETRA Investments | Private Investment Company",
-    "description": "A private investment company focused on long-term growth. Real estate, private equity, and secured loans in Slovakia."
+    "title": "ASSETRA Investments | Private Investment Group",
+    "description": "A private investment group from Slovakia. We invest our own capital in undervalued real estate and acquisitions of smaller companies in Slovakia and Czechia."
   },
   "hero": {
-    "subtitle": "A private investment company focused on long-term growth"
+    "subtitle": "We invest our own capital. Real estate and companies."
   },
   "about": {
     "label": "About ASSETRA investments",
@@ -12,7 +12,7 @@
     "titleAccent": "acquisitions",
     "p1": "ASSETRA investments is a Slovak investment company specialising in the acquisition, renovation, and sale of undervalued residential properties. We operate exclusively in markets we know thoroughly and focus on opportunities where we can acquire assets significantly below market value.",
     "p2": "Our team identifies distressed sales, estate liquidations, and motivated sellers. We renovate properties to market standard and sell them at fair market value. This margin — the difference between acquisition costs and the final sale price — is what generates consistent returns for our investors.",
-    "p3": "We do not speculate on market movements. We do not trade financial instruments. We buy real properties, add value, and sell. This straightforward model has proven itself across various market conditions."
+    "p3": "We don't speculate on market movements. We don't trade financial instruments. We buy real properties, add value and sell. This straightforward model doesn't rely on market growth — it relies on buying discipline."
   },
   "portfolio": {
     "label": "Diversified portfolio",
@@ -34,9 +34,9 @@
     "more": "Learn more"
   },
   "cta": {
-    "heading": "Start investing with ASSETRA",
-    "text": "Fixed 12% annual return paid monthly. Your capital is secured by real assets. Fill out a non-binding form and we will get back to you within 24 hours.",
-    "button": "I want to invest"
+    "heading": "Invest alongside us",
+    "text": "Selected opportunities are opened to ASSETRA Club members — with full analysis, discreetly and with no obligations.",
+    "button": "Discover ASSETRA Club"
   },
-  "aboutStatement": "ASSETRA investments is a private investment company headquartered in Slovakia. We manage a diversified portfolio across real estate, company acquisitions, and secured loans."
+  "aboutStatement": "ASSETRA Investments is a private investment group from Slovakia. We invest our own capital in undervalued real estate and smaller operating businesses in Slovakia and Czechia. We don't manage other people's assets — partners invest alongside us in specific transactions."
 }

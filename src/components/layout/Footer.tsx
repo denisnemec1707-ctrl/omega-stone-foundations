@@ -29,7 +29,6 @@ const Footer = () => {
                 <ul className="space-y-2.5 sm:space-y-3">
                   <li><Link to={getLocalizedPath("realEstate", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.realEstate")}</Link></li>
                   <li><Link to={getLocalizedPath("acquisitions", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.acquisitions")}</Link></li>
-                  <li><Link to={getLocalizedPath("loans", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.loans")}</Link></li>
                 </ul>
               </div>
 
@@ -49,9 +48,6 @@ const Footer = () => {
                 <h4 className="text-[10px] sm:text-xs tracking-widest uppercase text-primary-foreground/40 mb-4 sm:mb-5">{t("footer.company")}</h4>
                 <ul className="space-y-2.5 sm:space-y-3">
                   <li><Link to={getLocalizedPath("portfolio", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.portfolio")}</Link></li>
-                  <li><Link to={getLocalizedPath("forInvestors", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.forInvestors")}</Link></li>
-                  <li><Link to={getLocalizedPath("careers", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.careers")}</Link></li>
-                  <li><Link to={getLocalizedPath("assistantCeo", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("footer.assistantCeo")}</Link></li>
                 </ul>
               </div>
 

@@ -18,15 +18,12 @@ const navGroups: NavGroup[] = [
     links: [
       { routeKey: "realEstate", labelKey: "nav.realEstate" },
       { routeKey: "acquisitions", labelKey: "nav.acquisitions" },
-      { routeKey: "loans", labelKey: "nav.loans" },
     ],
   },
   {
     links: [
-      { routeKey: "forInvestors", labelKey: "nav.forInvestors" },
       { routeKey: "club", labelKey: "nav.club" },
       { routeKey: "portfolio", labelKey: "nav.portfolio" },
-      { routeKey: "careers", labelKey: "nav.careers" },
     ],
   },
 ];

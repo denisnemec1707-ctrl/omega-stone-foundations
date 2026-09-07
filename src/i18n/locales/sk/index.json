@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "ASSETRA Investments | Súkromná investičná spoločnosť",
-    "description": "Súkromná investičná spoločnosť zameraná na dlhodobý rast. Nehnuteľnosti, private equity a zabezpečené úvery na Slovensku."
+    "title": "ASSETRA Investments | Súkromná investičná skupina",
+    "description": "Súkromná investičná skupina zo Slovenska. Investujeme vlastný kapitál do podhodnotených nehnuteľností a akvizícií menších firiem v SK a CZ."
   },
   "hero": {
-    "subtitle": "Súkromná investičná spoločnosť zameraná na dlhodobý rast"
+    "subtitle": "Investujeme vlastný kapitál. Nehnuteľnosti a firmy."
   },
   "about": {
     "label": "O ASSETRA investments",
@@ -12,7 +12,7 @@
     "titleAccent": "akvizície",
     "p1": "ASSETRA investments je slovenská investičná spoločnosť špecializujúca sa na akvizíciu, rekonštrukciu a predaj podhodnotených rezidenčných nehnuteľností. Pôsobíme výlučne na trhoch, ktoré dôkladne poznáme, a zameriavame sa na príležitosti, kde môžeme získať aktíva výrazne pod trhovou cenou.",
     "p2": "Náš tím identifikuje núdzové predaje, likvidácie dedičstiev a motivovaných predajcov. Nehnuteľnosti rekonštruujeme na trhový štandard a predávame za férovú trhovú hodnotu. Táto marža — rozdiel medzi akvizičnými nákladmi a konečnou predajnou cenou — je to, čo generuje konzistentné výnosy pre našich investorov.",
-    "p3": "Nešpekulujeme na trhových pohyboch. Neobchodujeme s finančnými nástrojmi. Kupujeme reálne nehnuteľnosti, zhodnocujeme ich a predávame. Tento priamočiary model sa osvedčil naprieč rôznymi trhovými podmienkami."
+    "p3": "Nešpekulujeme na trhových pohyboch. Neobchodujeme s finančnými nástrojmi. Kupujeme reálne nehnuteľnosti, zhodnocujeme ich a predávame. Tento priamočiary model nestojí na raste trhu, ale na disciplíne nákupu."
   },
   "portfolio": {
     "label": "Diverzifikované portfólio",
@@ -34,9 +34,9 @@
     "more": "Zobraziť viac"
   },
   "cta": {
-    "heading": "Začnite investovať s ASSETRA",
-    "text": "Fixný 12% ročný výnos vyplácaný mesačne. Váš kapitál je zabezpečený reálnymi aktívami. Vyplňte nezáväzný formulár a ozveme sa vám do 24 hodín.",
-    "button": "Chcem investovať"
+    "heading": "Investujte po našom boku",
+    "text": "Vybrané príležitosti otvárame členom ASSETRA Klubu — s kompletnou analýzou, diskrétne a bez záväzkov.",
+    "button": "Spoznať ASSETRA Klub"
   },
-  "aboutStatement": "ASSETRA investments je súkromná investičná spoločnosť so sídlom na Slovensku. Spravujeme diverzifikované portfólio naprieč nehnuteľnosťami, akvizíciami firiem a zabezpečenými úvermi."
+  "aboutStatement": "ASSETRA Investments je súkromná investičná skupina zo Slovenska. Investujeme vlastný kapitál do podhodnotených nehnuteľností a menších fungujúcich firiem v SK a CZ. Nespravujeme cudzí majetok — partneri investujú po našom boku do konkrétnych transakcií."
 }

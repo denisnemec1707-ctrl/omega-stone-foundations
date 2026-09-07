@@ -33,15 +33,31 @@
     }
   },
   "stats": {
-    "margin": { "value": "20%+", "label": "Cílová marže", "text": "Na každém projektu cílíme minimálně 20% ziskovou marži." },
-    "cycles": { "value": "12–36", "label": "Měsíční cykly", "text": "Krátké investiční horizonty s definovanými výstupy." },
-    "market": { "value": "SK", "label": "Trh", "text": "Zaměřujeme se na slovenský rezidenční trh." },
-    "assets": { "value": "Reálná", "label": "Aktiva", "text": "Každý projekt je vázán na fyzickou nemovitost." }
+    "margin": {
+      "value": "20%+",
+      "label": "Cílová marže",
+      "text": "Na každém projektu cílíme minimálně 20% ziskovou marži."
+    },
+    "cycles": {
+      "value": "12–36",
+      "label": "Měsíční cykly",
+      "text": "Krátké investiční horizonty s definovanými výstupy."
+    },
+    "market": {
+      "value": "SK",
+      "label": "Trh",
+      "text": "Zaměřujeme se na slovenský rezidenční trh."
+    },
+    "assets": {
+      "value": "Reálná",
+      "label": "Aktiva",
+      "text": "Každý projekt je vázán na fyzickou nemovitost."
+    }
   },
   "cta": {
     "heading": "Máte zájem investovat?",
-    "text": "Fixní 12% roční výnos zajištěný reálnými nemovitostmi. Vyplňte nezávazný formulář.",
+    "text": "Vybrané realitní příležitosti otevíráme členům ASSETRA Klubu — diskrétně a bez závazků.",
     "clubLink": "nebo se připojte do ASSETRA Klubu",
-    "button": "Chci investovat"
+    "button": "Poznat ASSETRA Klub"
   }
 }
