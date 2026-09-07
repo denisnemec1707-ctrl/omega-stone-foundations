@@ -4,10 +4,18 @@
     "description": "A selective investment club for investors with €100,000+ in capital. Discounted off-market real estate, secured financings and business acquisitions in Slovakia and Czechia. Every opportunity comes with an investment memo including risks."
   },
   "hero": {
-    "label": "ASSETRA Private Investors — private investment club",
-    "title": "Opportunities that never reach the market.",
-    "subtitle": "Off-market real estate, secured financings and business acquisitions in Slovakia and Czechia. For investors with €100,000+ in capital.",
-    "cta": "Apply for membership"
+    "label": "For private investors",
+    "title": "ASSETRA Club.",
+    "subtitle": "Investment opportunities before public offering.",
+    "cta": "Register"
+  },
+  "benefits": {
+    "label": "How membership works",
+    "intro": "After free registration, we will send you a selection of interesting investment opportunities — property buyouts, real estate project financing, and acquisitions of established Slovak companies. Only when there is something that matches your profile.",
+    "earlyAccess": { "title": "Early access", "text": "We send you selected opportunities before they go public." },
+    "noCommitment": { "title": "No commitments", "text": "Membership is free. No fees, no commissions. You respond only when you want to." },
+    "preferences": { "title": "Your preferences", "text": "We only send what matches your profile — type, scope, and horizon." },
+    "discretion": { "title": "Discretion", "text": "Specific details are shared under NDA. We do not share your data with anyone." }
   },
   "manifesto": {
     "label": "Let's be honest",
@@ -104,7 +112,7 @@
   "form": {
     "heading": "Membership application",
     "title": "ASSETRA Investor Application",
-    "description": "The form is deliberately detailed — based on your answers we assess whether we can bring you relevant opportunities. Selected applicants are invited to a short introductory investor call.",
+    "description": "Membership is free, but selective. Based on your application we assess whether we can bring you relevant opportunities. Selected applicants are invited to a short introductory investor call.",
     "fullName": "Full name *",
     "email": "Email *",
     "phone": "Phone *",

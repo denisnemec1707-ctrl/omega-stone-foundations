@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
+  Bell,
   Building2,
   CheckCircle2,
   FileText,
@@ -13,6 +14,8 @@ import {
   Loader2,
   Phone,
   ShieldCheck,
+  SlidersHorizontal,
+  Sparkles,
 } from "lucide-react";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -290,7 +293,7 @@ const Klub = () => {
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
               {t("hero.label")}
             </span>
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
+            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
               {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
@@ -531,6 +534,60 @@ const Klub = () => {
               </p>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* MEMBERSHIP BENEFITS */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <AnimatedSection>
+            <div className="max-w-3xl mb-12 sm:mb-16">
+              <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 sm:mb-6">
+                {t("benefits.label")}
+              </span>
+              <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
+                {t("benefits.intro")}
+              </p>
+            </div>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {[
+              {
+                icon: Bell,
+                title: t("benefits.earlyAccess.title"),
+                text: t("benefits.earlyAccess.text"),
+              },
+              {
+                icon: Sparkles,
+                title: t("benefits.noCommitment.title"),
+                text: t("benefits.noCommitment.text"),
+              },
+              {
+                icon: SlidersHorizontal,
+                title: t("benefits.preferences.title"),
+                text: t("benefits.preferences.text"),
+              },
+              {
+                icon: ShieldCheck,
+                title: t("benefits.discretion.title"),
+                text: t("benefits.discretion.text"),
+              },
+            ].map((b) => (
+              <AnimatedSection key={b.title}>
+                <div className="bg-secondary/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center mb-5">
+                    <b.icon className="w-5 h-5 text-foreground" />
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl text-foreground mb-2 leading-snug">
+                    {b.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {b.text}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

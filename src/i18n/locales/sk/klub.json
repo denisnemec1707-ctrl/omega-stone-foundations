@@ -4,10 +4,18 @@
     "description": "Výberový investičný klub pre investorov s kapitálom od 100 000 €. Off-market nehnuteľnosti s diskontom, zabezpečené financovania a akvizície firiem v SK a CZ. Ku každej príležitosti investment memo vrátane rizík."
   },
   "hero": {
-    "label": "ASSETRA Private Investors — privátny investičný klub",
-    "title": "Príležitosti, ktoré sa na trh nikdy nedostanú.",
-    "subtitle": "Off-market nehnuteľnosti, zabezpečené financovania a akvizície firiem v SK a CZ. Pre investorov s kapitálom od 100 000 €.",
-    "cta": "Požiadať o členstvo"
+    "label": "Pre súkromných investorov",
+    "title": "ASSETRA Klub.",
+    "subtitle": "Investičné príležitosti pred verejnou ponukou.",
+    "cta": "Zaregistrovať sa"
+  },
+  "benefits": {
+    "label": "Ako členstvo funguje",
+    "intro": "Po bezplatnej registrácii Vám pošleme výber zaujímavých investičných príležitostí — výkupy nehnuteľností, úverovanie realitných projektov a akvizície fungujúcich slovenských spoločností. Vždy len keď je niečo, čo zodpovedá Vášmu profilu.",
+    "earlyAccess": { "title": "Prednostný prístup", "text": "Vybrané príležitosti Vám pošleme skôr, než idú na verejnosť." },
+    "noCommitment": { "title": "Bez záväzkov", "text": "Členstvo je bezplatné. Žiadne fees, žiadne provízie. Reagujete len keď chcete." },
+    "preferences": { "title": "Vaše preferencie", "text": "Posielame iba to, čo zodpovedá Vášmu profilu — typ, rozsah a horizont." },
+    "discretion": { "title": "Diskrétnosť", "text": "Konkrétne detaily zdieľame pod NDA. Vaše údaje nezdieľame s nikým." }
   },
   "manifesto": {
     "label": "Na rovinu",
@@ -104,7 +112,7 @@
   "form": {
     "heading": "Žiadosť o členstvo",
     "title": "ASSETRA Investor Application",
-    "description": "Formulár je zámerne podrobný — podľa odpovedí posúdime, či Vám vieme priniesť relevantné príležitosti. Vybraných uchádzačov pozveme na krátky úvodný investorský rozhovor.",
+    "description": "Členstvo je bezplatné, ale výberové. Na základe žiadosti posúdime, či Vám vieme priniesť relevantné príležitosti. Vybraných uchádzačov kontaktujeme na krátky úvodný investorský rozhovor.",
     "fullName": "Meno a priezvisko *",
     "email": "Email *",
     "phone": "Telefón *",
