@@ -1,20 +1,51 @@
 {
   "meta": {
-    "title": "ASSETRA Private Investors | Private-market príležitosti pre kvalifikovaných investorov",
-    "description": "Privátny investičný klub pre investorov s kapitálom od 100 000 €. Prístup k vybraným private-credit, real-estate co-investment a off-market príležitostiam v SK a CZ."
+    "title": "ASSETRA Private Investors | Off-market investičné príležitosti od 100 000 €",
+    "description": "Výberový investičný klub pre investorov s kapitálom od 100 000 €. Off-market nehnuteľnosti s diskontom, zabezpečené financovania a akvizície firiem v SK a CZ. Ku každej príležitosti investment memo vrátane rizík."
   },
   "hero": {
-    "label": "Privátny investičný klub",
-    "title": "ASSETRA Private Investors.",
-    "subtitle": "Private-market príležitosti pre investorov s kapitálom od 100 000 €.",
+    "label": "ASSETRA Private Investors — privátny investičný klub",
+    "title": "Príležitosti, ktoré sa na trh nikdy nedostanú.",
+    "subtitle": "Off-market nehnuteľnosti, zabezpečené financovania a akvizície firiem v SK a CZ. Pre investorov s kapitálom od 100 000 €.",
     "cta": "Požiadať o členstvo"
   },
-  "intro": "Členstvo je určené investorom, ktorí plánujú počas nasledujúcich 24 mesiacov alokovať minimálne 100 000 € do private markets. Členovia investujú po boku ASSETRA a jej partnerov do vybraných transakcií v oblasti private credit, nehnuteľností a akvizícií fungujúcich firiem v SK a CZ. Členstvo nie je automatické — každú žiadosť posudzujeme individuálne.",
+  "manifesto": {
+    "label": "Na rovinu",
+    "p1": "ASSETRA dnes nie je veľké meno. Sme nová investičná skupina — bez dlhej histórie a bez miliárd v správe. Nebudeme predstierať opak.",
+    "p2": "Čo máme, je prístup. K nehnuteľnostiam a firmám, ktoré sa predávajú mimo trhu — rýchlo, diskrétne a s výrazným diskontom. Do transakcií vstupujeme s vlastným kapitálom a ku každej dostanete kompletnú analýzu vrátane rizík a scenára, keď sa nedarí.",
+    "p3": "Nežiadame Vašu dôveru vopred. Buduje sa prvou spoločnou transakciou.",
+    "signature": "Denis Nemec",
+    "role": "zakladateľ, ASSETRA Investments"
+  },
+  "intro": "Členstvo je bezplatné a výberové. Je určené investorom, ktorí plánujú v najbližších 24 mesiacoch alokovať do private markets aspoň 100 000 €. Každú žiadosť posudzujeme individuálne — a nie každú schválime.",
+  "pillarsLabel": "Čo členstvo prináša",
   "keyPoints": {
-    "privateCredit": { "title": "01 — Private Credit", "text": "Participácia na vybraných financovaniach realitných projektov, zabezpečených záložným právom na nehnuteľnosť s konzervatívnym LTV." },
-    "coInvest": { "title": "02 — Real Estate Co-Invest", "text": "Spoločná účasť na konkrétnych transakciách — podhodnotené nehnuteľnosti a developerské projekty, do ktorých investujeme spolu s Vami." },
-    "offMarket": { "title": "03 — Off-Market príležitosti", "text": "Investičné nehnuteľnosti a akvizície fungujúcich firiem, ktoré získavame mimo bežného trhu — pod trhovou cenou alebo s atraktívnym výnosom." },
-    "memos": { "title": "04 — Investment Memos", "text": "Ku každej ponúkanej príležitosti dostanete analýzu: transakcia, zabezpečenie, valuácia, riziká a downside scenár. Žiadne marketingové letáky." }
+    "offMarket": { "title": "01 — Off-Market Deal Flow", "text": "Nehnuteľnosti a firmy, ktoré sa nikdy neobjavia v inzercii. Získavame ich priamo od majiteľov — zo situácií, kde rozhoduje rýchlosť a hotovosť." },
+    "privateCredit": { "title": "02 — Private Credit", "text": "Participácia na financovaniach zabezpečených záložným právom na nehnuteľnosť — s konzervatívnym LTV a jasným zdrojom splatenia." },
+    "coInvest": { "title": "03 — Co-Investments", "text": "Do konkrétnych transakcií vstupujete po našom boku — podhodnotené nehnuteľnosti a developerské projekty, deal by deal, podľa vlastného výberu." },
+    "memos": { "title": "04 — Investment Memos", "text": "Ku každej príležitosti analýza: valuácia, zabezpečenie, riziká a downside scenár. Žiadne marketingové letáky." }
+  },
+  "deal": {
+    "label": "Ako vyzerá príležitosť",
+    "cardTag": "Ilustračný príklad",
+    "cardTitle": "ASSETRA Opportunity",
+    "rows": {
+      "type": { "label": "Typ transakcie", "value": "Off-market kúpa bytu — krajské mesto, SK" },
+      "price": { "label": "Kúpna cena", "value": "168 000 €" },
+      "market": { "label": "Trhová hodnota (znalecký posudok)", "value": "214 000 €" },
+      "discount": { "label": "Diskont voči trhu", "value": "≈ 21 %" },
+      "strategy": { "label": "Stratégia", "value": "Hotovostná kúpa do 14 dní → právne vyčistenie → predaj alebo prenájom" },
+      "horizon": { "label": "Cieľový horizont", "value": "6 – 12 mesiacov" }
+    },
+    "disclaimer": "Ilustračný príklad štruktúry — parametre sa pri každej transakcii líšia.",
+    "whyTitle": "Prečo takéto ceny existujú",
+    "whyText": "Predávajúci v týchto situáciách nepotrebuje najvyššiu cenu — potrebuje istotu a rýchlosť. Exekúcia, dedičské konanie, rozvod, viaznuce financovanie. Kupujeme v hotovosti a uzatvárame v dňoch, nie v mesiacoch. Diskont je odmena za rýchlosť a istotu, nie náhoda.",
+    "memoNote": "Konkrétne príležitosti vrátane úplného investment mema — valuácia, právny stav, zabezpečenie, riziká, downside scenár — zdieľame len so schválenými členmi, pod NDA."
+  },
+  "alignment": {
+    "skin": { "title": "Kapitál v hre", "text": "Investujeme po Vašom boku. Riziko transakcie nesieme spolu s Vami — preto vyberáme tvrdo." },
+    "direct": { "title": "Priamy investor, žiadne provízie", "text": "Nie sme sprostredkovateľ ani predajca produktov tretích strán. Členstvo je bezplatné — zarábame na transakciách, nie na poplatkoch od Vás." },
+    "discretion": { "title": "Diskrétnosť a malý okruh", "text": "Detaily transakcií zdieľame pod NDA. Klub zámerne držíme malý — kapacita jednotlivých transakcií je obmedzená." }
   },
   "process": {
     "heading": "Ako vyberáme príležitosti",
@@ -26,7 +57,7 @@
       "decision": "Investičné rozhodnutie",
       "member": "Ponuka členom"
     },
-    "note": "Členom sa dostane len zlomok príležitostí, ktoré preveríme. Ukazujeme proces a riadenie rizika, nie sľuby výnosov."
+    "note": "K členom sa dostane len zlomok príležitostí, ktoré preveríme. Ukazujeme proces a riadenie rizika, nie sľuby výnosov."
   },
   "interestOptions": {
     "privateCredit": "Private credit (zabezpečené financovania)",
@@ -73,7 +104,7 @@
   "form": {
     "heading": "Žiadosť o členstvo",
     "title": "ASSETRA Investor Application",
-    "description": "Členstvo je bezplatné, ale výberové. Na základe žiadosti posúdime, či Vám vieme priniesť relevantné príležitosti. Vybraných uchádzačov kontaktujeme na krátky úvodný investorský rozhovor.",
+    "description": "Formulár je zámerne podrobný — podľa odpovedí posúdime, či Vám vieme priniesť relevantné príležitosti. Vybraných uchádzačov pozveme na krátky úvodný investorský rozhovor.",
     "fullName": "Meno a priezvisko *",
     "email": "Email *",
     "phone": "Telefón *",
@@ -89,12 +120,13 @@
     "horizon": "Preferovaný investičný horizont *",
     "horizonPlaceholder": "Vyberte horizont",
     "submit": "Odoslať žiadosť o členstvo",
-    "submitting": "Odosielam…"
+    "submitting": "Odosielam…",
+    "note": "Odoslanie žiadosti je bezplatné a k ničomu Vás nezaväzuje."
   },
   "consentLinkText": "zásad ochrany osobných údajov",
   "consent": "Súhlasím so spracovaním osobných údajov pre účely posúdenia žiadosti o členstvo a zasielania investičných príležitostí v zmysle zásad ochrany osobných údajov. Z odberu sa môžete kedykoľvek odhlásiť.",
   "success": {
     "title": "Žiadosť prijatá",
-    "text": "Ďakujeme. Vašu žiadosť posúdime a vybraných uchádzačov kontaktujeme na krátky úvodný investorský rozhovor."
+    "text": "Ďakujeme. Žiadosť posúdime a vybraných uchádzačov kontaktujeme s pozvánkou na krátky úvodný investorský rozhovor."
   }
 }

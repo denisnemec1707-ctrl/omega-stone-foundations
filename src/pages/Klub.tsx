@@ -316,11 +316,44 @@ const Klub = () => {
         </div>
       </section>
 
+      {/* MANIFESTO */}
+      <section className="py-16 sm:py-20 md:py-28">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-6 sm:mb-8">
+                {t("manifesto.label")}
+              </span>
+              <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground leading-snug mb-6 sm:mb-8">
+                {t("manifesto.p1")}
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed mb-6 sm:mb-8">
+                {t("manifesto.p2")}
+              </p>
+              <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground leading-snug mb-8 sm:mb-10">
+                {t("manifesto.p3")}
+              </p>
+              <div className="flex items-baseline gap-3">
+                <span className="font-serif text-lg sm:text-xl text-foreground">
+                  {t("manifesto.signature")}
+                </span>
+                <span className="text-sm sm:text-base text-muted-foreground">
+                  — {t("manifesto.role")}
+                </span>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* PILLARS */}
-      <section className="py-16 sm:py-20 md:py-24">
+      <section className="pb-16 sm:pb-20 md:pb-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="max-w-3xl mb-12 sm:mb-16">
+              <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 sm:mb-6">
+                {t("pillarsLabel")}
+              </span>
               <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
                 {t("intro")}
               </p>
@@ -328,6 +361,11 @@ const Klub = () => {
           </AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {[
+              {
+                icon: Building2,
+                title: t("keyPoints.offMarket.title"),
+                text: t("keyPoints.offMarket.text"),
+              },
               {
                 icon: ShieldCheck,
                 title: t("keyPoints.privateCredit.title"),
@@ -337,11 +375,6 @@ const Klub = () => {
                 icon: Handshake,
                 title: t("keyPoints.coInvest.title"),
                 text: t("keyPoints.coInvest.text"),
-              },
-              {
-                icon: Building2,
-                title: t("keyPoints.offMarket.title"),
-                text: t("keyPoints.offMarket.text"),
               },
               {
                 icon: FileText,
@@ -359,6 +392,102 @@ const Klub = () => {
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {b.text}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DEAL EXAMPLE */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <AnimatedSection>
+            <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8 sm:mb-10">
+              {t("deal.label")}
+            </span>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <AnimatedSection>
+              <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
+                  <span className="font-serif text-xl sm:text-2xl text-primary-foreground">
+                    {t("deal.cardTitle")}
+                  </span>
+                  <span className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-primary-foreground/50 border border-primary-foreground/20 rounded-full px-3 py-1.5">
+                    {t("deal.cardTag")}
+                  </span>
+                </div>
+                <dl>
+                  {[
+                    { label: t("deal.rows.type.label"), value: t("deal.rows.type.value") },
+                    { label: t("deal.rows.price.label"), value: t("deal.rows.price.value") },
+                    { label: t("deal.rows.market.label"), value: t("deal.rows.market.value") },
+                    { label: t("deal.rows.discount.label"), value: t("deal.rows.discount.value") },
+                    { label: t("deal.rows.strategy.label"), value: t("deal.rows.strategy.value") },
+                    { label: t("deal.rows.horizon.label"), value: t("deal.rows.horizon.value") },
+                  ].map((row) => (
+                    <div
+                      key={row.label}
+                      className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-3.5 sm:py-4 border-t border-primary-foreground/10 first:border-t-0"
+                    >
+                      <dt className="text-xs sm:text-sm text-primary-foreground/50 flex-shrink-0">
+                        {row.label}
+                      </dt>
+                      <dd className="text-sm sm:text-base text-primary-foreground sm:text-right">
+                        {row.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="text-xs text-primary-foreground/40 mt-5 sm:mt-6">
+                  {t("deal.disclaimer")}
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection>
+              <div className="lg:pt-2">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-5 sm:mb-6 leading-tight">
+                  {t("deal.whyTitle")}
+                </h2>
+                <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-5 sm:mb-6">
+                  {t("deal.whyText")}
+                </p>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  {t("deal.memoNote")}
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ALIGNMENT */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            {[
+              {
+                title: t("alignment.skin.title"),
+                text: t("alignment.skin.text"),
+              },
+              {
+                title: t("alignment.direct.title"),
+                text: t("alignment.direct.text"),
+              },
+              {
+                title: t("alignment.discretion.title"),
+                text: t("alignment.discretion.text"),
+              },
+            ].map((item) => (
+              <AnimatedSection key={item.title}>
+                <div className="border-t border-foreground/15 pt-6 sm:pt-7 h-full">
+                  <h3 className="font-serif text-lg sm:text-xl text-foreground mb-3 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {item.text}
                   </p>
                 </div>
               </AnimatedSection>
@@ -732,23 +861,28 @@ const Klub = () => {
                       )}
                     />
 
-                    <Button
-                      type="submit"
-                      disabled={submitting}
-                      className="w-full sm:w-auto group rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 px-8 py-6 text-base"
-                    >
-                      {submitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          {t("form.submitting")}
-                        </>
-                      ) : (
-                        <>
-                          {t("form.submit")}
-                          <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </>
-                      )}
-                    </Button>
+                    <div>
+                      <Button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full sm:w-auto group rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 px-8 py-6 text-base"
+                      >
+                        {submitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            {t("form.submitting")}
+                          </>
+                        ) : (
+                          <>
+                            {t("form.submit")}
+                            <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </>
+                        )}
+                      </Button>
+                      <p className="text-primary-foreground/50 text-xs sm:text-sm mt-4">
+                        {t("form.note")}
+                      </p>
+                    </div>
                   </form>
                 </Form>
               )}

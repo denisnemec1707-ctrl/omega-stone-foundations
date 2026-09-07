@@ -1,20 +1,51 @@
 {
   "meta": {
-    "title": "ASSETRA Private Investors | Private-market opportunities for qualified investors",
-    "description": "A private investment club for investors with €100,000+ in capital. Access to selected private-credit, real-estate co-investment and off-market opportunities in Slovakia and Czechia."
+    "title": "ASSETRA Private Investors | Off-market investment opportunities from €100,000",
+    "description": "A selective investment club for investors with €100,000+ in capital. Discounted off-market real estate, secured financings and business acquisitions in Slovakia and Czechia. Every opportunity comes with an investment memo including risks."
   },
   "hero": {
-    "label": "Private investment club",
-    "title": "ASSETRA Private Investors.",
-    "subtitle": "Private-market opportunities for investors with €100,000+ in capital.",
+    "label": "ASSETRA Private Investors — private investment club",
+    "title": "Opportunities that never reach the market.",
+    "subtitle": "Off-market real estate, secured financings and business acquisitions in Slovakia and Czechia. For investors with €100,000+ in capital.",
     "cta": "Apply for membership"
   },
-  "intro": "Membership is intended for investors planning to allocate at least €100,000 to private markets over the next 24 months. Members invest alongside ASSETRA and its partners in selected private-credit, real-estate and business-acquisition transactions in Slovakia and Czechia. Membership is not automatic — every application is reviewed individually.",
+  "manifesto": {
+    "label": "Let's be honest",
+    "p1": "ASSETRA is not a big name today. We are a new investment group — no long track record, no billions under management. We won't pretend otherwise.",
+    "p2": "What we have is access. To properties and businesses that sell outside the open market — fast, discreetly and at a significant discount. We put our own capital into transactions, and for each one you receive a complete analysis including the risks and the scenario where things go wrong.",
+    "p3": "We don't ask for your trust upfront. It is built through the first transaction we do together.",
+    "signature": "Denis Nemec",
+    "role": "founder, ASSETRA Investments"
+  },
+  "intro": "Membership is free and selective. It is intended for investors planning to allocate at least €100,000 to private markets over the next 24 months. Every application is reviewed individually — and not every one is approved.",
+  "pillarsLabel": "What membership brings",
   "keyPoints": {
-    "privateCredit": { "title": "01 — Private Credit", "text": "Participation in selected real-estate financings, secured by a mortgage over property at a conservative LTV." },
-    "coInvest": { "title": "02 — Real Estate Co-Invest", "text": "Joint participation in specific transactions — undervalued properties and development projects we invest in alongside you." },
-    "offMarket": { "title": "03 — Off-Market Opportunities", "text": "Investment properties and acquisitions of operating businesses sourced outside the open market — below market price or with attractive yield." },
-    "memos": { "title": "04 — Investment Memos", "text": "Every opportunity comes with an analysis: transaction, collateral, valuation, risks and downside scenario. No marketing brochures." }
+    "offMarket": { "title": "01 — Off-Market Deal Flow", "text": "Properties and businesses that never appear in listings. We source them directly from owners — from situations where speed and cash decide." },
+    "privateCredit": { "title": "02 — Private Credit", "text": "Participation in financings secured by a mortgage over property — with conservative LTV and a clear source of repayment." },
+    "coInvest": { "title": "03 — Co-Investments", "text": "You enter specific transactions alongside us — undervalued properties and development projects, deal by deal, at your own choice." },
+    "memos": { "title": "04 — Investment Memos", "text": "Every opportunity comes with an analysis: valuation, collateral, risks and downside scenario. No marketing brochures." }
+  },
+  "deal": {
+    "label": "What an opportunity looks like",
+    "cardTag": "Illustrative example",
+    "cardTitle": "ASSETRA Opportunity",
+    "rows": {
+      "type": { "label": "Transaction type", "value": "Off-market apartment purchase — regional city, Slovakia" },
+      "price": { "label": "Purchase price", "value": "€168,000" },
+      "market": { "label": "Market value (expert appraisal)", "value": "€214,000" },
+      "discount": { "label": "Discount to market", "value": "≈ 21 %" },
+      "strategy": { "label": "Strategy", "value": "Cash purchase within 14 days → legal cleanup → sale or rental" },
+      "horizon": { "label": "Target horizon", "value": "6 – 12 months" }
+    },
+    "disclaimer": "Illustrative example of the structure — parameters differ with every transaction.",
+    "whyTitle": "Why such prices exist",
+    "whyText": "In these situations the seller doesn't need the highest price — they need certainty and speed. Foreclosure, inheritance proceedings, divorce, stalled financing. We buy in cash and close in days, not months. The discount is the reward for speed and certainty, not a coincidence.",
+    "memoNote": "Specific opportunities, including the full investment memo — valuation, legal status, collateral, risks, downside scenario — are shared only with approved members, under NDA."
+  },
+  "alignment": {
+    "skin": { "title": "Capital at stake", "text": "We invest alongside you. We carry the transaction risk together with you — which is why we select hard." },
+    "direct": { "title": "Direct investor, no commissions", "text": "We are not a broker or a seller of third-party products. Membership is free — we earn on transactions, not on fees from you." },
+    "discretion": { "title": "Discretion and a small circle", "text": "Transaction details are shared under NDA. We deliberately keep the club small — the capacity of individual transactions is limited." }
   },
   "process": {
     "heading": "How we select opportunities",
@@ -73,7 +104,7 @@
   "form": {
     "heading": "Membership application",
     "title": "ASSETRA Investor Application",
-    "description": "Membership is free, but selective. Based on your application we assess whether we can bring you relevant opportunities. Selected applicants are invited to a short introductory investor call.",
+    "description": "The form is deliberately detailed — based on your answers we assess whether we can bring you relevant opportunities. Selected applicants are invited to a short introductory investor call.",
     "fullName": "Full name *",
     "email": "Email *",
     "phone": "Phone *",
@@ -89,7 +120,8 @@
     "horizon": "Preferred investment horizon *",
     "horizonPlaceholder": "Select a horizon",
     "submit": "Submit membership application",
-    "submitting": "Submitting…"
+    "submitting": "Submitting…",
+    "note": "Submitting the application is free and does not commit you to anything."
   },
   "consentLinkText": "the privacy policy",
   "consent": "I consent to the processing of my personal data for the purpose of assessing my membership application and receiving investment opportunities, in line with the privacy policy. You can unsubscribe at any time.",
