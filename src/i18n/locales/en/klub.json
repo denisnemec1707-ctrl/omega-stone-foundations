@@ -1,57 +1,100 @@
 {
   "meta": {
-    "title": "ASSETRA Club | Investment Opportunities Before Public Offering",
-    "description": "Join the ASSETRA Club and receive information about selected investment opportunities (real estate, company acquisitions, secured loans) before they go public."
+    "title": "ASSETRA Private Investors | Private-market opportunities for qualified investors",
+    "description": "A private investment club for investors with €100,000+ in capital. Access to selected private-credit, real-estate co-investment and off-market opportunities in Slovakia and Czechia."
   },
   "hero": {
-    "label": "For private investors",
-    "title": "ASSETRA Club.",
-    "subtitle": "Investment opportunities before public offering.",
-    "cta": "Register"
+    "label": "Private investment club",
+    "title": "ASSETRA Private Investors.",
+    "subtitle": "Private-market opportunities for investors with €100,000+ in capital.",
+    "cta": "Apply for membership"
   },
+  "intro": "Membership is intended for investors planning to allocate at least €100,000 to private markets over the next 24 months. Members invest alongside ASSETRA and its partners in selected private-credit, real-estate and business-acquisition transactions in Slovakia and Czechia. Membership is not automatic — every application is reviewed individually.",
   "keyPoints": {
-    "earlyAccess": { "title": "Early access", "text": "We send you selected opportunities before they go public." },
-    "noCommitment": { "title": "No commitments", "text": "Membership is free. No fees, no commissions. You respond only when you want to." },
-    "preferences": { "title": "Your preferences", "text": "We only send what matches your profile — type, scope, and horizon." },
-    "discretion": { "title": "Discretion", "text": "Specific details are shared under NDA. We do not share your data with anyone." }
+    "privateCredit": { "title": "01 — Private Credit", "text": "Participation in selected real-estate financings, secured by a mortgage over property at a conservative LTV." },
+    "coInvest": { "title": "02 — Real Estate Co-Invest", "text": "Joint participation in specific transactions — undervalued properties and development projects we invest in alongside you." },
+    "offMarket": { "title": "03 — Off-Market Opportunities", "text": "Investment properties and acquisitions of operating businesses sourced outside the open market — below market price or with attractive yield." },
+    "memos": { "title": "04 — Investment Memos", "text": "Every opportunity comes with an analysis: transaction, collateral, valuation, risks and downside scenario. No marketing brochures." }
   },
-  "intro": "After free registration, we will send you a selection of interesting investment opportunities — property buyouts, real estate project financing, and acquisitions of established Slovak companies. Only when there is something that matches your profile.",
+  "process": {
+    "heading": "How we select opportunities",
+    "steps": {
+      "sourcing": "Sourcing",
+      "underwriting": "Underwriting",
+      "valuation": "Valuation",
+      "dd": "Legal & due diligence review",
+      "decision": "Investment decision",
+      "member": "Offered to members"
+    },
+    "note": "Only a fraction of the opportunities we review reaches members. We show process and risk management, not return promises."
+  },
   "interestOptions": {
-    "realEstate": "Real Estate",
-    "acquisitions": "Company Acquisitions",
-    "loans": "Secured Loans",
-    "coInvestment": "Co-investments (deal-by-deal)"
+    "privateCredit": "Private credit (secured financings)",
+    "coInvestment": "Real-estate co-investments",
+    "offMarket": "Off-market real estate",
+    "acquisitions": "Acquisitions of operating businesses"
   },
-  "investmentAmountOptions": {
-    "10to49k": "€10,000 – €49,000",
-    "50to99k": "€50,000 – €99,000",
-    "100to299k": "€100,000 – €299,000",
-    "over300k": "€300,000 and above"
+  "allocationOptions": {
+    "under100k": "Less than €100,000",
+    "100to250k": "€100,000 – €250,000",
+    "250to500k": "€250,000 – €500,000",
+    "500kto1m": "€500,000 – €1,000,000",
+    "over1m": "€1,000,000 and more"
+  },
+  "assetsOptions": {
+    "under100k": "Less than €100,000",
+    "100to250k": "€100,000 – €250,000",
+    "250to500k": "€250,000 – €500,000",
+    "500kto1m": "€500,000 – €1,000,000",
+    "1to5m": "€1 – 5 million",
+    "over5m": "€5 million and more"
+  },
+  "ticketOptions": {
+    "25k": "approx. €25,000",
+    "50k": "approx. €50,000",
+    "100k": "approx. €100,000",
+    "250k": "approx. €250,000",
+    "over500k": "€500,000 and more"
+  },
+  "occupationOptions": {
+    "founder": "Business owner / co-owner",
+    "executive": "CEO / C-level executive",
+    "professional": "Professional (law, medicine, IT…)",
+    "reInvestor": "Real-estate investor / developer",
+    "familyOffice": "Family office / institution",
+    "other": "Other"
   },
   "horizonOptions": {
-    "short": "Short-term (up to 12 months)",
-    "medium": "Medium-term (1 – 3 years)",
-    "long": "Long-term (3+ years)",
+    "short": "Short term (under 12 months)",
+    "medium": "Medium term (1 – 3 years)",
+    "long": "Long term (3+ years)",
     "flexible": "Flexible — depending on the opportunity"
   },
   "form": {
-    "heading": "Registration",
-    "title": "Join the club",
-    "description": "It takes 2 minutes to complete. We only send when there is something interesting — no spam.",
+    "heading": "Membership application",
+    "title": "ASSETRA Investor Application",
+    "description": "Membership is free, but selective. Based on your application we assess whether we can bring you relevant opportunities. Selected applicants are invited to a short introductory investor call.",
     "fullName": "Full name *",
     "email": "Email *",
     "phone": "Phone *",
-    "interests": "What opportunities are you interested in? *",
-    "investmentAmount": "Planned investment amount *",
-    "investmentAmountPlaceholder": "Select range",
-    "horizon": "Time horizon *",
-    "horizonPlaceholder": "Select horizon",
-    "submit": "Register",
-    "submitting": "Registering..."
+    "allocation": "How much capital do you plan to allocate to private markets over the next 24 months? *",
+    "allocationPlaceholder": "Select a range",
+    "assets": "Approximate value of your investable assets *",
+    "assetsPlaceholder": "Select a range",
+    "ticket": "Typical size of a single investment *",
+    "ticketPlaceholder": "Select a range",
+    "interests": "Which opportunities are you interested in? *",
+    "occupation": "What do you do? *",
+    "occupationPlaceholder": "Select an option",
+    "horizon": "Preferred investment horizon *",
+    "horizonPlaceholder": "Select a horizon",
+    "submit": "Submit membership application",
+    "submitting": "Submitting…"
   },
-  "consent": "I consent to the processing of my personal data for the purposes of receiving investment opportunities in accordance with the privacy policy. You can unsubscribe at any time.",
+  "consentLinkText": "the privacy policy",
+  "consent": "I consent to the processing of my personal data for the purpose of assessing my membership application and receiving investment opportunities, in line with the privacy policy. You can unsubscribe at any time.",
   "success": {
-    "title": "You're in the club",
-    "text": "Thank you. We will reach out when there is something interesting."
+    "title": "Application received",
+    "text": "Thank you. We will review your application and invite selected applicants to a short introductory investor call."
   }
 }

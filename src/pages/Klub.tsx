@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
-  Bell,
+  Building2,
   CheckCircle2,
+  FileText,
+  Handshake,
   Loader2,
   Phone,
   ShieldCheck,
-  Sparkles,
-  SlidersHorizontal,
 } from "lucide-react";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -61,12 +61,13 @@ const useFormSchema = () => {
           .trim()
           .min(6, { message: t("phone.min") })
           .max(40),
+        allocation: z.string().min(1, { message: t("select.clubAmount") }),
+        assets: z.string().min(1, { message: t("select.clubAmount") }),
+        ticket: z.string().min(1, { message: t("select.clubAmount") }),
         categories: z
           .array(z.string())
           .min(1, { message: t("select.interests") }),
-        investmentRange: z
-          .string()
-          .min(1, { message: t("select.clubAmount") }),
+        occupation: z.string().min(1, { message: t("select.clubAmount") }),
         timeHorizon: z.string().min(1, { message: t("select.clubHorizon") }),
         consent: z.literal(true, {
           errorMap: () => ({ message: t("consent.required") }),
@@ -111,6 +112,11 @@ function readUtmFromUrl(): UtmData {
   };
 }
 
+const selectFieldClass =
+  "bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground";
+const inputFieldClass =
+  "bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground";
+
 const Klub = () => {
   const { t } = useTranslation("klub");
   const { t: tVal } = useTranslation("validation");
@@ -132,17 +138,44 @@ const Klub = () => {
   }, []);
 
   const categoryOptions = [
-    { code: "real_estate", label: t("interestOptions.realEstate") },
-    { code: "private_equity", label: t("interestOptions.acquisitions") },
-    { code: "secured_loans", label: t("interestOptions.loans") },
-    { code: "co_investment", label: t("interestOptions.coInvestment") },
+    { code: "private_credit", label: t("interestOptions.privateCredit") },
+    { code: "re_co_investment", label: t("interestOptions.coInvestment") },
+    { code: "off_market_real_estate", label: t("interestOptions.offMarket") },
+    { code: "acquisitions", label: t("interestOptions.acquisitions") },
   ];
 
-  const investmentRangeOptions = [
-    { value: "10to49k", label: t("investmentAmountOptions.10to49k") },
-    { value: "50to99k", label: t("investmentAmountOptions.50to99k") },
-    { value: "100to299k", label: t("investmentAmountOptions.100to299k") },
-    { value: "over300k", label: t("investmentAmountOptions.over300k") },
+  const allocationOptions = [
+    { value: "under100k", label: t("allocationOptions.under100k") },
+    { value: "100to250k", label: t("allocationOptions.100to250k") },
+    { value: "250to500k", label: t("allocationOptions.250to500k") },
+    { value: "500kto1m", label: t("allocationOptions.500kto1m") },
+    { value: "over1m", label: t("allocationOptions.over1m") },
+  ];
+
+  const assetsOptions = [
+    { value: "under100k", label: t("assetsOptions.under100k") },
+    { value: "100to250k", label: t("assetsOptions.100to250k") },
+    { value: "250to500k", label: t("assetsOptions.250to500k") },
+    { value: "500kto1m", label: t("assetsOptions.500kto1m") },
+    { value: "1to5m", label: t("assetsOptions.1to5m") },
+    { value: "over5m", label: t("assetsOptions.over5m") },
+  ];
+
+  const ticketOptions = [
+    { value: "25k", label: t("ticketOptions.25k") },
+    { value: "50k", label: t("ticketOptions.50k") },
+    { value: "100k", label: t("ticketOptions.100k") },
+    { value: "250k", label: t("ticketOptions.250k") },
+    { value: "over500k", label: t("ticketOptions.over500k") },
+  ];
+
+  const occupationOptions = [
+    { value: "founder", label: t("occupationOptions.founder") },
+    { value: "executive", label: t("occupationOptions.executive") },
+    { value: "professional", label: t("occupationOptions.professional") },
+    { value: "re_investor", label: t("occupationOptions.reInvestor") },
+    { value: "family_office", label: t("occupationOptions.familyOffice") },
+    { value: "other", label: t("occupationOptions.other") },
   ];
 
   const timeHorizonOptions = [
@@ -152,14 +185,26 @@ const Klub = () => {
     { value: "flexible", label: t("horizonOptions.flexible") },
   ];
 
+  const processSteps = [
+    t("process.steps.sourcing"),
+    t("process.steps.underwriting"),
+    t("process.steps.valuation"),
+    t("process.steps.dd"),
+    t("process.steps.decision"),
+    t("process.steps.member"),
+  ];
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
       email: "",
       phone: "",
+      allocation: "",
+      assets: "",
+      ticket: "",
       categories: [],
-      investmentRange: "",
+      occupation: "",
       timeHorizon: "",
       consent: false as unknown as true,
       website: "",
@@ -175,13 +220,16 @@ const Klub = () => {
     setSubmitting(true);
     try {
       await submitForm(import.meta.env.VITE_WEBHOOK_KLUB, {
-        form_source: "klub",
+        form_source: "klub_private_investors",
         submitted_at: new Date().toISOString(),
         full_name: values.fullName,
         email: values.email,
         phone: values.phone,
+        allocation_24m: values.allocation,
+        investable_assets: values.assets,
+        typical_ticket: values.ticket,
         categories: values.categories.join(", "),
-        investment_range: values.investmentRange,
+        occupation: values.occupation,
         time_horizon: values.timeHorizon,
         consent_given: values.consent,
         utm_source: utm.utm_source,
@@ -205,7 +253,7 @@ const Klub = () => {
         description: t("success.text"),
       });
     } catch (err) {
-      console.error("Klub subscription submit error", err);
+      console.error("Klub application submit error", err);
       toast({
         title: tVal("toast.error"),
         description: tVal("toast.errorDesc"),
@@ -215,6 +263,10 @@ const Klub = () => {
       setSubmitting(false);
     }
   };
+
+  const consentText = t("consent");
+  const consentLinkText = t("consentLinkText");
+  const consentParts = consentText.split(consentLinkText);
 
   return (
     <LandingLayout
@@ -238,7 +290,7 @@ const Klub = () => {
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
               {t("hero.label")}
             </span>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
               {t("hero.title")}
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
@@ -246,7 +298,7 @@ const Klub = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
               <a
-                href="#registracia"
+                href="#ziadost"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-foreground text-charcoal hover:bg-primary-foreground/90 transition-colors text-base font-medium"
               >
                 {t("hero.cta")}
@@ -264,7 +316,7 @@ const Klub = () => {
         </div>
       </section>
 
-      {/* KEY POINTS */}
+      {/* PILLARS */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
@@ -277,24 +329,24 @@ const Klub = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {[
               {
-                icon: Bell,
-                title: t("keyPoints.earlyAccess.title"),
-                text: t("keyPoints.earlyAccess.text"),
-              },
-              {
-                icon: Sparkles,
-                title: t("keyPoints.noCommitment.title"),
-                text: t("keyPoints.noCommitment.text"),
-              },
-              {
-                icon: SlidersHorizontal,
-                title: t("keyPoints.preferences.title"),
-                text: t("keyPoints.preferences.text"),
-              },
-              {
                 icon: ShieldCheck,
-                title: t("keyPoints.discretion.title"),
-                text: t("keyPoints.discretion.text"),
+                title: t("keyPoints.privateCredit.title"),
+                text: t("keyPoints.privateCredit.text"),
+              },
+              {
+                icon: Handshake,
+                title: t("keyPoints.coInvest.title"),
+                text: t("keyPoints.coInvest.text"),
+              },
+              {
+                icon: Building2,
+                title: t("keyPoints.offMarket.title"),
+                text: t("keyPoints.offMarket.text"),
+              },
+              {
+                icon: FileText,
+                title: t("keyPoints.memos.title"),
+                text: t("keyPoints.memos.text"),
               },
             ].map((b) => (
               <AnimatedSection key={b.title}>
@@ -315,8 +367,46 @@ const Klub = () => {
         </div>
       </section>
 
-      {/* REGISTRATION */}
-      <section id="registracia" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
+      {/* SELECTION PROCESS */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <AnimatedSection>
+            <div className="bg-secondary/50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12">
+              <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-8 leading-tight">
+                {t("process.heading")}
+              </h2>
+              <ol className="flex flex-wrap items-center gap-y-4 mb-8">
+                {processSteps.map((step, i) => (
+                  <li key={step} className="flex items-center">
+                    <span className="inline-flex items-center gap-2.5">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-foreground/5 text-foreground text-xs font-medium flex items-center justify-center">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm sm:text-base text-foreground/80">
+                        {step}
+                      </span>
+                    </span>
+                    {i < processSteps.length - 1 && (
+                      <span
+                        aria-hidden="true"
+                        className="mx-4 sm:mx-5 text-muted-foreground/50"
+                      >
+                        →
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
+                {t("process.note")}
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* APPLICATION */}
+      <section id="ziadost" className="pb-16 sm:pb-24 md:pb-32 scroll-mt-20">
         <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
           <AnimatedSection>
             <div className="bg-charcoal rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16">
@@ -357,68 +447,88 @@ const Klub = () => {
                       aria-hidden="true"
                       className="absolute left-[-9999px] w-px h-px opacity-0"
                     />
+
+                    <FormField
+                      control={form.control}
+                      name="allocation"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-primary-foreground/80">
+                            {t("form.allocation")}
+                          </FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className={selectFieldClass}>
+                                <SelectValue placeholder={t("form.allocationPlaceholder")} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {allocationOptions.map((s) => (
+                                <SelectItem key={s.value} value={s.value}>
+                                  {s.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}
-                        name="fullName"
+                        name="assets"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              {t("form.fullName")}
+                              {t("form.assets")}
                             </FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                placeholder="Jan Novak"
-                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
-                              />
-                            </FormControl>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <FormControl>
+                                <SelectTrigger className={selectFieldClass}>
+                                  <SelectValue placeholder={t("form.assetsPlaceholder")} />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {assetsOptions.map((s) => (
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                       <FormField
                         control={form.control}
-                        name="email"
+                        name="ticket"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              {t("form.email")}
+                              {t("form.ticket")}
                             </FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                type="email"
-                                placeholder="jan@email.sk"
-                                className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
-                              />
-                            </FormControl>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <FormControl>
+                                <SelectTrigger className={selectFieldClass}>
+                                  <SelectValue placeholder={t("form.ticketPlaceholder")} />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {ticketOptions.map((s) => (
+                                  <SelectItem key={s.value} value={s.value}>
+                                    {s.label}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                     </div>
-
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-primary-foreground/80">
-                            {t("form.phone")}
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              {...field}
-                              type="tel"
-                              placeholder="+421 900 000 000"
-                              className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/30 focus-visible:ring-primary-foreground"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
 
                     <FormField
                       control={form.control}
@@ -478,23 +588,20 @@ const Klub = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                       <FormField
                         control={form.control}
-                        name="investmentRange"
+                        name="occupation"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-primary-foreground/80">
-                              {t("form.investmentAmount")}
+                              {t("form.occupation")}
                             </FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              value={field.value}
-                            >
+                            <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
-                                  <SelectValue placeholder={t("form.investmentAmountPlaceholder")} />
+                                <SelectTrigger className={selectFieldClass}>
+                                  <SelectValue placeholder={t("form.occupationPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                {investmentRangeOptions.map((s) => (
+                                {occupationOptions.map((s) => (
                                   <SelectItem key={s.value} value={s.value}>
                                     {s.label}
                                   </SelectItem>
@@ -513,12 +620,9 @@ const Klub = () => {
                             <FormLabel className="text-primary-foreground/80">
                               {t("form.horizon")}
                             </FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              value={field.value}
-                            >
+                            <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground focus:ring-primary-foreground">
+                                <SelectTrigger className={selectFieldClass}>
                                   <SelectValue placeholder={t("form.horizonPlaceholder")} />
                                 </SelectTrigger>
                               </FormControl>
@@ -536,6 +640,69 @@ const Klub = () => {
                       />
                     </div>
 
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                      <FormField
+                        control={form.control}
+                        name="fullName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-primary-foreground/80">
+                              {t("form.fullName")}
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="Jan Novak"
+                                className={inputFieldClass}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-primary-foreground/80">
+                              {t("form.email")}
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                type="email"
+                                placeholder="jan@email.sk"
+                                className={inputFieldClass}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-primary-foreground/80">
+                            {t("form.phone")}
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              type="tel"
+                              placeholder="+421 900 000 000"
+                              className={inputFieldClass}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
                     <FormField
                       control={form.control}
                       name="consent"
@@ -550,14 +717,14 @@ const Klub = () => {
                               />
                             </FormControl>
                             <FormLabel className="text-primary-foreground/70 text-sm font-normal leading-relaxed cursor-pointer">
-                              {t("consent").split("zásad ochrany osobných údajov")[0]}
+                              {consentParts[0]}
                               <Link
                                 to={getLocalizedPath("privacy", locale)}
                                 className="text-primary-foreground underline underline-offset-2"
                               >
-                                {t("consent").match(/zásad ochrany osobných údajov/)?.[0] ?? "zásad ochrany osobných údajov"}
+                                {consentLinkText}
                               </Link>
-                              {t("consent").split("zásad ochrany osobných údajov")[1] ?? "."}
+                              {consentParts[1] ?? ""}
                             </FormLabel>
                           </div>
                           <FormMessage />

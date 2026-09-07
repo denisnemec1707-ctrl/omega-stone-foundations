@@ -1,32 +1,68 @@
 {
   "meta": {
-    "title": "ASSETRA Klub | Investičné príležitosti pred verejnou ponukou",
-    "description": "Pridajte sa do ASSETRA Klubu a dostávajte informácie o vybraných investičných príležitostiach (nehnuteľnosti, akvizície firiem, zabezpečené úvery) skôr, než idú na verejnosť."
+    "title": "ASSETRA Private Investors | Private-market príležitosti pre kvalifikovaných investorov",
+    "description": "Privátny investičný klub pre investorov s kapitálom od 100 000 €. Prístup k vybraným private-credit, real-estate co-investment a off-market príležitostiam v SK a CZ."
   },
   "hero": {
-    "label": "Pre súkromných investorov",
-    "title": "ASSETRA Klub.",
-    "subtitle": "Investičné príležitosti pred verejnou ponukou.",
-    "cta": "Zaregistrovať sa"
+    "label": "Privátny investičný klub",
+    "title": "ASSETRA Private Investors.",
+    "subtitle": "Private-market príležitosti pre investorov s kapitálom od 100 000 €.",
+    "cta": "Požiadať o členstvo"
   },
+  "intro": "Členstvo je určené investorom, ktorí plánujú počas nasledujúcich 24 mesiacov alokovať minimálne 100 000 € do private markets. Členovia investujú po boku ASSETRA a jej partnerov do vybraných transakcií v oblasti private credit, nehnuteľností a akvizícií fungujúcich firiem v SK a CZ. Členstvo nie je automatické — každú žiadosť posudzujeme individuálne.",
   "keyPoints": {
-    "earlyAccess": { "title": "Prednostný prístup", "text": "Vybrané príležitosti Vám pošleme skôr, než idú na verejnosť." },
-    "noCommitment": { "title": "Bez záväzkov", "text": "Členstvo je bezplatné. Žiadne fees, žiadne provízie. Reagujete len keď chcete." },
-    "preferences": { "title": "Vaše preferencie", "text": "Posielame iba to, čo zodpovedá Vášmu profilu — typ, rozsah a horizont." },
-    "discretion": { "title": "Diskrétnosť", "text": "Konkrétne detaily zdieľame pod NDA. Vaše údaje nezdieľame s nikým." }
+    "privateCredit": { "title": "01 — Private Credit", "text": "Participácia na vybraných financovaniach realitných projektov, zabezpečených záložným právom na nehnuteľnosť s konzervatívnym LTV." },
+    "coInvest": { "title": "02 — Real Estate Co-Invest", "text": "Spoločná účasť na konkrétnych transakciách — podhodnotené nehnuteľnosti a developerské projekty, do ktorých investujeme spolu s Vami." },
+    "offMarket": { "title": "03 — Off-Market príležitosti", "text": "Investičné nehnuteľnosti a akvizície fungujúcich firiem, ktoré získavame mimo bežného trhu — pod trhovou cenou alebo s atraktívnym výnosom." },
+    "memos": { "title": "04 — Investment Memos", "text": "Ku každej ponúkanej príležitosti dostanete analýzu: transakcia, zabezpečenie, valuácia, riziká a downside scenár. Žiadne marketingové letáky." }
   },
-  "intro": "Po bezplatnej registrácii Vám pošleme výber zaujímavých investičných príležitostí — výkupy nehnuteľností, úverovanie realitných projektov a akvizície fungujúcich slovenských spoločností. Vždy len keď je niečo, čo zodpovedá Vášmu profilu.",
+  "process": {
+    "heading": "Ako vyberáme príležitosti",
+    "steps": {
+      "sourcing": "Sourcing",
+      "underwriting": "Underwriting",
+      "valuation": "Valuácia",
+      "dd": "Právna a due diligence previerka",
+      "decision": "Investičné rozhodnutie",
+      "member": "Ponuka členom"
+    },
+    "note": "Členom sa dostane len zlomok príležitostí, ktoré preveríme. Ukazujeme proces a riadenie rizika, nie sľuby výnosov."
+  },
   "interestOptions": {
-    "realEstate": "Nehnuteľnosti",
-    "acquisitions": "Akvizície firiem",
-    "loans": "Zabezpečené úvery",
-    "coInvestment": "Spoluinvestície (deal-by-deal)"
+    "privateCredit": "Private credit (zabezpečené financovania)",
+    "coInvestment": "Real-estate co-investments",
+    "offMarket": "Off-market nehnuteľnosti",
+    "acquisitions": "Akvizície fungujúcich firiem"
   },
-  "investmentAmountOptions": {
-    "10to49k": "10 000 – 49 000 €",
-    "50to99k": "50 000 – 99 000 €",
-    "100to299k": "100 000 – 299 000 €",
-    "over300k": "300 000 € a viac"
+  "allocationOptions": {
+    "under100k": "Menej ako 100 000 €",
+    "100to250k": "100 000 – 250 000 €",
+    "250to500k": "250 000 – 500 000 €",
+    "500kto1m": "500 000 – 1 000 000 €",
+    "over1m": "1 000 000 € a viac"
+  },
+  "assetsOptions": {
+    "under100k": "Menej ako 100 000 €",
+    "100to250k": "100 000 – 250 000 €",
+    "250to500k": "250 000 – 500 000 €",
+    "500kto1m": "500 000 – 1 000 000 €",
+    "1to5m": "1 – 5 mil. €",
+    "over5m": "5 mil. € a viac"
+  },
+  "ticketOptions": {
+    "25k": "cca 25 000 €",
+    "50k": "cca 50 000 €",
+    "100k": "cca 100 000 €",
+    "250k": "cca 250 000 €",
+    "over500k": "500 000 € a viac"
+  },
+  "occupationOptions": {
+    "founder": "Majiteľ / spolumajiteľ firmy",
+    "executive": "CEO / C-level manažér",
+    "professional": "Profesionál (právo, medicína, IT…)",
+    "reInvestor": "Realitný investor / developer",
+    "familyOffice": "Family office / inštitúcia",
+    "other": "Iné"
   },
   "horizonOptions": {
     "short": "Krátkodobo (do 12 mesiacov)",
@@ -35,23 +71,30 @@
     "flexible": "Flexibilné — podľa príležitosti"
   },
   "form": {
-    "heading": "Registrácia",
-    "title": "Pridajte sa do klubu",
-    "description": "Vyplnenie zaberie 2 minúty. Posielame iba keď je niečo zaujímavé — žiadny spam.",
+    "heading": "Žiadosť o členstvo",
+    "title": "ASSETRA Investor Application",
+    "description": "Členstvo je bezplatné, ale výberové. Na základe žiadosti posúdime, či Vám vieme priniesť relevantné príležitosti. Vybraných uchádzačov kontaktujeme na krátky úvodný investorský rozhovor.",
     "fullName": "Meno a priezvisko *",
     "email": "Email *",
     "phone": "Telefón *",
+    "allocation": "Aký kapitál plánujete v nasledujúcich 24 mesiacoch alokovať do private markets? *",
+    "allocationPlaceholder": "Vyberte rozsah",
+    "assets": "Približná hodnota Vašich investovateľných aktív *",
+    "assetsPlaceholder": "Vyberte rozsah",
+    "ticket": "Typická výška jednej investície *",
+    "ticketPlaceholder": "Vyberte rozsah",
     "interests": "O aké príležitosti máte záujem? *",
-    "investmentAmount": "Plánovaná výška investície *",
-    "investmentAmountPlaceholder": "Vyberte rozsah",
-    "horizon": "Časový horizont *",
+    "occupation": "Čomu sa venujete? *",
+    "occupationPlaceholder": "Vyberte možnosť",
+    "horizon": "Preferovaný investičný horizont *",
     "horizonPlaceholder": "Vyberte horizont",
-    "submit": "Pridať sa do klubu",
+    "submit": "Odoslať žiadosť o členstvo",
     "submitting": "Odosielam…"
   },
-  "consent": "Súhlasím so spracovaním osobných údajov pre účely zasielania investičných príležitostí v zmysle zásad ochrany osobných údajov. Z odberu sa môžete kedykoľvek odhlásiť.",
+  "consentLinkText": "zásad ochrany osobných údajov",
+  "consent": "Súhlasím so spracovaním osobných údajov pre účely posúdenia žiadosti o členstvo a zasielania investičných príležitostí v zmysle zásad ochrany osobných údajov. Z odberu sa môžete kedykoľvek odhlásiť.",
   "success": {
-    "title": "Ste v klube",
-    "text": "Ďakujeme. Ozveme sa Vám keď bude niečo zaujímavé."
+    "title": "Žiadosť prijatá",
+    "text": "Ďakujeme. Vašu žiadosť posúdime a vybraných uchádzačov kontaktujeme na krátky úvodný investorský rozhovor."
   }
 }
