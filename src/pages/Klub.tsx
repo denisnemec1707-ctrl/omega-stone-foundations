@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   ArrowUpRight,
-  Bell,
   Building2,
   CheckCircle2,
   FileText,
@@ -14,8 +13,6 @@ import {
   Loader2,
   Phone,
   ShieldCheck,
-  SlidersHorizontal,
-  Sparkles,
 } from "lucide-react";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -188,15 +185,6 @@ const Klub = () => {
     { value: "flexible", label: t("horizonOptions.flexible") },
   ];
 
-  const processSteps = [
-    t("process.steps.sourcing"),
-    t("process.steps.underwriting"),
-    t("process.steps.valuation"),
-    t("process.steps.dd"),
-    t("process.steps.decision"),
-    t("process.steps.member"),
-  ];
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -293,8 +281,9 @@ const Klub = () => {
             <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-primary-foreground/60 mb-6 sm:mb-8">
               {t("hero.label")}
             </span>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.95] mb-5 sm:mb-7 tracking-tight">
-              {t("hero.title")}
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.98] mb-5 sm:mb-7 tracking-tight">
+              <span className="block">{t("hero.title1")}</span>
+              <span className="block text-primary-foreground/70">{t("hero.title2")}</span>
             </h1>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground/85 leading-tight mb-8 sm:mb-10">
               {t("hero.subtitle")}
@@ -355,34 +344,29 @@ const Klub = () => {
           <AnimatedSection>
             <div className="max-w-3xl mb-12 sm:mb-16">
               <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 sm:mb-6">
-                {t("pillarsLabel")}
+                {t("pillars.label")}
               </span>
               <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
-                {t("intro")}
+                {t("pillars.intro")}
               </p>
             </div>
           </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {[
               {
                 icon: Building2,
-                title: t("keyPoints.offMarket.title"),
-                text: t("keyPoints.offMarket.text"),
+                title: t("pillars.offMarket.title"),
+                text: t("pillars.offMarket.text"),
               },
               {
                 icon: ShieldCheck,
-                title: t("keyPoints.privateCredit.title"),
-                text: t("keyPoints.privateCredit.text"),
+                title: t("pillars.privateCredit.title"),
+                text: t("pillars.privateCredit.text"),
               },
               {
                 icon: Handshake,
-                title: t("keyPoints.coInvest.title"),
-                text: t("keyPoints.coInvest.text"),
-              },
-              {
-                icon: FileText,
-                title: t("keyPoints.memos.title"),
-                text: t("keyPoints.memos.text"),
+                title: t("pillars.coInvest.title"),
+                text: t("pillars.coInvest.text"),
               },
             ].map((b) => (
               <AnimatedSection key={b.title}>
@@ -400,6 +384,14 @@ const Klub = () => {
               </AnimatedSection>
             ))}
           </div>
+          <AnimatedSection>
+            <div className="mt-5 sm:mt-6 bg-charcoal rounded-2xl sm:rounded-3xl px-6 sm:px-8 py-5 sm:py-6 flex items-start gap-4">
+              <FileText className="w-5 h-5 text-primary-foreground/70 flex-shrink-0 mt-0.5" />
+              <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
+                {t("pillars.memoBanner")}
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -427,7 +419,7 @@ const Klub = () => {
                     { label: t("deal.rows.type.label"), value: t("deal.rows.type.value") },
                     { label: t("deal.rows.price.label"), value: t("deal.rows.price.value") },
                     { label: t("deal.rows.market.label"), value: t("deal.rows.market.value") },
-                    { label: t("deal.rows.discount.label"), value: t("deal.rows.discount.value") },
+                    { label: t("deal.rows.discount.label"), value: t("deal.rows.discount.value"), highlight: true },
                     { label: t("deal.rows.strategy.label"), value: t("deal.rows.strategy.value") },
                     { label: t("deal.rows.horizon.label"), value: t("deal.rows.horizon.value") },
                   ].map((row) => (
@@ -438,7 +430,13 @@ const Klub = () => {
                       <dt className="text-xs sm:text-sm text-primary-foreground/50 flex-shrink-0">
                         {row.label}
                       </dt>
-                      <dd className="text-sm sm:text-base text-primary-foreground sm:text-right">
+                      <dd
+                        className={
+                          "highlight" in row && row.highlight
+                            ? "font-serif text-xl sm:text-2xl text-primary-foreground sm:text-right"
+                            : "text-sm sm:text-base text-primary-foreground sm:text-right"
+                        }
+                      >
                         {row.value}
                       </dd>
                     </div>
@@ -460,9 +458,55 @@ const Klub = () => {
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {t("deal.memoNote")}
                 </p>
+                <a
+                  href="#ziadost"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-charcoal text-primary-foreground hover:bg-charcoal/90 transition-colors text-base font-medium mt-7 sm:mt-8"
+                >
+                  {t("hero.cta")}
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* JOURNEY */}
+      <section className="pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
+          <AnimatedSection>
+            <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8 sm:mb-10">
+              {t("journey.label")}
+            </span>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-8 sm:mb-10">
+            {[
+              { num: "1", title: t("journey.steps.apply.title"), text: t("journey.steps.apply.text") },
+              { num: "2", title: t("journey.steps.call.title"), text: t("journey.steps.call.text") },
+              { num: "3", title: t("journey.steps.dealflow.title"), text: t("journey.steps.dealflow.text") },
+            ].map((s) => (
+              <AnimatedSection key={s.num}>
+                <div className="flex md:block items-start gap-5">
+                  <span className="font-serif text-4xl sm:text-5xl text-foreground/15 leading-none flex-shrink-0 md:block md:mb-4">
+                    {s.num}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-lg sm:text-xl text-foreground mb-2 leading-snug">
+                      {s.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      {s.text}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
+              {t("journey.note")}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -491,98 +535,6 @@ const Klub = () => {
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {item.text}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SELECTION PROCESS */}
-      <section className="pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-          <AnimatedSection>
-            <div className="bg-secondary/50 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12">
-              <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-8 leading-tight">
-                {t("process.heading")}
-              </h2>
-              <ol className="flex flex-wrap items-center gap-y-4 mb-8">
-                {processSteps.map((step, i) => (
-                  <li key={step} className="flex items-center">
-                    <span className="inline-flex items-center gap-2.5">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-foreground/5 text-foreground text-xs font-medium flex items-center justify-center">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm sm:text-base text-foreground/80">
-                        {step}
-                      </span>
-                    </span>
-                    {i < processSteps.length - 1 && (
-                      <span
-                        aria-hidden="true"
-                        className="mx-4 sm:mx-5 text-muted-foreground/50"
-                      >
-                        →
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ol>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
-                {t("process.note")}
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* MEMBERSHIP BENEFITS */}
-      <section className="pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-5 sm:px-6 md:px-8 lg:px-12 xl:px-20">
-          <AnimatedSection>
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <span className="inline-block text-[10px] sm:text-xs tracking-[0.3em] uppercase text-muted-foreground mb-5 sm:mb-6">
-                {t("benefits.label")}
-              </span>
-              <p className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed">
-                {t("benefits.intro")}
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {[
-              {
-                icon: Bell,
-                title: t("benefits.earlyAccess.title"),
-                text: t("benefits.earlyAccess.text"),
-              },
-              {
-                icon: Sparkles,
-                title: t("benefits.noCommitment.title"),
-                text: t("benefits.noCommitment.text"),
-              },
-              {
-                icon: SlidersHorizontal,
-                title: t("benefits.preferences.title"),
-                text: t("benefits.preferences.text"),
-              },
-              {
-                icon: ShieldCheck,
-                title: t("benefits.discretion.title"),
-                text: t("benefits.discretion.text"),
-              },
-            ].map((b) => (
-              <AnimatedSection key={b.title}>
-                <div className="bg-secondary/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center mb-5">
-                    <b.icon className="w-5 h-5 text-foreground" />
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl text-foreground mb-2 leading-snug">
-                    {b.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {b.text}
                   </p>
                 </div>
               </AnimatedSection>

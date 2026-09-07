@@ -1,37 +1,30 @@
 {
   "meta": {
-    "title": "ASSETRA Private Investors | Off-market investiční příležitosti od 100 000 €",
-    "description": "Výběrový investiční klub pro investory s kapitálem od 100 000 €. Off-market nemovitosti s diskontem, zajištěná financování a akvizice firem v SR a ČR. Ke každé příležitosti investment memo včetně rizik."
+    "title": "ASSETRA Private Investors | Prověřené off-market příležitosti od 100 000 €",
+    "description": "Privátní investiční klub pro investory od 100 000 €. Off-market nemovitosti pod tržní cenou, zajištěné úvěrování realitních projektů a akvizice firem v SR a ČR. Ke každé příležitosti investment memo včetně rizik."
   },
   "hero": {
-    "label": "Pro soukromé investory",
-    "title": "ASSETRA Klub.",
-    "subtitle": "Investiční příležitosti před veřejnou nabídkou.",
-    "cta": "Zaregistrovat se"
-  },
-  "benefits": {
-    "label": "Jak členství funguje",
-    "intro": "Po bezplatné registraci Vám pošleme výběr zajímavých investičních příležitostí — výkupy nemovitostí, úvěrování realitních projektů a akvizice fungujících slovenských společností. Vždy jen když je něco, co odpovídá Vašemu profilu.",
-    "earlyAccess": { "title": "Přednostní přístup", "text": "Vybrané příležitosti Vám pošleme dříve, než jdou na veřejnost." },
-    "noCommitment": { "title": "Bez závazků", "text": "Členství je bezplatné. Žádné fees, žádné provize. Reagujete jen když chcete." },
-    "preferences": { "title": "Vaše preference", "text": "Posíláme pouze to, co odpovídá Vašemu profilu — typ, rozsah a horizont." },
-    "discretion": { "title": "Diskrétnost", "text": "Konkrétní detaily sdílíme pod NDA. Vaše údaje nesdílíme s nikým." }
+    "label": "ASSETRA · Privátní investiční klub",
+    "title1": "Prověřené příležitosti.",
+    "title2": "Mimo trh.",
+    "subtitle": "Soukromý kapitál do off-market nemovitostí, zajištěného úvěrování a akvizic firem v SR a ČR. Pro investory od 100 000 €.",
+    "cta": "Požádat o členství"
   },
   "manifesto": {
     "label": "Na rovinu",
-    "p1": "ASSETRA dnes není velké jméno. Jsme nová investiční skupina — bez dlouhé historie a bez miliard ve správě. Nebudeme předstírat opak.",
-    "p2": "Co máme, je přístup. K nemovitostem a firmám, které se prodávají mimo trh — rychle, diskrétně a s výrazným diskontem. Do transakcí vstupujeme s vlastním kapitálem a ke každé dostanete kompletní analýzu včetně rizik a scénáře, když se nedaří.",
-    "p3": "Nežádáme Vaši důvěru předem. Buduje se první společnou transakcí.",
+    "p1": "ASSETRA není velké jméno. Jsme nová investiční skupina a nebudeme předstírat opak.",
+    "p2": "Máme však něco, co většina velkých jmen nemá: přístup k transakcím, které se na trh nikdy nedostanou — a vlastní kapitál ve hře. Nejsme finančníci od stolu; stojí za námi firmy, které jsme sami vybudovali a vedeme. Ke každé příležitosti dostanete kompletní analýzu včetně rizik a downside scénáře.",
+    "p3": "Důvěru nežádáme předem. Buduje se první společnou transakcí.",
     "signature": "Denis Nemec",
     "role": "zakladatel, ASSETRA Investments"
   },
-  "intro": "Členství je bezplatné a výběrové. Je určeno investorům, kteří plánují v následujících 24 měsících alokovat do private markets alespoň 100 000 €. Každou žádost posuzujeme individuálně — a ne každou schválíme.",
-  "pillarsLabel": "Co členství přináší",
-  "keyPoints": {
-    "offMarket": { "title": "01 — Off-Market Deal Flow", "text": "Nemovitosti a firmy, které se nikdy neobjeví v inzerci. Získáváme je přímo od majitelů — ze situací, kde rozhoduje rychlost a hotovost." },
-    "privateCredit": { "title": "02 — Private Credit", "text": "Participace na financováních zajištěných zástavním právem k nemovitosti — s konzervativním LTV a jasným zdrojem splacení." },
-    "coInvest": { "title": "03 — Co-Investments", "text": "Do konkrétních transakcí vstupujete po našem boku — podhodnocené nemovitosti a developerské projekty, deal by deal, podle vlastního výběru." },
-    "memos": { "title": "04 — Investment Memos", "text": "Ke každé příležitosti analýza: valuace, zajištění, rizika a downside scénář. Žádné marketingové letáky." }
+  "pillars": {
+    "label": "Co členům otevíráme",
+    "intro": "Členství je bezplatné a výběrové — pro investory, kteří plánují v nejbližších 24 měsících alokovat do private markets alespoň 100 000 €. Ne každou žádost schválíme.",
+    "offMarket": { "title": "01 — Off-market nemovitosti", "text": "Byty, domy a objekty kupované přímo od majitelů pod tržní cenou — z dědictví, exekucí a situací, kde rozhoduje hotovost a rychlost." },
+    "privateCredit": { "title": "02 — Private credit", "text": "Úvěrování realitních projektů zajištěné zástavním právem k nemovitosti — s konzervativním LTV a jasným zdrojem splacení." },
+    "coInvest": { "title": "03 — Co-investments a akvizice", "text": "Společný vstup do větších transakcí po našem boku — od developerských projektů po akvizice fungujících firem v SR a ČR." },
+    "memoBanner": "Ke každé příležitosti dostanete investment memo — valuace, zajištění, rizika a downside scénář. Žádné marketingové letáky."
   },
   "deal": {
     "label": "Jak vypadá příležitost",
@@ -48,24 +41,21 @@
     "disclaimer": "Ilustrační příklad struktury — parametry se u každé transakce liší.",
     "whyTitle": "Proč takové ceny existují",
     "whyText": "Prodávající v těchto situacích nepotřebuje nejvyšší cenu — potřebuje jistotu a rychlost. Exekuce, dědické řízení, rozvod, váznoucí financování. Kupujeme v hotovosti a uzavíráme ve dnech, ne v měsících. Diskont je odměna za rychlost a jistotu, ne náhoda.",
-    "memoNote": "Konkrétní příležitosti včetně úplného investment mema — valuace, právní stav, zajištění, rizika, downside scénář — sdílíme jen se schválenými členy, pod NDA."
+    "memoNote": "Konkrétní příležitosti včetně úplného investment mema sdílíme jen se schválenými členy, pod NDA."
+  },
+  "journey": {
+    "label": "Jak to probíhá",
+    "steps": {
+      "apply": { "title": "Žádost", "text": "Vyplnění zabere 2 minuty. Je bezplatná a k ničemu Vás nezavazuje." },
+      "call": { "title": "Úvodní rozhovor", "text": "Krátký hovor o Vašich preferencích — typ příležitostí, rozsah, horizont a požadovaná likvidita." },
+      "dealflow": { "title": "Deal flow", "text": "Prověřené příležitosti odpovídající Vašemu profilu dostáváte dříve, než jdou na veřejnost. Reagujete, jen když chcete." }
+    },
+    "note": "Ke členům se dostane jen zlomek toho, co prověříme — každá nabídka projde underwritingem, valuací a právní prověrkou."
   },
   "alignment": {
-    "skin": { "title": "Kapitál ve hře", "text": "Investujeme po Vašem boku. Riziko transakce neseme spolu s Vámi — proto vybíráme tvrdě." },
-    "direct": { "title": "Přímý investor, žádné provize", "text": "Nejsme zprostředkovatel ani prodejce produktů třetích stran. Členství je bezplatné — vyděláváme na transakcích, ne na poplatcích od Vás." },
-    "discretion": { "title": "Diskrétnost a malý okruh", "text": "Detaily transakcí sdílíme pod NDA. Klub záměrně držíme malý — kapacita jednotlivých transakcí je omezená." }
-  },
-  "process": {
-    "heading": "Jak vybíráme příležitosti",
-    "steps": {
-      "sourcing": "Sourcing",
-      "underwriting": "Underwriting",
-      "valuation": "Valuace",
-      "dd": "Právní a due diligence prověrka",
-      "decision": "Investiční rozhodnutí",
-      "member": "Nabídka členům"
-    },
-    "note": "Ke členům se dostane jen zlomek příležitostí, které prověříme. Ukazujeme proces a řízení rizika, ne sliby výnosů."
+    "skin": { "title": "Kapitál ve hře", "text": "Investujeme po Vašem boku a riziko transakcí neseme spolu s Vámi. Proto vybíráme tvrdě." },
+    "direct": { "title": "Žádné provize", "text": "Jsme přímý investor, ne zprostředkovatel. Členství je bezplatné — žádné fees, žádné skryté poplatky." },
+    "discretion": { "title": "Diskrétnost", "text": "Detaily transakcí sdílíme pod NDA. Vaše údaje nesdílíme s nikým a klub záměrně držíme malý." }
   },
   "interestOptions": {
     "privateCredit": "Private credit (zajištěná financování)",
