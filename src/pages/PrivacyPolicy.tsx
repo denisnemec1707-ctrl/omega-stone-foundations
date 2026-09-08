@@ -8,6 +8,7 @@ const PrivacyPolicy = () => {
   const { t } = useTranslation("privacy");
 
   const purposeItems = t("sections.purpose.items", { returnObjects: true }) as string[];
+  const recipientsItems = t("sections.recipients.items", { returnObjects: true }) as string[];
   const scopeItems = t("sections.scope.items", { returnObjects: true }) as string[];
   const rightsItems = t("sections.rights.items", { returnObjects: true }) as string[];
 
@@ -67,6 +68,23 @@ const PrivacyPolicy = () => {
                   <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground mb-3 sm:mb-4">{t("sections.retention.title")}</h2>
                   <p className="text-sm sm:text-base">
                     {t("sections.retention.text")}
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground mb-3 sm:mb-4">{t("sections.recipients.title")}</h2>
+                  <p className="text-sm sm:text-base">{t("sections.recipients.intro")}</p>
+                  <ul className="list-disc pl-5 mt-2 space-y-1 text-sm sm:text-base">
+                    {Array.isArray(recipientsItems) && recipientsItems.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground mb-3 sm:mb-4">{t("sections.transfers.title")}</h2>
+                  <p className="text-sm sm:text-base">
+                    {t("sections.transfers.text")}
                   </p>
                 </div>
 

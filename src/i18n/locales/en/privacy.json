@@ -16,7 +16,8 @@
         "Processing investment enquiries and financing applications",
         "Communication with potential investors and business partners",
         "Fulfilment of legal obligations (accounting, tax duties)",
-        "Improvement of our services and website"
+        "Improvement of our services and website",
+        "Displaying and measuring online advertising (Meta, Google), including building ad audiences"
       ]
     },
     "scope": {
@@ -26,7 +27,8 @@
         "Identification data (first name, surname)",
         "Contact data (email, phone number)",
         "Investment interest data (planned investment amount, area of interest)",
-        "Technical data from cookies (IP address, browser type)"
+        "Technical data from cookies (IP address, browser type)",
+        "Data about your interaction with our website and advertising (Meta Pixel, conversion measurement)"
       ]
     },
     "legalBasis": {
@@ -37,8 +39,23 @@
       "title": "5. Retention Period",
       "text": "We retain personal data for the period necessary to fulfil the purpose of processing, but no longer than 3 years from the last contact, unless a longer statutory retention obligation applies."
     },
+    "recipients": {
+      "title": "6. Recipients and processors",
+      "intro": "Personal data may be disclosed to the following categories of recipients, who process it under data processing agreements:",
+      "items": [
+        "Vercel Inc. — website hosting",
+        "Google LLC — Google Workspace and Google Sheets (processing of form inquiries), traffic measurement",
+        "Zapier Inc. — automated connection of forms to internal systems",
+        "Meta Platforms Ireland Ltd. — displaying and measuring advertising (Meta Pixel, custom audiences)",
+        "Providers of e-mail and communication services"
+      ]
+    },
+    "transfers": {
+      "title": "7. Transfers to third countries",
+      "text": "Some of the listed providers are based in the USA. Data transfers take place on the basis of an adequacy decision (EU-U.S. Data Privacy Framework) or standard contractual clauses approved by the European Commission."
+    },
     "rights": {
-      "title": "6. Rights of the Data Subject",
+      "title": "8. Rights of the data subject",
       "intro": "As a data subject, you have the right to:",
       "items": [
         "Access your personal data",
@@ -52,13 +69,13 @@
       ]
     },
     "cookies": {
-      "title": "7. Cookies",
-      "text": "Our website uses cookies to ensure basic functionality and improve user experience. You can manage cookies in your browser settings. More information can be found in the cookie banner upon your first visit to the website."
+      "title": "9. Cookies",
+      "text": "Our website uses essential cookies to ensure basic functionality and — after consent is given via the cookie banner — also analytical and marketing cookies (e.g. Meta Pixel) to measure traffic and advertising effectiveness. You can withdraw your consent at any time in your browser settings or by deleting cookies."
     },
     "contact": {
-      "title": "8. Contact",
+      "title": "10. Contact",
       "text": "For any questions regarding the protection of personal data, please contact us at info@assetrainvestments.com."
     }
   },
-  "lastUpdated": "Last updated: March 2025"
+  "lastUpdated": "Last updated: September 2026"
 }

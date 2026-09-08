@@ -16,7 +16,8 @@
         "Zpracování investičních poptávek a žádostí o financování",
         "Komunikace s potenciálními investory a obchodními partnery",
         "Plnění zákonných povinností (účetnictví, daňové povinnosti)",
-        "Zlepšování našich služeb a webové stránky"
+        "Zlepšování našich služeb a webové stránky",
+        "Zobrazování a měření online reklamy (Meta, Google) včetně vytváření reklamních publik"
       ]
     },
     "scope": {
@@ -26,7 +27,8 @@
         "Identifikační údaje (jméno, příjmení)",
         "Kontaktní údaje (email, telefonní číslo)",
         "Údaje o investičním zájmu (plánovaná výše investice, oblast zájmu)",
-        "Technické údaje z cookies (IP adresa, typ prohlížeče)"
+        "Technické údaje z cookies (IP adresa, typ prohlížeče)",
+        "Údaje o interakci s naším webem a reklamou (Meta Pixel, měření konverzí)"
       ]
     },
     "legalBasis": {
@@ -37,8 +39,23 @@
       "title": "5. Doba uchovávání",
       "text": "Osobní údaje uchováváme po dobu nezbytnou ke splnění účelu zpracování, maximálně však 3 roky od posledního kontaktu, pokud zákonná povinnost uchovávání není delší."
     },
+    "recipients": {
+      "title": "6. Příjemci a zpracovatelé",
+      "intro": "Osobní údaje mohou být zpřístupněny těmto kategoriím příjemců, kteří je zpracovávají na základě smluv o zpracování údajů:",
+      "items": [
+        "Vercel Inc. — hosting webové stránky",
+        "Google LLC — Google Workspace a Google Sheets (zpracování poptávek z formulářů), měření návštěvnosti",
+        "Zapier Inc. — automatizované propojení formulářů s interními systémy",
+        "Meta Platforms Ireland Ltd. — zobrazování a měření reklamy (Meta Pixel, vlastní publika)",
+        "Poskytovatelé e-mailových a komunikačních služeb"
+      ]
+    },
+    "transfers": {
+      "title": "7. Předávání do třetích zemí",
+      "text": "Někteří z uvedených poskytovatelů sídlí v USA. Předávání údajů probíhá na základě rozhodnutí o odpovídající ochraně (EU-U.S. Data Privacy Framework) nebo standardních smluvních doložek schválených Evropskou komisí."
+    },
     "rights": {
-      "title": "6. Práva dotčené osoby",
+      "title": "8. Práva subjektu údajů",
       "intro": "Jako dotčená osoba máte právo:",
       "items": [
         "Na přístup ke svým osobním údajům",
@@ -52,13 +69,13 @@
       ]
     },
     "cookies": {
-      "title": "7. Cookies",
-      "text": "Naše webová stránka používá cookies k zajištění základní funkčnosti a zlepšení uživatelského zážitku. Cookies můžete spravovat v nastavení svého prohlížeče. Více informací najdete v cookie banneru při první návštěvě stránky."
+      "title": "9. Cookies",
+      "text": "Náš web používá nezbytné cookies k zajištění základní funkčnosti a — po udělení souhlasu přes cookie banner — také analytické a marketingové cookies (např. Meta Pixel) k měření návštěvnosti a účinnosti reklamy. Souhlas můžete kdykoli odvolat v nastavení prohlížeče nebo smazáním cookies."
     },
     "contact": {
-      "title": "8. Kontakt",
+      "title": "10. Kontakt",
       "text": "V případě dotazů týkajících se ochrany osobních údajů nás kontaktujte na info@assetrainvestments.com."
     }
   },
-  "lastUpdated": "Poslední aktualizace: Březen 2025"
+  "lastUpdated": "Poslední aktualizace: září 2026"
 }
