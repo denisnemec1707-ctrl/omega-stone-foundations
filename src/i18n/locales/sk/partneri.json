@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Partnerský program pre účtovníkov a poradcov | ASSETRA Investments",
+    "description": "Máte klienta, ktorý uvažuje o predaji firmy? Zaplatíme vám za odporúčanie — finder's fee 1 – 3 % z ceny transakcie. Diskrétny proces, klient zostáva u vás."
+  },
+  "hero": {
+    "label": "Pre účtovníkov, daňových poradcov a audítorov",
+    "title": "Máte klienta, ktorý uvažuje o predaji firmy?",
+    "subtitle": "Zaplatíme vám za odporúčanie. Finder's fee 1 – 3 % z ceny transakcie.",
+    "cta": "Odporučiť firmu"
+  },
+  "whoWeSeek": {
+    "label": "Koho hľadáme",
+    "items": {
+      "turnover": { "title": "Obrat 1 – 10 mil. €", "text": "Zabehnuté firmy na slovenskom a českom trhu s ročným obratom 1 až 10 miliónov eur." },
+      "profitable": { "title": "Ziskové min. 3 roky", "text": "Stabilná ziskovosť tri po sebe idúce roky — nie start-upy, nie turnaroundy." },
+      "succession": { "title": "Majiteľ rieši nástupníctvo", "text": "Odchod do dôchodku, chýbajúci nástupca alebo únava z podnikania — situácie, kde má predaj zmysel." }
+    }
+  },
+  "partnerGets": {
+    "label": "Čo dostane partner",
+    "items": {
+      "fee": { "title": "Finder's fee 1 – 3 %", "text": "Odmena z ceny transakcie, dohodnutá písomne vopred. Percento závisí od veľkosti transakcie." },
+      "payment": { "title": "Prvá platba pri podpise SPA", "text": "Nečakáte na vyrovnanie celej transakcie — prvú časť odmeny dostanete pri podpise kúpnej zmluvy." },
+      "discretion": { "title": "Mlčanlivosť a diskrétny proces", "text": "NDA od prvého kontaktu. Žiadne inzeráty, žiadny únik informácií na trh ani ku konkurencii." },
+      "client": { "title": "Klient zostáva u vás", "text": "Účtovníctvo ani poradenstvo klienta nepreberáme. Váš vzťah s klientom pokračuje aj po transakcii — to je pre nás zásada, nie detail." }
+    }
+  },
+  "process": {
+    "label": "Ako to prebieha",
+    "steps": {
+      "form": { "title": "Krátky formulár", "text": "Pár viet o firme — bez mena klienta a bez záväzkov." },
+      "call": { "title": "20-minútový hovor", "text": "Overíme si základné parametre a dohodneme podmienky spolupráce." },
+      "nda": { "title": "NDA", "text": "Podpíšeme mlčanlivosť — až potom si vymeníme detaily o klientovi." },
+      "offer": { "title": "Indikatívna ponuka do 14 dní", "text": "Klient dostane nezáväznú indikatívnu ponuku do dvoch týždňov od poskytnutia podkladov." }
+    }
+  },
+  "form": {
+    "heading": "Odporúčanie",
+    "title": "Odporučte firmu — diskrétne",
+    "description": "V prvom kroku nepotrebujeme meno klienta ani firmy. Stačí pár viet o situácii. Ozveme sa Vám do 24 hodín v pracovných dňoch.",
+    "fullName": "Meno a priezvisko *",
+    "office": "Kancelária / spoločnosť *",
+    "officePlaceholder": "Názov vašej kancelárie",
+    "email": "Email *",
+    "phone": "Telefón *",
+    "about": "Stručne o firme (bez identifikácie klienta) *",
+    "aboutPlaceholder": "Napr. odvetvie, približný obrat, región, dôvod predaja…",
+    "submit": "Odoslať odporúčanie",
+    "submitting": "Odosielam…",
+    "note": "Odoslanie je nezáväzné. Identitu klienta riešime až po podpise NDA."
+  },
+  "consentLinkText": "zásad ochrany osobných údajov",
+  "consent": "Súhlasím so spracovaním osobných údajov pre účely komunikácie ohľadom partnerskej spolupráce v zmysle zásad ochrany osobných údajov.",
+  "success": {
+    "title": "Ďakujeme",
+    "text": "Vaše odporúčanie sme prijali. Ozveme sa Vám do 24 hodín v pracovných dňoch a dohodneme krátky hovor."
+  }
+}

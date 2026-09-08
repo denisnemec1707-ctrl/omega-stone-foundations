@@ -16,6 +16,7 @@ import skPredamFirmu from './locales/sk/predamFirmu.json';
 import skInvestovat from './locales/sk/investovat.json';
 import skFinancovanie from './locales/sk/financovanie.json';
 import skKlub from './locales/sk/klub.json';
+import skPartneri from './locales/sk/partneri.json';
 import skPrivacy from './locales/sk/privacy.json';
 import skTerms from './locales/sk/terms.json';
 import skValidation from './locales/sk/validation.json';
@@ -34,6 +35,7 @@ import enPredamFirmu from './locales/en/predamFirmu.json';
 import enInvestovat from './locales/en/investovat.json';
 import enFinancovanie from './locales/en/financovanie.json';
 import enKlub from './locales/en/klub.json';
+import enPartneri from './locales/en/partneri.json';
 import enPrivacy from './locales/en/privacy.json';
 import enTerms from './locales/en/terms.json';
 import enValidation from './locales/en/validation.json';
@@ -52,6 +54,7 @@ import csPredamFirmu from './locales/cs/predamFirmu.json';
 import csInvestovat from './locales/cs/investovat.json';
 import csFinancovanie from './locales/cs/financovanie.json';
 import csKlub from './locales/cs/klub.json';
+import csPartneri from './locales/cs/partneri.json';
 import csPrivacy from './locales/cs/privacy.json';
 import csTerms from './locales/cs/terms.json';
 import csValidation from './locales/cs/validation.json';
@@ -70,13 +73,14 @@ const ns = (
   investovat: object,
   financovanie: object,
   klub: object,
+  partneri: object,
   privacy: object,
   terms: object,
   validation: object,
 ) => ({
   common, index, realEstate, privateEquity, privateCredit,
   forInvestors, portfolio, careers, assistantCeo, predamFirmu,
-  investovat, financovanie, klub, privacy, terms, validation,
+  investovat, financovanie, klub, partneri, privacy, terms, validation,
 });
 
 i18n
@@ -84,9 +88,9 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      sk: ns(skCommon, skIndex, skRealEstate, skPrivateEquity, skPrivateCredit, skForInvestors, skPortfolio, skCareers, skAssistantCeo, skPredamFirmu, skInvestovat, skFinancovanie, skKlub, skPrivacy, skTerms, skValidation),
-      en: ns(enCommon, enIndex, enRealEstate, enPrivateEquity, enPrivateCredit, enForInvestors, enPortfolio, enCareers, enAssistantCeo, enPredamFirmu, enInvestovat, enFinancovanie, enKlub, enPrivacy, enTerms, enValidation),
-      cs: ns(csCommon, csIndex, csRealEstate, csPrivateEquity, csPrivateCredit, csForInvestors, csPortfolio, csCareers, csAssistantCeo, csPredamFirmu, csInvestovat, csFinancovanie, csKlub, csPrivacy, csTerms, csValidation),
+      sk: ns(skCommon, skIndex, skRealEstate, skPrivateEquity, skPrivateCredit, skForInvestors, skPortfolio, skCareers, skAssistantCeo, skPredamFirmu, skInvestovat, skFinancovanie, skKlub, skPartneri, skPrivacy, skTerms, skValidation),
+      en: ns(enCommon, enIndex, enRealEstate, enPrivateEquity, enPrivateCredit, enForInvestors, enPortfolio, enCareers, enAssistantCeo, enPredamFirmu, enInvestovat, enFinancovanie, enKlub, enPartneri, enPrivacy, enTerms, enValidation),
+      cs: ns(csCommon, csIndex, csRealEstate, csPrivateEquity, csPrivateCredit, csForInvestors, csPortfolio, csCareers, csAssistantCeo, csPredamFirmu, csInvestovat, csFinancovanie, csKlub, csPartneri, csPrivacy, csTerms, csValidation),
     },
     defaultNS: 'common',
     fallbackLng: 'sk',

@@ -15,6 +15,7 @@ export type RouteKey =
   | 'invest'
   | 'propertyFinancing'
   | 'club'
+  | 'partners'
   | 'privacy'
   | 'terms';
 
@@ -31,6 +32,7 @@ export const ROUTE_SLUGS: Record<RouteKey, Record<Locale, string>> = {
   invest:             { sk: '/investovat',                 en: '/en/invest',                   cs: '/cs/investovat' },
   propertyFinancing:  { sk: '/financovanie-nehnutelnosti', en: '/en/property-financing',       cs: '/cs/financovani-nemovitosti' },
   club:               { sk: '/klub',                       en: '/en/club',                     cs: '/cs/klub' },
+  partners:           { sk: '/partneri',                   en: '/en/partners',                 cs: '/cs/partneri' },
   privacy:            { sk: '/ochrana-udajov',              en: '/en/privacy-policy',           cs: '/cs/ochrana-udaju' },
   terms:              { sk: '/obchodne-podmienky',         en: '/en/terms',                    cs: '/cs/obchodni-podminky' },
 };
@@ -42,6 +44,7 @@ export const FAST_LOAD_ROUTE_KEYS: RouteKey[] = [
   'propertyFinancing',
   'assistantCeo',
   'club',
+  'partners',
 ];
 
 /** Get locale from URL pathname */

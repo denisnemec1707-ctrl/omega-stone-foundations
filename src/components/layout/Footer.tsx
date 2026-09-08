@@ -40,6 +40,7 @@ const Footer = () => {
                   <li><Link to={getLocalizedPath("invest", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("footer.invest")}</Link></li>
                   <li><Link to={getLocalizedPath("propertyFinancing", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("footer.propertyFinancing")}</Link></li>
                   <li><Link to={getLocalizedPath("club", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("nav.club")}</Link></li>
+                  <li><Link to={getLocalizedPath("partners", locale)} className="text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors">{t("footer.partners")}</Link></li>
                 </ul>
               </div>
 

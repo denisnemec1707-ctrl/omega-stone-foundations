@@ -22,6 +22,7 @@ import PredamFirmu from "./pages/PredamFirmu";
 import Investovat from "./pages/Investovat";
 import FinancovanieNehnutelnosti from "./pages/FinancovanieNehnutelnosti";
 import Klub from "./pages/Klub";
+import Partneri from "./pages/Partneri";
 import NotFound from "./pages/NotFound";
 
 import { isFastLoadPath } from "./i18n/routes";
@@ -69,6 +70,8 @@ function pageRoutes() {
     <Route key="financovani-nemovitosti" path="financovani-nemovitosti" element={<FinancovanieNehnutelnosti />} />,
 
     <Route key="klub" path="klub" element={<Klub />} />,
+    <Route key="partneri" path="partneri" element={<Partneri />} />,
+    <Route key="partners" path="partners" element={<Partneri />} />,
     <Route key="club" path="club" element={<Klub />} />,
   ];
 }
